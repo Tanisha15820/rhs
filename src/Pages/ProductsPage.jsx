@@ -6,14 +6,14 @@ const ProductsPage = ({
   description,
   products = [],
   subCategories = products.map((product) => product.name),
-  otherCategories = ["General Surgery", "Ortho"],
+  otherCategories = ["Ortho"],
 }) => {
-  const [categoryOpen, setCategoryOpen] = useState(true);
+  const [categoryOpen, setCategoryOpen] = useState(false);
   const [activeSubCategory, setActiveSubCategory] = useState(null);
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-background">
-      {/* ================= BANNER ================= */}
+      {/* BANNER  */}
 
       <section className="relative h-[180px] w-full overflow-hidden sm:h-[220px] md:h-[260px]">
         <img

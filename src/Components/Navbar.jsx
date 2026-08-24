@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
+// MUI Icons
 import HomeIcon from "@mui/icons-material/Home";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
@@ -11,15 +13,15 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 import AirIcon from "@mui/icons-material/Air";
+import HearingIcon from "@mui/icons-material/Hearing";
+import SpaIcon from "@mui/icons-material/Spa";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
-import { useLocation } from "react-router-dom";
 
 import logo from "../assets/images/compressed_rhs_logo.png";
 
-// Shared link styles
+// COMMON STYLES
+
 const ACTIVE_LINK = "bg-primary/10 text-primary-dark";
 
 const INACTIVE_LINK =
@@ -27,23 +29,70 @@ const INACTIVE_LINK =
 
 const MOBILE_INACTIVE = "text-gray-700 hover:bg-primary/5";
 
+// SPECIALITIES DATA (shared by desktop mega menu and mobile dropdown)
+
+const SPECIALTIES = [
+  {
+    name: "Urology",
+    icon: AirIcon,
+    defaultCategory: "Surgical Laser",
+    path: "/urology",
+  },
+  { name: "ENT", icon: HearingIcon, defaultCategory: "ENT Products" },
+  { name: "Gastro", icon: SpaIcon, defaultCategory: "Gastro Products" },
+];
+
+const CATEGORIES = {
+  Urology: [
+    "Surgical Laser",
+    "Urodynamic System & Uroflowmetry",
+    "ESWL Lithotripsy",
+    "Endo Urology UMD Endoscopy",
+  ],
+  ENT: ["ENT Products", "ENT Endoscopy"],
+  Gastro: ["Gastro Products", "Gastro Endoscopy"],
+};
+
+const SURGICAL_LASER_PRODUCTS = [
+  "DK 30 WATT",
+  "THULIUM FIBER LASER 60 WATT",
+  "LITHO 35 WATT",
+  "CYBER TM 150 WATT",
+  "LITHO EVO 35 WATT",
+  "CYBER TM 200 WATT",
+  "LITHO EVO 60 WATT",
+  "LATEST TECHNOLOGY MAGNETO 100 WATT",
+  "CYBER HO 100 WATT",
+  "LATEST TECHNOLOGY MAGNETO 150 WATT",
+  "CYBER HO 150 WATT",
+];
+
+// NAVBAR
+
 const Navbar = () => {
+  // Mobile menu open/close
   const [mobileMenu, setMobileMenu] = useState(false);
+
+  // Products mega menu open/close
   const [productsOpen, setProductsOpen] = useState(false);
+
+  // Which speciality is selected
+  const [selectedSpecialty, setSelectedSpecialty] = useState("Urology");
+
+  // Which category is selected
+  const [selectedCategory, setSelectedCategory] = useState("Surgical Laser");
 
   const { pathname } = useLocation();
 
-  // Products menu stays active on product pages
+  const navigate = useNavigate();
+
+  // check active page
+
   const isProducts =
-    pathname === "/urology" ||
-    pathname === "/general-surgery" ||
-    pathname.startsWith("/products");
+    pathname === "/urology" || pathname.startsWith("/products");
 
-  const isUrology = pathname === "/urology";
+  // close mobile menu
 
-  const isGeneralSurgery = pathname === "/general-surgery";
-
-  // Close mobile menu
   const closeMobileMenu = () => {
     setMobileMenu(false);
     setProductsOpen(false);
@@ -51,9 +100,11 @@ const Navbar = () => {
 
   return (
     <header className="w-full bg-background px-3 py-4 md:px-5">
-      {/* ================= NAVBAR ================= */}
+      {/* MAIN NAVBAR*/}
+
       <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
-        {/* ================= LOGO ================= */}
+        {/* LOGO*/}
+
         <a href="/" className="flex items-center gap-3">
           <img
             src={logo}
@@ -72,9 +123,11 @@ const Navbar = () => {
           </div>
         </a>
 
-        {/* ================= DESKTOP MENU ================= */}
+        {/* DESKTOP NAVIGATION*/}
+
         <nav className="hidden items-center gap-0.5 lg:flex">
           {/* HOME */}
+
           <a
             href="/"
             className={`flex items-center gap-1.5 rounded-full px-3 py-3 text-[13px] font-semibold transition-all duration-200 ${
@@ -84,15 +137,18 @@ const Navbar = () => {
             <span>Home</span>
           </a>
 
-          {/* ================= PRODUCTS ================= */}
+          {/*  PRODUCTS */}
+
           <div
             className="relative"
             onMouseEnter={() => setProductsOpen(true)}
             onMouseLeave={() => setProductsOpen(false)}
           >
+            {/* Products Button */}
+
             <button
               type="button"
-              onClick={() => setProductsOpen((prev) => !prev)}
+              onClick={() => setProductsOpen((previous) => !previous)}
               className={`flex items-center gap-1 rounded-full px-3 py-3 text-[13px] font-semibold transition-all duration-200 ${
                 isProducts ? ACTIVE_LINK : INACTIVE_LINK
               }`}
@@ -107,121 +163,316 @@ const Navbar = () => {
               />
             </button>
 
-            {/* ================= PRODUCTS DROPDOWN ================= */}
+            {/* PRODUCTS MEGA MENU*/}
+
             {productsOpen && (
-              <div className="absolute left-1/2 top-full z-50 w-[650px] -translate-x-1/2 pt-3">
-                <div className="rounded-2xl bg-white p-5 shadow-[0_15px_50px_rgba(0,0,0,0.12)] ring-1 ring-gray-100">
-                  <div className="grid grid-cols-2 gap-6">
-                    {/* ================= GENERAL SURGERY ================= */}
-                    <div>
+              <div className="absolute left-1/2 top-full z-50 w-[850px] -translate-x-1/2 pt-3">
+                <div className="rounded-2xl bg-white p-5 shadow-[0_20px_60px_rgba(0,0,0,0.13)] ring-1 ring-gray-100">
+                  <div className="grid grid-cols-[1fr_1.15fr_1.7fr]">
+                    {/* COLUMN 1  SPECIALITIES */}
+
+                    <div className="border-r border-gray-100 pr-5">
+                      {/* Heading */}
+
                       <div className="mb-4 flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <MonitorHeartIcon sx={{ fontSize: 22 }} />
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-100 text-sky-500">
+                          <MedicalServicesIcon sx={{ fontSize: 20 }} />
                         </div>
 
-                        <h3>
-                          <a
-                            href="/general-surgery"
-                            className="text-sm font-bold text-gray-800 transition-colors hover:text-primary"
-                          >
-                            General Surgery
-                          </a>
+                        <h3 className="text-sm font-bold text-gray-800">
+                          Specialities
                         </h3>
                       </div>
 
-                      <div className="space-y-1">
-                        <a
-                          href="/general-surgery"
-                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 text-[13px] text-gray-600 transition-all hover:bg-primary/5 hover:text-primary"
-                        >
-                          <span>Bipolar Plasma Generator</span>
+                      {/*  ENT */}
 
-                          <ChevronRightIcon
-                            sx={{ fontSize: 17 }}
-                            className="opacity-50 transition-transform group-hover:translate-x-1"
+                      <button
+                        type="button"
+                        onMouseEnter={() => {
+                          setSelectedSpecialty("ENT");
+                          setSelectedCategory("ENT Products");
+                        }}
+                        className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[13px] transition-all ${
+                          selectedSpecialty === "ENT"
+                            ? "bg-blue-50 font-semibold text-blue-600"
+                            : "text-gray-600 hover:bg-gray-50"
+                        }`}
+                      >
+                        <span className="flex items-center gap-3">
+                          <HearingIcon
+                            sx={{ fontSize: 19 }}
+                            className={
+                              selectedSpecialty === "ENT"
+                                ? "text-blue-500"
+                                : "text-gray-400"
+                            }
                           />
-                        </a>
+                          ENT
+                        </span>
 
-                        <a
-                          href="/general-surgery"
-                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 text-[13px] text-gray-600 transition-all hover:bg-primary/5 hover:text-primary"
-                        >
-                          <span>Diode Laser</span>
+                        <ChevronRightIcon sx={{ fontSize: 17 }} />
+                      </button>
 
-                          <ChevronRightIcon
-                            sx={{ fontSize: 17 }}
-                            className="opacity-50 transition-transform group-hover:translate-x-1"
+                      {/*  UROLOGY  */}
+
+                      <button
+                        type="button"
+                        onMouseEnter={() => {
+                          setSelectedSpecialty("Urology");
+                          setSelectedCategory("Surgical Laser");
+                        }}
+                        onClick={() => navigate("/urology")}
+                        className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[13px] transition-all ${
+                          selectedSpecialty === "Urology"
+                            ? "bg-blue-50 font-semibold text-blue-600"
+                            : "text-gray-600 hover:bg-gray-50"
+                        }`}
+                      >
+                        <span className="flex items-center gap-3">
+                          <AirIcon
+                            sx={{ fontSize: 19 }}
+                            className={
+                              selectedSpecialty === "Urology"
+                                ? "text-blue-500"
+                                : "text-gray-400"
+                            }
                           />
-                        </a>
-                      </div>
+                          Urology
+                        </span>
+
+                        <ChevronRightIcon
+                          sx={{ fontSize: 17 }}
+                          className="text-blue-500"
+                        />
+                      </button>
+
+                      {/*GASTRO*/}
+
+                      <button
+                        type="button"
+                        onMouseEnter={() => {
+                          setSelectedSpecialty("Gastro");
+                          setSelectedCategory("Gastro Products");
+                        }}
+                        className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[13px] transition-all ${
+                          selectedSpecialty === "Gastro"
+                            ? "bg-blue-50 font-semibold text-blue-600"
+                            : "text-gray-600 hover:bg-gray-50"
+                        }`}
+                      >
+                        <span className="flex items-center gap-3">
+                          <SpaIcon
+                            sx={{ fontSize: 19 }}
+                            className={
+                              selectedSpecialty === "Gastro"
+                                ? "text-blue-500"
+                                : "text-gray-400"
+                            }
+                          />
+                          Gastro
+                        </span>
+
+                        <ChevronRightIcon sx={{ fontSize: 17 }} />
+                      </button>
                     </div>
 
-                    {/* ================= UROLOGY ================= */}
-                    <div>
+                    {/* COLUMN 2  CATEGORIES */}
+
+                    <div className="border-r border-gray-100 px-5">
+                      {/* Heading */}
+
                       <div className="mb-4 flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <AirIcon sx={{ fontSize: 22 }} />
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-100 text-sky-500">
+                          <AirIcon sx={{ fontSize: 20 }} />
                         </div>
 
-                        <h3>
-                          <a
-                            href="/urology"
-                            className="text-sm font-bold text-gray-800 transition-colors hover:text-primary"
-                          >
-                            Urology
-                          </a>
+                        <h3 className="text-sm font-bold text-gray-800">
+                          {selectedSpecialty}
                         </h3>
                       </div>
 
-                      <div className="space-y-1">
-                        <a
-                          href="/urology"
-                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 text-[13px] text-gray-600 transition-all hover:bg-primary/5 hover:text-primary"
-                        >
-                          <span>Surgical Laser</span>
+                      {/* ENT CATEGORIES */}
 
-                          <ChevronRightIcon
-                            sx={{ fontSize: 17 }}
-                            className="opacity-50 transition-transform group-hover:translate-x-1"
-                          />
-                        </a>
+                      {selectedSpecialty === "ENT" && (
+                        <>
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("ENT Products")
+                            }
+                            className="flex w-full items-center justify-between rounded-xl bg-blue-50 px-3 py-3 text-left text-[12px] font-semibold text-blue-600"
+                          >
+                            <span>Smartxide2 Trio</span>
 
-                        <a
-                          href="/urology"
-                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 text-[13px] text-gray-600 transition-all hover:bg-primary/5 hover:text-primary"
-                        >
-                          <span>Urodynamic System & Uroflowmetry</span>
+                            <ChevronRightIcon sx={{ fontSize: 17 }} />
+                          </button>
 
-                          <ChevronRightIcon
-                            sx={{ fontSize: 17 }}
-                            className="opacity-50 transition-transform group-hover:translate-x-1"
-                          />
-                        </a>
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("ENT Endoscopy")
+                            }
+                            className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] text-gray-600 hover:bg-gray-50"
+                          >
+                            <span>SmartXide Touch SurgiCO</span>
 
-                        <a
-                          href="/urology"
-                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 text-[13px] text-gray-600 transition-all hover:bg-primary/5 hover:text-primary"
-                        >
-                          <span>ESWL Lithotripsy</span>
+                            <ChevronRightIcon sx={{ fontSize: 17 }} />
+                          </button>
+                        </>
+                      )}
 
-                          <ChevronRightIcon
-                            sx={{ fontSize: 17 }}
-                            className="opacity-50 transition-transform group-hover:translate-x-1"
-                          />
-                        </a>
+                      {/*  UROLOGY CATEGORIES */}
 
-                        <a
-                          href="/urology"
-                          className="group flex items-center justify-between rounded-lg px-3 py-2.5 text-[13px] text-gray-600 transition-all hover:bg-primary/5 hover:text-primary"
-                        >
-                          <span>Endo Urology UMD Endoscopy</span>
+                      {selectedSpecialty === "Urology" && (
+                        <>
+                          {/* Surgical Laser */}
 
-                          <ChevronRightIcon
-                            sx={{ fontSize: 17 }}
-                            className="opacity-50 transition-transform group-hover:translate-x-1"
-                          />
-                        </a>
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("Surgical Laser")
+                            }
+                            className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] transition-all ${
+                              selectedCategory === "Surgical Laser"
+                                ? "bg-blue-50 font-semibold text-blue-600"
+                                : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                          >
+                            <span>Surgical Laser</span>
+
+                            <ChevronRightIcon
+                              sx={{ fontSize: 17 }}
+                              className={
+                                selectedCategory === "Surgical Laser"
+                                  ? "text-blue-500"
+                                  : "text-gray-400"
+                              }
+                            />
+                          </button>
+
+                          {/* Urodynamic */}
+
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory(
+                                "Urodynamic System & Uroflowmetry",
+                              )
+                            }
+                            className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] transition-all ${
+                              selectedCategory ===
+                              "Urodynamic System & Uroflowmetry"
+                                ? "bg-blue-50 font-semibold text-blue-600"
+                                : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                          >
+                            <span>Urodynamic System & Uroflowmetry</span>
+
+                            <ChevronRightIcon sx={{ fontSize: 17 }} />
+                          </button>
+
+                          {/* ESWL */}
+
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("ESWL Lithotripsy")
+                            }
+                            className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] transition-all ${
+                              selectedCategory === "ESWL Lithotripsy"
+                                ? "bg-blue-50 font-semibold text-blue-600"
+                                : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                          >
+                            <span>ESWL Lithotripsy</span>
+                            <ChevronRightIcon sx={{ fontSize: 17 }} />
+                          </button>
+
+                          {/* Endo Urology */}
+
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("Endo Urology UMD Endoscopy")
+                            }
+                            className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] transition-all ${
+                              selectedCategory === "Endo Urology UMD Endoscopy"
+                                ? "bg-blue-50 font-semibold text-blue-600"
+                                : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                          >
+                            <span>Endo Urology UMD Endoscopy</span>
+
+                            <ChevronRightIcon sx={{ fontSize: 17 }} />
+                          </button>
+                        </>
+                      )}
+
+                      {/*  GASTRO CATEGORIES */}
+
+                      {selectedSpecialty === "Gastro" && (
+                        <>
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("Gastro Products")
+                            }
+                            className="flex w-full items-center justify-between rounded-xl bg-blue-50 px-3 py-3 text-left text-[12px] font-semibold text-blue-600"
+                          >
+                            <span>Gastro</span>
+
+                            <ChevronRightIcon sx={{ fontSize: 17 }} />
+                          </button>
+                        </>
+                      )}
+                    </div>
+
+                    {/*  COLUMN 3  PRODUCTS */}
+
+                    <div className="pl-5">
+                      {/* Heading */}
+
+                      <div className="mb-4 flex items-center gap-3">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-100 text-sky-500">
+                          <span className="text-lg">✦</span>
+                        </div>
+
+                        <h3 className="text-sm font-bold text-gray-800">
+                          {selectedCategory}
+                        </h3>
                       </div>
+
+                      {/* SURGICAL LASER PRODUCTS */}
+
+                      {selectedCategory === "Surgical Laser" && (
+                        <div className="grid grid-cols-1 gap-x-4">
+                          {/* Product 1 */}
+
+                          <a
+                            href=""
+                            className="group flex items-start gap-1 py-2 text-[11px] leading-4 text-gray-600 transition-colors hover:text-blue-600"
+                          >
+                            <ChevronRightIcon
+                              sx={{ fontSize: 15 }}
+                              className="mt-0.5 shrink-0 text-blue-500"
+                            />
+                            DK 30 WATT
+                          </a>
+
+                          {/* Product 2 */}
+
+                          <a
+                            href=""
+                            className="group flex items-start gap-1 py-2 text-[11px] leading-4 text-gray-600 transition-colors hover:text-blue-600"
+                          >
+                            <ChevronRightIcon
+                              sx={{ fontSize: 15 }}
+                              className="mt-0.5 shrink-0 text-blue-500"
+                            />
+                            THULIUM FIBER LASER 60 WATT
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -229,7 +480,8 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* ================= BLOGS ================= */}
+          {/*  BLOGS */}
+
           <a
             href="/blogs"
             className={`flex items-center gap-1 rounded-full px-3 py-3 text-[13px] font-semibold transition-all duration-200 ${
@@ -239,7 +491,8 @@ const Navbar = () => {
             <span>Blogs</span>
           </a>
 
-          {/* ================= SERVICES ================= */}
+          {/*  SERVICES */}
+
           <a
             href="/services"
             className={`flex items-center gap-1 rounded-full px-3 py-3 text-[13px] font-semibold transition-all duration-200 ${INACTIVE_LINK}`}
@@ -249,7 +502,8 @@ const Navbar = () => {
             <KeyboardArrowDownIcon sx={{ fontSize: 15 }} />
           </a>
 
-          {/* ================= CLIENTS ================= */}
+          {/* CLIENTS */}
+
           <a
             href="/patients"
             className={`flex items-center gap-1 rounded-full px-3 py-3 text-[13px] font-semibold transition-all duration-200 ${INACTIVE_LINK}`}
@@ -259,7 +513,8 @@ const Navbar = () => {
             <KeyboardArrowDownIcon sx={{ fontSize: 15 }} />
           </a>
 
-          {/* ================= CONTACT ================= */}
+          {/*  CONTACT */}
+
           <a
             href="/contact"
             className={`rounded-full px-3 py-3 text-[13px] font-semibold transition-all duration-200 ${INACTIVE_LINK}`}
@@ -268,18 +523,22 @@ const Navbar = () => {
           </a>
         </nav>
 
-        {/* ================= DESKTOP RIGHT SIDE ================= */}
+        {/*  DESKTOP RIGHT SIDE*/}
+
         <div className="hidden items-center gap-2.5 lg:flex">
           {/* GET A QUOTE */}
+
           <button
             type="button"
             className="flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-dark px-6 py-3 text-[13px] font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
           >
             <CalendarMonthIcon sx={{ fontSize: 16 }} />
+
             <span>Get a Quote</span>
           </button>
 
           {/* SEARCH */}
+
           <button
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/5 text-primary-dark transition-all duration-200 hover:bg-primary/10"
@@ -289,10 +548,13 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* ================= MOBILE TOGGLE ================= */}
+        {/* =================================================
+            MOBILE MENU BUTTON
+        ================================================= */}
+
         <button
           type="button"
-          onClick={() => setMobileMenu((prev) => !prev)}
+          onClick={() => setMobileMenu((previous) => !previous)}
           className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/5 text-primary-dark transition-all duration-200 hover:bg-primary/10 lg:hidden"
           aria-label={mobileMenu ? "Close menu" : "Open menu"}
         >
@@ -304,11 +566,17 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* ================= MOBILE MENU ================= */}
+      {/* =====================================================
+          MOBILE MENU
+      ===================================================== */}
+
       {mobileMenu && (
         <div className="mx-auto mt-3 max-w-7xl rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden">
           <nav className="flex flex-col gap-1">
-            {/* ================= HOME ================= */}
+            {/* -------------------------------------------------
+                HOME
+            ------------------------------------------------- */}
+
             <a
               href="/"
               onClick={closeMobileMenu}
@@ -320,11 +588,14 @@ const Navbar = () => {
               Home
             </a>
 
-            {/* ================= PRODUCTS ================= */}
+            {/* -------------------------------------------------
+                PRODUCTS
+            ------------------------------------------------- */}
+
             <div>
               <button
                 type="button"
-                onClick={() => setProductsOpen((prev) => !prev)}
+                onClick={() => setProductsOpen((previous) => !previous)}
                 className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium ${
                   isProducts ? ACTIVE_LINK : MOBILE_INACTIVE
                 }`}
@@ -342,136 +613,137 @@ const Navbar = () => {
                 />
               </button>
 
-              {/* ================= PRODUCT SUBMENU ================= */}
+              {/* MOBILE PRODUCT SUBMENU */}
+
               {productsOpen && (
                 <div className="ml-4 mt-1 space-y-2 border-l-2 border-primary/10 pl-3">
-                  {/* ================= GENERAL SURGERY ================= */}
+                  {/* SPECIALITIES */}
+
                   <div className="rounded-xl bg-gray-50/70 py-2">
-                    <a
-                      href="/general-surgery"
-                      onClick={closeMobileMenu}
-                      className={`mb-1 flex items-center gap-2 px-3 py-2 text-sm font-bold ${
-                        isGeneralSurgery
-                          ? "text-primary"
-                          : "text-gray-800 hover:text-primary"
-                      }`}
-                    >
-                      <MonitorHeartIcon
-                        sx={{ fontSize: 18 }}
-                        className="text-primary"
-                      />
-                      General Surgery
-                    </a>
+                    {SPECIALTIES.map(
+                      ({ name, icon: Icon, defaultCategory, path }) => (
+                        <button
+                          key={name}
+                          type="button"
+                          onClick={() => {
+                            setSelectedSpecialty(name);
+                            setSelectedCategory(defaultCategory);
 
-                    <a
-                      href="/general-surgery"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Bipolar Plasma Generator
-                    </a>
+                            if (path) {
+                              navigate(path);
+                              closeMobileMenu();
+                            }
+                          }}
+                          className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-bold transition-colors ${
+                            selectedSpecialty === name
+                              ? "bg-primary/10 text-primary"
+                              : "text-gray-800 hover:text-primary"
+                          }`}
+                        >
+                          <span className="flex items-center gap-2">
+                            <Icon
+                              sx={{ fontSize: 18 }}
+                              className={
+                                selectedSpecialty === name
+                                  ? "text-primary"
+                                  : "text-gray-500"
+                              }
+                            />
+                            {name}
+                          </span>
 
-                    <a
-                      href="/general-surgery"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Diode Laser
-                    </a>
+                          <ChevronRightIcon
+                            sx={{ fontSize: 16 }}
+                            className={
+                              selectedSpecialty === name
+                                ? "text-primary"
+                                : "text-gray-400"
+                            }
+                          />
+                        </button>
+                      ),
+                    )}
                   </div>
 
-                  {/* ================= UROLOGY ================= */}
+                  {/* CATEGORIES */}
+
                   <div className="rounded-xl bg-gray-50/70 py-2">
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className={`mb-1 flex items-center gap-2 px-3 py-2 text-sm font-bold ${
-                        isUrology
-                          ? "text-primary"
-                          : "text-gray-800 hover:text-primary"
-                      }`}
-                    >
-                      <AirIcon sx={{ fontSize: 18 }} className="text-primary" />
-                      Urology
-                    </a>
+                    <p className="mb-1 px-3 text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                      {selectedSpecialty}
+                    </p>
 
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Surgical Laser
-                    </a>
+                    {(CATEGORIES[selectedSpecialty] || []).map((category) => (
+                      <button
+                        key={category}
+                        type="button"
+                        onClick={() => setSelectedCategory(category)}
+                        className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+                          selectedCategory === category
+                            ? "bg-primary/10 font-semibold text-primary"
+                            : "text-gray-600 hover:text-primary"
+                        }`}
+                      >
+                        {category}
 
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Urodynamic System & Uroflowmetry
-                    </a>
+                        <ChevronRightIcon
+                          sx={{ fontSize: 16 }}
+                          className={
+                            selectedCategory === category
+                              ? "text-primary"
+                              : "text-gray-400"
+                          }
+                        />
+                      </button>
+                    ))}
+                  </div>
 
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      ESWL Extracorporeal Shock Wave Lithotripsy
-                    </a>
+                  {/* PRODUCTS */}
 
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Endo Urology UMD Endoscopy
-                    </a>
+                  <div className="rounded-xl bg-gray-50/70 py-2">
+                    <p className="mb-1 px-3 text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                      {selectedCategory}
+                    </p>
 
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Endo-Vision Set
-                    </a>
+                    {selectedCategory === "Surgical Laser" &&
+                      SURGICAL_LASER_PRODUCTS.map((product) => (
+                        <a
+                          key={product}
+                          href="/urology"
+                          onClick={closeMobileMenu}
+                          className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
+                        >
+                          {product}
+                        </a>
+                      ))}
 
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Flexible Video Ureterorenoscope & Cystoscope
-                    </a>
+                    {selectedCategory !== "Surgical Laser" && (
+                      <>
+                        <a
+                          href="/urology"
+                          onClick={closeMobileMenu}
+                          className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
+                        >
+                          View {selectedCategory}
+                        </a>
 
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Bipolar (Emed & Simai)
-                    </a>
-
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                    >
-                      Rocamed Consumables
-                    </a>
-
-                    <a
-                      href="/urology"
-                      onClick={closeMobileMenu}
-                      className="mt-1 block px-3 py-2 text-sm font-semibold text-primary hover:text-primary-dark"
-                    >
-                      View All Urology Products →
-                    </a>
+                        <a
+                          href="/urology"
+                          onClick={closeMobileMenu}
+                          className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
+                        >
+                          Explore Products
+                        </a>
+                      </>
+                    )}
                   </div>
                 </div>
               )}
             </div>
 
-            {/* ================= BLOGS ================= */}
+            {/* -------------------------------------------------
+                BLOGS
+            ------------------------------------------------- */}
+
             <a
               href="/blogs"
               onClick={closeMobileMenu}
@@ -483,7 +755,10 @@ const Navbar = () => {
               Blogs
             </a>
 
-            {/* ================= SERVICES ================= */}
+            {/* -------------------------------------------------
+                SERVICES
+            ------------------------------------------------- */}
+
             <a
               href="/services"
               onClick={closeMobileMenu}
@@ -493,7 +768,10 @@ const Navbar = () => {
               Services
             </a>
 
-            {/* ================= CLIENTS ================= */}
+            {/* -------------------------------------------------
+                CLIENTS
+            ------------------------------------------------- */}
+
             <a
               href="/patients"
               onClick={closeMobileMenu}
@@ -503,7 +781,10 @@ const Navbar = () => {
               Clients
             </a>
 
-            {/* ================= CATALOGUES ================= */}
+            {/* -------------------------------------------------
+                CATALOGUES
+            ------------------------------------------------- */}
+
             <a
               href="/resources"
               onClick={closeMobileMenu}
@@ -513,7 +794,10 @@ const Navbar = () => {
               Catalogues
             </a>
 
-            {/* ================= CONTACT ================= */}
+            {/* -------------------------------------------------
+                CONTACT
+            ------------------------------------------------- */}
+
             <a
               href="/contact"
               onClick={closeMobileMenu}
@@ -523,7 +807,10 @@ const Navbar = () => {
               Contact Us
             </a>
 
-            {/* ================= GET A QUOTE ================= */}
+            {/* -------------------------------------------------
+                GET A QUOTE
+            ------------------------------------------------- */}
+
             <button
               type="button"
               className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/30"

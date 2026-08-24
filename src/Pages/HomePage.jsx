@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 // import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
@@ -7,10 +6,8 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import PlayCircleOutlinedIcon from "@mui/icons-material/PlayCircleOutlined";
-
-import homeBanner from "../assets/images/compressed_home_banner.png";
-
+import homeBanner from "../assets/images/home.png";
+import homeBg1 from "../assets/images/home_bg1.png";
 import Products from "../Components/Products";
 import WhyChooseUs from "../Components/WhyChooseUs";
 import TestimonialSection from "../Components/TestimonialSection";
@@ -19,6 +16,23 @@ import Clients from "../Components/Clients";
 import SEO from "../Components/SEO";
 
 import { ORGANIZATION_SCHEMA } from "../config/seo";
+
+const bannerSlides = [
+  {
+    image: homeBanner,
+    headingLine1: "Quality Equipment.",
+    headingHighlight: "Better Healthcare.",
+    description:
+      "Reinforce Healthcare Services delivers quality medical equipment and innovative solutions designed to support healthcare professionals across multiple specialties.",
+  },
+  {
+    image: homeBg1,
+    headingLine1: "LithoPulse",
+    headingHighlight: "35W",
+    singleLine: true,
+    description: "Compact laser system for precise clinical performance",
+  },
+];
 
 const HomePage = () => {
   // Numbers for the four statistics cards
@@ -29,16 +43,25 @@ const HomePage = () => {
     support: 0,
   });
 
+  // Active slide of the hero banner slider
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  // Auto-rotate the banner slides
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % bannerSlides.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Start number animation when the page loads
   useEffect(() => {
     const interval = setInterval(() => {
       setCounts((prev) => ({
         categories: prev.categories < 50 ? prev.categories + 1 : 50,
-
         specialties: prev.specialties < 10 ? prev.specialties + 1 : 10,
-
         products: prev.products < 100 ? prev.products + 1 : 100,
-
         support: prev.support < 24 ? prev.support + 1 : 24,
       }));
     }, 30);
@@ -57,14 +80,21 @@ const HomePage = () => {
         jsonLd={ORGANIZATION_SCHEMA}
       />
 
-      {/* ================= HERO SECTION ================= */}
+      {/* HERO SECTION  */}
       <section className="relative min-h-[500px] w-full overflow-hidden bg-primary/5">
-        <div
-          className="absolute inset-0 animate-zoom-slow bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${homeBanner})`,
-          }}
-        ></div>
+        {bannerSlides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+              index === activeSlide
+                ? "z-0 opacity-100 animate-zoom-slow"
+                : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${slide.image})`,
+            }}
+          ></div>
+        ))}
 
         <div className="absolute inset-0 bg-white/5"></div>
 
@@ -84,19 +114,27 @@ const HomePage = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="text-4xl font-bold leading-[1.15] text-slate-900 sm:text-5xl lg:text-[52px]">
-              Quality Equipment.
-              <br />
+            <h1
+              key={`heading-${activeSlide}`}
+              className="animate-fade-in-up text-4xl font-bold leading-[1.15] text-slate-900 sm:text-5xl lg:text-[52px]"
+            >
+              {bannerSlides[activeSlide].headingLine1}
+              {bannerSlides[activeSlide].singleLine ? (
+                " "
+              ) : (
+                <br />
+              )}
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-                Better Healthcare.
+                {bannerSlides[activeSlide].headingHighlight}
               </span>
             </h1>
 
             {/* Description */}
-            <p className="mt-5 max-w-[500px] text-base leading-7 text-slate-600">
-              Reinforce Healthcare Services delivers quality medical equipment
-              and innovative solutions designed to support healthcare
-              professionals across multiple specialties.
+            <p
+              key={`description-${activeSlide}`}
+              className="animate-fade-in-up mt-5 max-w-[500px] text-base leading-7 text-slate-600"
+            >
+              {bannerSlides[activeSlide].description}
             </p>
 
             {/* FEATURES */}
