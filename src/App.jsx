@@ -7,7 +7,6 @@ import Blogs from "./Pages/Blogs";
 import MachinePage from "./Pages/MachinePage";
 import ContactPage from "./Pages/ContactPage";
 import SmartXide from "./Pages/SmartXide";
-import TechnologiesPage from "./Pages/TechnologiesPage";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
           <Route path="/machine" element={<MachinePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/smartxide" element={<SmartXide />} />
-          <Route path="/technologies" element={<TechnologiesPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

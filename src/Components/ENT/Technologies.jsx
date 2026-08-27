@@ -165,7 +165,7 @@ const TechnologyCard = ({ technology, index }) => {
       {/* IMAGE PANEL */}
 
       <div
-        className={`relative flex h-[140px] w-full shrink-0 items-center justify-center overflow-hidden sm:h-[150px] sm:w-[220px] lg:w-[240px] ${
+        className={`relative flex min-h-[140px] w-full shrink-0 items-center justify-center overflow-hidden sm:min-h-[150px] sm:w-[220px] lg:w-[240px] ${
           isReversed ? "lg:border-l" : ""
         }`}
         style={{
@@ -407,7 +407,7 @@ const Technologies = () => {
           <div className="mb-3 flex items-center justify-center gap-4">
             <span className="hidden h-[1px] w-9 bg-primary sm:block" />
 
-            <span className="text-sm font-semibold uppercase tracking-[0.12em] text-primary">
+            <span className="text-xs font-semibold uppercase tracking-[0.12em] text-primary sm:text-sm">
               Three Powerful <span>Technologies</span>
             </span>
 
@@ -425,8 +425,6 @@ const Technologies = () => {
             Advanced solutions. Superior precision. Better patient outcomes.
           </p>
         </motion.div>
-
-        {/* Timeline */}
 
         <div className="relative">
           {/* Vertical line */}
@@ -450,4 +448,458 @@ const Technologies = () => {
   );
 };
 
-export default Technologies;
+// export default Technologies;
+// import React from "react";
+// import { motion } from "framer-motion";
+// import {
+//   Crosshair,
+//   Zap,
+//   ShieldCheck,
+//   Activity,
+//   Target,
+//   CheckCircle,
+// } from "lucide-react";
+
+// import articulatedArm from "../../assets/images/articulate_arm.png";
+// import hollowFiber from "../../assets/images/hollow_fiber.png";
+// import diodeLaser from "../../assets/images/diode.png";
+
+// /* TECHNOLOGY DATA */
+
+// const technologies = [
+//   {
+//     id: "01",
+//     category: "CO₂ LASER",
+//     title: "Articulated Arm",
+//     image: articulatedArm,
+
+//     description:
+//       "Advanced articulated arm technology ensures exceptional precision, maneuverability and control for a wide range of ENT procedures.",
+
+//     details: [
+//       "Electronic scanning systems for extremely precise, safe and reproducible treatments",
+//       "High precision micromanipulators",
+//       "Dedicated handpieces with various focal lengths and integrated swivel suction control",
+//     ],
+
+//     features: [
+//       {
+//         icon: Crosshair,
+//         text: "Electronic scanning systems for extremely precise, safe and reproducible treatments",
+//       },
+//       {
+//         icon: Target,
+//         text: "High precision micromanipulators",
+//       },
+//       {
+//         icon: Zap,
+//         text: "Dedicated handpieces with various focal lengths and integrated swivel suction control",
+//       },
+//     ],
+
+//     theme: "orange",
+//   },
+
+//   {
+//     id: "02",
+//     category: "CO₂ LASER",
+//     title: "Hollow Fibre",
+//     image: hollowFiber,
+
+//     description:
+//       "Designed to reach the most difficult-to-reach areas with maximum efficiency and minimal invasiveness.",
+
+//     details: [
+//       "Ideal for narrow and complex anatomical regions",
+//       "Optimal energy delivery with hollow fibre technology",
+//       "Enhanced precision with minimal thermal damage",
+//     ],
+
+//     features: [
+//       {
+//         icon: Crosshair,
+//         text: "Ideal for narrow and complex anatomical regions",
+//       },
+//       {
+//         icon: Zap,
+//         text: "Optimal energy delivery with hollow fibre technology",
+//       },
+//       {
+//         icon: ShieldCheck,
+//         text: "Enhanced precision with minimal thermal damage",
+//       },
+//     ],
+
+//     theme: "blue",
+//   },
+
+//   {
+//     id: "03",
+//     category: "DIODE LASER",
+//     title: "Diode Laser",
+//     image: diodeLaser,
+
+//     description:
+//       "An additional wavelength (980 nm) to expand the range of available procedures with excellent results.",
+
+//     details: [
+//       "Versatile soft tissue treatments",
+//       "Reduced bleeding and faster healing",
+//       "Reliable performance with high absorption in target tissue",
+//     ],
+
+//     features: [
+//       {
+//         icon: Crosshair,
+//         text: "Versatile soft tissue treatments",
+//       },
+//       {
+//         icon: Zap,
+//         text: "Reduced bleeding and faster healing",
+//       },
+//       {
+//         icon: Activity,
+//         text: "Reliable performance with high absorption in target tissue",
+//       },
+//     ],
+
+//     theme: "pink",
+//   },
+// ];
+
+// /* THEME COLORS */
+
+// const themeColors = {
+//   orange: {
+//     main: "#ff7b32",
+//     light: "#fff0e8",
+//     border: "#ffd8c5",
+//     glow: "rgba(255,123,50,0.20)",
+//   },
+
+//   blue: {
+//     main: "#28b9df",
+//     light: "#e8f8fc",
+//     border: "#c6edf5",
+//     glow: "rgba(40,185,223,0.20)",
+//   },
+
+//   pink: {
+//     main: "#e95c91",
+//     light: "#fceaf1",
+//     border: "#f4ccdc",
+//     glow: "rgba(233,92,145,0.20)",
+//   },
+// };
+
+// /* TECHNOLOGY CARD */
+
+// const TechnologyCard = ({ technology, index }) => {
+//   const theme = themeColors[technology.theme];
+
+//   const isReversed = index % 2 !== 0;
+
+//   return (
+//     <motion.div
+//       className={`relative flex items-center gap-4 sm:gap-6 lg:gap-8 ${
+//         isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
+//       }`}
+//       initial={{ opacity: 0, y: 50 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       viewport={{ once: true, amount: 0.15 }}
+//       transition={{
+//         duration: 0.7,
+//         delay: index * 0.1,
+//         ease: "easeOut",
+//       }}
+//     >
+//       {/* OUTSIDE IMAGE */}
+
+//       {/* OUTSIDE IMAGE */}
+
+//       <motion.div
+//         className="relative z-20 flex h-[145px] w-[145px] shrink-0 items-center justify-center rounded-full sm:h-[165px] sm:w-[165px] lg:h-[185px] lg:w-[185px]"
+//         style={{
+//           background: `linear-gradient(135deg, ${theme.light} 0%, #ffffff 100%)`,
+//           border: `1px solid ${theme.border}`,
+//           boxShadow: `0 10px 30px ${theme.glow}`,
+//         }}
+//         whileHover={{
+//           scale: 1.06,
+//           y: -5,
+//         }}
+//         transition={{
+//           duration: 0.4,
+//           ease: "easeOut",
+//         }}
+//       >
+//         {/* Decorative outer ring */}
+
+//         <div
+//           className="absolute inset-2 rounded-full border border-dashed opacity-60"
+//           style={{
+//             borderColor: theme.main,
+//           }}
+//         />
+
+//         {/* Decorative inner circle */}
+
+//         <div
+//           className="absolute h-[95px] w-[95px] rounded-full border sm:h-[110px] sm:w-[110px] lg:h-[125px] lg:w-[125px]"
+//           style={{
+//             borderColor: `${theme.main}25`,
+//           }}
+//         />
+
+//         {/* Floating dots */}
+
+//         <span
+//           className="absolute left-[18%] top-[25%] h-1.5 w-1.5 rounded-full animate-float-y"
+//           style={{
+//             backgroundColor: theme.main,
+//             animationDelay: "0.5s",
+//           }}
+//         />
+
+//         <span
+//           className="absolute bottom-[23%] right-[18%] h-1.5 w-1.5 rounded-full animate-float-y"
+//           style={{
+//             backgroundColor: theme.main,
+//             animationDelay: "1.2s",
+//           }}
+//         />
+
+//         {/* Product Image */}
+
+//         <motion.img
+//           src={technology.image}
+//           alt={technology.title}
+//           className="relative z-10 h-[105px] w-[125px] object-contain drop-shadow-md sm:h-[120px] sm:w-[145px] lg:h-[140px] lg:w-[165px]"
+//           whileHover={{
+//             scale: 1.08,
+//             rotate: 2,
+//           }}
+//           transition={{
+//             duration: 0.4,
+//             ease: "easeOut",
+//           }}
+//         />
+//       </motion.div>
+
+//       {/* MAIN CARD */}
+
+//       <motion.div className="group relative flex min-w-0 flex-1 flex-col overflow-hidden rounded-3xl border border-[#e2eaf2] bg-white shadow-[0_5px_25px_rgba(42,75,105,0.07)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(42,75,105,0.13)] lg:flex-row">
+//         {/* CONTENT PANEL */}
+
+//         <div className="flex flex-1 flex-col justify-center px-6 py-6 sm:px-7 sm:py-7 lg:px-8 lg:py-8">
+//           {/* Category */}
+
+//           <span
+//             className="mb-2 inline-block w-fit rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider"
+//             style={{
+//               backgroundColor: theme.light,
+//               color: theme.main,
+//               border: `1px solid ${theme.border}`,
+//             }}
+//           >
+//             {technology.category}
+//           </span>
+
+//           {/* Title */}
+
+//           <h3 className="text-xl font-bold leading-tight text-[#172b3d] sm:text-2xl lg:text-[26px]">
+//             {technology.title}
+//           </h3>
+
+//           {/* Accent Line */}
+
+//           <div
+//             className="mt-2 h-[2px] w-8 rounded-full"
+//             style={{
+//               backgroundColor: theme.main,
+//             }}
+//           />
+
+//           {/* Description */}
+
+//           <p className="mt-3 max-w-[520px] text-sm leading-[1.6] text-[#687887]">
+//             {technology.description}
+//           </p>
+
+//           {/* Details */}
+
+//           <div className="mt-4 space-y-2">
+//             {technology.details.map((detail, idx) => (
+//               <motion.div
+//                 key={idx}
+//                 className="flex items-start gap-2"
+//                 initial={{
+//                   opacity: 0,
+//                   x: -15,
+//                 }}
+//                 whileInView={{
+//                   opacity: 1,
+//                   x: 0,
+//                 }}
+//                 viewport={{ once: true }}
+//                 transition={{
+//                   duration: 0.35,
+//                   delay: 0.3 + idx * 0.08,
+//                 }}
+//               >
+//                 <CheckCircle
+//                   size={15}
+//                   className="mt-0.5 shrink-0"
+//                   style={{
+//                     color: theme.main,
+//                   }}
+//                 />
+
+//                 <p className="text-sm leading-[1.45] text-[#687887]">
+//                   {detail}
+//                 </p>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* FEATURES PANEL */}
+
+//         <div
+//           className="flex w-full flex-col justify-center gap-2 border-t border-[#e8edf3] px-5 py-5 sm:px-6 lg:w-[290px] lg:border-l lg:border-t-0"
+//           style={{
+//             background: `linear-gradient(180deg, ${theme.light}40 0%, #ffffff 100%)`,
+//           }}
+//         >
+//           <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-[#8795a5]">
+//             Key Features
+//           </p>
+
+//           {technology.features.map((feature, featureIndex) => {
+//             const Icon = feature.icon;
+
+//             return (
+//               <motion.div
+//                 key={featureIndex}
+//                 className="flex items-center gap-2.5 rounded-lg border border-[#e8edf3] bg-white/80 px-3 py-2 shadow-[0_2px_8px_rgba(30,70,100,0.04)] backdrop-blur-sm transition-all duration-300 group-hover:border-[#d0dde8] group-hover:shadow-[0_3px_12px_rgba(30,70,100,0.07)]"
+//                 initial={{
+//                   opacity: 0,
+//                   x: isReversed ? -15 : 15,
+//                 }}
+//                 whileInView={{
+//                   opacity: 1,
+//                   x: 0,
+//                 }}
+//                 viewport={{ once: true }}
+//                 transition={{
+//                   duration: 0.35,
+//                   delay: 0.35 + featureIndex * 0.08,
+//                 }}
+//               >
+//                 <div
+//                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-white transition-transform duration-300 group-hover:scale-110"
+//                   style={{
+//                     background: `linear-gradient(135deg, ${theme.main}, ${theme.main}dd)`,
+//                     boxShadow: `0 2px 8px ${theme.glow}`,
+//                   }}
+//                 >
+//                   <Icon size={13} strokeWidth={2} />
+//                 </div>
+
+//                 <p className="pr-1 text-xs leading-[1.45] text-[#687887]">
+//                   {feature.text}
+//                 </p>
+//               </motion.div>
+//             );
+//           })}
+//         </div>
+
+//         {/* Hover Glow */}
+
+//         <div
+//           className="pointer-events-none absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full transition-all duration-500 group-hover:w-[60%]"
+//           style={{
+//             backgroundColor: theme.main,
+//             boxShadow: `0 0 15px ${theme.main}`,
+//           }}
+//         />
+//       </motion.div>
+//     </motion.div>
+//   );
+// };
+
+// /* TECHNOLOGIES SECTION */
+
+// const Technologies = () => {
+//   return (
+//     <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
+//       {/* Background Decoration */}
+
+//       <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-50/30 blur-3xl" />
+
+//       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+//         {/* Section Heading */}
+
+//         <motion.div
+//           className="mb-12 text-center"
+//           initial={{
+//             opacity: 0,
+//             y: 30,
+//           }}
+//           whileInView={{
+//             opacity: 1,
+//             y: 0,
+//           }}
+//           viewport={{
+//             once: true,
+//             amount: 0.3,
+//           }}
+//           transition={{
+//             duration: 0.6,
+//           }}
+//         >
+//           <div className="mb-3 flex items-center justify-center gap-4">
+//             <span className="hidden h-[1px] w-9 bg-primary sm:block" />
+
+//             <span className="text-xs font-semibold uppercase tracking-[0.12em] text-primary sm:text-sm">
+//               Three Powerful <span>Technologies</span>
+//             </span>
+
+//             <span className="hidden h-[1px] w-9 bg-primary sm:block" />
+//           </div>
+
+//           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+//             Engineered for{" "}
+//             <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+//               Excellence
+//             </span>
+//           </h2>
+
+//           <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#7C879C]">
+//             Advanced solutions. Superior precision. Better patient outcomes.
+//           </p>
+//         </motion.div>
+
+//         {/* TECHNOLOGY LIST */}
+
+//         <div className="relative">
+//           {/* Vertical Timeline Line */}
+
+//           <div className="absolute bottom-16 left-1/2 top-16 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#dce6ef] to-transparent lg:block" />
+
+//           <div className="relative space-y-10 sm:space-y-12 lg:space-y-14">
+//             {technologies.map((technology, index) => (
+//               <TechnologyCard
+//                 key={technology.id}
+//                 technology={technology}
+//                 index={index}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Technologies;

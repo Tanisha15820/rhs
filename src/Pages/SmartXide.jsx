@@ -7,9 +7,8 @@ import machineImage from "../assets/images/SmartXide2Trio.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
-
-// import Technologies from "../Components/ENT/Technologies";
-// import Features from "../Components/ENT/Features";
+import Technologies from "../Components/ENT/Technologies";
+import Features from "../Components/ENT/Features";
 
 /* Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -137,7 +136,7 @@ const SmartXide = () => {
             <div className="mb-3 flex items-center justify-center gap-4">
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
               <span className="text-xs font-semibold uppercase tracking-[0.12em] text-primary sm:text-sm">
-                OUR PRODUCTS
+                ENT LASER{" "}
               </span>
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
             </div>
@@ -256,8 +255,8 @@ const SmartXide = () => {
           </div>
         </div>
       </section>
-      {/* <Technologies /> */}
-      {/* <Features /> */}
+      <Technologies />
+      <Features />
     </div>
   );
 };
