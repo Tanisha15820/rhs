@@ -34,9 +34,6 @@ const Features = () => {
             <br className="hidden sm:block" />
             exceptional surgical outcomes.
           </p>
-
-          {/* Small Line */}
-          <div className="mx-auto mt-4 h-[2px] w-8 bg-[#20B7AE]" />
         </div>
 
         <div className="relative mx-auto min-h-[700px] max-w-6xl">

@@ -9,6 +9,7 @@ import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
 import Technologies from "../Components/ENT/Technologies";
 import Features from "../Components/ENT/Features";
+import Handpieces from "../Components/ENT/Handpieces";
 
 /* Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -257,6 +258,7 @@ const SmartXide = () => {
       </section>
       <Technologies />
       <Features />
+      <Handpieces />
     </div>
   );
 };
