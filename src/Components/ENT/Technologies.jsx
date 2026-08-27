@@ -448,7 +448,7 @@ const Technologies = () => {
   );
 };
 
-// export default Technologies;
+export default Technologies;
 // import React from "react";
 // import { motion } from "framer-motion";
 // import {
