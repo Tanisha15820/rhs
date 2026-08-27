@@ -262,8 +262,6 @@ const Clients = () => {
 
     let lastTime = performance.now();
 
-    // Lower value = slower scrolling
-    // Higher value = faster scrolling
     const speed = 35;
 
     const autoScroll = (currentTime) => {

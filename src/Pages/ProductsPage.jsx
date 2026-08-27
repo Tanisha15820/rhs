@@ -6,7 +6,7 @@ const ProductsPage = ({
   description,
   products = [],
   subCategories = products.map((product) => product.name),
-  otherCategories = ["Ortho"],
+  otherCategories = ["ENT, Urology, Gastro"],
 }) => {
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [activeSubCategory, setActiveSubCategory] = useState(null);
@@ -141,6 +141,8 @@ const ProductsPage = ({
                     <p className="text-[15px] font-semibold text-primary">
                       {categoryName}
                     </p>
+
+                    <div className="bg-white grid grid-col-"></div>
 
                     <span className="text-sm text-primary">
                       {categoryOpen ? "⌃" : "⌄"}

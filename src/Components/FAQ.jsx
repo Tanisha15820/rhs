@@ -15,9 +15,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  // =====================================================
   // ANIMATION VARIANTS
-  // =====================================================
 
   const listVariants = {
     hidden: {},
@@ -35,9 +33,7 @@ const FAQ = () => {
     },
   };
 
-  // =====================================================
   // FAQ DATA
-  // =====================================================
 
   const faqs = [
     {
@@ -83,9 +79,7 @@ const FAQ = () => {
     },
   ];
 
-  // =====================================================
   // FAQ OPEN / CLOSE
-  // =====================================================
 
   const handleFAQClick = (index) => {
     if (openIndex === index) {
@@ -106,30 +100,12 @@ const FAQ = () => {
       <div className="absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-[#E8F8F5]/70 blur-3xl" />
 
       {/* =====================================================
-          DECORATIVE PLUS SIGNS
-      ====================================================== */}
-
-      <span className="animate-float-y absolute left-5 top-16 text-4xl font-light text-[#E2E8F5]">
-        +
-      </span>
-
-      <span className="animate-sway-x absolute right-10 top-20 text-3xl font-light text-[#E1E7F5]">
-        +
-      </span>
-
-      <span className="animate-float-y absolute bottom-20 left-10 text-5xl font-light text-[#E7EAF5] [animation-delay:1.2s]">
-        +
-      </span>
-
-      {/* =====================================================
           MAIN CONTAINER
       ====================================================== */}
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
         {/* =====================================================
             HEADING
-
-            SAME STYLE AS PRODUCTS SECTION
         ====================================================== */}
 
         <motion.div
@@ -245,11 +221,9 @@ const FAQ = () => {
                   className="
                     w-full
                     object-contain
-
                     transition-transform
                     duration-700
                     ease-out
-
                     group-hover:-translate-y-5
                     group-hover:scale-110
                   "
