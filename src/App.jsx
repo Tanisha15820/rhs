@@ -7,6 +7,7 @@ import Blogs from "./Pages/Blogs";
 import MachinePage from "./Pages/MachinePage";
 import ContactPage from "./Pages/ContactPage";
 import SmartXide from "./Pages/SmartXide";
+import SmartXideTouch from "./Pages/SmartXideTouch";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/machine" element={<MachinePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/smartxide" element={<SmartXide />} />
+          <Route path="/smartxide-touch" element={<SmartXideTouch />} />
         </Route>
       </Routes>
     </BrowserRouter>

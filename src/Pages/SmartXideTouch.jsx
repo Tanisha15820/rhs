@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import machineImage from "../assets/images/SmartXide2Trio.png";
+import machineImage from "../assets/images/SmartXideTouchSurgiCO.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
@@ -13,8 +13,10 @@ import Handpieces from "../Components/SmartXide/Handpieces";
 import Advantages from "../Components/SmartXide/Advantages";
 import Clinical from "../Components/SmartXide/Clinical";
 import Professionals from "../Components/SmartXide/Professionals";
+import TechnologiesSurgico from "../Components/SmartXideTouch/TechnologiesSurgico";
+import ProctoScan from "../Components/SmartXideTouch/ProctoScan";
+import ColpoScan from "../Components/SmartXideTouch/ColpoScan";
 
-/* Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
   return (
     <div
@@ -107,8 +109,7 @@ const MobileFeatureCard = ({ number, type, title, description, image }) => {
   );
 };
 
-/* SmartXide Page */
-const SmartXide = () => {
+const SmartXideTouch = () => {
   return (
     <div className="bg-white">
       <SEO
@@ -118,9 +119,7 @@ const SmartXide = () => {
         canonical="/smartxide"
       />
 
-      {/* Product Banner */}
       <section className="relative min-h-[500px] overflow-hidden bg-background sm:min-h-[600px] lg:min-h-[680px]">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src={bannerBg}
@@ -129,14 +128,10 @@ const SmartXide = () => {
           />
         </div>
 
-        {/* Soft Overlay */}
         <div className="absolute inset-0 z-[1] bg-white/5"></div>
 
-        {/* Main Content */}
         <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-          {/* Heading */}
           <div className="pt-6 text-center sm:pt-8 lg:pt-12">
-            {/* Small Heading */}
             <div className="mb-3 flex items-center justify-center gap-4">
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
               <span className="text-xs font-semibold uppercase tracking-[0.12em] text-primary sm:text-sm">
@@ -147,17 +142,17 @@ const SmartXide = () => {
 
             {/* Main Heading */}
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-5xl">
-              SmartXide² Unique{" "}
+              SmartXide Touch{" "}
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-                TRIO
+                SurgiCO
               </span>
             </h1>
 
             {/* Description */}
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6 lg:text-base">
-              The accuracy of scanner-assisted CO₂ laser
+              The Precision and Safety of the C02 Laser
               <br className="hidden sm:block" />
-              and the flexibility of CO₂ and diode laser.
+              with Scanner Assistance
             </p>
           </div>
 
@@ -174,17 +169,17 @@ const SmartXide = () => {
             />
             <FeatureCard
               number="02"
-              type="CO₂ LASER"
-              title="Hollow Fiber"
-              description="Advanced delivery with hollow fiber technology."
+              type="PULSE TECHNOLOGY"
+              title="Advanced Ablation Control"
+              description="Optimized pulse delivery for precise tissue interaction and controlled penetration depth."
               image={hollowFiber}
               position="bottom-16 left-8"
             />
             <FeatureCard
               number="03"
-              type="DIODE LASER"
-              title="Module (Fibre)"
-              description="Versatile treatment with diode laser module."
+              type="SCANNER TECHNOLOGY"
+              title="Scanner-Assisted Surgery"
+              description="Advanced scanning systems for precise, reproducible and versatile surgical applications."
               image={diodeImage}
               position="bottom-40 right-8"
             />
@@ -259,8 +254,10 @@ const SmartXide = () => {
           </div>
         </div>
       </section>
-      <Technologies />
+      <TechnologiesSurgico />
       <Features />
+      <ProctoScan />
+      <ColpoScan />
       <Handpieces />
       <Advantages />
       <Clinical />
@@ -269,4 +266,4 @@ const SmartXide = () => {
   );
 };
 
-export default SmartXide;
+export default SmartXideTouch;
