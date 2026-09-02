@@ -9,13 +9,17 @@ import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
 import Fragmentation from "../Components/Gastro_Laser/Fragmentation";
 import DustingEffect from "../Components/Gastro_Laser/DustingEffect";
+import HoliumSection from "../Components/Gastro_Laser/HoliumSection";
+import Reliability from "../Components/Gastro_Laser/Reliability";
+import Fibers from "../Components/Gastro_Laser/Fibers";
+import Fiber_Recognition from "../Components/Gastro_Laser/Fiber_Recognition";
+import Applications from "../Components/Gastro_Laser/Applications";
 
 const FeatureCard = ({ number, description, image, position }) => {
   return (
     <div
       className={`absolute hidden xl:block w-[285px] h-[100px] rounded-[22px] border border-white bg-white/90 shadow-[0_12px_35px_rgba(70,130,190,0.16)] backdrop-blur-md ${position}`}
     >
-      {/* Blue Number Tab */}
       <div className="absolute left-0 top-0 z-20 flex h-[44px] w-[58px] items-center justify-center rounded-br-[22px] rounded-tl-[22px] bg-primary">
         <span className="text-xl font-bold text-white">{number}</span>
       </div>
@@ -81,7 +85,6 @@ const Litho35Watt = () => {
     <div className="bg-white">
       {/* Product Banner */}
       <section className="relative min-h-[500px] overflow-hidden bg-background sm:min-h-[600px] lg:min-h-[680px]">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src={bannerBg}
@@ -97,7 +100,6 @@ const Litho35Watt = () => {
         <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
           {/* Heading */}
           <div className="pt-6 text-center sm:pt-8 lg:pt-12">
-            {/* Small Heading */}
             <div className="mb-3 flex items-center justify-center gap-4">
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
               <span className="text-xs font-semibold uppercase tracking-[0.12em] text-primary sm:text-sm">
@@ -106,20 +108,18 @@ const Litho35Watt = () => {
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-5xl">
-              Litho 35{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl md:text-5xl">
+              Litho 35
+              <span className="bg-gradient-to-r from-[#19A8E8] to-[#2525B8] bg-clip-text text-transparent">
                 Watt
               </span>
-            </h1>
+            </h2>
 
-            {/* Description */}
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6 lg:text-base">
               Powerful 35 W lithotripsy performance for precise stone
               fragmentation
               <br className="hidden sm:block" />
-              with controlled energy delivery and efficient clinical workflow.
+              with controlled energy delivery and efficient clinical workflow..
             </p>
           </div>
 
@@ -265,6 +265,11 @@ const Litho35Watt = () => {
       </section>
       <Fragmentation />
       <DustingEffect />
+      <HoliumSection />
+      <Reliability />
+      <Fibers />
+      <Fiber_Recognition />
+      <Applications />
     </div>
   );
 };

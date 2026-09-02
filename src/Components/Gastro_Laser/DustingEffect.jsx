@@ -54,7 +54,6 @@ const DustingEffect = () => {
             and improved outcomes.
           </p>
 
-          {/* IMAGE AREA */}
           <div className="relative mt-[-5px] flex min-h-[420px] w-full items-end justify-center sm:min-h-[500px] lg:mt-[-20px] lg:justify-start">
             {/* Image Glow */}
             <div className="pointer-events-none absolute bottom-4 left-[18%] h-[400px] w-[480px] rounded-full bg-[#006DFF]/10 blur-[100px] sm:h-[500px] sm:w-[500px]" />

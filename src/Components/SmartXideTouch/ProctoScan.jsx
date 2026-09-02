@@ -187,8 +187,6 @@ const ProctoScan = () => {
           </div>
 
           <div className="relative">
-            {/* Eyebrow */}
-
             <div className="flex items-center gap-3">
               <span className="h-[2px] w-7 bg-[#1CA7E9]" />
 

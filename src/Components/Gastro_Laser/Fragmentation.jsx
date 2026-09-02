@@ -27,13 +27,10 @@ const Fragmentation = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-black text-white">
-      {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[150px]" />
 
       <div className="relative mx-auto flex min-h-screen max-w-[1600px] flex-col items-center px-6 py-16 lg:flex-row lg:px-12 xl:px-16">
-        {/*  LEFT SIDE */}
         <div className="z-10 w-full lg:w-[48%] xl:w-[50%]">
-          {/* Small Top Heading */}
           <div className="mb-5 flex items-center gap-5">
             <span className="hidden h-[1px] w-14 bg-[#087BFF] sm:block" />
             <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-white sm:text-sm">
