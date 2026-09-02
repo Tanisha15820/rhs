@@ -39,7 +39,7 @@ const SPECIALTIES = [
     defaultCategory: "Surgical Laser",
     path: "/urology",
   },
-  { name: "Gastro", icon: SpaIcon, defaultCategory: "Gastro Products" },
+  { name: "Gastro", icon: SpaIcon, defaultCategory: "Gastro Products", path: "/gastro" },
 ];
 
 const CATEGORIES = {
@@ -50,7 +50,7 @@ const CATEGORIES = {
     "ESWL Lithotripsy",
     "Endo Urology UMD Endoscopy",
   ],
-  Gastro: ["Gastro Products", "Gastro Endoscopy"],
+  Gastro: ["Gastro Products", "Gastro Endoscopy", "Gastro Laser"],
 };
 
 const SURGICAL_LASER_PRODUCTS = [
@@ -74,7 +74,18 @@ const ENT_LASER_SUBTYPES = [
   },
   {
     name: "SmartXide Touch SurgiCO",
-    path: "/ent",
+    path: "/smartxide-touch",
+  },
+];
+
+const GASTRO_LASER_SUBTYPES = [
+  {
+    name: "LITHO 35 WATT",
+    path: "/litho35watt",
+  },
+  {
+    name: "LITHO EVO 35 WATT",
+    path: "/lithoevo35watt",
   },
 ];
 
@@ -258,6 +269,7 @@ const Navbar = () => {
                           setSelectedSpecialty("Gastro");
                           setSelectedCategory("Gastro Products");
                         }}
+                        onClick={() => navigate("/gastro")}
                         className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[13px] transition-all ${
                           selectedSpecialty === "Gastro"
                             ? "bg-blue-50 font-semibold text-blue-600"
@@ -329,7 +341,7 @@ const Navbar = () => {
                             }
                             className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] text-gray-600 hover:bg-gray-50"
                           >
-                            <span>ENT Banner</span>
+                            <span>ENT HEAD & NECK ONCOLOGY</span>
 
                             <ChevronRightIcon sx={{ fontSize: 17 }} />
                           </button>
@@ -432,11 +444,45 @@ const Navbar = () => {
                             onMouseEnter={() =>
                               setSelectedCategory("Gastro Products")
                             }
-                            className="flex w-full items-center justify-between rounded-xl bg-blue-50 px-3 py-3 text-left text-[12px] font-semibold text-blue-600"
+                            className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] transition-all ${
+                              selectedCategory === "Gastro Products"
+                                ? "bg-blue-50 font-semibold text-blue-600"
+                                : "text-gray-600 hover:bg-gray-50"
+                            }`}
                           >
-                            <span>Gastro</span>
+                            <span>Gastro Products</span>
 
-                            <ChevronRightIcon sx={{ fontSize: 17 }} />
+                            <ChevronRightIcon
+                              sx={{ fontSize: 17 }}
+                              className={
+                                selectedCategory === "Gastro Products"
+                                  ? "text-blue-500"
+                                  : "text-gray-400"
+                              }
+                            />
+                          </button>
+
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("Gastro Laser")
+                            }
+                            className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] transition-all ${
+                              selectedCategory === "Gastro Laser"
+                                ? "bg-blue-50 font-semibold text-blue-600"
+                                : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                          >
+                            <span>Gastro Laser</span>
+
+                            <ChevronRightIcon
+                              sx={{ fontSize: 17 }}
+                              className={
+                                selectedCategory === "Gastro Laser"
+                                  ? "text-blue-500"
+                                  : "text-gray-400"
+                              }
+                            />
                           </button>
                         </>
                       )}
@@ -494,6 +540,41 @@ const Navbar = () => {
                       {selectedCategory === "ENT Laser" && (
                         <div className="grid grid-cols-1 gap-x-4">
                           {ENT_LASER_SUBTYPES.map((subtype) => (
+                            <a
+                              key={subtype.name}
+                              href={subtype.path}
+                              className="group flex items-start gap-1 py-2 text-[12px] leading-4 text-gray-600 transition-colors hover:text-blue-600"
+                            >
+                              <ChevronRightIcon
+                                sx={{ fontSize: 15 }}
+                                className="mt-0.5 shrink-0 text-blue-500"
+                              />
+                              {subtype.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* GASTRO LASER SUBTYPES */}
+
+                      {selectedCategory === "Gastro Products" && (
+                        <div className="grid grid-cols-1 gap-x-4">
+                          <a
+                            href="/gastro"
+                            className="group flex items-start gap-1 py-2 text-[12px] leading-4 text-gray-600 transition-colors hover:text-blue-600"
+                          >
+                            <ChevronRightIcon
+                              sx={{ fontSize: 15 }}
+                              className="mt-0.5 shrink-0 text-blue-500"
+                            />
+                            View All Gastro Products
+                          </a>
+                        </div>
+                      )}
+
+                      {selectedCategory === "Gastro Laser" && (
+                        <div className="grid grid-cols-1 gap-x-4">
+                          {GASTRO_LASER_SUBTYPES.map((subtype) => (
                             <a
                               key={subtype.name}
                               href={subtype.path}
@@ -763,8 +844,21 @@ const Navbar = () => {
                         </a>
                       ))}
 
+                    {selectedCategory === "Gastro Laser" &&
+                      GASTRO_LASER_SUBTYPES.map((subtype) => (
+                        <a
+                          key={subtype.name}
+                          href={subtype.path}
+                          onClick={closeMobileMenu}
+                          className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
+                        >
+                          {subtype.name}
+                        </a>
+                      ))}
+
                     {selectedCategory !== "Surgical Laser" &&
-                      selectedCategory !== "ENT Laser" && (
+                      selectedCategory !== "ENT Laser" &&
+                      selectedCategory !== "Gastro Laser" && (
                         <>
                           <a
                             href="/urology"

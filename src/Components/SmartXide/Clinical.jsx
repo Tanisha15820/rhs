@@ -6,8 +6,23 @@ import {
   ArrowRight,
   User,
   Building2,
-  Plus,
 } from "lucide-react";
+
+import laryngeal1 from "../../assets/images/clinical/laryngeal_1.png";
+import laryngeal2 from "../../assets/images/clinical/laryngeal_2.png";
+import laryngeal3 from "../../assets/images/clinical/laryngeal_3.png";
+import laryngeal4 from "../../assets/images/clinical/laryngeal_4.png";
+
+import stapedotomy1 from "../../assets/images/clinical/stapedotomy_1.png";
+import stapedotomy2 from "../../assets/images/clinical/stapedotomy_2.png";
+
+import papillomatosis1 from "../../assets/images/clinical/papillomatosis_1.png";
+import papillomatosis2 from "../../assets/images/clinical/papillomatosis_2.png";
+import papillomatosis3 from "../../assets/images/clinical/papillomatosis_3.png";
+
+import thyroid1 from "../../assets/images/clinical/thyroid_1.png";
+import thyroid2 from "../../assets/images/clinical/thyroid_2.png";
+import thyroid3 from "../../assets/images/clinical/thyroid_3.png";
 
 const Clinical = () => {
   const clinicalCases = [
@@ -15,7 +30,7 @@ const Clinical = () => {
       title: "LARYNGEAL PATHOLOGIES",
       icon: Stethoscope,
       color: "#159DA6",
-      images: 4,
+      imageList: [laryngeal1, laryngeal2, laryngeal3, laryngeal4],
 
       captions: [
         "Left vocal cord polyp",
@@ -33,7 +48,7 @@ const Clinical = () => {
       title: "ONE SHOT® STAPEDOTOMY",
       icon: Scissors,
       color: "#2585F5",
-      images: 2,
+      imageList: [stapedotomy1, stapedotomy2],
 
       captions: [
         '"ONE SHOT" stapedotomy with CO₂ laser',
@@ -49,7 +64,7 @@ const Clinical = () => {
       title: "RESPIRATORY PAPILLOMATOSIS",
       icon: Activity,
       color: "#7259D6",
-      images: 3,
+      imageList: [papillomatosis1, papillomatosis2, papillomatosis3],
 
       captions: [
         "Recurrent respiratory papillomatosis",
@@ -65,7 +80,7 @@ const Clinical = () => {
       title: "VOCAL CORD & THYROID SURGERIES",
       icon: Activity,
       color: "#EF3F91",
-      images: 3,
+      imageList: [thyroid1, thyroid2, thyroid3],
 
       captions: [
         "Bilateral paralysis of the vocal cords (after total thyroidectomy)",
@@ -197,12 +212,10 @@ const Clinical = () => {
                       flex-1
                       items-start
                       justify-center
-                      ${item.images === 4 ? "gap-2 sm:gap-4" : "gap-4 sm:gap-7"}
+                      ${item.imageList.length === 4 ? "gap-2 sm:gap-4" : "gap-4 sm:gap-7"}
                     `}
                   >
-                    {Array.from({
-                      length: item.images,
-                    }).map((_, imageIndex) => (
+                    {item.imageList.map((imgSrc, imageIndex) => (
                       <React.Fragment key={imageIndex}>
                         {/* IMAGE + CAPTION */}
 
@@ -216,7 +229,7 @@ const Clinical = () => {
                           "
                         >
                           {/* =================================
-                              IMAGE PLACEHOLDER
+                              IMAGE CONTAINER
                           ================================== */}
 
                           <div
@@ -230,36 +243,21 @@ const Clinical = () => {
                               overflow-hidden
                               rounded-full
                               border-2
-                              bg-gradient-to-br
-                              from-white
-                              to-[#F3F7FC]
+                              bg-white
                               transition-transform
                               duration-300
                               group-hover:scale-105
                             "
                             style={{
-                              borderColor: `${item.color}30`,
-                              boxShadow: `0 6px 18px ${item.color}18`,
+                              borderColor: `${item.color}40`,
+                              boxShadow: `0 6px 18px ${item.color}20`,
                             }}
                           >
-                            {/* Empty image space */}
-
-                            <div
-                              className="h-full w-full rounded-full"
-                              style={{
-                                background: `radial-gradient(circle at 30% 30%, ${item.color}12, ${item.color}06 60%, transparent)`,
-                              }}
-                            >
-                              <div className="flex h-full w-full items-center justify-center">
-                                <Plus
-                                  size={22}
-                                  strokeWidth={2}
-                                  style={{
-                                    color: `${item.color}55`,
-                                  }}
-                                />
-                              </div>
-                            </div>
+                            <img
+                              src={imgSrc}
+                              alt={item.captions[imageIndex]}
+                              className="h-full w-full object-cover rounded-full"
+                            />
                           </div>
 
                           {/* Small colored line */}
@@ -282,7 +280,7 @@ const Clinical = () => {
                             ARROW BETWEEN IMAGES
                         ================================== */}
 
-                        {imageIndex < item.images - 1 && (
+                        {imageIndex < item.imageList.length - 1 && (
                           <div className="mt-12 flex shrink-0 items-center">
                             <div
                               className="flex h-6 w-6 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"

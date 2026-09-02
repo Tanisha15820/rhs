@@ -16,156 +16,335 @@ import {
   PhoneCall,
 } from "lucide-react";
 
-import co2HollowFiber from "../../assets/images/co2_hollow_fiber.png";
-import handpiecesImg from "../../assets/images/handpieces.png";
-import flexibleDeliveryImg from "../../assets/images/flexible_delivery.png";
-import diodeLaserImg from "../../assets/images/diode_laser.png";
-import microscanImg from "../../assets/images/microscan_surgical.png";
+import uscanV2LRImg from "../../assets/images/uscanV2LR.png";
+import uscanSurgicalImg from "../../assets/images/uscanSurgical.png";
+import dermaScanImg from "../../assets/images/DermaScan.png";
+import uscanScar3Img from "../../assets/images/uscanScar3.png";
+import uscanDotImg from "../../assets/images/uscanDot.png";
 
 const products = [
   {
-    id: "microscan",
-    title: "Microscan Surgical",
-    category: "Scanners & Optics",
+    id: "uscan-v2lr",
+    title: "µScan V²LR",
+    category: "Women’s Health",
     laserType: "CO₂ Laser",
-    badgeColor: "bg-cyan-500/10 text-cyan-600 border-cyan-200/50",
-    gradient: "from-cyan-500 to-blue-600",
+    badgeColor: "bg-indigo-500/10 text-indigo-600 border-indigo-200/50",
+    gradient: "from-[#8188C7] to-[#5F68B8]",
+
     intro:
-      "Miniaturised scanning system used with handpieces for free-hand surgery, such as oropharyngeal surgery.",
+      "Scanning system designed to treat menopausal urogenital syndrome. Fractionated CO₂ laser energy is transmitted to the vaginal walls, effectively stimulating tissue regeneration for unequalled results.",
+
     description:
-      "The multi-function key enables precise centering and the ability to either activate or deactivate the scanner for vaporization or cut functions (Scan-ON/Scan-OFF function).",
+      "The scanning system can be used with different types of probes, both for treatments inside the vaginal canal and for external applications, making it adaptable to the needs of different patients.",
+
     details:
-      "Proper ablation figure (Filled Circle; Filled Hexagon; Interpolated Ellipse) allows accurate vaporization and 3D ablation technique.",
+      "µScan V²LR is used with MonaLisa Touch® to deliver fractional CO₂ laser energy over the vaginal mucosa. The system provides a versatile solution for post-menopausal symptoms while supporting different treatment probes and applicators.",
+
     specs: [
-      { label: "Control Interface", value: "Microswitch Joystick" },
-      { label: "Ablation Shapes", value: "Circle, Hexagon, Ellipse" },
-      { label: "Functionality", value: "Scan-ON / Scan-OFF Centering" },
-      { label: "Key Indication", value: "Oropharyngeal & ENT Micro-surgery" },
-    ],
-    highlights: [
-      "Electronic miniaturised scanning technology",
-      "Multi-function key for precise beam centering",
-      "3D ablation technique with controlled shapes",
-    ],
-    image: microscanImg,
-  },
-  {
-    id: "handpieces",
-    title: "Precision Handpieces System",
-    category: "CO₂ Laser Systems",
-    laserType: "CO₂ Laser",
-    badgeColor: "bg-sky-500/10 text-primary border-sky-200/50",
-    gradient: "from-[#19A8E8] to-[#2525B8]",
-    intro:
-      "SmartXide TRIO offers a broad range of handpieces with different focusing lenses, spacers and mirrors for perfect operation in all applications.",
-    description:
-      "A dedicated Air inlet allows for airflow to keep lenses safe from dust and debris particle accumulation. The integrated smoke channel allows for smoke extraction at the tip of the 1.5”, 2”, 4”, 5”, 7”, 8” EFL and collimated handpieces.",
-    details:
-      "The 4”, 5”, 7” and 8” EFL handpieces can be used with the dedicated scanning system Microscan Surgical. A special 2” (SLIM CUT) handpiece, indicated for free-hand precision cutting, is also available.",
-    specs: [
-      { label: "Focusing Lenses", value: "1.5”, 2”, 4”, 5”, 7”, 8” EFL" },
-      { label: "Specialty Optics", value: "2” SLIM CUT precision handpiece" },
-      { label: "Lens Protection", value: "Anti-dust active air inlet" },
-      { label: "Evacuation", value: "Tip-integrated smoke extraction channel" },
-    ],
-    highlights: [
-      "Broad range of focusing lenses, spacers & mirrors",
-      "Dedicated air inlet & smoke extraction channel",
-      "Fully compatible with Microscan Surgical scanner",
-    ],
-    image: handpiecesImg,
-  },
-  {
-    id: "flexible-delivery",
-    title: "Flexible Delivery Platform",
-    category: "CO₂ & Diode Laser",
-    laserType: "Dual Laser",
-    badgeColor: "bg-purple-500/10 text-purple-600 border-purple-200/50",
-    gradient: "from-purple-600 to-indigo-600",
-    intro:
-      "SmartXide TRIO works also in areas that are normally difficult to reach thanks to its flexible delivery accessories for both the CO₂ and diode lasers.",
-    description:
-      "The hollow fibre CO₂ laser cutting precision and the greater coagulative properties of diode laser are available today in a single platform that meets all surgical needs in the ENT space.",
-    details:
-      "Flexible delivery systems provide better access to difficult anatomical areas while maintaining precise laser control during ENT procedures.",
-    specs: [
-      { label: "Wavelengths", value: "10,600 nm (CO₂) + 980 nm (Diode)" },
-      { label: "Access Type", value: "Flexible fiber for narrow anatomy" },
       {
-        label: "Surgical Benefits",
-        value: "High precision cutting + coagulation",
+        label: "Scanning Area (Max)",
+        value: "8 mm × 8 mm (31 × 31 Square Frame)",
       },
-      { label: "Versatility", value: "Dual delivery in a single platform" },
+      {
+        label: "Emission Modes",
+        value: "SP, DP, HP",
+      },
+      {
+        label: "Scanning Type",
+        value: "DOT",
+      },
+      {
+        label: "Scanning Modes",
+        value: "Normal, Interlaced, SmartTrack",
+      },
+      {
+        label: "Dwell Time",
+        value: "0.1 – 2 ms",
+      },
+      {
+        label: "Emission Mode SP",
+        value: "0.5 – 50 W",
+      },
+      {
+        label: "Emission Mode DP",
+        value: "0.5 – 50 W",
+      },
+      {
+        label: "Emission Mode HP",
+        value: "0.5 – 50 W",
+      },
+      {
+        label: "Probe Options",
+        value: "23 mm, 16 mm, 360° & Vulvar Applicator",
+      },
     ],
+
     highlights: [
-      "Combines CO₂ precision & Diode coagulation",
-      "Reaches difficult-to-access anatomical areas",
-      "Unified single-platform ENT delivery",
+      "Fractionated CO₂ laser scanning technology",
+      "Multiple probes for vaginal and external applications",
+      "Normal, Interlaced & SmartTrack scanning modes",
     ],
-    image: flexibleDeliveryImg,
+
+    image: uscanV2LRImg,
   },
+
   {
-    id: "co2-hollow-fiber",
-    title: "CO₂ Hollow Fibre",
-    category: "CO₂ Laser Systems",
+    id: "uscan-surgical",
+    title: "µScan Surgical",
+    category: "Surgical Scanners",
     laserType: "CO₂ Laser",
-    badgeColor: "bg-teal-500/10 text-teal-600 border-teal-200/50",
-    gradient: "from-[#20B7AE] to-teal-700",
+    badgeColor: "bg-orange-500/10 text-orange-600 border-orange-200/50",
+    gradient: "from-[#F67549] to-[#E85132]",
+
     intro:
-      "CO₂ hollow fibre can be used with handpieces of various shapes and lengths, rigid or malleable with either spatula or flat tips.",
+      "Miniaturised scanning system used with handpieces for either free-hand or laparoscopic surgery, including applications such as Endometriosis vaporization treatment.",
+
     description:
-      "The system provides flexibility for different surgical requirements and is suitable for precise laser delivery in ENT procedures.",
+      "The multi-function key enables precise centering inside the laparoscope and allows the operator to activate or deactivate the scanner for vaporization or cutting functions using Scan-ON and Scan-OFF control.",
+
     details:
-      "The fibres are available in different configurations for open, endoscopic and robotic surgery applications.",
+      "The scanner supports different emission modes, scanning shapes and operating modes for accurate CO₂ laser delivery during free-hand and laparoscopic surgical procedures.",
+
     specs: [
-      { label: "Fiber Types", value: "Rigid & Malleable configurations" },
-      { label: "Tip Options", value: "Spatula & Flat tips available" },
-      { label: "Applications", value: "Open, Endoscopic & Robotic Surgery" },
-      { label: "Energy Guide", value: "High-efficiency hollow fiber" },
+      {
+        label: "Scanning Area (Max)",
+        value: "6.3 mm × 6.3 mm",
+      },
+      {
+        label: "Emission Modes",
+        value: 'CW, UP except for "Hexagon DOT"; HP, DP, SP for "Hexagon DOT"',
+      },
+      {
+        label: "Scanning Shapes",
+        value:
+          "Cut Mode (Point), Ellipsoid Motion on Circular Surface, Hexagon, Hexagon DOT, Filled Circle",
+      },
+      {
+        label: "Scanning Modes",
+        value:
+          'Normal / Interlaced for "Hexagon"; Normal / Interlaced / SmartTrack for "Hexagon DOT"',
+      },
+      {
+        label: "Dwell Time",
+        value: '100 µs – 45 ms; 100 µs – 2 ms for "Hexagon DOT"',
+      },
     ],
+
     highlights: [
-      "Rigid or malleable shafts with spatula/flat tips",
-      "Configurations for endoscopic & robotic surgery",
-      "High precision thermal impact control",
+      "Miniaturised scanner for free-hand & laparoscopic surgery",
+      "Multi-function control for precise beam centering",
+      "Scan-ON / Scan-OFF control for vaporization and cutting",
     ],
-    image: co2HollowFiber,
+
+    image: uscanSurgicalImg,
   },
+
   {
-    id: "diode-laser",
-    title: "High Power Diode Laser",
-    category: "Diode Laser Systems",
-    laserType: "Diode Laser (980nm)",
-    badgeColor: "bg-blue-600/10 text-blue-700 border-blue-200/50",
-    gradient: "from-blue-600 to-indigo-700",
+    id: "derma-scan",
+    title: "Derma SCAN",
+    category: "Dermatology Scanners",
+    laserType: "CO₂ Laser",
+    badgeColor: "bg-pink-500/10 text-pink-700 border-pink-200/50",
+    gradient: "from-[#C22D6A] to-[#9E2358]",
+
     intro:
-      "The diode laser and fibre delivery system allows the surgeon to operate easily, even in the hardest conditions.",
+      "Scanning system paired with handpieces featuring 2”, 4” and 7” focal lengths, allowing the use of different scanning figures for dermatological treatments.",
+
     description:
-      "The use of diode lasers is well known in ENT. Moreover, the flexibility of fibre optics allows users to easily reach internal areas such as the middle ear (ONE SHOT stapedotomy) and the nose (turbinates).",
+      "Derma SCAN enables three-dimensional and ultra-rapid ablation with maximum control and precision during treatment execution.",
+
     details:
-      "The diode laser system can also be integrated into the SmartXide TRIO at anytime, as part of an optional upgrade to the system. A broad selection of fibre core diameters is available, from 200 μm to 600 μm single-use or up to 10 times reusable (to reduce cost).",
+      "Its combination of multiple scanning shapes, emission modes and scanning modes provides flexibility for controlled CO₂ laser treatments across different dermatological applications.",
+
     specs: [
-      { label: "Wavelength", value: "980 nm High Absorption" },
-      { label: "Fiber Cores", value: "200 μm to 600 μm diameter" },
-      { label: "Reusability", value: "Single-use or up to 10x reusable" },
-      { label: "Key Indications", value: "Stapedotomy & Turbinate Reduction" },
+      {
+        label: "Scanning Area (Max)",
+        value: "6.3 mm × 6.3 mm",
+      },
+      {
+        label: "Handpiece Focal Lengths",
+        value: "2”, 4” and 7”",
+      },
+      {
+        label: "Emission Modes",
+        value: 'CW, UP except for "Hexagon DOT"; HP, DP, SP for "Hexagon DOT"',
+      },
+      {
+        label: "Scanning Shapes",
+        value:
+          "Cut Mode (Point), Ellipsoid Motion on Circular Surface, Hexagon, Hexagon DOT, Filled Circle",
+      },
+      {
+        label: "Scanning Modes",
+        value:
+          'Normal / Interlaced for "Hexagon"; Normal / Interlaced / SmartTrack for "Hexagon DOT"',
+      },
+      {
+        label: "Dwell Time",
+        value: '100 µs – 45 ms; 100 µs – 2 ms for "Hexagon DOT"',
+      },
     ],
+
     highlights: [
-      "Flexible fiber optics for middle ear & nasal surgery",
-      "Cost-efficient reusable & single-use fiber options",
-      "Optional upgrade integration for SmartXide TRIO",
+      "Compatible with 2”, 4” and 7” focal-length handpieces",
+      "Three-dimensional & ultra-rapid laser ablation",
+      "Maximum control and precision during treatment",
     ],
-    image: diodeLaserImg,
+
+    image: dermaScanImg,
+  },
+
+  {
+    id: "uscan-scar-3",
+
+    title: "µScan SCAR 3",
+
+    category: "Dermatology Scanners",
+
+    laserType: "CO₂ Laser",
+
+    badgeColor: "bg-red-500/10 text-red-600 border-red-200/50",
+
+    gradient: "from-[#D31518] to-[#A90D10]",
+
+    intro:
+      "µScan SCAR 3 is an assisted scanning solution developed for the treatment of scars, enhancing the characteristics and precision of CO₂ laser systems.",
+
+    description:
+      "The system works in depth to address complex scar treatments while helping minimize the risk of post-treatment hyperpigmentation and hypopigmentation through its smaller spot size.",
+
+    details:
+      "By emitting microscopic dots, small areas of thermal effect are alternated with untreated tissue. This supports rapid re-epithelialization and restoration of the epidermal barrier while reducing recovery time.",
+
+    specs: [
+      {
+        label: "Scanning Area (Max)",
+        value: "10 mm × 10 mm",
+      },
+      {
+        label: "Emission Modes",
+        value: "SP, DP, HP (DOT Mode) / CW (Standard Mode)",
+      },
+      {
+        label: "Shapes",
+        value:
+          "Square, Triangle, Hexagon, Parallelogram, Line, Ellipse, Annular Ring, DOT",
+      },
+      {
+        label: "Scanning Types",
+        value: "DOT / STANDARD",
+      },
+      {
+        label: "DOT Scanning Modes",
+        value: "Normal, Interlaced, SmartTrack",
+      },
+      {
+        label: "Standard Scanning Modes",
+        value: "Normal, Interlaced",
+      },
+      {
+        label: "DOT Dwell Time",
+        value: "0.1 – 2 ms",
+      },
+      {
+        label: "Standard Dwell Time",
+        value: "0.1 – 45 ms",
+      },
+      {
+        label: "Dwell Time Note",
+        value: "Not available in HP Mode",
+      },
+    ],
+
+    highlights: [
+      "Dedicated assisted scanning solution for scars",
+      "Small spot size for precise fractional treatment",
+      "DOT & Standard scanning technologies",
+    ],
+
+    image: uscanScar3Img,
+  },
+
+  {
+    id: "uscan-dot",
+
+    title: "µScan DOT",
+
+    category: "Dermatology Scanners",
+
+    laserType: "CO₂ Laser",
+
+    badgeColor: "bg-slate-500/10 text-slate-600 border-slate-200/50",
+
+    gradient: "from-[#A5A5A5] to-[#747474]",
+
+    intro:
+      "Technology for skin rejuvenation featuring a scanning system optimized in shape and weight for easy connection, comfortable operation and maximum handling.",
+
+    description:
+      "µScan DOT is designed to ensure excellent ergonomics across different treatments while allowing modification of parameters such as scanning size, stretching and scanning-area shape.",
+
+    details:
+      "The system supports both DOT and Standard scanning technologies together with multiple scanning shapes and operating modes for flexible skin rejuvenation treatments.",
+
+    specs: [
+      {
+        label: "Scanning Area (Max)",
+        value: "15 mm × 15 mm",
+      },
+      {
+        label: "Emission Modes",
+        value: "SP, DP, HP (DOT Mode) / CW (Standard Mode)",
+      },
+      {
+        label: "Shapes",
+        value:
+          "Square, Triangle, Hexagon, Parallelogram, Line, Ellipse, Annular Ring, DOT",
+      },
+      {
+        label: "Scanning Types",
+        value: "DOT / STANDARD",
+      },
+      {
+        label: "DOT Scanning Modes",
+        value: "Normal, Interlaced, SmartTrack",
+      },
+      {
+        label: "Standard Scanning Modes",
+        value: "Normal, Interlaced",
+      },
+      {
+        label: "DOT Dwell Time",
+        value: "0.1 – 2 ms",
+      },
+      {
+        label: "Standard Dwell Time",
+        value: "0.1 – 45 ms",
+      },
+      {
+        label: "Dwell Time Note",
+        value: "Not available in HP Mode",
+      },
+    ],
+
+    highlights: [
+      "Optimized lightweight & ergonomic scanner design",
+      "Adjustable scanning size, stretching and shape",
+      "DOT & Standard scanning modes",
+    ],
+
+    image: uscanDotImg,
   },
 ];
 
 const categories = [
   "All Systems",
-  "CO₂ Laser Systems",
-  "Diode Laser Systems",
-  "Scanners & Optics",
+  "Women’s Health",
+  "Surgical Scanners",
+  "Dermatology Scanners",
 ];
 
-const Handpieces = () => {
+const HandpiecesSurgico = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Systems");
   const [viewMode, setViewMode] = useState("carousel"); // 'carousel' | 'grid'
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -644,4 +823,4 @@ const HandpieceModal = ({ product, onClose }) => {
   );
 };
 
-export default Handpieces;
+export default HandpiecesSurgico;

@@ -138,37 +138,35 @@ const clients = [
 
 const ClientCard = ({ client }) => {
   return (
+    // <div
+    //   className="
+    //     group
+    //     flex
+    //     h-[245px]
+    //     w-[240px]
+    //     min-w-[240px]
+    //     flex-shrink-0
+    //     flex-col
+    //     overflow-hidden
+    //     rounded-[16px]
+    //     border
+    //     border-[#DCE8F2]
+    //     bg-white
+    //     shadow-[0_8px_25px_rgba(35,70,110,0.07)]
+    //     transition-all
+    //     duration-300
+    //     hover:-translate-y-2
+    //     hover:shadow-[0_16px_38px_rgba(35,70,110,0.13)]
+    //     sm:h-[255px]
+    //     sm:w-[250px]
+    //     sm:min-w-[250px]
+    //     md:h-[265px]
+    //     md:w-[260px]
+    //     md:min-w-[260px]
+    //   "
+    // >
     <div
-      className="
-        group
-        flex
-        h-[245px]
-        w-[240px]
-        min-w-[240px]
-        flex-shrink-0
-        flex-col
-        overflow-hidden
-        rounded-[16px]
-        border
-        border-[#DCE8F2]
-        bg-white
-        shadow-[0_8px_25px_rgba(35,70,110,0.07)]
-        transition-all
-        duration-300
-        hover:-translate-y-2
-        hover:shadow-[0_16px_38px_rgba(35,70,110,0.13)]
-        sm:h-[255px]
-        sm:w-[250px]
-        sm:min-w-[250px]
-        md:h-[265px]
-        md:w-[260px]
-        md:min-w-[260px]
-      "
-    >
-      {/* LOGO AREA */}
-
-      <div
-        className={`
+      className={`
           flex
           h-[140px]
           shrink-0
@@ -178,13 +176,19 @@ const ClientCard = ({ client }) => {
           ${client.accent}
           border-b
           border-[#E2ECF5]
+           sm:h-[200px]
+         sm:w-[250px]
+         sm:min-w-[250px]
+         md:h-[200px]
+         md:w-[260px]
+         md:min-w-[260px]
         `}
-      >
-        <div className="flex h-full w-full items-center justify-center">
-          <img
-            src={client.logo}
-            alt={`${client.name} logo`}
-            className="
+    >
+      <div className="flex h-full w-full items-center justify-center">
+        <img
+          src={client.logo}
+          alt={`${client.name} logo`}
+          className="
               max-h-[75px]
               max-w-[165px]
               object-contain
@@ -196,13 +200,11 @@ const ClientCard = ({ client }) => {
               md:max-h-[85px]
               md:max-w-[185px]
             "
-          />
-        </div>
+        />
       </div>
+      {/* </div> */}
 
-      {/* INFORMATION AREA */}
-
-      <div className="flex flex-1 flex-col bg-[#F6FAFD] px-5 py-4">
+      {/* <div className="flex flex-1 flex-col bg-[#F6FAFD] px-5 py-4">
         <h3
           className="
             text-[14px]
@@ -241,7 +243,7 @@ const ClientCard = ({ client }) => {
         >
           {client.description}
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

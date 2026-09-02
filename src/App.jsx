@@ -8,6 +8,8 @@ import MachinePage from "./Pages/MachinePage";
 import ContactPage from "./Pages/ContactPage";
 import SmartXide from "./Pages/SmartXide";
 import SmartXideTouch from "./Pages/SmartXideTouch";
+import Gastro from "./Components/Products/Gastro";
+import Litho35Watt from "./Pages/Litho35Watt";
 
 function App() {
   return (
@@ -17,11 +19,13 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/urology" element={<Urology />} />
           <Route path="/ent" element={<ENT />} />
+          <Route path="/gastro" element={<Gastro />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/machine" element={<MachinePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/smartxide" element={<SmartXide />} />
           <Route path="/smartxide-touch" element={<SmartXideTouch />} />
+          <Route path="/litho35watt" element={<Litho35Watt />} />
         </Route>
       </Routes>
     </BrowserRouter>
