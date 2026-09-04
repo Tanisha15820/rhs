@@ -14,6 +14,8 @@ import Litho35Watt from "./Pages/Litho35Watt";
 import Avicenna from "./Pages/Avicenna";
 import Multimed from "./Pages/Multimed";
 import Vibrolith from "./Pages/Vibrolith";
+import VibrolithPlus from "./Pages/VibrolithPlus";
+import VibrolithOrtho from "./Pages/VibrolithOrtho";
 
 // Admin Imports
 import AdminLogin from "./Pages/Admin/AdminLogin";
@@ -41,6 +43,8 @@ function App() {
           <Route path="/avicenna" element={<Avicenna />} />
           <Route path="/multimed" element={<Multimed />} />
           <Route path="/vibrolith" element={<Vibrolith />} />
+          <Route path="/vibrolith-plus" element={<VibrolithPlus />} />
+          <Route path="/vibrolith-ortho" element={<VibrolithOrtho />} />
         </Route>
 
         {/* Admin Public Route */}
