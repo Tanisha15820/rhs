@@ -1,6 +1,5 @@
 import React from "react";
 import { ArrowUpRight, RefreshCw, SprayCan, Box } from "lucide-react";
-
 import fiberRecognitionImage from "../../assets/images/fiber_recognition.png";
 
 const FiberRecognition = () => {
@@ -35,7 +34,7 @@ const FiberRecognition = () => {
       <div className="pointer-events-none absolute left-[20%] top-[55%] h-[550px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#006DFF]/10 blur-[140px]" />
 
       <div className="relative mx-auto flex min-h-screen max-w-[1600px] flex-col px-6 py-14 sm:px-10 lg:flex-row lg:items-center lg:px-12 xl:px-16">
-        {/* ================= LEFT SIDE ================= */}
+        {/*  LEFT SIDE  */}
 
         <div className="relative flex w-full items-center justify-center lg:w-[50%]">
           {/* Outer Blue Glow Circle */}
@@ -92,10 +91,7 @@ const FiberRecognition = () => {
               "
             />
 
-            {/* ================= FIBER RECOGNITION CALLOUT ================= */}
-
-            <div className="pointer-events-none absolute left-[47%] top-[54%] z-20 hidden lg:block">
-              {/* Point */}
+            {/* <div className="pointer-events-none absolute left-[47%] top-[54%] z-20 hidden lg:block">
               <span
                 className="
                   absolute
@@ -110,7 +106,6 @@ const FiberRecognition = () => {
                 "
               />
 
-              {/* Vertical Line */}
               <span
                 className="
                   absolute
@@ -122,7 +117,6 @@ const FiberRecognition = () => {
                 "
               />
 
-              {/* Horizontal Line */}
               <span
                 className="
                   absolute
@@ -134,7 +128,6 @@ const FiberRecognition = () => {
                 "
               />
 
-              {/* Callout Text */}
               <div className="absolute left-[50px] top-[103px] w-[180px]">
                 <h4 className="text-[11px] font-bold uppercase leading-none text-[#1682FF]">
                   FIBER RECOGNITION
@@ -148,11 +141,11 @@ const FiberRecognition = () => {
                   on the connected fiber diameter.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
-        {/* ================= RIGHT SIDE ================= */}
+        {/*  RIGHT SIDE  */}
 
         <div className="relative z-20 mt-10 flex w-full flex-col lg:mt-0 lg:w-[50%] lg:pl-6 xl:pl-10">
           {/* Small Top Heading */}
@@ -203,7 +196,7 @@ const FiberRecognition = () => {
             connected fiber diameter.
           </p>
 
-          {/* ================= FEATURE CARDS ================= */}
+          {/* FEATURE CARDS  */}
 
           <div className="space-y-3">
             {features.map((feature) => {

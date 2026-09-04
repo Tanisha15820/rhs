@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Layout";
 import Homepage from "./Pages/HomePage";
 import Urology from "./Components/Products/Urology";
@@ -9,12 +9,20 @@ import ContactPage from "./Pages/ContactPage";
 import SmartXide from "./Pages/SmartXide";
 import SmartXideTouch from "./Pages/SmartXideTouch";
 import Gastro from "./Components/Products/Gastro";
-import Litho35Watt from "./Pages/Litho35Watt";
+import LithoEvo from "./Pages/LithoEvo";
+import Avicenna from "./Pages/Avicenna";
+import Multimed from "./Pages/Multimed";
+
+// Admin Imports
+import AdminLogin from "./Pages/Admin/AdminLogin";
+import AdminDashboard from "./Pages/Admin/AdminDashboard";
+import ProtectedRoute from "./Components/Admin/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public Website Routes (with standard Layout / Navbar / Footer) */}
         <Route element={<Layout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/urology" element={<Urology />} />
@@ -25,7 +33,21 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/smartxide" element={<SmartXide />} />
           <Route path="/smartxide-touch" element={<SmartXideTouch />} />
-          <Route path="/litho35watt" element={<Litho35Watt />} />
+          <Route path="/litho35watt" element={<LithoEvo />} />
+          <Route path="/avicenna" element={<Avicenna />} />
+          <Route path="/multimed" element={<Multimed />} />
+        </Route>
+
+        {/* Admin Public Route */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* Admin Protected Routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/admin"
+            element={<Navigate to="/admin/dashboard" replace />}
+          />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

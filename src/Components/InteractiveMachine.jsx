@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Monitor,
@@ -7,79 +7,47 @@ import {
   Move,
   ArrowRight,
   Sparkles,
+  Shield,
+  Activity,
 } from "lucide-react";
 
-import machineImage from "../assets/images/machine.png";
+import defaultMachineImage from "../assets/images/machine.png";
+import { getInteractiveMachineData } from "../utils/machineStorage";
+
+const ICON_MAP = {
+  Monitor,
+  Settings2,
+  Package,
+  Move,
+  Sparkles,
+  Shield,
+  Activity,
+};
 
 const InteractiveMachine = () => {
   const [activePart, setActivePart] = useState(null);
+  const [machineData, setMachineData] = useState(getInteractiveMachineData);
 
-  const parts = [
-    {
-      id: "display",
-      title: "Advanced Touch Display",
-      description:
-        "High-resolution touch display provides clear real-time monitoring and intuitive system control.",
-      icon: Monitor,
+  useEffect(() => {
+    const handleUpdate = () => {
+      setMachineData(getInteractiveMachineData());
+    };
 
-      top: "13%",
-      left: "51%",
+    window.addEventListener("rhs_machines_updated", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
 
-      cardPosition: "right",
-    },
+    return () => {
+      window.removeEventListener("rhs_machines_updated", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
 
-    {
-      id: "control",
-      title: "Control System",
-      description:
-        "Easy-to-use control interface designed for precise operation and quick access to essential settings.",
-      icon: Settings2,
+  const parts = (machineData.parts || []).map((p) => ({
+    ...p,
+    icon: typeof p.icon === "string" ? ICON_MAP[p.icon] || Sparkles : p.icon || Sparkles,
+  }));
 
-      top: "27%",
-      left: "50%",
-
-      cardPosition: "left",
-    },
-
-    {
-      id: "tray",
-      title: "Integrated Storage Tray",
-      description:
-        "Convenient integrated tray provides additional space for essential accessories during procedures.",
-      icon: Package,
-
-      top: "48%",
-      left: "50%",
-
-      cardPosition: "right",
-    },
-
-    {
-      id: "stand",
-      title: "Adjustable Stand",
-      description:
-        "Stable height-adjustable structure designed for comfortable positioning and efficient workflow.",
-      icon: Move,
-
-      top: "68%",
-      left: "50%",
-
-      cardPosition: "left",
-    },
-
-    {
-      id: "base",
-      title: "Stable Mobile Base",
-      description:
-        "Strong wheeled base provides stability while allowing smooth movement of the equipment.",
-      icon: Move,
-
-      top: "88%",
-      left: "50%",
-
-      cardPosition: "right",
-    },
-  ];
+  const currentImage = machineData.machineImage || defaultMachineImage;
 
   return (
     <section className="relative overflow-hidden bg-white py-20 md:py-28">
@@ -178,7 +146,7 @@ const InteractiveMachine = () => {
           }}
         >
           <img
-            src={machineImage}
+            src={currentImage}
             alt="Medical Machine"
             className="
               h-full

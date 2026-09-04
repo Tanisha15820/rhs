@@ -1,109 +1,77 @@
 import React, { useEffect, useState } from "react";
-// import BPMonitor from "../assets/images/BP_Monitor.png";
 import BipolarPlasmaGenerator from "../assets/images/bipolar_plasma_generator.png";
-// import InfraredThermometer from "../assets/images/Infrared_Thermometer.png";
 import DiodeLaser from "../assets/images/diode_laser.png";
-// import PulseOximeter from "../assets/images/Pulse_oximeter.png";
 import CyberBlade from "../assets/images/cyber_blade.png";
 import BladderScanner from "../assets/images/bladder_scanner.png";
 import FlexibleVideoURS from "../assets/images/flexible_video_urs.png";
 import EndoVisionSet from "../assets/images/endo_vision_set.png";
+import { getMachineProducts } from "../utils/machineStorage";
+
+const PRESET_MAP = {
+  bipolar_plasma_generator: BipolarPlasmaGenerator,
+  diode_laser: DiodeLaser,
+  cyber_blade: CyberBlade,
+  bladder_scanner: BladderScanner,
+  flexible_video_urs: FlexibleVideoURS,
+  endo_vision_set: EndoVisionSet,
+};
 
 const Products = () => {
-  const products = [
-    {
-      name: "Bipolar Plasma Generator",
-      image: BipolarPlasmaGenerator,
-      bg: "bg-[#F1EDFF]",
-      iconBg: "bg-[#E4DAFF]",
-      iconColor: "text-[#7357E8]",
-      lineColor: "bg-[#7357E8]",
-    },
-    {
-      name: "Diode Laser",
-      image: DiodeLaser,
-      bg: "bg-[#EDF9F7]",
-      iconBg: "bg-[#D5F2EC]",
-      iconColor: "text-[#1EAE9B]",
-      lineColor: "bg-[#1EAE9B]",
-    },
-    {
-      name: "CyberBlade",
-      image: CyberBlade,
-      bg: "bg-[#EEF5FF]",
-      iconBg: "bg-[#D9E8FF]",
-      iconColor: "text-[#4285E8]",
-      lineColor: "bg-[#4285E8]",
-    },
-    {
-      name: "Flexible Video URS",
-      image: FlexibleVideoURS,
-      bg: "bg-[#FFF1F5]",
-      iconBg: "bg-[#FFE0E9]",
-      iconColor: "text-[#F15B91]",
-      lineColor: "bg-[#F15B91]",
-    },
-    {
-      name: "Endo Vision Set",
-      image: EndoVisionSet,
-      bg: "bg-[#F4F0FF]",
-      iconBg: "bg-[#E6DDFF]",
-      iconColor: "text-[#7357E8]",
-      lineColor: "bg-[#7357E8]",
-    },
-    {
-      name: "Cyber Blade",
-      image: CyberBlade,
-      bg: "bg-[#EDF8FF]",
-      iconBg: "bg-[#DCEEFF]",
-      iconColor: "text-[#4285E8]",
-      lineColor: "bg-[#4285E8]",
-    },
-    {
-      name: "Bipolar Plasma Generator",
-      image: BipolarPlasmaGenerator,
-      bg: "bg-[#FFF1F5]",
-      iconBg: "bg-[#FFE0E9]",
-      iconColor: "text-[#F15B91]",
-      lineColor: "bg-[#F15B91]",
-    },
-    {
-      name: "Diode Laser",
-      image: DiodeLaser,
-      bg: "bg-[#F4F0FF]",
-      iconBg: "bg-[#E6DDFF]",
-      iconColor: "text-[#7357E8]",
-      lineColor: "bg-[#7357E8]",
-    },
-    {
-      name: "Cyber Blade",
-      image: CyberBlade,
-      bg: "bg-[#EDF8FF]",
-      iconBg: "bg-[#DCEEFF]",
-      iconColor: "text-[#4285E8]",
-      lineColor: "bg-[#4285E8]",
-    },
-  ];
+  const [productsData, setProductsData] = useState(getMachineProducts);
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setProductsData(getMachineProducts());
+    };
+
+    window.addEventListener("rhs_machines_updated", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+
+    return () => {
+      window.removeEventListener("rhs_machines_updated", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
+  const products = productsData.map((item) => ({
+    ...item,
+    image: item.image || PRESET_MAP[item.presetImageKey] || BipolarPlasmaGenerator,
+    bg: item.bg || "bg-[#EEF5FF]",
+    iconBg: item.iconBg || "bg-[#D9E8FF]",
+    iconColor: item.iconColor || "text-[#4285E8]",
+    lineColor: item.lineColor || "bg-[#4285E8]",
+  }));
 
   const [startIndex, setStartIndex] = useState(0);
 
+  const maxStartIndex = Math.max(0, products.length - 5);
+
   const nextSlide = () => {
-    setStartIndex((prev) => (prev >= products.length - 5 ? 0 : prev + 1));
+    if (products.length <= 5) return;
+    setStartIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setStartIndex((prev) => (prev <= 0 ? products.length - 5 : prev - 1));
+    if (products.length <= 5) return;
+    setStartIndex((prev) => (prev <= 0 ? maxStartIndex : prev - 1));
   };
 
   useEffect(() => {
+    if (products.length <= 5) {
+      setStartIndex(0);
+      return;
+    }
     const interval = setInterval(() => {
-      setStartIndex((prev) => (prev >= products.length - 5 ? 0 : prev + 1));
+      setStartIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
     }, 3500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [products.length, maxStartIndex]);
 
-  const visibleProducts = products.slice(startIndex, startIndex + 5);
+  const visibleProducts =
+    products.length <= 5
+      ? products
+      : products.slice(startIndex, startIndex + 5);
 
   return (
     <section className="relative overflow-hidden bg-[#F9FBFF] py-16 sm:py-20">

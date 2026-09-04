@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
-// MUI Icons
 import HomeIcon from "@mui/icons-material/Home";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
@@ -17,6 +15,7 @@ import AirIcon from "@mui/icons-material/Air";
 import HearingIcon from "@mui/icons-material/Hearing";
 import SpaIcon from "@mui/icons-material/Spa";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import LoginIcon from "@mui/icons-material/Login";
 import logo from "../assets/images/compressed_rhs_logo.png";
 
 const ACTIVE_LINK = "bg-primary/10 text-primary-dark";
@@ -39,7 +38,12 @@ const SPECIALTIES = [
     defaultCategory: "Surgical Laser",
     path: "/urology",
   },
-  { name: "Gastro", icon: SpaIcon, defaultCategory: "Gastro Products", path: "/gastro" },
+  {
+    name: "Gastro",
+    icon: SpaIcon,
+    defaultCategory: "Gastro Products",
+    path: "/gastro",
+  },
 ];
 
 const CATEGORIES = {
@@ -105,12 +109,10 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // check active page
-
   const isProducts =
     pathname === "/urology" || pathname.startsWith("/products");
 
   // close mobile menu
-
   const closeMobileMenu = () => {
     setMobileMenu(false);
     setProductsOpen(false);
@@ -229,7 +231,6 @@ const Navbar = () => {
                       </button>
 
                       {/*  UROLOGY  */}
-
                       <button
                         type="button"
                         onMouseEnter={() => {
@@ -254,7 +255,6 @@ const Navbar = () => {
                           />
                           Urology
                         </span>
-
                         <ChevronRightIcon
                           sx={{ fontSize: 17 }}
                           className="text-blue-500"
@@ -262,7 +262,6 @@ const Navbar = () => {
                       </button>
 
                       {/*GASTRO*/}
-
                       <button
                         type="button"
                         onMouseEnter={() => {
@@ -287,12 +286,11 @@ const Navbar = () => {
                           />
                           Gastro
                         </span>
-
                         <ChevronRightIcon sx={{ fontSize: 17 }} />
                       </button>
                     </div>
 
-                    {/* COLUMN 2  CATEGORIES */}
+                    {/*  CATEGORIES */}
 
                     <div className="border-r border-gray-100 px-5">
                       {/* Heading */}
@@ -641,9 +639,8 @@ const Navbar = () => {
 
         {/*  DESKTOP RIGHT SIDE*/}
 
-        <div className="hidden items-center gap-2.5 lg:flex">
-          {/* GET A QUOTE */}
-
+        <div className="hidden items-center gap-2.5lg:flex">
+          {/* GET A QUOTE */}śndyd.ṅṭṭr̥r̥ñūūīṅr̥ḍ
           <button
             type="button"
             className="flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-dark px-6 py-3 text-[13px] font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
@@ -652,9 +649,7 @@ const Navbar = () => {
 
             <span>Get a Quote</span>
           </button>
-
           {/* SEARCH */}
-
           <button
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/5 text-primary-dark transition-all duration-200 hover:bg-primary/10"
@@ -682,16 +677,12 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* =====================================================
-          MOBILE MENU
-      ===================================================== */}
+      {/* MOBILE MENU */}
 
       {mobileMenu && (
         <div className="mx-auto mt-3 max-w-7xl rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden">
           <nav className="flex flex-col gap-1">
-            {/* -------------------------------------------------
-                HOME
-            ------------------------------------------------- */}
+            {/*   HOME */}
 
             <a
               href="/"
@@ -704,9 +695,7 @@ const Navbar = () => {
               Home
             </a>
 
-            {/* -------------------------------------------------
-                PRODUCTS
-            ------------------------------------------------- */}
+            {/* PRODUCTS */}
 
             <div>
               <button
@@ -814,7 +803,6 @@ const Navbar = () => {
                   </div>
 
                   {/* PRODUCTS */}
-
                   <div className="rounded-xl bg-gray-50/70 py-2">
                     <p className="mb-1 px-3 text-[11px] font-bold uppercase tracking-wider text-gray-400">
                       {selectedCategory}
@@ -948,6 +936,22 @@ const Navbar = () => {
               <ContactPhoneIcon sx={{ fontSize: 20 }} />
               Contact Us
             </a>
+
+            {/* -------------------------------------------------
+                LOGIN
+            ------------------------------------------------- */}
+
+            <button
+              type="button"
+              onClick={() => {
+                navigate("/login");
+                closeMobileMenu();
+              }}
+              className="flex items-center gap-2 rounded-xl px-4 py-3.5 text-base font-medium text-gray-700 hover:bg-primary/5"
+            >
+              <LoginIcon sx={{ fontSize: 20 }} />
+              Login
+            </button>
 
             {/* -------------------------------------------------
                 GET A QUOTE

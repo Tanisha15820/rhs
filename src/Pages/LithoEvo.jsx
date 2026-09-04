@@ -80,7 +80,7 @@ const MobileFeatureCard = ({ number, description, image }) => {
   );
 };
 
-const Litho35Watt = () => {
+const LithoEvo = () => {
   return (
     <div className="bg-white">
       {/* Product Banner */}
@@ -274,4 +274,4 @@ const Litho35Watt = () => {
   );
 };
 
-export default Litho35Watt;
+export default LithoEvo;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 // import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
@@ -14,27 +15,49 @@ import TestimonialSection from "../Components/TestimonialSection";
 import FAQ from "../Components/FAQ";
 import Clients from "../Components/Clients";
 import SEO from "../Components/SEO";
+import { getAllBanners } from "../utils/bannerStorage";
 
 import { ORGANIZATION_SCHEMA } from "../config/seo";
 
-const bannerSlides = [
-  {
-    image: homeBanner,
-    headingLine1: "Quality Equipment.",
-    headingHighlight: "Better Healthcare.",
-    description:
-      "Reinforce Healthcare Services delivers quality medical equipment and innovative solutions designed to support healthcare professionals across multiple specialties.",
-  },
-  {
-    image: homeBg1,
-    headingLine1: "LithoPulse",
-    headingHighlight: "35W",
-    singleLine: true,
-    description: "Compact laser system for precise clinical performance",
-  },
-];
+const defaultSlideImages = [homeBanner, homeBg1];
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  // Dynamic banner slides from localStorage
+  const [slidesData, setSlidesData] = useState(getAllBanners);
+
+  // Sync banner data dynamically when updated in Admin Dashboard
+  useEffect(() => {
+    const handleUpdate = () => {
+      const fresh = getAllBanners();
+      setSlidesData(fresh);
+    };
+
+    window.addEventListener("rhs_banner_updated", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+
+    return () => {
+      window.removeEventListener("rhs_banner_updated", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
+  const bannerSlides = slidesData.map((slide, idx) => ({
+    ...slide,
+    image: slide.image || defaultSlideImages[idx % defaultSlideImages.length],
+    smallHeading: slide.smallHeading || "Trusted Healthcare Services",
+    headingLine1: slide.headingLine1 || "Quality Equipment.",
+    headingHighlight: slide.headingHighlight || "Better Healthcare.",
+    singleLine: slide.singleLine || false,
+    description:
+      slide.description ||
+      "Reinforce Healthcare Services delivers quality medical equipment and innovative solutions.",
+    primaryBtnText: slide.primaryBtnText || "Book an Appointment",
+    primaryBtnLink: slide.primaryBtnLink || "/contact",
+    secondaryBtnText: slide.secondaryBtnText || "Explore Products",
+    secondaryBtnLink: slide.secondaryBtnLink || "/machine",
+  }));
+
   // Numbers for the four statistics cards
   const [counts, setCounts] = useState({
     categories: 0,
@@ -46,14 +69,22 @@ const HomePage = () => {
   // Active slide of the hero banner slider
   const [activeSlide, setActiveSlide] = useState(0);
 
+  // Keep activeSlide in bounds
+  useEffect(() => {
+    if (activeSlide >= bannerSlides.length) {
+      setActiveSlide(0);
+    }
+  }, [bannerSlides.length, activeSlide]);
+
   // Auto-rotate the banner slides
   useEffect(() => {
+    if (bannerSlides.length <= 1) return;
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % bannerSlides.length);
     }, 6000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [bannerSlides.length]);
 
   // Start number animation when the page loads
   useEffect(() => {
@@ -109,7 +140,7 @@ const HomePage = () => {
               />
 
               <span className="text-sm font-medium text-slate-600">
-                Trusted Healthcare Services
+                {bannerSlides[activeSlide].smallHeading || "Trusted Healthcare Services"}
               </span>
             </div>
 
@@ -201,19 +232,35 @@ const HomePage = () => {
               {/* Appointment Button */}
               <button
                 type="button"
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto"
+                onClick={() => {
+                  const link = bannerSlides[activeSlide].primaryBtnLink || "/contact";
+                  if (link.startsWith("http://") || link.startsWith("https://")) {
+                    window.open(link, "_blank", "noopener,noreferrer");
+                  } else {
+                    navigate(link);
+                  }
+                }}
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto cursor-pointer"
               >
-                Book an Appointment
+                {bannerSlides[activeSlide].primaryBtnText || "Book an Appointment"}
                 <ArrowForwardIcon style={{ fontSize: 18 }} />
               </button>
 
-              {/* Video Button */}
+              {/* Secondary Button */}
               <button
                 type="button"
-                className="flex w-full items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-5 py-3 text-sm font-semibold text-primary-dark backdrop-blur-sm transition-all duration-300 hover:bg-white sm:w-auto"
+                onClick={() => {
+                  const link = bannerSlides[activeSlide].secondaryBtnLink || "/machine";
+                  if (link.startsWith("http://") || link.startsWith("https://")) {
+                    window.open(link, "_blank", "noopener,noreferrer");
+                  } else {
+                    navigate(link);
+                  }
+                }}
+                className="flex w-full items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-5 py-3 text-sm font-semibold text-primary-dark backdrop-blur-sm transition-all duration-300 hover:bg-white sm:w-auto cursor-pointer"
               >
                 <ArrowForwardIcon style={{ fontSize: 18 }} />
-                Explore Products
+                {bannerSlides[activeSlide].secondaryBtnText || "Explore Products"}
               </button>
             </div>
           </div>
