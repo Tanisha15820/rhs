@@ -3,19 +3,21 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import multimedImg from "../assets/images/multimed.png";
-import suiteImg from "../assets/images/multimed_suite.jpg";
-import therapyHeadImg from "../assets/images/multimed_therapy_head.jpg";
+import machineImg from "../assets/images/vibrolith_machine.png";
+import handpieceImg from "../assets/images/vibrolith_handpiece.jpg";
+import cartImg from "../assets/images/vibrolith_cart.jpg";
+import procedureImg from "../assets/images/vibrolith_procedure.jpg";
 
-import MultimedAbout from "../Components/Multimed/MultimedAbout";
-import MultimedTherapyHead from "../Components/Multimed/MultimedTherapyHead";
-import MultimedTable from "../Components/Multimed/MultimedTable";
-import MultimedSpecs from "../Components/Multimed/MultimedSpecs";
+import VibrolithBenefits from "../Components/Vibrolith/VibrolithBenefits";
+import VibrolithProcedures from "../Components/Vibrolith/VibrolithProcedures";
+import VibrolithSystem from "../Components/Vibrolith/VibrolithSystem";
+import VibrolithHandpiece from "../Components/Vibrolith/VibrolithHandpiece";
+import VibrolithSpecs from "../Components/Vibrolith/VibrolithSpecs";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
     <div
-      className={`absolute hidden xl:block w-[300px] h-[105px] rounded-[22px] border border-white bg-white/95 shadow-[0_12px_35px_rgba(70,130,190,0.16)] backdrop-blur-md ${position}`}
+      className={`absolute hidden xl:block w-[295px] h-[105px] rounded-[22px] border border-white bg-white/95 shadow-[0_12px_35px_rgba(70,130,190,0.16)] backdrop-blur-md ${position}`}
     >
       <div className="absolute left-0 top-0 z-20 flex h-[44px] w-[58px] items-center justify-center rounded-br-[22px] rounded-tl-[22px] bg-primary">
         <span className="text-lg font-bold text-white">{number}</span>
@@ -72,13 +74,13 @@ const MobileFeatureCard = ({ number, title, description, image }) => {
   );
 };
 
-const Multimed = () => {
+const Vibrolith = () => {
   return (
     <div className="bg-white">
       <SEO
-        title="MULTIMED EM - Electro-Magnetic Shock Wave Lithotripsy System | Reinforce Healthcare Services"
-        description="Explore the ELMED MULTIMED EM ESWL lithotripsy system featuring dual fluoroscopy and robotic ultrasound localization, 6-way treatment table, and outpatient stone therapy."
-        keywords="MULTIMED EM, ESWL lithotripsy, electromagnetic shock wave, ELMED Multimed, Lithoarm robotic arm, urology lithotripsy rental"
+        title="Vibrolith® Pneumatic Lithotripter - ELMED Medical Systems | Reinforce Healthcare Services"
+        description="Vibrolith pneumatic intracorporeal lithotripter by ELMED for safe, non-thermal endoscopic stone fragmentation in PNL, URS, and cystolithotripsy procedures."
+        keywords="Vibrolith, pneumatic lithotripter, ELMED Vibrolith, intracorporeal lithotripsy, urology stone lithotripter, medical equipment rental"
       />
 
       {/* Hero Banner (Avicenna style) */}
@@ -86,7 +88,7 @@ const Multimed = () => {
         <div className="absolute inset-0 z-0">
           <img
             src={bannerBg}
-            alt="Multimed EM Background"
+            alt="Vibrolith Background"
             className="h-full w-full object-cover"
           />
         </div>
@@ -98,21 +100,21 @@ const Multimed = () => {
             <div className="mb-3 flex items-center justify-center gap-4">
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
               <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary sm:text-sm">
-                ELMED MEDICAL SYSTEMS • EXTRACORPOREAL LITHOTRIPSY
+                ELMED INTRACORPOREAL LITHOTRIPSY
               </span>
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight text-[#102A43] sm:text-4xl md:text-5xl">
-              MULTIMED{" "}
+              VIBROLITH{" "}
               <span className="bg-gradient-to-r from-[#19A8E8] to-[#2525B8] bg-clip-text text-transparent">
-                EM
+                Pneumatic
               </span>
             </h1>
 
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 lg:text-base">
-              Electro-Magnetic Extracorporeal Shock Wave Lithotripsy (ESWL) System.
-              The complete solution to the lithotripsy world with robotic precision.
+              Electro-Pneumatic Ballistic Lithotripter for precise, tissue-friendly
+              urinary stone disintegration across kidney, ureter, and bladder.
             </p>
           </div>
 
@@ -120,30 +122,30 @@ const Multimed = () => {
           <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
             <FeatureCard
               number="01"
-              title="4 AP/PA Treatment Angles"
-              description="Supine & prone therapy from top/bottom without displacing the focal point."
-              image={multimedImg}
+              title="Safe & Tissue-Friendly"
+              description="Zero thermal injury, eliminating risk to mucosal tissue or scope optics."
+              image={machineImg}
               position="left-6 top-16"
             />
             <FeatureCard
               number="02"
-              title="Degassing Water Circuit"
-              description="Heated 30°C–36°C with micro-bubble elimination for acoustic efficiency."
-              image={therapyHeadImg}
+              title="Multi-Caliber Probes"
+              description="Reusable steel probes from 0.8 mm to 2.0 mm for PNL, URS & Bladder."
+              image={handpieceImg}
               position="bottom-14 left-6"
             />
             <FeatureCard
               number="03"
-              title="Dual X-Ray & Ultrasound"
-              description="Simultaneous localization with LITHOSCOPE U-Arm and LITHOARM robotics."
-              image={suiteImg}
+              title="Mobile Compressor Cart"
+              description="Compatible with central hospital air or silent mobile compressor cart."
+              image={cartImg}
               position="top-16 right-6"
             />
             <FeatureCard
               number="04"
-              title="6-Way Motorized Table"
-              description="Radiolucent table with Trendelenburg tilt for ESWL and endourology."
-              image={multimedImg}
+              title="Endoscopic Suction"
+              description="Optional suction adapter for instant stone particle evacuation."
+              image={procedureImg}
               position="bottom-14 right-6"
             />
 
@@ -173,12 +175,12 @@ const Multimed = () => {
             </div>
 
             {/* Central Machine - Desktop */}
-            <div className="relative mx-auto hidden h-[390px] w-full max-w-[520px] items-end justify-center sm:h-[430px] lg:flex lg:h-[490px]">
+            <div className="relative mx-auto hidden h-[380px] w-full max-w-[520px] items-end justify-center sm:h-[420px] lg:flex lg:h-[480px]">
               <div className="absolute bottom-10 left-1/2 h-36 w-60 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
               <motion.img
-                src={multimedImg}
-                alt="Multimed EM Shockwave Lithotripsy System"
-                className="relative z-10 h-[370px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] lg:h-[450px]"
+                src={machineImg}
+                alt="Vibrolith Pneumatic Lithotripter System"
+                className="relative z-10 h-[360px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] lg:h-[430px]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -189,9 +191,9 @@ const Multimed = () => {
             <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 lg:hidden">
               <div className="absolute bottom-6 left-1/2 h-24 w-44 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
               <motion.img
-                src={multimedImg}
-                alt="Multimed EM Shockwave Lithotripsy System"
-                className="relative z-10 h-[250px] w-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)]"
+                src={machineImg}
+                alt="Vibrolith Pneumatic Lithotripter System"
+                className="relative z-10 h-[240px] w-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -202,27 +204,27 @@ const Multimed = () => {
             <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 lg:hidden">
               <MobileFeatureCard
                 number="01"
-                title="4 AP/PA Treatment Angles"
-                description="Supine & prone therapy from top/bottom without moving focus."
-                image={multimedImg}
+                title="Safe & Tissue-Friendly"
+                description="Zero thermal injury, eliminating risk to mucosa and scope optics."
+                image={machineImg}
               />
               <MobileFeatureCard
                 number="02"
-                title="Degassing Water Circuit"
-                description="Heated 30°C–36°C with micro-bubble elimination."
-                image={therapyHeadImg}
+                title="Multi-Caliber Probes"
+                description="Reusable steel probes from 0.8 mm to 2.0 mm for all procedures."
+                image={handpieceImg}
               />
               <MobileFeatureCard
                 number="03"
-                title="Dual X-Ray & Ultrasound"
-                description="Simultaneous localization with LITHOSCOPE & LITHOARM."
-                image={suiteImg}
+                title="Mobile Compressor Cart"
+                description="Compatible with central air or dedicated silent compressor."
+                image={cartImg}
               />
               <MobileFeatureCard
                 number="04"
-                title="6-Way Motorized Table"
-                description="Radiolucent table with Trendelenburg tilt for ESWL & endourology."
-                image={multimedImg}
+                title="Endoscopic Suction"
+                description="Optional suction adapter for simultaneous stone evacuation."
+                image={procedureImg}
               />
             </div>
           </div>
@@ -230,12 +232,13 @@ const Multimed = () => {
       </section>
 
       {/* Main Sections */}
-      <MultimedAbout />
-      <MultimedTherapyHead />
-      <MultimedTable />
-      <MultimedSpecs />
+      <VibrolithBenefits />
+      <VibrolithProcedures />
+      <VibrolithSystem />
+      <VibrolithHandpiece />
+      <VibrolithSpecs />
     </div>
   );
 };
 
-export default Multimed;
+export default Vibrolith;

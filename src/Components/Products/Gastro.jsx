@@ -1,18 +1,18 @@
 import GastroBg from "../../assets/images/gastro_banner.png";
 import diodeLaser from "../../assets/images/diode_laser.png";
+import Litho35 from "../../assets/images/litho35_machine.png";
 import LithoEVO from "../../assets/images/Litho_evo.png";
-import SmartXideTouchSurgiCO from "../../assets/images/SmartXideTouchSurgiCO.png";
 import ProductsPage from "../../Pages/ProductsPage";
 
 const Gastro = () => {
   const products = [
     {
       name: "LITHO 35 WATT",
-      image: LithoEVO,
+      image: Litho35,
     },
     {
       name: "LITHO EVO 35 WATT",
-      image: SmartXideTouchSurgiCO,
+      image: LithoEVO,
     },
   ];
 

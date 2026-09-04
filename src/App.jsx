@@ -10,8 +10,10 @@ import SmartXide from "./Pages/SmartXide";
 import SmartXideTouch from "./Pages/SmartXideTouch";
 import Gastro from "./Components/Products/Gastro";
 import LithoEvo from "./Pages/LithoEvo";
+import Litho35Watt from "./Pages/Litho35Watt";
 import Avicenna from "./Pages/Avicenna";
 import Multimed from "./Pages/Multimed";
+import Vibrolith from "./Pages/Vibrolith";
 
 // Admin Imports
 import AdminLogin from "./Pages/Admin/AdminLogin";
@@ -33,9 +35,12 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/smartxide" element={<SmartXide />} />
           <Route path="/smartxide-touch" element={<SmartXideTouch />} />
-          <Route path="/litho35watt" element={<LithoEvo />} />
+          <Route path="/litho35watt" element={<Litho35Watt />} />
+          <Route path="/lithoevo35watt" element={<LithoEvo />} />
+          <Route path="/litho-evo" element={<LithoEvo />} />
           <Route path="/avicenna" element={<Avicenna />} />
           <Route path="/multimed" element={<Multimed />} />
+          <Route path="/vibrolith" element={<Vibrolith />} />
         </Route>
 
         {/* Admin Public Route */}

@@ -15,7 +15,6 @@ import AirIcon from "@mui/icons-material/Air";
 import HearingIcon from "@mui/icons-material/Hearing";
 import SpaIcon from "@mui/icons-material/Spa";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import LoginIcon from "@mui/icons-material/Login";
 import logo from "../assets/images/compressed_rhs_logo.png";
 
 const ACTIVE_LINK = "bg-primary/10 text-primary-dark";
@@ -47,7 +46,7 @@ const SPECIALTIES = [
 ];
 
 const CATEGORIES = {
-  ENT: ["ENT Products", "ENT Endoscopy"],
+  ENT: ["ENT Products", "ENT Endoscopy", "Elmed"],
   Urology: [
     "Surgical Laser",
     "Urodynamic System & Uroflowmetry",
@@ -93,6 +92,25 @@ const GASTRO_LASER_SUBTYPES = [
   },
 ];
 
+const ELMED_SUBTYPES = [
+  {
+    name: "Multimed",
+    path: "/multimed",
+  },
+  {
+    name: "Vibrolith",
+    path: "/vibrolith",
+  },
+  {
+    name: "Vibrolith Ortho",
+    path: "/vibrolith-ortho",
+  },
+  {
+    name: "Vibrolith Plus",
+    path: "/vibrolith-plus",
+  },
+];
+
 const Navbar = () => {
   // Mobile menu open/close
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -119,8 +137,8 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full bg-background px-3 py-4 md:px-5">
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
+    <header className="relative z-50 w-full bg-background px-3 py-4 md:px-5">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
         {/* LOGO*/}
 
         <a href="/" className="flex items-center gap-3">
@@ -141,7 +159,7 @@ const Navbar = () => {
         </a>
 
         {/* DESKTOP NAVIGATION*/}
-        <nav className="hidden items-center gap-0.5 lg:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex lg:absolute lg:left-1/2 lg:-translate-x-1/2">
           {/* HOME */}
 
           <a
@@ -342,6 +360,29 @@ const Navbar = () => {
                             <span>ENT HEAD & NECK ONCOLOGY</span>
 
                             <ChevronRightIcon sx={{ fontSize: 17 }} />
+                          </button>
+
+                          <button
+                            type="button"
+                            onMouseEnter={() =>
+                              setSelectedCategory("Elmed")
+                            }
+                            className={`group flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[12px] transition-all ${
+                              selectedCategory === "Elmed"
+                                ? "bg-blue-50 font-semibold text-blue-600"
+                                : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                          >
+                            <span>Elmed</span>
+
+                            <ChevronRightIcon
+                              sx={{ fontSize: 17 }}
+                              className={
+                                selectedCategory === "Elmed"
+                                  ? "text-blue-500"
+                                  : "text-gray-400"
+                              }
+                            />
                           </button>
                         </>
                       )}
@@ -573,6 +614,24 @@ const Navbar = () => {
                       {selectedCategory === "Gastro Laser" && (
                         <div className="grid grid-cols-1 gap-x-4">
                           {GASTRO_LASER_SUBTYPES.map((subtype) => (
+                            <a
+                              key={subtype.name}
+                              href={subtype.path}
+                              className="group flex items-start gap-1 py-2 text-[12px] leading-4 text-gray-600 transition-colors hover:text-blue-600"
+                            >
+                              <ChevronRightIcon
+                                sx={{ fontSize: 15 }}
+                                className="mt-0.5 shrink-0 text-blue-500"
+                              />
+                              {subtype.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+
+                      {selectedCategory === "Elmed" && (
+                        <div className="grid grid-cols-1 gap-x-4">
+                          {ELMED_SUBTYPES.map((subtype) => (
                             <a
                               key={subtype.name}
                               href={subtype.path}
@@ -844,26 +903,29 @@ const Navbar = () => {
                         </a>
                       ))}
 
+                    {selectedCategory === "Elmed" &&
+                      ELMED_SUBTYPES.map((subtype) => (
+                        <a
+                          key={subtype.name}
+                          href={subtype.path}
+                          onClick={closeMobileMenu}
+                          className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
+                        >
+                          {subtype.name}
+                        </a>
+                      ))}
+
                     {selectedCategory !== "Surgical Laser" &&
                       selectedCategory !== "ENT Laser" &&
-                      selectedCategory !== "Gastro Laser" && (
-                        <>
-                          <a
-                            href="/urology"
-                            onClick={closeMobileMenu}
-                            className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                          >
-                            View {selectedCategory}
-                          </a>
-
-                          <a
-                            href="/urology"
-                            onClick={closeMobileMenu}
-                            className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
-                          >
-                            Explore Products
-                          </a>
-                        </>
+                      selectedCategory !== "Gastro Laser" &&
+                      selectedCategory !== "Elmed" && (
+                        <a
+                          href="/urology"
+                          onClick={closeMobileMenu}
+                          className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary"
+                        >
+                          View {selectedCategory}
+                        </a>
                       )}
                   </div>
                 </div>
@@ -912,19 +974,6 @@ const Navbar = () => {
             </a>
 
             {/* -------------------------------------------------
-                CATALOGUES
-            ------------------------------------------------- */}
-
-            <a
-              href="/resources"
-              onClick={closeMobileMenu}
-              className="flex items-center gap-2 rounded-xl px-4 py-3.5 text-base font-medium text-gray-700 hover:bg-primary/5"
-            >
-              <ArticleIcon sx={{ fontSize: 20 }} />
-              Catalogues
-            </a>
-
-            {/* -------------------------------------------------
                 CONTACT
             ------------------------------------------------- */}
 
@@ -937,33 +986,6 @@ const Navbar = () => {
               Contact Us
             </a>
 
-            {/* -------------------------------------------------
-                LOGIN
-            ------------------------------------------------- */}
-
-            <button
-              type="button"
-              onClick={() => {
-                navigate("/login");
-                closeMobileMenu();
-              }}
-              className="flex items-center gap-2 rounded-xl px-4 py-3.5 text-base font-medium text-gray-700 hover:bg-primary/5"
-            >
-              <LoginIcon sx={{ fontSize: 20 }} />
-              Login
-            </button>
-
-            {/* -------------------------------------------------
-                GET A QUOTE
-            ------------------------------------------------- */}
-
-            <button
-              type="button"
-              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/30"
-            >
-              <CalendarMonthIcon sx={{ fontSize: 20 }} />
-              Get a Quote
-            </button>
           </nav>
         </div>
       )}

@@ -1,6 +1,7 @@
 import urologyBg from "../../assets/images/urology_banner_1.png";
 import bipolarPlasmaGenerator from "../../assets/images/bipolar_plasma_generator.png";
 import diodeLaser from "../../assets/images/diode_laser.png";
+import multimedImg from "../../assets/images/multimed.png";
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";
 
@@ -16,7 +17,7 @@ const Urology = () => {
     },
     {
       name: "ESWL Extracorporeal Shock Wave Lithotripsy",
-      image: bipolarPlasmaGenerator,
+      image: multimedImg,
     },
     {
       name: "Endo Urology UMD Endoscopy",

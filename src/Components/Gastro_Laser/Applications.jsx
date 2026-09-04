@@ -1,5 +1,6 @@
 import React from "react";
-import humanImage from "../../assets/images/human.png";
+
+import humanImage from "../../assets/images/human_bg.png";
 import entIcon from "../../assets/images/entt.png";
 import gastroIcon from "../../assets/images/gastroenterology.png";
 import generalSurgeryIcon from "../../assets/images/entt.png";
@@ -12,7 +13,8 @@ const Applications = () => {
     {
       number: "01",
       title: "ENT",
-      description: "Precision solutions for ear, nose and throat procedures.",
+      description:
+        "Accurate solutions for a wide range of ear, nose and throat procedures.",
       icon: entIcon,
     },
     {
@@ -26,7 +28,7 @@ const Applications = () => {
       number: "03",
       title: "GENERAL SURGERY",
       description:
-        "Versatile performance for a wide range of surgical applications.",
+        "Versatile performance for a variety of surgical applications.",
       icon: generalSurgeryIcon,
     },
     {
@@ -38,21 +40,58 @@ const Applications = () => {
     {
       number: "05",
       title: "ARTHROSCOPY",
-      description: "Enhanced visualization and precision for joint procedures.",
+      description:
+        "Enhanced visualization and control for key joint procedures.",
       icon: arthroscopyIcon,
     },
     {
       number: "06",
       title: "UROLOGY",
       description:
-        "Lithotripsy, BPH, tumors, bladder, kidney and ureteral structures.",
+        "Effective solutions for bladder, kidney and urinary treatments.",
       icon: urologyIcon,
     },
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white">
-      {/* ================= MAIN CONTAINER ================= */}
+    <section className="relative overflow-hidden bg-[#F8FCFF]">
+      {/* =====================================================
+          BACKGROUND
+      ====================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[-180px]
+          top-[-180px]
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[#EAF7FF]
+          opacity-70
+          blur-[2px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-[-150px]
+          right-[20%]
+          h-[300px]
+          w-[400px]
+          rounded-full
+          bg-[#E7F7FF]
+          opacity-70
+          blur-[80px]
+        "
+      />
+
+      {/* =====================================================
+          MAIN
+      ====================================================== */}
 
       <div
         className="
@@ -60,65 +99,112 @@ const Applications = () => {
           z-10
           mx-auto
           flex
-          min-h-screen
-          max-w-[1600px]
-          flex-col
+          min-h-[620px]
+          max-w-[1450px]
+          items-center
           px-6
-          py-14
+          py-12
           sm:px-10
-          lg:flex-row
-          lg:items-center
-          lg:px-12
+          lg:px-14
           xl:px-16
         "
       >
-        {/* ================= LEFT CONTENT ================= */}
+        {/* =================================================
+            LEFT CONTENT
+        ================================================== */}
 
-        <div className="relative z-20 w-full lg:w-[52%]">
+        <div
+          className="
+            relative
+            z-20
+            w-full
+            lg:w-[59%]
+            xl:w-[58%]
+          "
+        >
           {/* Small Heading */}
 
-          <div className="mb-5 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-3">
             <span className="h-[2px] w-8 bg-[#1CA7E9]" />
 
-            <p className="text-xs font-bold uppercase tracking-wider text-[#20AFA7] sm:text-sm">
+            <p
+              className="
+                text-[11px]
+                font-bold
+                uppercase
+                tracking-[0.16em]
+                text-[#526B86]
+              "
+            >
               Applications
             </p>
-
-            <span className="h-px w-8 bg-[#20B7AE]" />
           </div>
 
           {/* Main Heading */}
 
           <h1
             className="
-              max-w-[600px]
-              text-3xl
+              max-w-[650px]
+              text-[40px]
               font-bold
-              leading-tight
-              tracking-tight
-              text-[#102A43]
-              sm:text-4xl
-              md:text-5xl
+              leading-[1.08]
+              tracking-[-1.2px]
+              text-[#0B2D55]
+              sm:text-[46px]
+              md:text-[50px]
+              lg:text-[48px]
+              xl:text-[52px]
             "
           >
             <span className="block">Precision Technology.</span>
 
-            <span className="bg-gradient-to-r from-[#19A8E8] to-[#2525B8] bg-clip-text text-transparent">
+            <span
+              className="
+                block
+                bg-gradient-to-r
+                from-[#159EE8]
+                to-[#2928B8]
+                bg-clip-text
+                text-transparent
+              "
+            >
               Limitless Possibilities.
             </span>
           </h1>
 
           {/* Description */}
 
-          <p className="mb-7 max-w-lg text-sm leading-6 text-[#697A94] sm:text-base sm:leading-7">
-            Litho EVO can be used to perform incision, resection, ablation,
-            vaporization, coagulation and hemostasis of soft tissue and in
-            lithotripsy of stones in various medical specialties.
+          <p
+            className="
+              mt-4
+              max-w-[610px]
+              text-[13px]
+              leading-[21px]
+              text-[#64788F]
+              sm:text-[14px]
+              sm:leading-[22px]
+            "
+          >
+            Designed to support complex procedures with accuracy, safety and
+            ease, our solutions support a wide range of clinical applications
+            across modern medical specialties.
           </p>
 
-          {/* ================= APPLICATION CARDS ================= */}
+          {/* =================================================
+              CARDS
+          ================================================== */}
 
-          <div className="grid max-w-[620px] grid-cols-1 gap-4 sm:grid-cols-2">
+          <div
+            className="
+              mt-7
+              grid
+              max-w-[700px]
+              grid-cols-1
+              gap-3
+              sm:grid-cols-2
+              sm:gap-3
+            "
+          >
             {applications.map((application) => (
               <div
                 key={application.number}
@@ -126,54 +212,62 @@ const Applications = () => {
                   group
                   relative
                   flex
-                  min-h-[120px]
+                  h-[88px]
                   items-center
                   overflow-hidden
-                  rounded-xl
+                  rounded-[10px]
                   border
-                  border-[#E2ECF7]
+                  border-[#DCE9F5]
                   bg-white
-                  px-5
-                  py-5
-                  shadow-[0_4px_20px_rgba(50,100,180,0.08)]
+                  px-4
+                  shadow-[0_5px_18px_rgba(35,91,140,0.07)]
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:border-[#147BFF]/50
-                  hover:shadow-[0_8px_30px_rgba(20,123,255,0.15)]
+                  hover:border-[#4DBAFF]
+                  hover:shadow-[0_8px_25px_rgba(25,151,230,0.14)]
                 "
               >
                 {/* Left Blue Line */}
 
-                <div
+                <span
                   className="
                     absolute
                     left-0
                     top-0
                     h-full
                     w-[3px]
-                    bg-[#147BFF]
+                    bg-[#159FFF]
                   "
                 />
 
-                {/* Icon */}
+                {/* ICON */}
 
                 <div
                   className="
+                    ml-1
                     flex
-                    h-20
-                    w-20
+                    h-[58px]
+                    w-[58px]
                     shrink-0
                     items-center
                     justify-center
+                    rounded-full
+                    bg-[#F2F8FF]
+                    ring-1
+                    ring-[#E2EFFB]
+                    transition-all
+                    duration-300
+                    group-hover:bg-[#EAF7FF]
+                    group-hover:ring-[#C7E8FF]
                   "
                 >
                   <img
                     src={application.icon}
                     alt={application.title}
                     className="
-                      h-14
-                      w-14
+                      h-[37px]
+                      w-[37px]
                       object-contain
                       transition-transform
                       duration-300
@@ -182,18 +276,18 @@ const Applications = () => {
                   />
                 </div>
 
-                {/* Card Content */}
+                {/* CONTENT */}
 
-                <div className="ml-4 min-w-0 flex-1">
+                <div className="ml-4 min-w-0 flex-1 pr-7">
                   {/* Number */}
 
                   <p
                     className="
-                      mb-1
-                      text-[10px]
+                      mb-[2px]
+                      text-[8px]
                       font-bold
-                      tracking-wider
-                      text-[#147BFF]
+                      tracking-[0.08em]
+                      text-[#238FEA]
                     "
                   >
                     {application.number}
@@ -203,13 +297,14 @@ const Applications = () => {
 
                   <h3
                     className="
-                      text-sm
+                      truncate
+                      text-[11px]
                       font-bold
                       uppercase
-                      leading-tight
-                      tracking-wide
-                      text-[#0A2759]
-                      sm:text-base
+                      leading-[13px]
+                      tracking-[0.01em]
+                      text-[#092B55]
+                      sm:text-[12px]
                     "
                   >
                     {application.title}
@@ -219,30 +314,72 @@ const Applications = () => {
 
                   <p
                     className="
-                      mt-2
-                      max-w-[200px]
-                      text-[11px]
-                      leading-[16px]
-                      text-[#66758A]
-                      sm:text-xs
-                      sm:leading-[17px]
+                      mt-[4px]
+                      max-w-[220px]
+                      text-[8.5px]
+                      leading-[12px]
+                      text-[#6B7D91]
+                      sm:text-[9px]
+                      sm:leading-[13px]
                     "
                   >
                     {application.description}
                   </p>
                 </div>
 
-                {/* Hover Bottom Line */}
+                {/* ARROW */}
 
                 <div
                   className="
-                    pointer-events-none
+                    absolute
+                    right-3
+                    top-1/2
+                    flex
+                    h-[22px]
+                    w-[22px]
+                    -translate-y-1/2
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-[#DCECF9]
+                    bg-white
+                    text-[#198FF0]
+                    transition-all
+                    duration-300
+                    group-hover:translate-x-1
+                    group-hover:border-[#9EDAFF]
+                    group-hover:bg-[#EFF9FF]
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </div>
+
+                {/* Bottom Hover */}
+
+                <span
+                  className="
                     absolute
                     bottom-0
                     left-0
                     h-[2px]
                     w-0
-                    bg-[#21C8F6]
+                    bg-gradient-to-r
+                    from-[#159FFF]
+                    to-[#21C8F6]
                     transition-all
                     duration-500
                     group-hover:w-full
@@ -253,21 +390,40 @@ const Applications = () => {
           </div>
         </div>
 
-        {/* ================= RIGHT HUMAN IMAGE ================= */}
+        {/* =================================================
+            RIGHT IMAGE
+        ================================================== */}
 
         <div
           className="
-            relative
-            mt-12
-            flex
-            w-full
+            absolute
+            right-[2%]
+            top-1/2
+            hidden
+            -translate-y-1/2
             items-center
             justify-center
-            lg:mt-0
-            lg:w-[48%]
+            lg:flex
+            lg:w-[42%]
+            xl:right-[3%]
+            xl:w-[40%]
           "
         >
-          {/* Human Image */}
+          {/* Glow */}
+
+          <div
+            className="
+              absolute
+              h-[300px]
+              w-[300px]
+              rounded-full
+              bg-[#52D6FF]
+              opacity-[0.12]
+              blur-[80px]
+            "
+          />
+
+          {/* Human */}
 
           <img
             src={humanImage}
@@ -275,11 +431,35 @@ const Applications = () => {
             className="
               relative
               z-10
-              h-auto
-              max-h-[520px]
-              w-auto
+              w-[360px]
               max-w-full
               object-contain
+              drop-shadow-[0_15px_35px_rgba(30,150,220,0.12)]
+              xl:w-[390px]
+            "
+          />
+        </div>
+
+        {/* =================================================
+            MOBILE IMAGE
+        ================================================== */}
+
+        <div
+          className="
+            mt-10
+            flex
+            w-full
+            justify-center
+            lg:hidden
+          "
+        >
+          <img
+            src={humanImage}
+            alt="Medical applications"
+            className="
+              w-[280px]
+              object-contain
+              sm:w-[320px]
             "
           />
         </div>

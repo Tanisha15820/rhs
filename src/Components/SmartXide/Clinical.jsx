@@ -1,28 +1,10 @@
-import React from "react";
 import {
   Stethoscope,
   Scissors,
   Activity,
-  ArrowRight,
   User,
   Building2,
 } from "lucide-react";
-
-import laryngeal1 from "../../assets/images/clinical/laryngeal_1.png";
-import laryngeal2 from "../../assets/images/clinical/laryngeal_2.png";
-import laryngeal3 from "../../assets/images/clinical/laryngeal_3.png";
-import laryngeal4 from "../../assets/images/clinical/laryngeal_4.png";
-
-import stapedotomy1 from "../../assets/images/clinical/stapedotomy_1.png";
-import stapedotomy2 from "../../assets/images/clinical/stapedotomy_2.png";
-
-import papillomatosis1 from "../../assets/images/clinical/papillomatosis_1.png";
-import papillomatosis2 from "../../assets/images/clinical/papillomatosis_2.png";
-import papillomatosis3 from "../../assets/images/clinical/papillomatosis_3.png";
-
-import thyroid1 from "../../assets/images/clinical/thyroid_1.png";
-import thyroid2 from "../../assets/images/clinical/thyroid_2.png";
-import thyroid3 from "../../assets/images/clinical/thyroid_3.png";
 
 const Clinical = () => {
   const clinicalCases = [
@@ -30,14 +12,6 @@ const Clinical = () => {
       title: "LARYNGEAL PATHOLOGIES",
       icon: Stethoscope,
       color: "#159DA6",
-      imageList: [laryngeal1, laryngeal2, laryngeal3, laryngeal4],
-
-      captions: [
-        "Left vocal cord polyp",
-        "3 months Follow-up",
-        "Squamous cell carcinoma (T1a)",
-        "6 months Follow-up",
-      ],
 
       doctor: "Stefano Dallari, M.D.",
       details:
@@ -48,12 +22,6 @@ const Clinical = () => {
       title: "ONE SHOT® STAPEDOTOMY",
       icon: Scissors,
       color: "#2585F5",
-      imageList: [stapedotomy1, stapedotomy2],
-
-      captions: [
-        '"ONE SHOT" stapedotomy with CO₂ laser',
-        '"ONE SHOT" stapedotomy with diode laser',
-      ],
 
       doctor: "Arturo Mario Poletti, M.D.",
       details:
@@ -64,13 +32,6 @@ const Clinical = () => {
       title: "RESPIRATORY PAPILLOMATOSIS",
       icon: Activity,
       color: "#7259D6",
-      imageList: [papillomatosis1, papillomatosis2, papillomatosis3],
-
-      captions: [
-        "Recurrent respiratory papillomatosis",
-        "After removal of papilloma (obvious glottic stenosis)",
-        "11 months Follow-up (after 4 procedures)",
-      ],
 
       doctor: "",
       details: "",
@@ -80,13 +41,6 @@ const Clinical = () => {
       title: "VOCAL CORD & THYROID SURGERIES",
       icon: Activity,
       color: "#EF3F91",
-      imageList: [thyroid1, thyroid2, thyroid3],
-
-      captions: [
-        "Bilateral paralysis of the vocal cords (after total thyroidectomy)",
-        "Posterior cordotomy",
-        "6 months Follow-up",
-      ],
 
       doctor: "",
       details: "",
@@ -206,98 +160,53 @@ const Clinical = () => {
                   ================================== */}
 
                   <div
-                    className={`
+                    className="
                       mt-6
                       flex
                       flex-1
                       items-start
                       justify-center
-                      ${item.imageList.length === 4 ? "gap-2 sm:gap-4" : "gap-4 sm:gap-7"}
-                    `}
+                      gap-4
+                      sm:gap-7
+                    "
                   >
-                    {item.imageList.map((imgSrc, imageIndex) => (
-                      <React.Fragment key={imageIndex}>
-                        {/* IMAGE + CAPTION */}
-
+                    {[1, 2, 3].map((i) => (
+                      <div
+                        key={i}
+                        className="
+                          flex
+                          min-w-0
+                          flex-1
+                          flex-col
+                          items-center
+                        "
+                      >
                         <div
                           className="
                             flex
-                            min-w-0
-                            flex-1
-                            flex-col
+                            aspect-square
+                            w-full
+                            max-w-[100px]
                             items-center
+                            justify-center
+                            overflow-hidden
+                            rounded-full
+                            border-2
+                            bg-white
                           "
-                        >
-                          {/* =================================
-                              IMAGE CONTAINER
-                          ================================== */}
+                          style={{
+                            borderColor: `${item.color}40`,
+                            boxShadow: `0 6px 18px ${item.color}20`,
+                          }}
+                        />
 
-                          <div
-                            className="
-                              flex
-                              aspect-square
-                              w-full
-                              max-w-[100px]
-                              items-center
-                              justify-center
-                              overflow-hidden
-                              rounded-full
-                              border-2
-                              bg-white
-                              transition-transform
-                              duration-300
-                              group-hover:scale-105
-                            "
-                            style={{
-                              borderColor: `${item.color}40`,
-                              boxShadow: `0 6px 18px ${item.color}20`,
-                            }}
-                          >
-                            <img
-                              src={imgSrc}
-                              alt={item.captions[imageIndex]}
-                              className="h-full w-full object-cover rounded-full"
-                            />
-                          </div>
-
-                          {/* Small colored line */}
-
-                          <div
-                            className="mt-3 h-[3px] w-14 rounded-full transition-all duration-300 group-hover:w-16"
-                            style={{
-                              backgroundColor: item.color,
-                            }}
-                          />
-
-                          {/* Caption */}
-
-                          <p className="mt-3 max-w-[130px] text-center text-xs font-medium leading-[18px] text-[#4A566E] sm:text-sm sm:leading-5">
-                            {item.captions[imageIndex]}
-                          </p>
-                        </div>
-
-                        {/* =================================
-                            ARROW BETWEEN IMAGES
-                        ================================== */}
-
-                        {imageIndex < item.imageList.length - 1 && (
-                          <div className="mt-12 flex shrink-0 items-center">
-                            <div
-                              className="flex h-6 w-6 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
-                              style={{
-                                backgroundColor: item.color,
-                                boxShadow: `0 5px 12px ${item.color}40`,
-                              }}
-                            >
-                              <ArrowRight
-                                size={13}
-                                strokeWidth={3}
-                                className="text-white"
-                              />
-                            </div>
-                          </div>
-                        )}
-                      </React.Fragment>
+                        <div
+                          className="mt-3 h-[3px] w-14 rounded-full"
+                          style={{
+                            backgroundColor: item.color,
+                          }}
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>
