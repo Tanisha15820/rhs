@@ -9,7 +9,6 @@ import PeopleIcon from "@mui/icons-material/People";
 import ArticleIcon from "@mui/icons-material/Article";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -262,14 +261,14 @@ function Navbar() {
           </Link>
 
           {/* Machine Link */}
-          <Link
+          {/* <Link
             to="/machine"
             className={`flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
               pathname === "/machine" ? ACTIVE_LINK : INACTIVE_LINK
             }`}
           >
             Machine
-          </Link>
+          </Link> */}
 
           {/* Contact Link */}
           <Link
@@ -281,18 +280,6 @@ function Navbar() {
             Contact Us
           </Link>
         </nav>
-
-        {/* 3. Desktop Action Buttons */}
-        <div className="hidden items-center gap-3 lg:flex">
-          <button
-            type="button"
-            onClick={() => navigate("/contact")}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-primary/25 hover:shadow-lg transition cursor-pointer"
-          >
-            <CalendarMonthIcon sx={{ fontSize: 16 }} />
-            <span>Book Appointment</span>
-          </button>
-        </div>
 
         {/* 4. Mobile Menu Toggle Button */}
         <button
@@ -357,13 +344,13 @@ function Navbar() {
                       {spec.name} Products
                     </Link>
                   ))}
-                  <Link
+                  {/* <Link
                     to="/machine"
                     onClick={closeMobileMenu}
                     className="block rounded-lg px-3 py-2 text-xs font-semibold text-primary"
                   >
                     View All Machinery →
-                  </Link>
+                  </Link> */}
                 </div>
               )}
             </div>
@@ -379,7 +366,7 @@ function Navbar() {
               <span>Blogs</span>
             </Link>
 
-            <Link
+            {/* <Link
               to="/machine"
               onClick={closeMobileMenu}
               className={`flex items-center gap-2.5 rounded-xl px-4 py-3 ${
@@ -388,7 +375,7 @@ function Navbar() {
             >
               <HealthAndSafetyIcon sx={{ fontSize: 18 }} />
               <span>Machine</span>
-            </Link>
+            </Link> */}
 
             <Link
               to="/contact"

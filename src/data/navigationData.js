@@ -6,7 +6,7 @@
 // Top-level navigation items
 export const NAV_LINKS = [
   { label: "Home", path: "/" },
-  { label: "Machine", path: "/machine" },
+  // { label: "Machine", path: "/machine" },
   { label: "Blogs", path: "/blogs" },
   { label: "Contact", path: "/contact" },
 ];

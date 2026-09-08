@@ -40,7 +40,6 @@ const FeatureCard = ({ number, title, description, image, position }) => {
       </div>
 
       <div className="absolute left-0 top-[42px] h-[45px] w-[1px] bg-primary"></div>
-
       <div className="flex h-full items-center gap-3 px-3 py-2 pl-4">
         {/* Circular Image */}
         <div className="relative ml-8 flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-full border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-sm">
