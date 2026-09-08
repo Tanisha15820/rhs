@@ -16,11 +16,10 @@ import Multimed from "./Pages/Multimed";
 import Vibrolith from "./Pages/Vibrolith";
 import VibrolithPlus from "./Pages/VibrolithPlus";
 import VibrolithOrtho from "./Pages/VibrolithOrtho";
-
-// Admin Imports
-import AdminLogin from "./Pages/Admin/AdminLogin";
-import AdminDashboard from "./Pages/Admin/AdminDashboard";
-import ProtectedRoute from "./Components/Admin/ProtectedRoute";
+import Cystoscopy from "./Pages/Cystoscopy";
+import Morcescope from "./Pages/Morcescope";
+import CyberBlade from "./Pages/CyberBlade";
+import RaykeenMorcellator from "./Pages/RaykeenMorcellator";
 
 function App() {
   return (
@@ -45,18 +44,12 @@ function App() {
           <Route path="/vibrolith" element={<Vibrolith />} />
           <Route path="/vibrolith-plus" element={<VibrolithPlus />} />
           <Route path="/vibrolith-ortho" element={<VibrolithOrtho />} />
-        </Route>
-
-        {/* Admin Public Route */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-
-        {/* Admin Protected Routes */}
-        <Route element={<ProtectedRoute />}>
-          <Route
-            path="/admin"
-            element={<Navigate to="/admin/dashboard" replace />}
-          />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/cystoscopy" element={<Cystoscopy />} />
+          <Route path="/morcescope" element={<Morcescope />} />
+          <Route path="/cyber-blade" element={<CyberBlade />} />
+          <Route path="/bro-morcellatore-cyberblade" element={<CyberBlade />} />
+          <Route path="/raykeen-morcellator" element={<RaykeenMorcellator />} />
+          <Route path="/raykeen-morcellatore" element={<RaykeenMorcellator />} />
         </Route>
       </Routes>
     </BrowserRouter>

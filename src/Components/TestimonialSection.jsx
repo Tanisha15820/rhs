@@ -1,52 +1,25 @@
+import { useState, useEffect } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import { motion } from "framer-motion";
-
-const testimonials = [
-  {
-    text: "The quality of these medical devices is outstanding. They're reliable, easy to use,and patient outcomes.",
-    name: "Dr. Sarah Mitchell",
-    role: "Orthopedic Surgeon, Riverdale Health",
-    image: "https://i.pravatar.cc/100?img=47",
-    bg: "bg-[#EDE9FE]",
-  },
-  {
-    text: "The quality of these medical devices is outstanding. They're reliable, easy to use,and patient outcomes.",
-    name: "Dr. Sarah Mitchell",
-    role: "Orthopedic Surgeon, Riverdale Health",
-    image: "https://i.pravatar.cc/100?img=47",
-    bg: "bg-[#E0F2FE]",
-  },
-  {
-    text: "The quality of these medical devices is outstanding. They're reliable, easy to use, and patient outcomes.",
-    name: "Dr. Sarah Mitchell",
-    role: "Orthopedic Surgeon, Riverdale Health",
-    image: "https://i.pravatar.cc/100?img=47",
-    bg: "bg-[#FEE2E2]",
-  },
-  {
-    text: "The quality of these medical devices is outstanding. They're reliable, easy to use, and patient outcomes.",
-    name: "Dr. Sarah Mitchell",
-    role: "Orthopedic Surgeon, Riverdale Health",
-    image: "https://i.pravatar.cc/100?img=47",
-    bg: "bg-white",
-  },
-  {
-    text: "The quality of these medical devices is outstanding. They're reliable, easy to use, and patient outcomes.",
-    name: "Dr. Sarah Mitchell",
-    role: "Orthopedic Surgeon, Riverdale Health",
-    image: "https://i.pravatar.cc/100?img=47",
-    bg: "bg-[#FAE8FF]",
-  },
-  {
-    text: "The quality of these medical devices is outstanding. They're reliable, easy to use, and patient outcomes.",
-    name: "Dr. Sarah Mitchell",
-    role: "Orthopedic Surgeon, Riverdale Health",
-    image: "https://i.pravatar.cc/100?img=47",
-    bg: "bg-[#EDE9FE]",
-  },
-];
+import { getAllTestimonials } from "../utils/testimonialStorage";
 
 const TestimonialSection = () => {
+  const [testimonials, setTestimonials] = useState(getAllTestimonials);
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setTestimonials(getAllTestimonials());
+    };
+
+    window.addEventListener("rhs_testimonials_updated", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+
+    return () => {
+      window.removeEventListener("rhs_testimonials_updated", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-[#F9FBFF] py-16 sm:py-20">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
@@ -77,67 +50,70 @@ const TestimonialSection = () => {
 
         {/* Testimonial Cards */}
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{
-                opacity: 0,
-                x:
-                  index === 0
-                    ? -180
-                    : index === 1
-                      ? 20
-                      : index === 2
-                        ? 180
-                        : index === 3
-                          ? -120
-                          : index === 4
+          {testimonials.map((testimonial, index) => {
+            const animIdx = index % 6;
+            return (
+              <motion.div
+                key={testimonial.id || index}
+                initial={{
+                  opacity: 0,
+                  x:
+                    animIdx === 0
+                      ? -180
+                      : animIdx === 1
+                        ? 20
+                        : animIdx === 2
+                          ? 180
+                          : animIdx === 3
+                            ? -120
+                            : animIdx === 4
+                              ? 100
+                              : 180,
+                  y:
+                    animIdx === 0
+                      ? 30
+                      : animIdx === 1
+                        ? -100
+                        : animIdx === 2
+                          ? 30
+                          : animIdx === 3
                             ? 100
-                            : 180,
-                y:
-                  index === 0
-                    ? 30
-                    : index === 1
-                      ? -100
-                      : index === 2
-                        ? 30
-                        : index === 3
-                          ? 100
-                          : index === 4
-                            ? -50
-                            : 80,
-                rotate:
-                  index === 0
-                    ? -8
-                    : index === 1
-                      ? 6
-                      : index === 2
-                        ? 10
-                        : index === 3
-                          ? -5
-                          : index === 4
-                            ? 8
-                            : -7,
-                scale: 0.9,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-                y: 0,
-                rotate: 0,
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.3,
-              }}
-              transition={{
-                duration: 1.5,
-                delay: index * 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className={`rounded-xl border border-slate-100 p-5 shadow-sm ${testimonial.bg}`}
-            >
+                            : animIdx === 4
+                              ? -50
+                              : 80,
+                  rotate:
+                    animIdx === 0
+                      ? -8
+                      : animIdx === 1
+                        ? 6
+                        : animIdx === 2
+                          ? 10
+                          : animIdx === 3
+                            ? -5
+                            : animIdx === 4
+                              ? 8
+                              : -7,
+                  scale: 0.9,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  rotate: 0,
+                  scale: 1,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.3,
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: (index % 3) * 0.2,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className={`rounded-xl border border-slate-100 p-5 shadow-sm ${testimonial.bg || "bg-[#EDE9FE]"}`}
+              >
+
               {/* Quote */}
               {/* <div className="mb-2 text-4xl font-bold leading-none text-slate-800">
                 “
@@ -167,8 +143,9 @@ const TestimonialSection = () => {
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+          );
+        })}
+      </div>
       </div>
     </section>
   );

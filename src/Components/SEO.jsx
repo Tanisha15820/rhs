@@ -1,75 +1,35 @@
 import { useEffect } from "react";
-import { SITE_CONFIG } from "../config/seo";
 
 /**
- * SEO component for dynamic head metadata & structured data management.
- * Compatible with React 19 head hoisting and client-side page transitions.
+ * Simple, beginner-friendly SEO component.
+ * Sets the browser page title and basic meta tags for search engines.
  */
 export default function SEO({
-  title,
-  description,
-  keywords,
-  canonical,
-  ogImage,
-  ogType = "website",
-  jsonLd,
-  noIndex = false,
+  title = "Medical Equipment Rental",
+  description = "Reinforce Healthcare Services provides high-grade medical equipment, urology devices, and hospital machinery on rent for healthcare professionals and medical centers.",
+  keywords = "medical equipment rental, hospital machinery, healthcare equipment leasing, Reinforce Healthcare Services",
 }) {
-  const fullTitle = title
-    ? `${title} | ${SITE_CONFIG.siteName}`
-    : SITE_CONFIG.defaultTitle;
-  const metaDescription = description || SITE_CONFIG.defaultDescription;
-  const metaKeywords = keywords || SITE_CONFIG.defaultKeywords;
-  const canonicalUrl = canonical
-    ? `${SITE_CONFIG.domain}${canonical}`
-    : SITE_CONFIG.domain;
-  const imageUrl = ogImage
-    ? ogImage.startsWith("http")
-      ? ogImage
-      : `${SITE_CONFIG.domain}${ogImage}`
-    : `${SITE_CONFIG.domain}${SITE_CONFIG.defaultOgImage}`;
+  const siteName = "Reinforce Healthcare Services";
+  const fullTitle = title ? `${title} | ${siteName}` : siteName;
 
-  // Fallback update document title directly for all browser routing engines
+  // Update browser tab title whenever the title prop changes
   useEffect(() => {
     document.title = fullTitle;
   }, [fullTitle]);
 
   return (
     <>
-      {/* Title */}
+      {/* Browser Tab Title */}
       <title>{fullTitle}</title>
 
-      {/* Basic Meta Tags */}
-      <meta name="description" content={metaDescription} />
-      <meta name="keywords" content={metaKeywords} />
-      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+      {/* Basic Search Engine Meta Tags */}
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
 
-      {/* Canonical Link */}
-      <link rel="canonical" href={canonicalUrl} />
-
-      {/* Open Graph Tags for Social Media */}
-      <meta property="og:site_name" content={SITE_CONFIG.siteName} />
+      {/* Social Media Sharing Meta Tags */}
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={imageUrl} />
-
-      {/* Twitter Card Meta Tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={imageUrl} />
-
-      {/* JSON-LD Structured Data */}
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(Array.isArray(jsonLd) ? jsonLd : jsonLd),
-          }}
-        />
-      )}
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="website" />
     </>
   );
 }

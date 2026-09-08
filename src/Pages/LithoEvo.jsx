@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import SEO from "../Components/SEO";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 import bannerBg from "../assets/images/smartxide_banner.png";
 import machineImage from "../assets/images/Litho_evo.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
@@ -14,6 +15,8 @@ import Reliability from "../Components/Gastro_Laser/Reliability";
 import Fibers from "../Components/Gastro_Laser/Fibers";
 import Fiber_Recognition from "../Components/Gastro_Laser/Fiber_Recognition";
 import Applications from "../Components/Gastro_Laser/Applications";
+import Litho35Excellence from "../Components/Litho_35/Litho35Excellence";
+import Litho35Reliability from "../Components/Litho_35/Litho35Reliability";
 
 const FeatureCard = ({ number, description, image, position }) => {
   return (
@@ -83,6 +86,11 @@ const MobileFeatureCard = ({ number, description, image }) => {
 const LithoEvo = () => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Litho EVO 35W Holmium Laser | Rental Health Services"
+        description="Explore the Litho EVO 35W Holmium Laser System for advanced lithotripsy and soft tissue surgery with innovative Dusting effect."
+        keywords="Litho EVO, Holmium laser, 35W laser, lithotripsy, urology rental"
+      />
       {/* Product Banner */}
       <section className="relative min-h-[500px] overflow-hidden bg-background sm:min-h-[600px] lg:min-h-[680px]">
         <div className="absolute inset-0 z-0">
@@ -263,13 +271,25 @@ const LithoEvo = () => {
           </div>
         </div>
       </section>
+      {/* <Litho35Fragmentation />
+      <Litho35DustingEffect /> */}
+      <Litho35Excellence />
+      <Litho35Reliability />
+      {/* <Litho35Fibers />
+      <Litho35Recognition /> */}
       <Fragmentation />
       <DustingEffect />
+
       <HoliumSection />
       <Reliability />
       <Fibers />
       <Fiber_Recognition />
       <Applications />
+      <ProductInquireCTA
+        title="Ready to Elevate Your Surgical Suite?"
+        subtitle="Upgrade your OR capabilities with the Litho EVO 35W Holmium Laser system on flexible rental or purchase terms."
+        productName="Litho EVO 35 Watt Laser System"
+      />
     </div>
   );
 };

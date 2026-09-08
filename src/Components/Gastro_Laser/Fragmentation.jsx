@@ -7,6 +7,7 @@ const Fragmentation = () => {
   // Feature cards
   const features = [
     {
+      number: "01",
       icon: Zap,
       title: "HIGH PULSE ENERGY",
       description: "Up to 35 J, for superior pulse energy.",

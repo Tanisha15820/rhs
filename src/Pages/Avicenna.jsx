@@ -10,6 +10,7 @@ import hollowFiber from "../assets/images/hollow_fiber.png";
 import HandpiecesAvicenna from "../Components/Avicenna/HandpiecesAvicenna";
 import RoboFlex from "../Components/Avicenna/RoboFlex";
 import Benefits from "../Components/Avicenna/Benefits";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, description, image, position }) => {
   return (
@@ -79,6 +80,10 @@ const MobileFeatureCard = ({ number, description, image }) => {
 const Avicenna = () => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Roboflex Avicenna"
+        description="Roboflex Avicenna robotic manipulator system for flexible ureterorenoscopy and advanced stone lithotripsy."
+      />
       {/* Product Banner */}
       <section className="relative min-h-[500px] overflow-hidden bg-background sm:min-h-[600px] lg:min-h-[680px]">
         <div className="absolute inset-0 z-0">
@@ -259,6 +264,7 @@ const Avicenna = () => {
       <RoboFlex />
       <Benefits />
       <HandpiecesAvicenna />
+      <ProductInquireCTA productName="Roboflex Avicenna Robotic System" />
     </div>
   );
 };

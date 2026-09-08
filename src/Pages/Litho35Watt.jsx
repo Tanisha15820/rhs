@@ -1,21 +1,34 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, CheckCircle, ShieldCheck, Activity, Layers, Cpu, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle,
+  ShieldCheck,
+  Activity,
+  Layers,
+  Cpu,
+  Zap,
+} from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
 import machineImage from "../assets/images/litho35_machine.png";
 import footswitchImg from "../assets/images/litho35_footswitch.png";
 import fiberImg from "../assets/images/litho35_fiber.png";
 import recognitionImg from "../assets/images/litho35_recognition.png";
-
-import Litho35Fragmentation from "../Components/Litho_35/Litho35Fragmentation";
-import Litho35DustingEffect from "../Components/Litho_35/Litho35DustingEffect";
+// import Litho35Fragmentation from "../Components/Litho_35/Litho35Fragmentation";
+// import Litho35DustingEffect from "../Components/Litho_35/Litho35DustingEffect";
+import Fragmentation from "../Components/Gastro_Laser/Fragmentation";
+import DustingEffect from "../Components/Gastro_Laser/DustingEffect";
+import Fibers from "../Components/Gastro_Laser/Fibers";
+import Fiber_Recognition from "../Components/Gastro_Laser/Fiber_Recognition";
 import Litho35Excellence from "../Components/Litho_35/Litho35Excellence";
 import Litho35Reliability from "../Components/Litho_35/Litho35Reliability";
-import Litho35Fibers from "../Components/Litho_35/Litho35Fibers";
-import Litho35Recognition from "../Components/Litho_35/Litho35Recognition";
+// import Litho35Fibers from "../Components/Litho_35/Litho35Fibers";
+// import Litho35Recognition from "../Components/Litho_35/Litho35Recognition";
 import Litho35Applications from "../Components/Litho_35/Litho35Applications";
 import Litho35Specs from "../Components/Litho_35/Litho35Specs";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -81,12 +94,30 @@ const MobileFeatureCard = ({ number, title, description, image }) => {
 
 const Litho35Watt = () => {
   const generalOverview = [
-    { title: "Effective Lithotripsy", desc: "Proven fragmentation and dusting across hard and soft urinary stones." },
-    { title: "Reduced Depth of Penetration", desc: "0.3–0.4 mm limited penetration protects delicate adjacent tissue." },
-    { title: "High Versatility", desc: "Supports lithotripsy, strictures, tumors, and soft tissue ablation." },
-    { title: "Soft Tissue Surgery", desc: "Excellent hemostasis, precise cutting, and rapid tissue vaporization." },
-    { title: "Compact Design", desc: "Small footprint on sturdy castor wheels for smooth operating room transit." },
-    { title: "Quick ROI", desc: "Durable components and multi-specialty versatility maximize return on investment." },
+    {
+      title: "Effective Lithotripsy",
+      desc: "Proven fragmentation and dusting across hard and soft urinary stones.",
+    },
+    {
+      title: "Reduced Depth of Penetration",
+      desc: "0.3–0.4 mm limited penetration protects delicate adjacent tissue.",
+    },
+    {
+      title: "High Versatility",
+      desc: "Supports lithotripsy, strictures, tumors, and soft tissue ablation.",
+    },
+    {
+      title: "Soft Tissue Surgery",
+      desc: "Excellent hemostasis, precise cutting, and rapid tissue vaporization.",
+    },
+    {
+      title: "Compact Design",
+      desc: "Small footprint on sturdy castor wheels for smooth operating room transit.",
+    },
+    {
+      title: "Quick ROI",
+      desc: "Durable components and multi-specialty versatility maximize return on investment.",
+    },
   ];
 
   return (
@@ -128,12 +159,12 @@ const Litho35Watt = () => {
             </h1>
 
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 lg:text-base">
-              Litho surgical unit is based on Holmium (Ho:YAG) laser with emission at 2100 nm wavelength.
-              Highly absorbed by water and biological tissue for superior cutting, ablation, and dusting.
+              Litho surgical unit is based on Holmium (Ho:YAG) laser with
+              emission at 2100 nm wavelength. Highly absorbed by water and
+              biological tissue for superior cutting, ablation, and dusting.
             </p>
           </div>
 
-          {/* Product Area with Floating Feature Cards */}
           <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
             {/* Desktop Feature Cards */}
             <FeatureCard
@@ -267,14 +298,17 @@ const Litho35Watt = () => {
               </h2>
 
               <p className="mt-4 text-sm leading-6 text-[#697A94] sm:text-base">
-                Litho surgical unit is based on Holmium (Ho:YAG) laser with emission at 2100 nm wavelength.
-                This wavelength is highly absorbed by water and biological tissue providing excellent cutting,
-                ablation, and hemostatic properties.
+                Litho surgical unit is based on Holmium (Ho:YAG) laser with
+                emission at 2100 nm wavelength. This wavelength is highly
+                absorbed by water and biological tissue providing excellent
+                cutting, ablation, and hemostatic properties.
               </p>
 
               <p className="mt-3 text-sm leading-6 text-[#697A94] sm:text-base">
-                The limited radiation penetration (0.3 - 0.4 mm) results in minimal damage to surrounding tissue.
-                The Litho automatically adjusts the emission settings based on fiber diameter and selected mode.
+                The limited radiation penetration (0.3 - 0.4 mm) results in
+                minimal damage to surrounding tissue. The Litho automatically
+                adjusts the emission settings based on fiber diameter and
+                selected mode.
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -335,7 +369,8 @@ const Litho35Watt = () => {
                           Safety Margin (0.3 - 0.4 mm)
                         </div>
                         <div className="text-xs text-slate-500">
-                          Strictly localized thermal effect sparing deeper structures
+                          Strictly localized thermal effect sparing deeper
+                          structures
                         </div>
                       </div>
                     </div>
@@ -351,7 +386,8 @@ const Litho35Watt = () => {
                           Smart Emission Controller
                         </div>
                         <div className="text-xs text-slate-500">
-                          Calibrated feedback preventing optical fiber overstress
+                          Calibrated feedback preventing optical fiber
+                          overstress
                         </div>
                       </div>
                     </div>
@@ -364,14 +400,19 @@ const Litho35Watt = () => {
       </section>
 
       {/* Main Feature Sections */}
-      <Litho35Fragmentation />
-      <Litho35DustingEffect />
+      <Fragmentation />
+      <DustingEffect />
+      <Fibers />
+      <Fiber_Recognition />
+      {/* <Litho35Fragmentation />
+      <Litho35DustingEffect /> */}
       <Litho35Excellence />
       <Litho35Reliability />
-      <Litho35Fibers />
-      <Litho35Recognition />
+      {/* <Litho35Fibers />
+      <Litho35Recognition /> */}
       <Litho35Applications />
       <Litho35Specs />
+      <ProductInquireCTA productName="Litho 35 Watt Laser System" />
     </div>
   );
 };

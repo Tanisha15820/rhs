@@ -1,281 +1,95 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import maxLogo from "../assets/images/max.png";
 import fortisLogo from "../assets/images/fortis.png";
 import siemensLogo from "../assets/images/siemens.png";
+import { getAllClients } from "../utils/clientStorage";
 
-const clients = [
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F3F7FF]",
-    logo: maxLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F0FAFF]",
-    logo: fortisLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F0FBF6]",
-    logo: siemensLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F7F4FF]",
-    logo: maxLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F0F8FF]",
-    logo: siemensLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F0FBFA]",
-    logo: fortisLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#FFF7F2]",
-    logo: maxLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F1F7FF]",
-    logo: siemensLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F6F3FF]",
-    logo: fortisLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#EFFAF8]",
-    logo: maxLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F1F8FF]",
-    logo: siemensLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F0F8FC]",
-    logo: maxLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#FFF6F1]",
-    logo: fortisLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#FFF3F7]",
-    logo: siemensLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F1F7FF]",
-    logo: maxLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#FFF4F4]",
-    logo: fortisLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F2F7FC]",
-    logo: siemensLogo,
-  },
-  {
-    name: "MAX Hospital",
-    subtitle: "HOSPITALS",
-    description: "Advanced medical care with patient-first excellence.",
-    accent: "bg-[#F3F7FF]",
-    logo: maxLogo,
-  },
-];
+// Preset logo mapping
+const CLIENT_LOGO_MAP = {
+  max: maxLogo,
+  fortis: fortisLogo,
+  siemens: siemensLogo,
+};
 
-/* CLIENT CARD */
+// Helper function to pick the correct logo image
+const getClientLogo = (client) => {
+  if (client.logo) return client.logo;
+  if (client.presetKey && CLIENT_LOGO_MAP[client.presetKey]) {
+    return CLIENT_LOGO_MAP[client.presetKey];
+  }
+  return maxLogo;
+};
 
+// Single client logo card
 const ClientCard = ({ client }) => {
+  const accentClass = client.accent || "bg-[#F3F7FF]";
+
   return (
-    // <div
-    //   className="
-    //     group
-    //     flex
-    //     h-[245px]
-    //     w-[240px]
-    //     min-w-[240px]
-    //     flex-shrink-0
-    //     flex-col
-    //     overflow-hidden
-    //     rounded-[16px]
-    //     border
-    //     border-[#DCE8F2]
-    //     bg-white
-    //     shadow-[0_8px_25px_rgba(35,70,110,0.07)]
-    //     transition-all
-    //     duration-300
-    //     hover:-translate-y-2
-    //     hover:shadow-[0_16px_38px_rgba(35,70,110,0.13)]
-    //     sm:h-[255px]
-    //     sm:w-[250px]
-    //     sm:min-w-[250px]
-    //     md:h-[265px]
-    //     md:w-[260px]
-    //     md:min-w-[260px]
-    //   "
-    // >
     <div
-      className={`
-          flex
-          h-[140px]
-          shrink-0
-          items-center
-          justify-center
-          px-5
-          ${client.accent}
-          border-b
-          border-[#E2ECF5]
-           sm:h-[200px]
-         sm:w-[250px]
-         sm:min-w-[250px]
-         md:h-[200px]
-         md:w-[260px]
-         md:min-w-[260px]
-        `}
+      className={`flex h-[140px] shrink-0 items-center justify-center px-5 ${accentClass} border-b border-[#E2ECF5] sm:h-[200px] sm:w-[250px] sm:min-w-[250px] md:h-[200px] md:w-[260px] md:min-w-[260px]`}
     >
       <div className="flex h-full w-full items-center justify-center">
         <img
-          src={client.logo}
-          alt={`${client.name} logo`}
-          className="
-              max-h-[75px]
-              max-w-[165px]
-              object-contain
-              transition-transform
-              duration-300
-              group-hover:scale-105
-              sm:max-h-[80px]
-              sm:max-w-[175px]
-              md:max-h-[85px]
-              md:max-w-[185px]
-            "
+          src={getClientLogo(client)}
+          alt={`${client.name || "Client"} logo`}
+          className="max-h-[75px] max-w-[165px] object-contain transition-transform duration-300 group-hover:scale-105 sm:max-h-[80px] sm:max-w-[175px] md:max-h-[85px] md:max-w-[185px]"
         />
       </div>
-      {/* </div> */}
-
-      {/* <div className="flex flex-1 flex-col bg-[#F6FAFD] px-5 py-4">
-        <h3
-          className="
-            text-[14px]
-            font-bold
-            leading-5
-            text-[#17295C]
-            sm:text-[15px]
-          "
-        >
-          {client.name}
-        </h3>
-
-        <span
-          className="
-            mt-1
-            text-[8px]
-            font-bold
-            uppercase
-            tracking-[1px]
-            text-[#149BC5]
-            sm:text-[9px]
-          "
-        >
-          {client.subtitle}
-        </span>
-
-        <p
-          className="
-            mt-2.5
-            line-clamp-3
-            text-[9px]
-            leading-[1.55]
-            text-[#71809A]
-            sm:text-[10px]
-          "
-        >
-          {client.description}
-        </p>
-      </div> */}
     </div>
   );
 };
 
-/* CLIENTS SECTION */
-
-const Clients = () => {
+/**
+ * Clients Section Component
+ * Displays an auto-scrolling horizontal banner of hospital client logos.
+ */
+function Clients() {
+  const [clientsData, setClientsData] = useState(getAllClients);
   const sliderRef = useRef(null);
   const animationRef = useRef(null);
   const isHovered = useRef(false);
 
-  /* AUTOMATIC HORIZONTAL SCROLL */
+  // Sync data when updated in Admin portal
+  useEffect(() => {
+    const handleUpdate = () => {
+      setClientsData(getAllClients());
+    };
 
+    window.addEventListener("rhs_clients_updated", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+
+    return () => {
+      window.removeEventListener("rhs_clients_updated", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
+  // Ensure continuous auto-scroll loop has enough cards
+  const displayClients =
+    clientsData.length < 12
+      ? [...clientsData, ...clientsData, ...clientsData]
+      : [...clientsData, ...clientsData];
+
+  // Automatic smooth horizontal scrolling
   useEffect(() => {
     const slider = sliderRef.current;
-
     if (!slider) return;
 
     let lastTime = performance.now();
-
-    const speed = 35;
+    const speed = 35; // scroll speed in pixels per second
 
     const autoScroll = (currentTime) => {
       const deltaTime = currentTime - lastTime;
       lastTime = currentTime;
 
-      // Pause scrolling when the user hovers over the cards
+      // Pause when user hovers mouse over carousel
       if (!isHovered.current) {
         slider.scrollLeft += (speed * deltaTime) / 1000;
       }
 
-      // Restart from the beginning when the last card is reached
+      // Loop back to start when reaching the end
       if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1) {
         slider.scrollLeft = 0;
       }
@@ -292,11 +106,9 @@ const Clients = () => {
     };
   }, []);
 
-  /* ARROW SCROLL */
-
+  // Manual scroll with arrow buttons
   const scroll = (direction) => {
     if (!sliderRef.current) return;
-
     sliderRef.current.scrollBy({
       left: direction === "left" ? -500 : 500,
       behavior: "smooth",
@@ -306,16 +118,13 @@ const Clients = () => {
   return (
     <section className="relative overflow-hidden bg-[#F9FBFF] py-16 sm:py-20 lg:py-24">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-        {/* SECTION HEADING */}
-
+        {/* Section Heading */}
         <div className="mb-10 text-center">
           <div className="mb-3 flex items-center justify-center gap-3">
             <span className="h-px w-7 bg-[#20B7AE]" />
-
             <span className="text-xs font-bold uppercase tracking-wider text-[#20AFA7]">
               Our Clients
             </span>
-
             <span className="h-px w-7 bg-[#20B7AE]" />
           </div>
 
@@ -327,49 +136,23 @@ const Clients = () => {
           </h2>
 
           <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#7C879C]">
-            We are proud to partner with renowned hospitals, clinics, and
-            healthcare organizations that trust our products and solutions for
-            better care and outcomes.
+            We are proud to partner with renowned hospitals, clinics, and healthcare organizations that trust our products and solutions for better care and outcomes.
           </p>
         </div>
 
-        {/* CLIENT CAROUSEL */}
-
+        {/* Client Carousel */}
         <div className="relative mx-auto max-w-[1200px]">
-          {/* LEFT ARROW */}
-
+          {/* Left Arrow Button */}
           <button
+            type="button"
             onClick={() => scroll("left")}
             aria-label="Previous clients"
-            className="
-              absolute
-              -left-4
-              top-1/2
-              z-20
-              hidden
-              h-11
-              w-11
-              -translate-y-1/2
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-[#DCE7F1]
-              bg-white
-              text-[#1684D8]
-              shadow-[0_6px_20px_rgba(35,70,110,0.12)]
-              transition-all
-              duration-300
-              hover:-translate-x-1
-              hover:shadow-[0_10px_25px_rgba(35,70,110,0.18)]
-              lg:flex
-            "
+            className="absolute -left-4 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE7F1] bg-white text-[#1684D8] shadow-md transition-all duration-200 hover:-translate-x-1 hover:shadow-lg lg:flex cursor-pointer"
           >
             <ChevronLeft size={21} strokeWidth={2} />
           </button>
 
-          {/* AUTO SCROLLING CARDS */}
-
+          {/* Cards Track */}
           <div
             ref={sliderRef}
             onMouseEnter={() => {
@@ -378,60 +161,32 @@ const Clients = () => {
             onMouseLeave={() => {
               isHovered.current = false;
             }}
-            className="
-              flex
-              flex-nowrap
-              gap-5
-              overflow-x-auto
-              px-2
-              pb-5
-              scrollbar-none
-            "
+            className="flex flex-nowrap gap-5 overflow-x-auto px-2 pb-5 scrollbar-none"
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
             }}
           >
-            {clients.map((client, index) => (
-              <ClientCard key={index} client={client} />
+            {displayClients.map((client, index) => (
+              <ClientCard
+                key={`${client.id || "client"}-${index}`}
+                client={client}
+              />
             ))}
           </div>
 
-          {/* RIGHT ARROW */}
-
+          {/* Right Arrow Button */}
           <button
+            type="button"
             onClick={() => scroll("right")}
             aria-label="Next clients"
-            className="
-              absolute
-              -right-4
-              top-1/2
-              z-20
-              hidden
-              h-11
-              w-11
-              -translate-y-1/2
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-[#DCE7F1]
-              bg-white
-              text-[#1684D8]
-              shadow-[0_6px_20px_rgba(35,70,110,0.12)]
-              transition-all
-              duration-300
-              hover:translate-x-1
-              hover:shadow-[0_10px_25px_rgba(35,70,110,0.18)]
-              lg:flex
-            "
+            className="absolute -right-4 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE7F1] bg-white text-[#1684D8] shadow-md transition-all duration-200 hover:translate-x-1 hover:shadow-lg lg:flex cursor-pointer"
           >
             <ChevronRight size={21} strokeWidth={2} />
           </button>
         </div>
 
-        {/* MOBILE INDICATOR */}
-
+        {/* Mobile Pagination Indicator */}
         <div className="mt-4 flex items-center justify-center gap-2 lg:hidden">
           <span className="h-1.5 w-8 rounded-full bg-[#20AFA7]" />
           <span className="h-1.5 w-1.5 rounded-full bg-[#D8E5F0]" />
@@ -440,6 +195,6 @@ const Clients = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Clients;

@@ -13,6 +13,7 @@ import Handpieces from "../Components/SmartXide/Handpieces";
 import Advantages from "../Components/SmartXide/Advantages";
 import Clinical from "../Components/SmartXide/Clinical";
 import Professionals from "../Components/SmartXide/Professionals";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 /* Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -265,6 +266,11 @@ const SmartXide = () => {
       <Advantages />
       <Clinical />
       <Professionals />
+      <ProductInquireCTA
+        title="Interested in the SmartXide² TRIO System?"
+        subtitle="Contact our specialists to learn more about flexible rental, demonstration, and procurement options for your hospital."
+        productName="SmartXide² TRIO Laser System"
+      />
     </div>
   );
 };
