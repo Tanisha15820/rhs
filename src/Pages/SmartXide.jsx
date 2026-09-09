@@ -14,6 +14,7 @@ import Advantages from "../Components/SmartXide/Advantages";
 import Clinical from "../Components/SmartXide/Clinical";
 import Professionals from "../Components/SmartXide/Professionals";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import SmartxideMachine from "../Components/SmartXide/SmartxideMachine";
 
 /* Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -262,6 +263,7 @@ const SmartXide = () => {
       </section>
       <Technologies />
       <Features />
+      <SmartxideMachine />
       <Handpieces />
       <Advantages />
       <Clinical />
