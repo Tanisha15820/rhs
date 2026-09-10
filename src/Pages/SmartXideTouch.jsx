@@ -16,6 +16,7 @@ import ColpoScan from "../Components/SmartXideTouch/ColpoScan";
 import IntegratedMicroScan from "../Components/SmartXideTouch/IntegratedMicroScan";
 import EasySpotHybrid from "../Components/SmartXideTouch/EasySpotHybrid";
 import HandpiecesSurgico from "../Components/SmartXideTouch/HandpiecesSurgico";
+import SurgicoMachine from "../Components/SmartXideTouch/SurgicoMachine";
 
 const FeatureCard = ({ number, type, title, description, image, position }) => {
   return (
@@ -256,6 +257,7 @@ const SmartXideTouch = () => {
       </section>
       <TechnologiesSurgico />
       <Features />
+      <SurgicoMachine />
       <ProctoScan />
       <ColpoScan />
       <IntegratedMicroScan />

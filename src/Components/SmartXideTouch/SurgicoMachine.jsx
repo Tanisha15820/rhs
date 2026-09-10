@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import part1 from "../../assets/images/part1.png";
-import part2 from "../../assets/images/part2.png";
-import part3 from "../../assets/images/part3.png";
-import part4 from "../../assets/images/part4.png";
-import part5 from "../../assets/images/part5.png";
+import surgico1 from "../../assets/images/surgico1.png";
+import surgico2 from "../../assets/images/surgico2.png";
+import surgico3 from "../../assets/images/surgico3.png";
+import surgico4 from "../../assets/images/surgico4.png";
+import surgico5 from "../../assets/images/surgico5.png";
 
-// Desktop Key Point
+// ======================================================
+// DESKTOP KEY POINT
+// ======================================================
 
 const KeyPoint = ({
   title,
@@ -32,18 +34,19 @@ const KeyPoint = ({
         ${position}
       `}
     >
-      {/* Right connector */}
+      {/* Right Connector */}
       {side === "right" && (
         <div className="flex items-center">
           <div
             className="h-[1px] bg-[#1677FF]"
             style={{ width: `${lineWidth}px` }}
           />
+
           <div className="h-[8px] w-[8px] rounded-full bg-[#1677FF]" />
         </div>
       )}
 
-      {/* Card */}
+      {/* Key Point Card */}
       <div
         className="
           min-w-[150px]
@@ -57,6 +60,7 @@ const KeyPoint = ({
         "
       >
         <div className="flex items-start gap-2">
+          {/* Blue icon */}
           <div
             className="
               mt-[2px]
@@ -85,10 +89,11 @@ const KeyPoint = ({
         </div>
       </div>
 
-      {/* Left connector */}
+      {/* Left Connector */}
       {side === "left" && (
         <div className="flex items-center">
           <div className="h-[8px] w-[8px] rounded-full bg-[#1677FF]" />
+
           <div
             className="h-[1px] bg-[#1677FF]"
             style={{ width: `${lineWidth}px` }}
@@ -96,13 +101,14 @@ const KeyPoint = ({
         </div>
       )}
 
-      {/* Bottom connector */}
+      {/* Bottom Connector */}
       {side === "bottom" && (
         <div className="flex flex-col items-center">
           <div
             className="w-[1px] bg-[#1677FF]"
             style={{ height: `${lineWidth}px` }}
           />
+
           <div className="h-[8px] w-[8px] rounded-full bg-[#1677FF]" />
         </div>
       )}
@@ -110,7 +116,9 @@ const KeyPoint = ({
   );
 };
 
-// Mobile Key Point Card
+// ======================================================
+// MOBILE KEY POINT
+// ======================================================
 
 const MobileKeyPoint = ({ title, description, index }) => {
   return (
@@ -172,20 +180,22 @@ const MobileKeyPoint = ({ title, description, index }) => {
   );
 };
 
-// Machine points data
+// ======================================================
+// MACHINE POINTS
+// ======================================================
 
 const machinePoints = [
   {
     title: "Articulated Arm",
-    description: "Laser Beam Delivery",
+    description: "Flexible Laser Beam Delivery",
   },
   {
-    title: "Diode Laser Module",
-    description: "Additional Laser Power",
+    title: "Laser Source Module",
+    description: "Core Energy Delivery System",
   },
   {
     title: "Scanner Handpiece",
-    description: "Precision Treatment Output",
+    description: "Precision Surgical Output",
   },
   {
     title: "Touchscreen Display",
@@ -193,7 +203,7 @@ const machinePoints = [
   },
   {
     title: "Emergency Stop",
-    description: "Safety Shutdown",
+    description: "Immediate Safety Shutdown",
   },
   {
     title: "Control Panel",
@@ -201,13 +211,15 @@ const machinePoints = [
   },
   {
     title: "Mobile Base",
-    description: "Safe Equipment Movement",
+    description: "Stable & Easy Mobility",
   },
 ];
 
-// Main Component
+// ======================================================
+// MAIN COMPONENT
+// ======================================================
 
-const SmartxideMachine = () => {
+const SurgicoMachine = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleMachine = () => {
@@ -225,48 +237,60 @@ const SmartxideMachine = () => {
         lg:py-[90px]
       "
     >
-      {/* Machine area */}
+      {/* ==================================================
+          MACHINE AREA
+      ================================================== */}
 
       <div
         className="
           relative
           mx-auto
           flex
+          min-h-[390px]
           w-full
-          max-w-[720px]
+          max-w-[760px]
           items-start
           justify-center
           px-4
+
+          sm:min-h-[450px]
           sm:px-5
-          min-h-[340px]
-          sm:min-h-[390px]
-          lg:min-h-[280px]
+
+          lg:min-h-[580px]
           lg:items-center
         "
       >
-        {/* Background glow */}
+        {/* Background Glow */}
 
         <div
           className="
             pointer-events-none
             absolute
             left-1/2
-            top-[42%]
-            h-[130px]
-            w-[130px]
+            top-[43%]
+            h-[150px]
+            w-[150px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-[#1CAFED]/[0.06]
+            bg-[#1CAFED]/[0.07]
             blur-[75px]
-            sm:h-[150px]
-            sm:w-[150px]
+
+            sm:h-[180px]
+            sm:w-[180px]
+
             lg:top-1/2
-            lg:blur-[90px]
+            lg:h-[230px]
+            lg:w-[230px]
+            lg:blur-[100px]
           "
         />
 
-        {/* Machine */}
+        {/* ==================================================
+            MACHINE
+        ================================================== */}
+
+        {/* MACHINE */}
 
         <div
           className="
@@ -276,24 +300,22 @@ const SmartxideMachine = () => {
     justify-center
     outline-none
 
-    min-h-[300px]
-    w-[165px]
-    xs:w-[175px]
-    sm:w-[190px]
+    min-h-[380px]
+    w-[180px]
 
-    translate-x-[35px]
-    sm:translate-x-[30px]
+    sm:min-h-[420px]
+    sm:w-[200px]
 
-    lg:min-h-[300px]
-    lg:w-[210px]
-    lg:max-w-full
-    lg:translate-x-0
+    lg:min-h-[430px]
+    lg:w-[220px]
   "
           onClick={toggleMachine}
           role="button"
           tabIndex={0}
           aria-label={
-            isExpanded ? "Collapse machine details" : "Expand machine details"
+            isExpanded
+              ? "Collapse SurgiCO machine details"
+              : "Expand SurgiCO machine details"
           }
           aria-expanded={isExpanded}
           onKeyDown={(e) => {
@@ -303,98 +325,113 @@ const SmartxideMachine = () => {
             }
           }}
         >
-          {/* Desktop key points */}
+          {/* ======================================================
+      DESKTOP KEY POINTS
+  ====================================================== */}
 
           <AnimatePresence>
             {isExpanded && (
               <>
+                {/* Articulated Arm */}
                 <KeyPoint
                   title="Articulated Arm"
-                  description="Laser Beam Delivery"
-                  position="left-[-60px] top-[15px]"
+                  description="Flexible Laser Beam Delivery"
+                  position="left-[-160px] top-[10px]"
                   side="bottom"
                   lineWidth={30}
                 />
 
+                {/* Laser Source */}
                 <KeyPoint
-                  title="Diode Laser Module"
-                  description="Additional Laser Power"
-                  position="left-[-280px] top-[60px]"
+                  title="Laser Source Module"
+                  description="Core Energy Delivery System"
+                  position="left-[-285px] top-[145px]"
                   side="left"
-                  lineWidth={48}
+                  lineWidth={50}
                 />
 
+                {/* Scanner */}
                 <KeyPoint
                   title="Scanner Handpiece"
-                  description="Precision Treatment Output"
-                  position="right-[-200px] top-[80px]"
+                  description="Precision Surgical Output"
+                  position="right-[-260px] top-[95px]"
                   side="right"
                   lineWidth={55}
                 />
 
+                {/* Screen */}
                 <KeyPoint
                   title="Touchscreen Display"
                   description="Treatment Interface"
-                  position="right-[-135px] top-[205px]"
+                  position="right-[-245px] top-[210px]"
                   side="right"
-                  lineWidth={50}
+                  lineWidth={48}
                 />
 
+                {/* Emergency */}
                 <KeyPoint
                   title="Emergency Stop"
-                  description="Safety Shutdown"
-                  position="right-[-110px] top-[330px]"
-                  side="right"
+                  description="Immediate Safety Shutdown"
+                  position="left-[-285px] top-[300px]"
+                  side="left"
                   lineWidth={50}
                 />
 
+                {/* Controls */}
                 <KeyPoint
                   title="Control Panel"
                   description="System Controls"
-                  position="right-[-115px] top-[440px]"
+                  position="right-[-235px] top-[310px]"
                   side="right"
-                  lineWidth={50}
+                  lineWidth={48}
                 />
 
+                {/* Base */}
                 <KeyPoint
                   title="Mobile Base"
-                  description="Safe Equipment Movement"
-                  position="left-[-210px] top-[310px]"
+                  description="Stable & Easy Mobility"
+                  position="left-[-265px] top-[410px]"
                   side="left"
-                  lineWidth={42}
+                  lineWidth={45}
                 />
               </>
             )}
           </AnimatePresence>
 
-          {/* Center machine parts */}
+          {/* ======================================================
+      MAIN MACHINE STACK
+  ====================================================== */}
 
           <div
             className="
-              relative
-              z-10
-              flex
-              w-full
-              flex-col
-              items-center
-              gap-0
-            "
+      relative
+      z-10
+      flex
+      w-full
+      flex-col
+      items-center
+    "
           >
-            {/* Part 1 */}
+            {/* ====================================================
+        SURGICO 1
+        ARTICULATED ARM + SCANNER
+    ==================================================== */}
 
             <motion.img
-              src={part1}
-              alt="SmartXide machine upper section"
+              src={surgico1}
+              alt="SurgiCO articulated arm and scanner"
               draggable={false}
               className="
-                block
-                h-auto
-                max-w-full
-                select-none
-                object-contain
-              "
+        relative
+        z-30
+        block
+        h-auto
+        w-full
+        select-none
+        object-contain
+      "
               animate={{
-                x: isExpanded ? 4 : 0,
+                x: isExpanded ? 0 : 0,
                 y: isExpanded ? -25 : 0,
               }}
               transition={{
@@ -403,131 +440,151 @@ const SmartxideMachine = () => {
               }}
             />
 
-            {/* Part 3 */}
+            {/* ====================================================
+        SURGICO 3
+        TOUCHSCREEN
+    ==================================================== */}
 
-            <div
+            <motion.div
               className="
-                w-[78%]
-                max-w-full
-                -translate-x-[18px]
-                sm:-translate-x-[21px]
-                lg:-translate-x-[25px]
-              "
+        relative
+        z-20
+        mt-[-26px]
+        w-[52%]
+
+        sm:mt-[-30px]
+
+        lg:mt-[-34px]
+      "
+              animate={{
+                x: isExpanded ? -8 : 0,
+                y: isExpanded ? 35 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
             >
-              <motion.img
-                src={part3}
-                alt="SmartXide machine middle upper section"
+              <img
+                src={surgico3}
+                alt="SurgiCO touchscreen"
                 draggable={false}
                 className="
-                  block
-                  h-auto
-                  w-full
-                  select-none
-                  object-contain
-                "
-                animate={{
-                  x: isExpanded ? -4 : 0,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeOut",
-                }}
+          block
+          h-auto
+          w-full
+          select-none
+          object-contain
+        "
               />
-            </div>
+            </motion.div>
 
-            {/* Part 4 */}
+            {/* ====================================================
+        SURGICO 4
+        CONTROL BODY
+    ==================================================== */}
 
-            <div
+            <motion.div
               className="
-                w-[63%]
-                max-w-full
-                -translate-x-[38px]
-                sm:-translate-x-[47px]
-                lg:-translate-x-[55px]
-              "
+        relative
+        z-10
+        mt-[-8px]
+        w-[48%]
+
+        sm:mt-[-9px]
+
+        lg:mt-[-10px]
+      "
+              animate={{
+                x: isExpanded ? 7 : 0,
+                y: isExpanded ? 65 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
             >
-              <motion.img
-                src={part4}
-                alt="SmartXide machine middle lower section"
+              <img
+                src={surgico4}
+                alt="SurgiCO control panel body"
                 draggable={false}
                 className="
-                  block
-                  h-auto
-                  w-full
-                  select-none
-                  object-contain
-                "
-                animate={{
-                  x: isExpanded ? 5 : 0,
-                  y: isExpanded ? 25 : 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeOut",
-                }}
+          block
+          h-auto
+          w-full
+          select-none
+          object-contain
+        "
               />
-            </div>
+            </motion.div>
 
-            {/* Part 5 */}
+            {/* ====================================================
+        SURGICO 5
+        MOBILE BASE
+    ==================================================== */}
 
-            <div
+            <motion.div
               className="
-                w-[95%]
-                max-w-full
-                -translate-x-[38px]
-                sm:-translate-x-[47px]
-                lg:-translate-x-[55px]
-              "
+        relative
+        z-[5]
+        mt-[-3px]
+        w-[61%]
+      "
+              animate={{
+                x: isExpanded ? -5 : 0,
+                y: isExpanded ? 90 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
             >
-              <motion.img
-                src={part5}
-                alt="SmartXide machine bottom section"
+              <img
+                src={surgico5}
+                alt="SurgiCO mobile base"
                 draggable={false}
                 className="
-                  block
-                  h-auto
-                  w-full
-                  select-none
-                  object-contain
-                "
-                animate={{
-                  x: isExpanded ? 4 : 0,
-                  y: isExpanded ? 42 : 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeOut",
-                }}
+          block
+          h-auto
+          w-full
+          select-none
+          object-contain
+        "
               />
-            </div>
+            </motion.div>
           </div>
 
-          {/* Part 2 */}
+          {/* ======================================================
+      SURGICO 2
+      BLUE LASER SOURCE MODULE
+  ====================================================== */}
 
           <motion.img
-            src={part2}
-            alt="SmartXide machine left section"
+            src={surgico2}
+            alt="SurgiCO laser source module"
             draggable={false}
             className="
-              absolute
-              z-20
-              h-auto
-              select-none
-              object-contain
-              left-[-150px]
-              top-[40px]
-              max-w-[190px]
-              sm:left-[-155px]
-              sm:top-[68px]
-              sm:max-w-[220px]
-              lg:left-[-150px]
-              lg:top-[76px]
-              lg:max-w-full
-            "
+      absolute
+      z-40
+      h-auto
+      select-none
+      object-contain
+
+      left-[31px]
+      top-[132px]
+      w-[36px]
+
+      sm:left-[35px]
+      sm:top-[146px]
+      sm:w-[40px]
+
+      lg:left-[39px]
+      lg:top-[159px]
+      lg:w-[44px]
+    "
             animate={{
-              x: isExpanded ? -12 : 0,
-              y: isExpanded ? -3 : 0,
+              x: isExpanded ? -45 : 0,
+              y: isExpanded ? 10 : 0,
             }}
             transition={{
               duration: 0.5,
@@ -537,10 +594,12 @@ const SmartxideMachine = () => {
         </div>
       </div>
 
-      {/* Mobile features */}
+      {/* ==================================================
+          MOBILE MACHINE DETAILS
+      ================================================== */}
 
-      <div className="mx-auto mt-9 w-full max-w-[520px] px-4 lg:hidden">
-        {/* Tap hint */}
+      <div className="mx-auto mt-10 w-full max-w-[520px] px-4 lg:hidden">
+        {/* Explore Button */}
 
         <motion.button
           type="button"
@@ -576,16 +635,17 @@ const SmartxideMachine = () => {
               text-white
               transition-transform
               duration-300
+
               ${isExpanded ? "rotate-45" : ""}
             `}
           >
             +
           </span>
 
-          {isExpanded ? "Hide machine details" : "Tap to explore machine"}
+          {isExpanded ? "Hide machine details" : "Tap to explore SurgiCO"}
         </motion.button>
 
-        {/* Mobile detail cards */}
+        {/* Mobile Detail Cards */}
 
         <AnimatePresence>
           {isExpanded && (
@@ -634,4 +694,4 @@ const SmartxideMachine = () => {
   );
 };
 
-export default SmartxideMachine;
+export default SurgicoMachine;
