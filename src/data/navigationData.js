@@ -32,7 +32,7 @@ export const SPECIALTIES = [
 
 // Categories under each specialty
 export const CATEGORIES = {
-  ENT: ["ENT Laser", "ENT Endoscopy", "Elmed"],
+  ENT: ["ENT Laser", "Elmed"],
   Urology: [
     "Surgical Laser",
     "Urodynamic System & Uroflowmetry",

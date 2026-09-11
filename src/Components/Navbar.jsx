@@ -333,24 +333,88 @@ function Navbar() {
               </button>
 
               {productsOpen && (
-                <div className="ml-4 mt-1 space-y-2 border-l-2 border-primary/20 pl-3">
-                  {SPECIALTIES.map((spec) => (
-                    <Link
-                      key={spec.name}
-                      to={spec.path}
-                      onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-primary/5 hover:text-primary"
-                    >
-                      {spec.name} Products
-                    </Link>
-                  ))}
-                  {/* <Link
-                    to="/machine"
-                    onClick={closeMobileMenu}
-                    className="block rounded-lg px-3 py-2 text-xs font-semibold text-primary"
-                  >
-                    View All Machinery →
-                  </Link> */}
+                <div className="ml-4 mt-1 space-y-1 border-l-2 border-primary/20 pl-3">
+                  {SPECIALTIES.map((spec) => {
+                    const isSpecSelected = selectedSpecialty === spec.name;
+                    return (
+                      <div key={spec.name}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSelectedSpecialty(spec.name);
+                            setSelectedCategory(spec.defaultCategory);
+                          }}
+                          className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold hover:bg-primary/5 cursor-pointer ${
+                            isSpecSelected
+                              ? "text-primary"
+                              : "text-slate-700 hover:text-primary"
+                          }`}
+                        >
+                          <span className="flex items-center gap-2">
+                            {SPECIALTY_ICONS[spec.name]}
+                            {spec.name}
+                          </span>
+                          <ChevronRightIcon
+                            sx={{ fontSize: 16 }}
+                            className={`transition-transform duration-200 ${
+                              isSpecSelected ? "rotate-90" : ""
+                            }`}
+                          />
+                        </button>
+
+                        {isSpecSelected && (
+                          <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pl-3 pb-2">
+                            {(CATEGORIES[spec.name] || []).map((cat) => {
+                              const catProducts = getCategoryProducts(cat);
+                              const isCatSelected = selectedCategory === cat;
+                              return (
+                                <div key={cat}>
+                                  <button
+                                    type="button"
+                                    onClick={() => setSelectedCategory(cat)}
+                                    className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 cursor-pointer ${
+                                      isCatSelected
+                                        ? "text-primary"
+                                        : "text-slate-600 hover:text-primary"
+                                    }`}
+                                  >
+                                    <span className="truncate">{cat}</span>
+                                    <ChevronRightIcon
+                                      sx={{ fontSize: 15 }}
+                                      className={`transition-transform duration-200 shrink-0 ${
+                                        isCatSelected ? "rotate-90" : ""
+                                      }`}
+                                    />
+                                  </button>
+
+                                  {isCatSelected && (
+                                    <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pl-3 pb-2">
+                                      {catProducts.length > 0 ? (
+                                        catProducts.map((prod) => (
+                                          <Link
+                                            key={prod.name}
+                                            to={prod.path}
+                                            onClick={closeMobileMenu}
+                                            className="block rounded-lg px-3 py-2 text-xs text-slate-500 hover:bg-sky-50 hover:text-blue-600"
+                                          >
+                                            {prod.name}
+                                          </Link>
+                                        ))
+                                      ) : (
+                                        <p className="px-3 py-2 text-xs text-gray-400">
+                                          Select a category to view items
+                                        </p>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

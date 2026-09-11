@@ -29,6 +29,7 @@ import Litho35Reliability from "../Components/Litho_35/Litho35Reliability";
 import Litho35Applications from "../Components/Litho_35/Litho35Applications";
 import Litho35Specs from "../Components/Litho_35/Litho35Specs";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import Litho35Machine from "../Components/Litho_35/Litho35Machine";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -401,6 +402,7 @@ const Litho35Watt = () => {
       {/* Main Feature Sections */}
       <Fragmentation />
       <DustingEffect />
+      <Litho35Machine />
       <Fibers />
       <Fiber_Recognition />
       {/* <Litho35Fragmentation />
