@@ -40,8 +40,10 @@ const SPECIALTY_ICONS = {
 
 // Styling helper classes
 const ACTIVE_LINK = "bg-primary/10 text-primary-dark";
+
 const INACTIVE_LINK =
   "text-gray-700 hover:bg-primary/5 hover:text-primary-dark";
+
 const MOBILE_INACTIVE = "text-gray-700 hover:bg-primary/5";
 
 function Navbar() {
@@ -54,16 +56,32 @@ function Navbar() {
   const [selectedSpecialty, setSelectedSpecialty] = useState("ENT");
   const [selectedCategory, setSelectedCategory] = useState("ENT Laser");
 
+  // Mobile accordion state
+  // null means that no specialty/category is open
+  const [mobileOpenSpecialty, setMobileOpenSpecialty] = useState(null);
+  const [mobileOpenCategory, setMobileOpenCategory] = useState(null);
+
   const isProductsActive =
     pathname === "/urology" ||
     pathname === "/ent" ||
     pathname === "/gastro" ||
     pathname.startsWith("/products");
 
+  // Get the default category for each specialty
+  const getDefaultCategory = (specialty) => {
+    if (specialty.name === "Gastro") {
+      return "Gastro Laser";
+    }
+
+    return specialty.defaultCategory;
+  };
+
   // Close mobile menu
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
     setProductsOpen(false);
+    setMobileOpenSpecialty(null);
+    setMobileOpenCategory(null);
   };
 
   // Get products or sub-items for the selected category
@@ -94,7 +112,7 @@ function Navbar() {
     return [];
   };
 
-  // Hide selected categories from Gastro
+  // Hide unwanted Gastro categories
   const getVisibleCategories = (specialty) => {
     const categories = CATEGORIES[specialty] || [];
 
@@ -111,6 +129,39 @@ function Navbar() {
   };
 
   const currentProducts = getCategoryProducts(selectedCategory);
+
+  // Mobile specialty accordion
+  const handleMobileSpecialtyClick = (spec) => {
+    const isAlreadyOpen = mobileOpenSpecialty === spec.name;
+
+    if (isAlreadyOpen) {
+      setMobileOpenSpecialty(null);
+      setMobileOpenCategory(null);
+      return;
+    }
+
+    setMobileOpenSpecialty(spec.name);
+
+    // Close previously opened category
+    setMobileOpenCategory(null);
+
+    // Keep desktop selection state updated
+    setSelectedSpecialty(spec.name);
+    setSelectedCategory(getDefaultCategory(spec));
+  };
+
+  // Mobile category accordion
+  const handleMobileCategoryClick = (category) => {
+    const isAlreadyOpen = mobileOpenCategory === category;
+
+    if (isAlreadyOpen) {
+      setMobileOpenCategory(null);
+      return;
+    }
+
+    setMobileOpenCategory(category);
+    setSelectedCategory(category);
+  };
 
   return (
     <header className="relative z-50 w-full bg-background px-3 py-4 md:px-5">
@@ -195,9 +246,11 @@ function Navbar() {
                             type="button"
                             onMouseEnter={() => {
                               setSelectedSpecialty(spec.name);
-                              setSelectedCategory(spec.defaultCategory);
+                              setSelectedCategory(getDefaultCategory(spec));
                             }}
                             onClick={() => {
+                              setSelectedSpecialty(spec.name);
+                              setSelectedCategory(getDefaultCategory(spec));
                               navigate(spec.path);
                               setProductsOpen(false);
                             }}
@@ -358,7 +411,16 @@ function Navbar() {
             <div>
               <button
                 type="button"
-                onClick={() => setProductsOpen((prev) => !prev)}
+                onClick={() => {
+                  const isClosing = productsOpen;
+
+                  setProductsOpen((prev) => !prev);
+
+                  if (isClosing) {
+                    setMobileOpenSpecialty(null);
+                    setMobileOpenCategory(null);
+                  }
+                }}
                 className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-4 py-3 ${
                   isProductsActive ? ACTIVE_LINK : MOBILE_INACTIVE
                 }`}
@@ -379,19 +441,16 @@ function Navbar() {
               {productsOpen && (
                 <div className="ml-4 mt-1 space-y-1 border-l-2 border-primary/20 pl-3">
                   {SPECIALTIES.map((spec) => {
-                    const isSpecSelected = selectedSpecialty === spec.name;
+                    const isSpecOpen = mobileOpenSpecialty === spec.name;
 
                     return (
                       <div key={spec.name}>
                         {/* Specialty */}
                         <button
                           type="button"
-                          onClick={() => {
-                            setSelectedSpecialty(spec.name);
-                            setSelectedCategory(spec.defaultCategory);
-                          }}
+                          onClick={() => handleMobileSpecialtyClick(spec)}
                           className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold hover:bg-primary/5 ${
-                            isSpecSelected
+                            isSpecOpen
                               ? "text-primary"
                               : "text-slate-700 hover:text-primary"
                           }`}
@@ -404,27 +463,29 @@ function Navbar() {
                           <ChevronRightIcon
                             sx={{ fontSize: 16 }}
                             className={`transition-transform duration-200 ${
-                              isSpecSelected ? "rotate-90" : ""
+                              isSpecOpen ? "rotate-90" : ""
                             }`}
                           />
                         </button>
 
                         {/* Categories */}
-                        {isSpecSelected && (
+                        {isSpecOpen && (
                           <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
                             {getVisibleCategories(spec.name).map((cat) => {
                               const catProducts = getCategoryProducts(cat);
 
-                              const isCatSelected = selectedCategory === cat;
+                              const isCatOpen = mobileOpenCategory === cat;
 
                               return (
                                 <div key={cat}>
                                   {/* Category */}
                                   <button
                                     type="button"
-                                    onClick={() => setSelectedCategory(cat)}
+                                    onClick={() =>
+                                      handleMobileCategoryClick(cat)
+                                    }
                                     className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 ${
-                                      isCatSelected
+                                      isCatOpen
                                         ? "text-primary"
                                         : "text-slate-600 hover:text-primary"
                                     }`}
@@ -434,13 +495,13 @@ function Navbar() {
                                     <ChevronRightIcon
                                       sx={{ fontSize: 15 }}
                                       className={`shrink-0 transition-transform duration-200 ${
-                                        isCatSelected ? "rotate-90" : ""
+                                        isCatOpen ? "rotate-90" : ""
                                       }`}
                                     />
                                   </button>
 
                                   {/* Products */}
-                                  {isCatSelected && (
+                                  {isCatOpen && (
                                     <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
                                       {catProducts.length > 0 ? (
                                         catProducts.map((prod) => (
