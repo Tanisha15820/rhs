@@ -75,7 +75,7 @@ const Urology = () => {
         bannerImage={urologyBg}
         description="Explore our wide range of high-quality urology instruments and equipment available for rental."
         products={products}
-        otherCategories={["Ortho"]}
+        otherCategories={[]}
       />
     </>
   );

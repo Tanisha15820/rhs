@@ -40,13 +40,10 @@ const SPECIALTY_ICONS = {
 
 // Styling helper classes
 const ACTIVE_LINK = "bg-primary/10 text-primary-dark";
-const INACTIVE_LINK = "text-gray-700 hover:bg-primary/5 hover:text-primary-dark";
+const INACTIVE_LINK =
+  "text-gray-700 hover:bg-primary/5 hover:text-primary-dark";
 const MOBILE_INACTIVE = "text-gray-700 hover:bg-primary/5";
 
-/**
- * Navbar Component
- * Simple, human-readable navigation header with responsive desktop mega-menu and mobile drawer.
- */
 function Navbar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -63,22 +60,54 @@ function Navbar() {
     pathname === "/gastro" ||
     pathname.startsWith("/products");
 
-  // Helper to close mobile menu
+  // Close mobile menu
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
     setProductsOpen(false);
   };
 
-  // Helper to get products or sub-items for the chosen category
+  // Get products or sub-items for the selected category
   const getCategoryProducts = (category) => {
     if (category === "Surgical Laser") {
-      return SURGICAL_LASER_PRODUCTS.map((name) => ({ name, path: "/urology" }));
+      return SURGICAL_LASER_PRODUCTS.map((name) => ({
+        name,
+        path: "/urology",
+      }));
     }
-    if (category === "ENT Laser") return ENT_LASER_SUBTYPES;
-    if (category === "Gastro Laser") return GASTRO_LASER_SUBTYPES;
-    if (category === "Elmed") return ELMED_SUBTYPES;
-    if (category === "Endo Urology UMD Endoscopy") return ENDO_UROLOGY_SUBTYPES;
+
+    if (category === "ENT Laser") {
+      return ENT_LASER_SUBTYPES;
+    }
+
+    if (category === "Gastro Laser") {
+      return GASTRO_LASER_SUBTYPES;
+    }
+
+    if (category === "Elmed") {
+      return ELMED_SUBTYPES;
+    }
+
+    if (category === "Endo Urology UMD Endoscopy") {
+      return ENDO_UROLOGY_SUBTYPES;
+    }
+
     return [];
+  };
+
+  // Hide selected categories from Gastro
+  const getVisibleCategories = (specialty) => {
+    const categories = CATEGORIES[specialty] || [];
+
+    if (specialty === "Gastro") {
+      return categories.filter(
+        (cat) =>
+          cat !== "Gastro Products" &&
+          cat !== "Gastro Enscopy" &&
+          cat !== "Gastro Endoscopy",
+      );
+    }
+
+    return categories;
   };
 
   const currentProducts = getCategoryProducts(selectedCategory);
@@ -86,24 +115,26 @@ function Navbar() {
   return (
     <header className="relative z-50 w-full bg-background px-3 py-4 md:px-5">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
-        {/* 1. Website Logo */}
+        {/* Website Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
             src={logo}
             alt="Reinforce Healthcare Services"
             className="h-14 w-auto object-contain md:h-16"
           />
+
           <div className="leading-tight">
             <h1 className="text-[13px] font-extrabold tracking-tight text-primary-dark sm:text-[16px]">
               REINFORCE
             </h1>
+
             <p className="text-[8px] font-bold tracking-widest text-primary sm:text-[10px]">
               HEALTHCARE SERVICES
             </p>
           </div>
         </Link>
 
-        {/* 2. Desktop Navigation Menu */}
+        {/* Desktop Navigation Menu */}
         <nav className="hidden items-center gap-1 lg:flex lg:absolute lg:left-1/2 lg:-translate-x-1/2">
           {/* Home Link */}
           <Link
@@ -115,7 +146,7 @@ function Navbar() {
             Home
           </Link>
 
-          {/* Products Mega-Menu Dropdown */}
+          {/* Products Mega Menu */}
           <div
             className="relative"
             onMouseEnter={() => setProductsOpen(true)}
@@ -124,11 +155,12 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setProductsOpen((prev) => !prev)}
-              className={`flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 cursor-pointer ${
+              className={`flex cursor-pointer items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
                 isProductsActive ? ACTIVE_LINK : INACTIVE_LINK
               }`}
             >
               <span>Products</span>
+
               <KeyboardArrowDownIcon
                 sx={{ fontSize: 16 }}
                 className={`transition-transform duration-200 ${
@@ -137,22 +169,26 @@ function Navbar() {
               />
             </button>
 
-            {/* Desktop Mega Menu Dropdown Window */}
+            {/* Desktop Mega Menu Dropdown */}
             {productsOpen && (
               <div className="absolute left-1/2 top-full z-50 w-[850px] -translate-x-1/2 pt-3">
                 <div className="rounded-2xl bg-white p-5 shadow-[0_20px_60px_rgba(0,0,0,0.13)] ring-1 ring-gray-100">
                   <div className="grid grid-cols-[1fr_1.15fr_1.7fr]">
-                    {/* Column 1: Specialties List */}
-                    <div className="border-r border-gray-100 pr-5 space-y-1">
+                    {/* Specialties List */}
+                    <div className="space-y-1 border-r border-gray-100 pr-5">
                       <div className="mb-3 flex items-center gap-2">
                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600">
                           <MedicalServicesIcon sx={{ fontSize: 18 }} />
                         </div>
-                        <h3 className="text-sm font-bold text-gray-800">Specialties</h3>
+
+                        <h3 className="text-sm font-bold text-gray-800">
+                          Specialties
+                        </h3>
                       </div>
 
                       {SPECIALTIES.map((spec) => {
                         const isSelected = selectedSpecialty === spec.name;
+
                         return (
                           <button
                             key={spec.name}
@@ -165,7 +201,7 @@ function Navbar() {
                               navigate(spec.path);
                               setProductsOpen(false);
                             }}
-                            className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-[13px] transition-all cursor-pointer ${
+                            className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[13px] transition-all ${
                               isSelected
                                 ? "bg-blue-50 font-semibold text-blue-600"
                                 : "text-gray-600 hover:bg-gray-50"
@@ -175,48 +211,53 @@ function Navbar() {
                               {SPECIALTY_ICONS[spec.name]}
                               {spec.name}
                             </span>
+
                             <ChevronRightIcon sx={{ fontSize: 16 }} />
                           </button>
                         );
                       })}
                     </div>
 
-                    {/* Column 2: Categories for selected specialty */}
-                    <div className="border-r border-gray-100 px-5 space-y-1">
+                    {/* Categories for Selected Specialty */}
+                    <div className="space-y-1 border-r border-gray-100 px-5">
                       <div className="mb-3 flex items-center gap-2">
                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600">
                           <AirIcon sx={{ fontSize: 18 }} />
                         </div>
+
                         <h3 className="text-sm font-bold text-gray-800">
                           {selectedSpecialty}
                         </h3>
                       </div>
 
-                      {(CATEGORIES[selectedSpecialty] || []).map((cat) => {
+                      {getVisibleCategories(selectedSpecialty).map((cat) => {
                         const isSelected = selectedCategory === cat;
+
                         return (
                           <button
                             key={cat}
                             type="button"
                             onMouseEnter={() => setSelectedCategory(cat)}
-                            className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-[12px] transition-all cursor-pointer ${
+                            className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[12px] transition-all ${
                               isSelected
                                 ? "bg-blue-50 font-semibold text-blue-600"
                                 : "text-gray-600 hover:bg-gray-50"
                             }`}
                           >
                             <span className="truncate">{cat}</span>
+
                             <ChevronRightIcon sx={{ fontSize: 15 }} />
                           </button>
                         );
                       })}
                     </div>
 
-                    {/* Column 3: Products for chosen category */}
-                    <div className="pl-5 space-y-1 max-h-[360px] overflow-y-auto">
+                    {/* Products for Selected Category */}
+                    <div className="max-h-[360px] space-y-1 overflow-y-auto pl-5">
                       <div className="mb-3 flex items-center gap-2">
                         <span className="text-base text-sky-600">✦</span>
-                        <h3 className="text-sm font-bold text-gray-800 truncate">
+
+                        <h3 className="truncate text-sm font-bold text-gray-800">
                           {selectedCategory}
                         </h3>
                       </div>
@@ -228,18 +269,19 @@ function Navbar() {
                               key={prod.name}
                               to={prod.path}
                               onClick={() => setProductsOpen(false)}
-                              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-[12px] text-gray-600 hover:bg-sky-50 hover:text-blue-600 transition"
+                              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-[12px] text-gray-600 transition hover:bg-sky-50 hover:text-blue-600"
                             >
                               <ChevronRightIcon
                                 sx={{ fontSize: 14 }}
-                                className="text-blue-500 shrink-0"
+                                className="shrink-0 text-blue-500"
                               />
+
                               <span className="truncate">{prod.name}</span>
                             </Link>
                           ))}
                         </div>
                       ) : (
-                        <p className="text-xs text-gray-400 py-3">
+                        <p className="py-3 text-xs text-gray-400">
                           Select a category to view items
                         </p>
                       )}
@@ -281,11 +323,11 @@ function Navbar() {
           </Link>
         </nav>
 
-        {/* 4. Mobile Menu Toggle Button */}
+        {/* Mobile Menu Toggle Button */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/5 text-primary-dark transition hover:bg-primary/10 lg:hidden cursor-pointer"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-primary/5 text-primary-dark transition hover:bg-primary/10 lg:hidden"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {mobileMenuOpen ? (
@@ -296,10 +338,11 @@ function Navbar() {
         </button>
       </div>
 
-      {/* 5. Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="mx-auto mt-3 max-w-7xl rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden animate-fade-in">
+        <div className="mx-auto mt-3 max-w-7xl animate-fade-in rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden">
           <nav className="flex flex-col gap-1 text-sm font-medium">
+            {/* Home */}
             <Link
               to="/"
               onClick={closeMobileMenu}
@@ -316,7 +359,7 @@ function Navbar() {
               <button
                 type="button"
                 onClick={() => setProductsOpen((prev) => !prev)}
-                className={`flex w-full items-center justify-between rounded-xl px-4 py-3 cursor-pointer ${
+                className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-4 py-3 ${
                   isProductsActive ? ACTIVE_LINK : MOBILE_INACTIVE
                 }`}
               >
@@ -324,6 +367,7 @@ function Navbar() {
                   <MedicalServicesIcon sx={{ fontSize: 18 }} />
                   <span>Products & Specialties</span>
                 </span>
+
                 <KeyboardArrowDownIcon
                   sx={{ fontSize: 18 }}
                   className={`transition-transform duration-200 ${
@@ -336,15 +380,17 @@ function Navbar() {
                 <div className="ml-4 mt-1 space-y-1 border-l-2 border-primary/20 pl-3">
                   {SPECIALTIES.map((spec) => {
                     const isSpecSelected = selectedSpecialty === spec.name;
+
                     return (
                       <div key={spec.name}>
+                        {/* Specialty */}
                         <button
                           type="button"
                           onClick={() => {
                             setSelectedSpecialty(spec.name);
                             setSelectedCategory(spec.defaultCategory);
                           }}
-                          className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold hover:bg-primary/5 cursor-pointer ${
+                          className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold hover:bg-primary/5 ${
                             isSpecSelected
                               ? "text-primary"
                               : "text-slate-700 hover:text-primary"
@@ -354,6 +400,7 @@ function Navbar() {
                             {SPECIALTY_ICONS[spec.name]}
                             {spec.name}
                           </span>
+
                           <ChevronRightIcon
                             sx={{ fontSize: 16 }}
                             className={`transition-transform duration-200 ${
@@ -362,33 +409,39 @@ function Navbar() {
                           />
                         </button>
 
+                        {/* Categories */}
                         {isSpecSelected && (
-                          <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pl-3 pb-2">
-                            {(CATEGORIES[spec.name] || []).map((cat) => {
+                          <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
+                            {getVisibleCategories(spec.name).map((cat) => {
                               const catProducts = getCategoryProducts(cat);
+
                               const isCatSelected = selectedCategory === cat;
+
                               return (
                                 <div key={cat}>
+                                  {/* Category */}
                                   <button
                                     type="button"
                                     onClick={() => setSelectedCategory(cat)}
-                                    className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 cursor-pointer ${
+                                    className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 ${
                                       isCatSelected
                                         ? "text-primary"
                                         : "text-slate-600 hover:text-primary"
                                     }`}
                                   >
                                     <span className="truncate">{cat}</span>
+
                                     <ChevronRightIcon
                                       sx={{ fontSize: 15 }}
-                                      className={`transition-transform duration-200 shrink-0 ${
+                                      className={`shrink-0 transition-transform duration-200 ${
                                         isCatSelected ? "rotate-90" : ""
                                       }`}
                                     />
                                   </button>
 
+                                  {/* Products */}
                                   {isCatSelected && (
-                                    <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pl-3 pb-2">
+                                    <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
                                       {catProducts.length > 0 ? (
                                         catProducts.map((prod) => (
                                           <Link
@@ -419,6 +472,7 @@ function Navbar() {
               )}
             </div>
 
+            {/* Blogs */}
             <Link
               to="/blogs"
               onClick={closeMobileMenu}
@@ -430,17 +484,21 @@ function Navbar() {
               <span>Blogs</span>
             </Link>
 
+            {/* Machine Link */}
             {/* <Link
               to="/machine"
               onClick={closeMobileMenu}
               className={`flex items-center gap-2.5 rounded-xl px-4 py-3 ${
-                pathname === "/machine" ? ACTIVE_LINK : MOBILE_INACTIVE
+                pathname === "/machine"
+                  ? ACTIVE_LINK
+                  : MOBILE_INACTIVE
               }`}
             >
               <HealthAndSafetyIcon sx={{ fontSize: 18 }} />
               <span>Machine</span>
             </Link> */}
 
+            {/* Contact */}
             <Link
               to="/contact"
               onClick={closeMobileMenu}
