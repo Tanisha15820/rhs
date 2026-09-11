@@ -17,6 +17,7 @@ import Fiber_Recognition from "../Components/Gastro_Laser/Fiber_Recognition";
 import Applications from "../Components/Gastro_Laser/Applications";
 import Litho35Excellence from "../Components/Litho_35/Litho35Excellence";
 import Litho35Reliability from "../Components/Litho_35/Litho35Reliability";
+import EvoMachine from "../Components/Gastro_Laser/EvoMachine";
 
 const FeatureCard = ({ number, description, image, position }) => {
   return (
@@ -279,7 +280,7 @@ const LithoEvo = () => {
       <Litho35Recognition /> */}
       <Fragmentation />
       <DustingEffect />
-
+      <EvoMachine />
       <HoliumSection />
       <Reliability />
       <Fibers />

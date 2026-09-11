@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import l1 from "../../assets/images/litho1.png";
-import l2 from "../../assets/images/litho2.png";
-import l3 from "../../assets/images/litho3.png";
-import l4 from "../../assets/images/litho4.png";
-import l6 from "../../assets/images/litho5.png";
+import evo1 from "../../assets/images/evo1.png";
+import evo2 from "../../assets/images/evo2.png";
+import evo3 from "../../assets/images/evo3.png";
+import evo4 from "../../assets/images/evo4.png";
+import evo5 from "../../assets/images/evo5.png";
 
-// Desktop key point
+// ================= DESKTOP KEY POINT =================
 
 const KeyPoint = ({
   title,
@@ -37,7 +37,9 @@ const KeyPoint = ({
         <div className="flex items-center">
           <div
             className="h-[1px] bg-[#1677FF]"
-            style={{ width: `${lineWidth}px` }}
+            style={{
+              width: `${lineWidth}px`,
+            }}
           />
 
           <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
@@ -47,12 +49,12 @@ const KeyPoint = ({
       {/* Card */}
       <div
         className="
-          min-w-[145px]
-          rounded-[9px]
+          min-w-[150px]
+          rounded-[10px]
           border
           border-[#2F80ED]/60
           bg-white
-          px-2.5
+          px-3
           py-2
           shadow-[0_6px_20px_rgba(15,23,42,0.07)]
         "
@@ -95,27 +97,17 @@ const KeyPoint = ({
 
           <div
             className="h-[1px] bg-[#1677FF]"
-            style={{ width: `${lineWidth}px` }}
+            style={{
+              width: `${lineWidth}px`,
+            }}
           />
-        </div>
-      )}
-
-      {/* Bottom connector */}
-      {side === "bottom" && (
-        <div className="flex flex-col items-center">
-          <div
-            className="w-[1px] bg-[#1677FF]"
-            style={{ height: `${lineWidth}px` }}
-          />
-
-          <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
         </div>
       )}
     </motion.div>
   );
 };
 
-// Mobile key point
+// ================= MOBILE KEY POINT =================
 
 const MobileKeyPoint = ({ title, description, index }) => {
   return (
@@ -149,7 +141,6 @@ const MobileKeyPoint = ({ title, description, index }) => {
         shadow-[0_5px_18px_rgba(15,23,42,0.05)]
       "
     >
-      {/* Icon */}
       <div
         className="
           flex
@@ -165,7 +156,6 @@ const MobileKeyPoint = ({ title, description, index }) => {
         <div className="h-[12px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
       </div>
 
-      {/* Text */}
       <div className="min-w-0">
         <h4 className="text-[11px] font-semibold leading-[1.3] text-slate-900">
           {title}
@@ -179,52 +169,61 @@ const MobileKeyPoint = ({ title, description, index }) => {
   );
 };
 
-// Mobile key point data
+// ================= MACHINE DATA =================
 
 const machinePoints = [
   {
     title: "Top Handle",
     description: "Easy Mobility & Handling",
   },
+
   {
     title: "Touchscreen Display",
     description: "User Interface & Control",
   },
-  {
-    title: "Emergency Stop",
-    description: "Instant Safety Shutdown",
-  },
+
   {
     title: "Focusing Optics",
-    description: "Precision Beam Alignment",
+    description: "Precision Beam Output",
   },
+
   {
     title: "Laser Port",
     description: "Laser Delivery Output",
   },
+
+  {
+    title: "Emergency Stop",
+    description: "Safety Shutdown",
+  },
+
   {
     title: "Cooling Vent",
     description: "Heat Dissipation & Airflow",
   },
+
   {
-    title: "Main Housing",
-    description: "Internal System Protection",
+    title: "Front Panel",
+    description: "Main Housing Access",
   },
+
   {
     title: "Lower Support Base",
-    description: "Structural Stability & Support",
+    description: "Structural Stability",
   },
+
   {
     title: "Caster Wheels",
-    description: "Smooth Movement & Positioning",
+    description: "Smooth Movement & Stability",
   },
 ];
 
-const Litho35Machine = () => {
+// ================= MAIN COMPONENT =================
+
+const EvoMachine = () => {
   const [isExploded, setIsExploded] = useState(false);
 
-  // Space added between machine parts
-  const GAP = 40;
+  const GAP = 30;
 
   const toggleMachine = () => {
     setIsExploded((prev) => !prev);
@@ -243,337 +242,266 @@ const Litho35Machine = () => {
         py-[15px]
       "
     >
-      {/* Machine area */}
       <div
         className={`
           relative
           mx-auto
           flex
           w-full
-          max-w-[900px]
+          max-w-[1000px]
           items-center
           justify-center
           px-4
+
           transition-all
           duration-500
-          ease-in-out
 
-          ${
-            isExploded
-              ? `
-                min-h-[540px]
-                sm:min-h-[590px]
-                lg:min-h-[650px]
-              `
-              : `
-                min-h-[450px]
-                sm:min-h-[500px]
-                lg:min-h-[560px]
-              `
-          }
+          ${isExploded ? "min-h-[950px]" : "min-h-[850px]"}
+
         `}
       >
-        {/* Background glow */}
+        {/* Background Glow */}
+
         <div
           className="
             pointer-events-none
             absolute
             left-1/2
             top-1/2
-            h-[200px]
-            w-[200px]
+            h-[260px]
+            w-[260px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-[#1677FF]/[0.04]
-            blur-[90px]
+            bg-[#1677FF]/[0.05]
+            blur-[100px]
           "
         />
 
-        {/* Machine */}
+        {/* MACHINE CONTAINER */}
+
         <div
-          className={`
+          className="
             relative
             z-20
             flex
+            h-[850px]
+            w-[480px]
             cursor-pointer
             items-center
             justify-center
-            outline-none
-
-            w-[190px]
-            sm:w-[210px]
-            lg:w-[220px]
-
-            transition-all
-            duration-500
-            ease-in-out
-
-            ${
-              isExploded
-                ? `
-                  h-[520px]
-                  sm:h-[570px]
-                  lg:h-[630px]
-                `
-                : `
-                  h-[430px]
-                  sm:h-[480px]
-                  lg:h-[540px]
-                `
-            }
-          `}
+          "
           onClick={toggleMachine}
-          role="button"
-          tabIndex={0}
-          aria-label={
-            isExploded ? "Collapse Litho machine" : "Explore Litho machine"
-          }
-          aria-expanded={isExploded}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              toggleMachine();
-            }
-          }}
         >
-          {/* Desktop key points */}
+          {/* DESKTOP KEY POINTS */}
+
           <AnimatePresence>
             {isExploded && (
               <>
-                {/* Top Handle */}
                 <KeyPoint
                   title="Top Handle"
                   description="Easy Mobility & Handling"
-                  position="right-[-130px] top-[-3px]"
+                  position="right-[20px] top-[20px]"
                   side="right"
-                  lineWidth={32}
+                  lineWidth={50}
                 />
 
-                {/* Touchscreen Display */}
                 <KeyPoint
                   title="Touchscreen Display"
                   description="User Interface & Control"
-                  position="left-[-150px] top-[70px]"
+                  position="left-[-100px] top-[120px]"
                   side="left"
-                  lineWidth={52}
+                  lineWidth={70}
                 />
 
-                {/* Emergency Stop */}
-                <KeyPoint
-                  title="Emergency Stop"
-                  description="Instant Safety Shutdown"
-                  position="right-[-120px] top-[255px]"
-                  side="right"
-                  lineWidth={55}
-                />
-
-                {/* Focusing Optics */}
                 <KeyPoint
                   title="Focusing Optics"
-                  description="Precision Beam Alignment"
-                  position="left-[-120px] top-[200px]"
+                  description="Precision Beam Output"
+                  position="left-[-70px] top-[260px]"
                   side="left"
-                  lineWidth={62}
+                  lineWidth={70}
                 />
 
-                {/* Laser Port */}
                 <KeyPoint
                   title="Laser Port"
                   description="Laser Delivery Output"
-                  position="left-[-120px] top-[255px]"
-                  side="left"
-                  lineWidth={52}
+                  position="right-[20px] top-[260px]"
+                  side="right"
+                  lineWidth={70}
                 />
 
-                {/* Cooling Vent */}
                 <KeyPoint
-                  title="Cooling Vent"
-                  description="Heat Dissipation & Airflow"
-                  position="left-[-140px] top-[315px]"
-                  side="left"
-                  lineWidth={62}
-                />
-
-                {/* Main Housing */}
-                <KeyPoint
-                  title="Front Panel"
-                  description="Internal System Protection"
-                  position="right-[-120px] top-[355px]"
+                  title="Emergency Stop"
+                  description="Safety Shutdown"
+                  position="right-[40px] top-[380px]"
                   side="right"
                   lineWidth={65}
                 />
 
-                {/* Caster Wheels */}
+                <KeyPoint
+                  title="Cooling Vent"
+                  description="Heat Dissipation & Airflow"
+                  position="left-[-80px] top-[420px]"
+                  side="left"
+                  lineWidth={75}
+                />
+
+                <KeyPoint
+                  title="Front Panel"
+                  description="Main Housing Access"
+                  position="right-[10px] top-[520px]"
+                  side="right"
+                  lineWidth={70}
+                />
+
                 <KeyPoint
                   title="Caster Wheels"
-                  description="Smooth Movement & Positioning"
-                  position="right-[-150px] top-[550px]"
+                  description="Smooth Movement & Stability"
+                  position="right-[-200px] top-[820px]"
                   side="right"
-                  lineWidth={60}
+                  lineWidth={75}
                 />
               </>
             )}
           </AnimatePresence>
 
-          {/* Machine scale wrapper */}
+          {/* IMAGE WRAPPER */}
+
           <div
             className="
               absolute
               left-1/2
               top-1/2
-              h-[760px]
-              w-[320px]
+              h-[1050px]
+              w-[520px]
               -translate-x-1/2
               -translate-y-1/2
+              scale-[0.85]
               origin-center
-              scale-[0.58]
-              sm:scale-[0.64]
-              lg:scale-[0.72]
             "
           >
-            {/* Part 1 */}
+            {/* PART 1 */}
+
             <img
-              src={l1}
-              alt="Litho Top Control Unit"
+              src={evo1}
+              alt="Evo Top Handle Display"
               draggable={false}
               style={getExplodeStyle(-2)}
               className="
                 pointer-events-none
                 absolute
-                z-10
-                left-[34px]
+                left-[-10px]
                 top-[20px]
-                h-auto
-                w-[252px]
+                z-10
+                w-[440px]
+                h-[270px]
                 select-none
                 object-contain
                 transition-transform
                 duration-500
-                ease-in-out
               "
             />
 
-            {/* Part 2 */}
+            {/* PART 2 */}
+
             <img
-              src={l2}
-              alt="Litho Optical Unit"
+              src={evo2}
+              alt="Evo Optical Section"
               draggable={false}
               style={getExplodeStyle(-1)}
               className="
                 pointer-events-none
                 absolute
+                left-[-10px]
+                top-[120px]
                 z-20
-                left-[58px]
-                top-[225px]
-                h-auto
-                w-[202px]
+                w-[440px]
+                h-[270px]
                 select-none
                 object-contain
                 transition-transform
                 duration-500
-                ease-in-out
               "
             />
 
-            {/* Part 3 */}
+            {/* PART 3 */}
+
             <img
-              src={l3}
-              alt="Litho Main Body"
+              src={evo3}
+              alt="Evo Main Body"
               draggable={false}
               style={getExplodeStyle(0)}
               className="
                 pointer-events-none
                 absolute
+                left-[55px]
+                top-[265px]
                 z-30
-                left-[46px]
-                top-[370px]
-                h-auto
-                w-[228px]
+                w-[300px]
+                h-[185px]
                 select-none
                 object-contain
                 transition-transform
                 duration-500
-                ease-in-out
               "
             />
 
-            {/* Part 4 */}
+            {/* PART 4 */}
+
             <img
-              src={l4}
-              alt="Litho Lower Support Base"
+              src={evo4}
+              alt="Evo Lower Base"
               draggable={false}
               style={getExplodeStyle(1)}
               className="
                 pointer-events-none
                 absolute
+                left-[55px]
+                top-[375px]
                 z-40
-                left-[60px]
-                top-[520px]
-                h-auto
-                w-[200px]
+                w-[300px]
+                h-[350px]
                 select-none
                 object-contain
                 transition-transform
                 duration-500
-                ease-in-out
               "
             />
 
-            {/* Left wheel */}
+            {/* PART 5 - ONLY ONE TIME */}
+
             <img
-              src={l6}
-              alt="Litho Left Caster Wheel"
+              src={evo5}
+              alt="Evo Caster Wheels"
               draggable={false}
               style={getExplodeStyle(2)}
               className="
                 pointer-events-none
                 absolute
-                z-50
-                left-[78px]
-                top-[625px]
-                h-auto
-                w-[74px]
+                left-[-7px]
+                top-[615px]
+                z-60
+                w-[420px]
+                h-[240px]
                 select-none
                 object-contain
                 transition-transform
                 duration-500
-                ease-in-out
-              "
-            />
-
-            {/* Right wheel */}
-            <img
-              src={l6}
-              alt="Litho Right Caster Wheel"
-              draggable={false}
-              style={getExplodeStyle(2)}
-              className="
-                pointer-events-none
-                absolute
-                z-50
-                left-[168px]
-                top-[625px]
-                h-auto
-                w-[74px]
-                select-none
-                object-contain
-                transition-transform
-                duration-500
-                ease-in-out
               "
             />
           </div>
         </div>
       </div>
 
-      {/* Mobile features */}
+      {/* MOBILE SECTION */}
+
       <div className="mx-auto mt-2 w-full max-w-[520px] px-4 lg:hidden">
-        {/* Tap button */}
         <motion.button
           type="button"
           onClick={toggleMachine}
-          whileTap={{ scale: 0.97 }}
+          whileTap={{
+            scale: 0.97,
+          }}
           className="
             mx-auto
             flex
@@ -583,7 +511,7 @@ const Litho35Machine = () => {
             border
             border-[#1677FF]/15
             bg-[#1677FF]/[0.04]
-            px-3.5
+            px-4
             py-2
             text-[10px]
             font-medium
@@ -591,7 +519,7 @@ const Litho35Machine = () => {
           "
         >
           <span
-            className={`
+            className="
               flex
               h-5
               w-5
@@ -599,14 +527,8 @@ const Litho35Machine = () => {
               justify-center
               rounded-full
               bg-[#1677FF]
-              text-[14px]
-              leading-none
               text-white
-              transition-transform
-              duration-300
-
-              ${isExploded ? "rotate-45" : ""}
-            `}
+            "
           >
             +
           </span>
@@ -614,7 +536,6 @@ const Litho35Machine = () => {
           {isExploded ? "Hide machine details" : "Tap to explore machine"}
         </motion.button>
 
-        {/* Mobile detail cards */}
         <AnimatePresence>
           {isExploded && (
             <motion.div
@@ -632,18 +553,17 @@ const Litho35Machine = () => {
               }}
               transition={{
                 duration: 0.4,
-                ease: "easeOut",
               }}
               className="overflow-hidden"
             >
               <div
                 className="
-                  mt-4
-                  grid
-                  grid-cols-1
-                  gap-2
-                  min-[430px]:grid-cols-2
-                "
+                    mt-4
+                    grid
+                    grid-cols-1
+                    gap-2
+                    min-[430px]:grid-cols-2
+                  "
               >
                 {machinePoints.map((point, index) => (
                   <MobileKeyPoint
@@ -662,4 +582,4 @@ const Litho35Machine = () => {
   );
 };
 
-export default Litho35Machine;
+export default EvoMachine;

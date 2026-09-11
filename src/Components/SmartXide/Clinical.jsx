@@ -117,7 +117,8 @@ const Clinical = () => {
       steps: [
         {
           image: thyroid1,
-          label: "Bilateral paralysis of the vocal cords (after total thyroidectomy)",
+          label:
+            "Bilateral paralysis of the vocal cords (after total thyroidectomy)",
           subtitle: "Narrowed airway space",
         },
         {
@@ -223,12 +224,13 @@ const Clinical = () => {
                         border: `1px solid ${item.color}30`,
                       }}
                     >
-                      {item.steps.length} {item.steps.length > 2 ? "Stages" : "Modals"}
+                      {item.steps.length}{" "}
+                      {item.steps.length > 2 ? "Stages" : "Modals"}
                     </span>
                   </div>
 
                   {/* IMAGE ROW */}
-                  <div className="mt-7 flex flex-1 items-start justify-center gap-2 sm:gap-3">
+                  <div className="mt-7 flex items-start justify-center gap-2 sm:gap-4">
                     {item.steps.map((step, i) => (
                       <React.Fragment key={i}>
                         <div className="flex min-w-0 flex-1 flex-col items-center text-center">
@@ -242,7 +244,7 @@ const Clinical = () => {
                                 doctor: item.doctor,
                               })
                             }
-                            className="group/img relative flex aspect-square w-full max-w-[96px] sm:max-w-[105px] cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 bg-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                            className="group/img relative h-[96px] w-[96px] shrink-0 cursor-pointer overflow-hidden rounded-full border-2 bg-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-[105px] sm:w-[105px]"
                             style={{
                               borderColor: item.color,
                               boxShadow: `0 4px 14px ${item.color}25`,
@@ -253,31 +255,32 @@ const Clinical = () => {
                               alt={step.label}
                               className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/img:scale-110"
                             />
+
                             {/* Hover Overlay */}
                             <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-200 group-hover/img:opacity-100">
                               <Maximize2 className="h-4 w-4 text-white" />
                             </div>
                           </div>
 
-                          {/* Step Indicator Bar */}
+                          {/* Step Indicator */}
                           <div
-                            className="mt-2.5 h-[3px] w-6 sm:w-10 rounded-full"
+                            className="mt-2.5 h-[3px] w-6 rounded-full sm:w-10"
                             style={{
                               backgroundColor: item.color,
                             }}
                           />
 
                           {/* Step Label */}
-                          <p className="mt-1.5 text-[10px] font-bold leading-tight text-[#1e293b] sm:text-[11px] line-clamp-3">
+                          <p className="mt-1.5 line-clamp-3 text-[10px] font-bold leading-tight text-[#1e293b] sm:text-[11px]">
                             {step.label}
                           </p>
                         </div>
 
-                        {/* Arrow separator between steps */}
+                        {/* Arrow */}
                         {i < item.steps.length - 1 && (
                           <div className="mt-7 flex shrink-0 items-center justify-center">
                             <div
-                              className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full shadow-xs"
+                              className="flex h-5 w-5 items-center justify-center rounded-full shadow-xs sm:h-6 sm:w-6"
                               style={{
                                 backgroundColor: `${item.color}15`,
                                 color: item.color,
