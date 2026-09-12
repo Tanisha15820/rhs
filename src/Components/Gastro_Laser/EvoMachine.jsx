@@ -256,7 +256,9 @@ const EvoMachine = () => {
           transition-all
           duration-500
 
-          ${isExploded ? "min-h-[950px]" : "min-h-[850px]"}
+          ${isExploded
+            ? "min-h-[540px] sm:min-h-[700px] lg:min-h-[950px]"
+            : "min-h-[480px] sm:min-h-[630px] lg:min-h-[850px]"}
 
         `}
       >
@@ -285,11 +287,15 @@ const EvoMachine = () => {
             relative
             z-20
             flex
-            h-[850px]
-            w-[480px]
+            h-[480px]
+            w-[300px]
             cursor-pointer
             items-center
             justify-center
+            sm:h-[630px]
+            sm:w-[340px]
+            lg:h-[850px]
+            lg:w-[480px]
           "
           onClick={toggleMachine}
         >
@@ -376,7 +382,9 @@ const EvoMachine = () => {
               w-[520px]
               -translate-x-1/2
               -translate-y-1/2
-              scale-[0.85]
+              scale-[0.45]
+              sm:scale-[0.6]
+              lg:scale-[0.85]
               origin-center
             "
           >

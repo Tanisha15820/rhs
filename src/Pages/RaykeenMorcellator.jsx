@@ -1,9 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, ShieldCheck, Sparkles, CheckCircle2, Zap, Gauge, Scissors } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  ShieldCheck,
+  Sparkles,
+  CheckCircle2,
+  Zap,
+  Gauge,
+  Scissors,
+} from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import raykeenHeroImg from "../assets/images/bipolar_plasma_generator.png";
+import raykeenHeroImg from "../assets/images/raykeen.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
@@ -12,6 +21,7 @@ import RaykeenAdvantages from "../Components/RaykeenMorcellator/RaykeenAdvantage
 import RaykeenFootswitch from "../Components/RaykeenMorcellator/RaykeenFootswitch";
 import RaykeenBladeSpecs from "../Components/RaykeenMorcellator/RaykeenBladeSpecs";
 import RaykeenSpecs from "../Components/RaykeenMorcellator/RaykeenSpecs";
+import RaykeenMachine from "../Components/RaykeenMorcellator/RaykeenMachine";
 
 /* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -98,7 +108,8 @@ const RaykeenMorcellator = () => {
       "@type": "AggregateOffer",
       priceCurrency: "INR",
       availability: "https://schema.org/InStock",
-      description: "Available for hospital and surgical center rental across India.",
+      description:
+        "Available for hospital and surgical center rental across India.",
     },
   };
 
@@ -142,9 +153,11 @@ const RaykeenMorcellator = () => {
             </h1>
 
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6 lg:text-base">
-              Precision High-Speed Tissue Morcellation by Raykeen Laser Technology.
+              Precision High-Speed Tissue Morcellation by Raykeen Laser
+              Technology.
               <br className="hidden sm:block" />
-              10-Level Dynamic Speed, Segmented Safety Footswitch & 200-Cycle Handpiece.
+              10-Level Dynamic Speed, Segmented Safety Footswitch & 200-Cycle
+              Handpiece.
             </p>
           </div>
 
@@ -230,6 +243,8 @@ const RaykeenMorcellator = () => {
         </div>
       </section>
 
+      {/* Interactive Machine Section */}
+      <RaykeenMachine />
       {/* Modular Product Sections */}
       <RaykeenAdvantages />
       <RaykeenFootswitch />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ProductsPage = ({
   categoryName,
@@ -24,23 +25,42 @@ const ProductsPage = ({
       inset-0
       h-full
       w-full
-      object-cover
+      object-fill
       object-center
     "
         />
 
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.h1 
+              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
               {categoryName}
-            </h1>
+            </motion.h1>
 
-            <div className="mt-3 h-[2px] w-10 bg-primary" />
+            <motion.div 
+              className="mt-3 h-[2px] w-10 bg-primary" 
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            />
 
-            <p className="mt-4 max-w-md text-xs leading-5 text-slate-500 md:text-sm">
+            <motion.p 
+              className="mt-4 max-w-md text-xs leading-5 text-slate-500 md:text-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
               {description}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -209,8 +229,12 @@ const ProductsPage = ({
             <div className="min-w-0">
               <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
                 {products.map((product, index) => (
-                  <div
+                  <motion.div
                     key={`${product.name}-${index}`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
                     className={`
                       group relative min-w-0 overflow-hidden
                       rounded-xl bg-white p-3 sm:p-4
@@ -268,7 +292,7 @@ const ProductsPage = ({
                     >
                       {product.name}
                     </h3>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 

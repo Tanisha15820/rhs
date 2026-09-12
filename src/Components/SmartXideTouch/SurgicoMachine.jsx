@@ -108,6 +108,105 @@ const KeyPoint = ({
   );
 };
 
+// Mobile Key Point Card
+
+const MobileKeyPoint = ({ title, description, index }) => {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 8,
+      }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.04,
+      }}
+      className="
+        flex
+        min-h-[72px]
+        items-start
+        gap-3
+        rounded-xl
+        border
+        border-[#2F80ED]/20
+        bg-white
+        p-3
+        shadow-[0_5px_18px_rgba(15,23,42,0.05)]
+      "
+    >
+      <div
+        className="
+          flex
+          h-8
+          w-8
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-[#1677FF]/10
+        "
+      >
+        <div className="h-[14px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
+      </div>
+
+      <div className="min-w-0">
+        <h4 className="text-[12px] font-semibold leading-[1.3] text-slate-900">
+          {title}
+        </h4>
+
+        <p className="mt-1 text-[10px] leading-[1.4] text-slate-400">
+          {description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+// Machine points data
+
+const machinePoints = [
+  {
+    title: "Articulated Arm",
+    description: "Flexible laser beam delivery",
+  },
+  {
+    title: "Scanner Handpiece",
+    description: "Precision surgical output",
+  },
+  {
+    title: "Main Laser Unit",
+    description: "Core laser generation module",
+  },
+  {
+    title: "Touchscreen Display",
+    description: "Treatment interface",
+  },
+  {
+    title: "Emergency Stop",
+    description: "Immediate safety shutdown",
+  },
+  {
+    title: "Control Panel",
+    description: "System controls",
+  },
+  {
+    title: "Mobile Base",
+    description: "Stable movement and support",
+  },
+  {
+    title: "Caster Wheels",
+    description: "Easy mobility",
+  },
+];
+
 /* Main Component */
 
 const SurgicoMachine = () => {
@@ -124,8 +223,10 @@ const SurgicoMachine = () => {
         overflow-hidden
         bg-white
         pt-[25px]
-pb-[100px]
+        pb-12
+        sm:pb-16
         lg:block
+        lg:pb-[100px]
       "
     >
       {/* Machine Area */}
@@ -140,7 +241,9 @@ pb-[100px]
           items-start
           justify-center
           px-4
-          min-h-[520px]
+          min-h-[430px]
+          sm:min-h-[470px]
+          lg:min-h-[520px]
           lg:items-start
         "
       >
@@ -150,11 +253,13 @@ pb-[100px]
           className="
             relative
             flex
-            min-h-[500px]
+            min-h-[430px]
             w-[220px]
             cursor-pointer
             justify-center
             outline-none
+            sm:min-h-[470px]
+            lg:min-h-[500px]
           "
           onClick={toggleMachine}
           role="button"
@@ -260,25 +365,19 @@ pb-[100px]
 
           {/* Machine Scale Wrapper */}
 
-          <motion.div
+          <div
             className="
               absolute
               left-1/2
               top-0
+              origin-top
               h-[680px]
               w-[300px]
               -translate-x-1/2
+              scale-[0.62]
+              sm:scale-[0.7]
+              lg:scale-[0.8]
             "
-            animate={{
-              scale: 0.8,
-            }}
-            transition={{
-              duration: 0.4,
-              ease: "easeOut",
-            }}
-            style={{
-              transformOrigin: "top center",
-            }}
           >
             {/* SURGICO 1 - TOP ARTICULATED ARM */}
 
@@ -404,8 +503,102 @@ pb-[100px]
                 object-contain
               "
             />
-          </motion.div>
+          </div>
         </div>
+      </div>
+
+      {/* Mobile features */}
+
+      <div className="mx-auto mt-8 w-full max-w-[520px] px-4 lg:hidden">
+        {/* Tap hint */}
+
+        <motion.button
+          type="button"
+          onClick={toggleMachine}
+          whileTap={{ scale: 0.97 }}
+          className="
+            mx-auto
+            flex
+            items-center
+            gap-2
+            rounded-full
+            border
+            border-[#1677FF]/15
+            bg-[#1677FF]/[0.04]
+            px-4
+            py-2
+            text-[11px]
+            font-medium
+            text-[#1677FF]
+          "
+        >
+          <span
+            className={`
+              flex
+              h-5
+              w-5
+              items-center
+              justify-center
+              rounded-full
+              bg-[#1677FF]
+              text-[14px]
+              leading-none
+              text-white
+              transition-transform
+              duration-300
+              ${isExpanded ? "rotate-45" : ""}
+            `}
+          >
+            +
+          </span>
+
+          {isExpanded ? "Hide machine details" : "Tap to explore machine"}
+        </motion.button>
+
+        {/* Mobile detail cards */}
+
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              className="overflow-hidden"
+            >
+              <div
+                className="
+                  mt-5
+                  grid
+                  grid-cols-1
+                  gap-2.5
+                  min-[430px]:grid-cols-2
+                "
+              >
+                {machinePoints.map((point, index) => (
+                  <MobileKeyPoint
+                    key={point.title}
+                    title={point.title}
+                    description={point.description}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

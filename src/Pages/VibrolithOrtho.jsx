@@ -8,6 +8,7 @@ import atlasImg from "../assets/images/vibrolith_ortho_atlas.png";
 import transmittersImg from "../assets/images/vibrolith_ortho_transmitters.png";
 import clinicalImg from "../assets/images/vibrolith_ortho_clinical.png";
 
+import VibrolithOrthoMachine from "../Components/VibrolithOrtho/VibrolithOrthoMachine";
 import VibrolithOrthoAbout from "../Components/VibrolithOrtho/VibrolithOrthoAbout";
 import VibrolithOrthoTransmitters from "../Components/VibrolithOrtho/VibrolithOrthoTransmitters";
 import VibrolithOrthoClinical from "../Components/VibrolithOrtho/VibrolithOrthoClinical";
@@ -231,6 +232,7 @@ const VibrolithOrtho = () => {
       </section>
 
       {/* Main Sections */}
+      <VibrolithOrthoMachine />
       <VibrolithOrthoAbout />
       <VibrolithOrthoTransmitters />
       <VibrolithOrthoClinical />

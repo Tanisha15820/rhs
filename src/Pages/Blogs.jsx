@@ -44,7 +44,7 @@ function Blogs() {
         className="relative h-[260px] w-full overflow-hidden md:h-[280px]"
         style={{
           backgroundImage: `url(${blogBannerBg})`,
-          backgroundSize: "cover",
+          backgroundSize: "100% 100%",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}

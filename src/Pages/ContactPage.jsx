@@ -433,7 +433,7 @@ const ContactPage = () => {
         className="relative h-[190px] w-full overflow-hidden sm:h-[220px] md:h-[250px]"
         style={{
           backgroundImage: `url(${contactBannerBg})`,
-          backgroundSize: "cover",
+          backgroundSize: "100% 100%",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}

@@ -7,6 +7,7 @@ import multimedImg from "../assets/images/multimed.png";
 import suiteImg from "../assets/images/multimed_suite.jpg";
 import therapyHeadImg from "../assets/images/multimed_therapy_head.jpg";
 
+import MultimedMachine from "../Components/Multimed/MultimedMachine";
 import MultimedAbout from "../Components/Multimed/MultimedAbout";
 import MultimedTherapyHead from "../Components/Multimed/MultimedTherapyHead";
 import MultimedTable from "../Components/Multimed/MultimedTable";
@@ -230,6 +231,7 @@ const Multimed = () => {
       </section>
 
       {/* Main Sections */}
+      <MultimedMachine />
       <MultimedAbout />
       <MultimedTherapyHead />
       <MultimedTable />

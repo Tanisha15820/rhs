@@ -8,6 +8,7 @@ import couplingImg from "../assets/images/vibrolith_plus_coupling.jpg";
 import screenImg from "../assets/images/vibrolith_plus_screen.jpg";
 import probesImg from "../assets/images/vibrolith_plus_probes.jpg";
 
+import VibrolithPlusMachine from "../Components/VibrolithPlus/VibrolithPlusMachine";
 import VibrolithPlusAbout from "../Components/VibrolithPlus/VibrolithPlusAbout";
 import VibrolithPlusCoupling from "../Components/VibrolithPlus/VibrolithPlusCoupling";
 import VibrolithPlusSuction from "../Components/VibrolithPlus/VibrolithPlusSuction";
@@ -231,6 +232,7 @@ const VibrolithPlus = () => {
       </section>
 
       {/* Main Sections */}
+      <VibrolithPlusMachine />
       <VibrolithPlusAbout />
       <VibrolithPlusCoupling />
       <VibrolithPlusSuction />

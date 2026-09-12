@@ -12,6 +12,7 @@ import MorcescopeWorkflow from "../Components/Morcescope/MorcescopeWorkflow";
 import MorcescopeFeatures from "../Components/Morcescope/MorcescopeFeatures";
 import MorcescopeClinical from "../Components/Morcescope/MorcescopeClinical";
 import MorcescopeConfigurations from "../Components/Morcescope/MorcescopeConfigurations";
+import MorcescopeMachine from "../Components/Morcescope/MorcescopeMachine";
 
 /* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -229,6 +230,9 @@ const Morcescope = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Machine Section */}
+      <MorcescopeMachine />
 
       {/* Modular Product Sections */}
       <MorcescopeWorkflow />

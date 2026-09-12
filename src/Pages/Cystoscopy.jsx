@@ -13,6 +13,7 @@ import CystoscopyTelescopes from "../Components/Cystoscopy/CystoscopyTelescopes"
 import CystoscopySheaths from "../Components/Cystoscopy/CystoscopySheaths";
 import CystoscopyBridges from "../Components/Cystoscopy/CystoscopyBridges";
 import CystoscopySetCatalog from "../Components/Cystoscopy/CystoscopySetCatalog";
+import CystoscopyMachine from "../Components/Cystoscopy/CystoscopyMachine";
 
 /* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -230,6 +231,9 @@ const Cystoscopy = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Machine Section */}
+      <CystoscopyMachine />
 
       {/* Modular Product Feature Sections */}
       <CystoscopyAbout />

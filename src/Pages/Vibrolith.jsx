@@ -8,6 +8,7 @@ import handpieceImg from "../assets/images/vibrolith_handpiece.jpg";
 import cartImg from "../assets/images/vibrolith_cart.jpg";
 import procedureImg from "../assets/images/vibrolith_procedure.jpg";
 
+import VibrolithMachine from "../Components/Vibrolith/VibrolithMachine";
 import VibrolithBenefits from "../Components/Vibrolith/VibrolithBenefits";
 import VibrolithProcedures from "../Components/Vibrolith/VibrolithProcedures";
 import VibrolithSystem from "../Components/Vibrolith/VibrolithSystem";
@@ -232,6 +233,7 @@ const Vibrolith = () => {
       </section>
 
       {/* Main Sections */}
+      <VibrolithMachine />
       <VibrolithBenefits />
       <VibrolithProcedures />
       <VibrolithSystem />

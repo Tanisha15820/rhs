@@ -12,6 +12,7 @@ import CyberBladeConcept from "../Components/CyberBlade/CyberBladeConcept";
 import CyberBladeFeatures from "../Components/CyberBlade/CyberBladeFeatures";
 import CyberBladeAdvantages from "../Components/CyberBlade/CyberBladeAdvantages";
 import CyberBladeSpecs from "../Components/CyberBlade/CyberBladeSpecs";
+import CyberBladeMachine from "../Components/CyberBlade/CyberBladeMachine";
 
 /* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -229,6 +230,9 @@ const CyberBlade = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Machine Section */}
+      <CyberBladeMachine />
 
       {/* Modular Product Sections */}
       <CyberBladeConcept />
