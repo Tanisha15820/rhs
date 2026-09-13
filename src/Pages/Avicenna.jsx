@@ -9,7 +9,7 @@ import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
 import HandpiecesAvicenna from "../Components/Avicenna/HandpiecesAvicenna";
 import RoboFlex from "../Components/Avicenna/RoboFlex";
-import AvicennaMachine from "../Components/Avicenna/AvicennaMachine";
+// import AvicennaMachine from "../Components/Avicenna/AvicennaMachine";
 import Benefits from "../Components/Avicenna/Benefits";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
@@ -262,7 +262,7 @@ const Avicenna = () => {
           </div>
         </div>
       </section>
-      <AvicennaMachine />
+      {/* <AvicennaMachine /> */}
       <RoboFlex />
       <Benefits />
       <HandpiecesAvicenna />

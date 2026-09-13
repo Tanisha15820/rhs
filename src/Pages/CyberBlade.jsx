@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import cyberBladeImg from "../assets/images/cyber_blade.png";
+import cyberBladeImg from "../assets/images/cyberblade.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
@@ -21,7 +21,7 @@ import CyberBladeConcept from "../Components/CyberBlade/CyberBladeConcept";
 import CyberBladeFeatures from "../Components/CyberBlade/CyberBladeFeatures";
 import CyberBladeAdvantages from "../Components/CyberBlade/CyberBladeAdvantages";
 import CyberBladeSpecs from "../Components/CyberBlade/CyberBladeSpecs";
-// import CyberBladeMachine from "../Components/CyberBlade/CyberBladeMachine";
+import CyberBladeMachine from "../Components/CyberBlade/CyberBladeMachine";
 
 /* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -241,7 +241,7 @@ const CyberBlade = () => {
       </section>
 
       {/* Interactive Machine Section */}
-      {/* <CyberBladeMachine /> */}
+      <CyberBladeMachine />
 
       {/* Modular Product Sections */}
       <CyberBladeConcept />
