@@ -118,14 +118,7 @@ const RaykeenMachine = () => {
   };
 
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-        bg-white
-        py-[20px]
-      "
-    >
+    <section className="relative overflow-hidden bg-white py-[20px]">
       <div
         className={`
           relative
@@ -143,13 +136,13 @@ const RaykeenMachine = () => {
           ${
             isExploded
               ? `
-                  min-h-[720px]
-                  lg:min-h-[760px]
-                `
+                min-h-[850px]
+                lg:min-h-[880px]
+              `
               : `
-                  min-h-[620px]
-                  lg:min-h-[680px]
-                `
+                min-h-[620px]
+                lg:min-h-[680px]
+              `
           }
         `}
       >
@@ -184,13 +177,14 @@ const RaykeenMachine = () => {
             }
           }}
           className="
-            relative
-            z-20
-            h-[690px]
-            w-[720px]
-            cursor-pointer
-            outline-none
-          "
+    relative
+    z-20
+    h-[690px]
+    w-[720px]
+    top-[-100px]
+    cursor-pointer
+    outline-none
+  "
         >
           <AnimatePresence>
             {isExploded && (
@@ -198,7 +192,7 @@ const RaykeenMachine = () => {
                 <KeyPoint
                   title="Main Console"
                   description="Touch Screen Interface"
-                  position="left-[-55px] top-[70px]"
+                  position="left-[60px] top-[189px]"
                   side="left"
                   lineWidth={55}
                 />
@@ -206,7 +200,7 @@ const RaykeenMachine = () => {
                 <KeyPoint
                   title="Top Tray"
                   description="Instrument Placement"
-                  position="right-[-55px] top-[175px]"
+                  position="right-[70px] top-[400px]"
                   side="right"
                   lineWidth={50}
                 />
@@ -214,7 +208,7 @@ const RaykeenMachine = () => {
                 <KeyPoint
                   title="Morcellator Handpiece"
                   description="High Speed Rotation"
-                  position="left-[-85px] top-[265px]"
+                  position="left-[-50px] top-[340px]"
                   side="left"
                   lineWidth={60}
                 />
@@ -222,7 +216,7 @@ const RaykeenMachine = () => {
                 <KeyPoint
                   title="Irrigation / Suction Line"
                   description="Fluid Delivery & Suction"
-                  position="right-[-85px] top-[275px]"
+                  position="right-[-85px] top-[245px]"
                   side="right"
                   lineWidth={55}
                 />
@@ -230,23 +224,23 @@ const RaykeenMachine = () => {
                 <KeyPoint
                   title="Instrument Holder"
                   description="Secure Storage & Quick Access"
-                  position="left-[-65px] top-[370px]"
+                  position="left-[60px] top-[480px]"
                   side="left"
                   lineWidth={55}
                 />
 
                 <KeyPoint
-                  title="Irrigation Filter"
-                  description="Prevents Blockage"
-                  position="left-[-60px] top-[475px]"
+                  title="Irrigation Fiber"
+                  description="Fluid Delivery"
+                  position="left-[30px] top-[585px]"
                   side="left"
                   lineWidth={55}
                 />
 
                 <KeyPoint
-                  title="Suction Canister"
-                  description="Efficient Fluid Collection"
-                  position="left-[-75px] bottom-[95px]"
+                  title="Irrigation Catridge"
+                  description="Fluid Control Catridge"
+                  position="left-[25px] bottom-[-25px]"
                   side="left"
                   lineWidth={55}
                 />
@@ -254,7 +248,7 @@ const RaykeenMachine = () => {
                 <KeyPoint
                   title="Irrigation Canister"
                   description="Continuous Fluid Supply"
-                  position="right-[-70px] bottom-[115px]"
+                  position="right-[30px] bottom-[-70px]"
                   side="right"
                   lineWidth={55}
                 />
@@ -262,7 +256,7 @@ const RaykeenMachine = () => {
                 <KeyPoint
                   title="Mobile Trolley Base"
                   description="Stable & Smooth Mobility"
-                  position="right-[-55px] bottom-[35px]"
+                  position="right-[90px] bottom-[-135px]"
                   side="right"
                   lineWidth={50}
                 />
@@ -275,7 +269,7 @@ const RaykeenMachine = () => {
             alt="Raykeen Main Console"
             draggable={false}
             animate={{
-              y: isExploded ? -45 : 0,
+              y: isExploded ? -120 : -45,
             }}
             transition={{
               duration: 0.6,
@@ -288,6 +282,7 @@ const RaykeenMachine = () => {
               left-[240px]
               top-[260px]
               w-[250px]
+               h-[180px]
               select-none
               object-contain
             "
@@ -298,8 +293,8 @@ const RaykeenMachine = () => {
             alt="Raykeen Morcellator Handpiece and Irrigation Line"
             draggable={false}
             animate={{
-              x: isExploded ? 20 : 0,
-              y: isExploded ? -5 : 0,
+              x: isExploded ? 45 : 20,
+              y: isExploded ? -45 : -5,
             }}
             transition={{
               duration: 0.6,
@@ -322,7 +317,7 @@ const RaykeenMachine = () => {
             alt="Raykeen Instrument Tray"
             draggable={false}
             animate={{
-              y: isExploded ? 35 : 0,
+              y: isExploded ? 110 : 35,
             }}
             transition={{
               duration: 0.6,
@@ -345,7 +340,7 @@ const RaykeenMachine = () => {
             alt="Raykeen Mobile Trolley and Canisters"
             draggable={false}
             animate={{
-              y: isExploded ? 70 : 0,
+              y: isExploded ? 170 : 70,
             }}
             transition={{
               duration: 0.6,

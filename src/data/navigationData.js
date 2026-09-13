@@ -79,8 +79,8 @@ export const ELMED_SUBTYPES = [
 
 // Endo Urology Subtypes
 export const ENDO_UROLOGY_SUBTYPES = [
-  { name: "High Definition Cystoscopy", path: "/cystoscopy" },
-  { name: "Slim Laser Enucleation (Morcescope)", path: "/morcescope" },
+  { name: "RZ Medizintechnik Cystoscopy", path: "/cystoscopy" },
+  { name: "RZ Slim Laser Enucleation System", path: "/morcescope" },
   { name: "Cyber BLADE™ Morcellator", path: "/cyber-blade" },
   { name: "Raykeen Morcellator System", path: "/raykeen-morcellator" },
   { name: "Roboflex Avicenna", path: "/avicenna" },

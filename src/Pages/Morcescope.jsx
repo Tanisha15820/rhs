@@ -1,9 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, ShieldCheck, Sparkles, CheckCircle2, Zap, Layers, Award } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  ShieldCheck,
+  Sparkles,
+  CheckCircle2,
+  Zap,
+  Layers,
+  Award,
+} from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import morcescopeHeroImg from "../assets/images/cyber_blade.png";
+import morcescopeHeroImg from "../assets/images/morcescope.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
@@ -136,16 +145,17 @@ const Morcescope = () => {
             </div>
 
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-5xl">
-              Slim Laser Enucleation &{" "}
+              RZ Slim Laser{" "}
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-                Morcescope System
+                Enucleation System (Morcescope)
               </span>
             </h1>
 
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6 lg:text-base">
               According to Dr. Felipe C. A. de Figueiredo.
               <br className="hidden sm:block" />
-              The single-sheath 22 Charr. standard for HoLEP enucleation & tissue morcellation.
+              The single-sheath 22 Charr. standard for HoLEP enucleation &
+              tissue morcellation.
             </p>
           </div>
 

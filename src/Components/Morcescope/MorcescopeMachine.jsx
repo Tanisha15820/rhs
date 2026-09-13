@@ -3,9 +3,264 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import morescope1 from "../../assets/images/morescope1.png";
 import morescope2 from "../../assets/images/morescope2.png";
-import morescope3 from "../../assets/images/morescope3.png";
-import morescope4 from "../../assets/images/morescope4.png";
 
+// Morcescope Machine Component
+const MorcescopeMachine = () => {
+  const [isExploded, setIsExploded] = useState(false);
+
+  const toggleMachine = () => {
+    setIsExploded((prev) => !prev);
+  };
+
+  return (
+    <section className="relative overflow-hidden bg-white py-[20px]">
+      <div
+        className={`
+          relative
+          mx-auto
+          flex
+          w-full
+          max-w-[1100px]
+          items-center
+          justify-center
+          px-4
+          transition-all
+          duration-500
+          ease-in-out
+
+          ${
+            isExploded
+              ? `
+                min-h-[650px]
+                lg:min-h-[680px]
+              `
+              : `
+                min-h-[500px]
+                lg:min-h-[540px]
+              `
+          }
+        `}
+      >
+        {/* Soft Background Glow */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/2
+            top-1/2
+            h-[320px]
+            w-[320px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-[#1677FF]/[0.035]
+            blur-[100px]
+          "
+        />
+
+        {/* Machine Container */}
+        <div
+          onClick={toggleMachine}
+          role="button"
+          tabIndex={0}
+          aria-expanded={isExploded}
+          aria-label={isExploded ? "Collapse Morcescope" : "Explore Morcescope"}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggleMachine();
+            }
+          }}
+          className="
+            relative
+            z-20
+            h-[520px]
+            w-[900px]
+            cursor-pointer
+            outline-none
+          "
+        >
+          <AnimatePresence>
+            {isExploded && (
+              <>
+                <KeyPoint
+                  title="Slim Resectoscope"
+                  description="Compact design for minimally invasive access"
+                  position="left-[35px] top-[110px]"
+                  side="left"
+                  lineWidth={55}
+                />
+
+                <KeyPoint
+                  title="Laser Fiber Channel"
+                  description="Dedicated channel for laser fiber delivery"
+                  position="right-[340px] top-[20px]"
+                  side="bottom"
+                  lineWidth={55}
+                />
+
+                <KeyPoint
+                  title="30° Telescope"
+                  description="Angled view for clear visualization"
+                  position="right-[170px] top-[50px]"
+                  side="bottom"
+                  lineWidth={55}
+                />
+
+                <KeyPoint
+                  title="Optical Eyepiece"
+                  description="Connects to camera system"
+                  position="right-[15px] top-[155px]"
+                  side="right"
+                  lineWidth={45}
+                />
+
+                <KeyPoint
+                  title="Irrigation Inlet"
+                  description="Continuous irrigation for clear visibility"
+                  position="left-[200px] top-[320px]"
+                  side="left"
+                  lineWidth={50}
+                />
+
+                <KeyPoint
+                  title="Irrigation Outlet"
+                  description="Controlled drainage of irrigation fluid"
+                  position="left-[185px] top-[370px]"
+                  side="left"
+                  lineWidth={55}
+                />
+
+                <KeyPoint
+                  title="Finger Ring Handle"
+                  description="Ergonomic design for stable and precise control"
+                  position="left-[200px] top-[430px]"
+                  side="left"
+                  lineWidth={50}
+                />
+
+                <KeyPoint
+                  title="Rotatable Mechanism"
+                  description="Allows controlled rotation of the working element"
+                  position="right-[65px] top-[355px]"
+                  side="right"
+                  lineWidth={95}
+                />
+
+                <KeyPoint
+                  title="Laser Delivery System"
+                  description="Enables precise energy delivery"
+                  position="right-[19px] top-[420px]"
+                  side="right"
+                  lineWidth={50}
+                />
+              </>
+            )}
+          </AnimatePresence>
+
+          {/* Main Morcescope */}
+          <motion.img
+            src={morescope1}
+            alt="Morcescope main instrument"
+            draggable={false}
+            animate={{
+              x: isExploded ? -15 : 0,
+              y: isExploded ? -25 : 0,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: "easeInOut",
+            }}
+            className="
+              pointer-events-none
+              absolute
+              z-40
+              left-[105px]
+              top-[10px]
+              h-[360px]
+              w-[680px]
+              select-none
+              object-contain
+            "
+          />
+
+          {/* Secondary Morcescope Component */}
+          <motion.img
+            src={morescope2}
+            alt="Morcescope secondary component"
+            draggable={false}
+            animate={{
+              x: isExploded ? 25 : 0,
+              y: isExploded ? 25 : 0,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: "easeInOut",
+            }}
+            className="
+              pointer-events-none
+              absolute
+              z-30
+              left-[270px]
+              top-[220px]
+              h-[260px]
+              w-[400px]
+              select-none
+              object-contain
+            "
+          />
+        </div>
+      </div>
+
+      {/* Mobile Explore Button */}
+      <div className="mx-auto mt-1 flex justify-center lg:hidden">
+        <motion.button
+          type="button"
+          whileTap={{
+            scale: 0.96,
+          }}
+          onClick={toggleMachine}
+          className="
+            flex
+            items-center
+            gap-2
+            rounded-full
+            border
+            border-[#1677FF]/20
+            bg-[#1677FF]/[0.04]
+            px-4
+            py-2
+            text-[11px]
+            font-medium
+            text-[#1677FF]
+          "
+        >
+          <span
+            className={`
+              flex
+              h-5
+              w-5
+              items-center
+              justify-center
+              rounded-full
+              bg-[#1677FF]
+              text-white
+              transition-transform
+              duration-300
+              ${isExploded ? "rotate-45" : ""}
+            `}
+          >
+            +
+          </span>
+
+          {isExploded ? "Hide details" : "Tap to explore machine"}
+        </motion.button>
+      </div>
+    </section>
+  );
+};
+
+// Key Point Component
 const KeyPoint = ({
   title,
   description,
@@ -25,94 +280,82 @@ const KeyPoint = ({
       }}
       exit={{
         opacity: 0,
+        scale: 0.96,
       }}
       transition={{
         duration: 0.25,
       }}
       className={`
-absolute
-z-[100]
-hidden
-lg:flex
-items-center
-${position}
-`}
+        pointer-events-none
+        absolute
+        z-[100]
+        hidden
+        lg:flex
+        ${side === "top" || side === "bottom" ? "flex-col items-center" : "items-center"}
+        ${position}
+      `}
     >
       {side === "right" && (
         <div className="flex items-center">
           <div
-            className="
-h-[1px]
-bg-[#1677FF]
-"
+            className="h-[1px] bg-[#1677FF]"
             style={{
               width: `${lineWidth}px`,
             }}
           />
 
+          <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
+        </div>
+      )}
+
+      {side === "top" && (
+        <div className="flex flex-col items-center">
+          <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
           <div
-            className="
-h-[7px]
-w-[7px]
-rounded-full
-bg-[#1677FF]
-"
+            className="w-[1px] bg-[#1677FF]"
+            style={{
+              height: `${lineWidth}px`,
+            }}
           />
         </div>
       )}
 
       <div
         className="
-min-w-[150px]
-rounded-[10px]
-border
-border-[#2F80ED]/60
-bg-white
-px-3
-py-2
-shadow-md
-"
+          min-w-[145px]
+          max-w-[180px]
+          rounded-[9px]
+          border
+          border-[#2F80ED]/60
+          bg-white
+          px-2.5
+          py-2
+          shadow-[0_6px_20px_rgba(15,23,42,0.07)]
+        "
       >
-        <div className="flex gap-2">
+        <div className="flex items-start gap-2">
           <div
             className="
-h-6
-w-6
-rounded-md
-bg-[#1677FF]/10
-flex
-items-center
-justify-center
-"
+              mt-[1px]
+              flex
+              h-[24px]
+              w-[24px]
+              shrink-0
+              items-center
+              justify-center
+              rounded-md
+              bg-[#1677FF]/10
+            "
           >
-            <div
-              className="
-h-[11px]
-w-[3px]
-rotate-45
-rounded-full
-bg-[#1677FF]
-"
-            />
+            <div className="h-[11px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
           </div>
 
           <div>
-            <h4
-              className="
-text-[10px]
-font-semibold
-text-slate-900
-"
-            >
+            <h4 className="text-[10px] font-semibold leading-tight text-slate-900">
               {title}
             </h4>
 
-            <p
-              className="
-text-[7px]
-text-slate-400
-"
-            >
+            <p className="mt-[2px] text-[7px] leading-[1.4] text-slate-400">
               {description}
             </p>
           </div>
@@ -121,190 +364,29 @@ text-slate-400
 
       {side === "left" && (
         <div className="flex items-center">
-          <div
-            className="
-h-[7px]
-w-[7px]
-rounded-full
-bg-[#1677FF]
-"
-          />
+          <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
 
           <div
-            className="
-h-[1px]
-bg-[#1677FF]
-"
+            className="h-[1px] bg-[#1677FF]"
             style={{
               width: `${lineWidth}px`,
             }}
           />
         </div>
       )}
-    </motion.div>
-  );
-};
 
-const MorcescopeMachine = () => {
-  const [isExploded, setIsExploded] = useState(false);
-
-  const GAP = 25;
-
-  const explode = (level) => ({
-    transform: isExploded ? `translateY(${level * GAP}px)` : "translateY(0px)",
-  });
-
-  return (
-    <section
-      className="
-relative
-overflow-hidden
-bg-white
-py-[20px]
-"
-    >
-      <div
-        className="
-relative
-mx-auto
-max-w-[1100px]
-min-h-[700px]
-flex
-justify-center
-items-center
-"
-      >
-        <div
-          onClick={() => setIsExploded(!isExploded)}
-          className="
-relative
-cursor-pointer
-w-[900px]
-h-[650px]
-"
-        >
-          <AnimatePresence>
-            {isExploded && (
-              <>
-                {/* LEFT */}
-
-                <KeyPoint
-                  title="Laser Console"
-                  description="High Power Laser Source"
-                  position="left-[70px] top-[180px]"
-                  side="left"
-                />
-
-                <KeyPoint
-                  title="Treatment Table"
-                  description="Patient Positioning & Comfort"
-                  position="left-[80px] bottom-[280px]"
-                  side="left"
-                />
-
-                {/* RIGHT */}
-
-                <KeyPoint
-                  title="Robotic Arm"
-                  description="High Precision & Stability"
-                  position="right-[110px] top-[1px]"
-                  side="right"
-                />
-
-                <KeyPoint
-                  title="Robotic Base"
-                  description="Smooth & Accurate Positioning"
-                  position="right-[-50px] top-[180px]"
-                  side="right"
-                />
-
-                <KeyPoint
-                  title="Tracking System"
-                  description="Real-Time Motion Tracking"
-                  position="right-[30px] bottom-[210px]"
-                  side="right"
-                />
-
-                <KeyPoint
-                  title="Laser Delivery Head"
-                  description="Precise Energy Delivery"
-                  position="left-[210px] top-[40px]"
-                  side="left"
-                />
-              </>
-            )}
-          </AnimatePresence>
-
-          {/* ROBOTIC ARM */}
-
-          <motion.img
-            src={morescope1}
-            alt="Robotic Arm"
-            style={explode(-2)}
-            className="
-absolute
-right-[150px]
-top-[50px]
-w-[350px]
-object-contain
-transition-transform
-duration-500
-"
+      {side === "bottom" && (
+        <div className="flex flex-col items-center">
+          <div
+            className="w-[1px] bg-[#1677FF]"
+            style={{
+              height: `${lineWidth}px`,
+            }}
           />
-
-          {/* LASER CONSOLE */}
-
-          <motion.img
-            src={morescope2}
-            alt="Laser Console"
-            style={explode(-2)}
-            className="
-absolute
-left-[260px]
-top-[190px]
-w-[230px]
-object-contain
-transition-transform
-duration-500
-"
-          />
-
-          {/* TRACKING PAD */}
-
-          <motion.img
-            src={morescope3}
-            alt="Tracking System"
-            style={explode(2)}
-            className="
-absolute
-right-[210px]
-bottom-[210px]
-w-[180px]
-object-contain
-transition-transform
-duration-500
-"
-          />
-
-          {/* TABLE */}
-
-          <motion.img
-            src={morescope4}
-            alt="Treatment Table"
-            style={explode(1)}
-            className="
-absolute
-left-[270px]
-bottom-[200px]
-w-[300px]
-object-contain
-transition-transform
-duration-500
-"
-          />
+          <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
         </div>
-      </div>
-    </section>
+      )}
+    </motion.div>
   );
 };
 

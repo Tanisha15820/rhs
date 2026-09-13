@@ -1,9 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, ShieldCheck, Sparkles, CheckCircle2, Eye, Award, Layers } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  ShieldCheck,
+  Sparkles,
+  CheckCircle2,
+  Eye,
+  Award,
+  Layers,
+} from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import cystoscopeImg from "../assets/images/flexible_video_urs.png";
+import cystoscopeImg from "../assets/images/cystoscope.png";
 import endoVisionImg from "../assets/images/endo_vision_set.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
@@ -100,7 +109,8 @@ const Cystoscopy = () => {
       "@type": "AggregateOffer",
       priceCurrency: "INR",
       availability: "https://schema.org/InStock",
-      description: "Available for hospital rental and surgical center purchase.",
+      description:
+        "Available for hospital rental and surgical center purchase.",
     },
   };
 
@@ -137,16 +147,17 @@ const Cystoscopy = () => {
             </div>
 
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-5xl">
-              High Definition{" "}
+              RZ Medizintechnik{" "}
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-                Cystoscopy System
+                Cystoscopy
               </span>
             </h1>
 
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6 lg:text-base">
               Precision German Engineering by RZ Medizintechnik GmbH.
               <br className="hidden sm:block" />
-              CAD Rod-Lens Optics, Color-Coded Angles, and Complete Surgical Sets.
+              CAD Rod-Lens Optics, Color-Coded Angles, and Complete Surgical
+              Sets.
             </p>
           </div>
 
