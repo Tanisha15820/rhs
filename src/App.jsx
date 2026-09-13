@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Homepage from "./Pages/HomePage";
 import Urology from "./Components/Products/Urology";
@@ -9,6 +9,7 @@ import ContactPage from "./Pages/ContactPage";
 import SmartXide from "./Pages/SmartXide";
 import SmartXideTouch from "./Pages/SmartXideTouch";
 import Gastro from "./Components/Products/Gastro";
+import GastroLaser from "./Components/Products/GastroLaser";
 import LithoEvo from "./Pages/LithoEvo";
 import Litho35Watt from "./Pages/Litho35Watt";
 import Avicenna from "./Pages/Avicenna";
@@ -20,6 +21,11 @@ import Cystoscopy from "./Pages/Cystoscopy";
 import Morcescope from "./Pages/Morcescope";
 import CyberBlade from "./Pages/CyberBlade";
 import RaykeenMorcellator from "./Pages/RaykeenMorcellator";
+import ProductEnquiry from "./Pages/ProductEnquiry";
+import ENTLaser from "./Components/Products/ENTLaser";
+import Elmed from "./Components/Products/Elmed";
+import RZ from "./Components/Products/RZ";
+import Morcellator from "./Components/Products/Morcellator";
 
 function App() {
   return (
@@ -30,10 +36,17 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/urology" element={<Urology />} />
           <Route path="/ent" element={<ENT />} />
+          <Route path="/ent-laser" element={<ENTLaser />} />
+          <Route path="/elmed" element={<Elmed />} />
+          <Route path="/rz" element={<RZ />} />
+          <Route path="/morcellator" element={<Morcellator />} />
+
           <Route path="/gastro" element={<Gastro />} />
+          <Route path="/gastro-laser" element={<GastroLaser />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/machine" element={<MachinePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/product-enquiry" element={<ProductEnquiry />} />
           <Route path="/smartxide" element={<SmartXide />} />
           <Route path="/smartxide-touch" element={<SmartXideTouch />} />
           <Route path="/litho35watt" element={<Litho35Watt />} />
@@ -49,7 +62,10 @@ function App() {
           <Route path="/cyber-blade" element={<CyberBlade />} />
           <Route path="/bro-morcellatore-cyberblade" element={<CyberBlade />} />
           <Route path="/raykeen-morcellator" element={<RaykeenMorcellator />} />
-          <Route path="/raykeen-morcellatore" element={<RaykeenMorcellator />} />
+          <Route
+            path="/raykeen-morcellatore"
+            element={<RaykeenMorcellator />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -14,6 +14,7 @@ import VibrolithProcedures from "../Components/Vibrolith/VibrolithProcedures";
 import VibrolithSystem from "../Components/Vibrolith/VibrolithSystem";
 import VibrolithHandpiece from "../Components/Vibrolith/VibrolithHandpiece";
 import VibrolithSpecs from "../Components/Vibrolith/VibrolithSpecs";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -239,6 +240,10 @@ const Vibrolith = () => {
       <VibrolithSystem />
       <VibrolithHandpiece />
       <VibrolithSpecs />
+      <ProductInquireCTA
+        productName="VIBROLITH Pneumatic Lithotripter"
+        productImage={machineImg}
+      />
     </div>
   );
 };

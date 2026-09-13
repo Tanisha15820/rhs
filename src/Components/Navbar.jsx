@@ -28,7 +28,8 @@ import {
   ENT_LASER_SUBTYPES,
   GASTRO_LASER_SUBTYPES,
   ELMED_SUBTYPES,
-  ENDO_UROLOGY_SUBTYPES,
+  RZ_SUBTYPES,
+  MORCELLATOR_SUBTYPES,
 } from "../data/navigationData";
 
 // Icon mapping for specialties
@@ -40,10 +41,8 @@ const SPECIALTY_ICONS = {
 
 // Styling helper classes
 const ACTIVE_LINK = "bg-primary/10 text-primary-dark";
-
 const INACTIVE_LINK =
   "text-gray-700 hover:bg-primary/5 hover:text-primary-dark";
-
 const MOBILE_INACTIVE = "text-gray-700 hover:bg-primary/5";
 
 function Navbar() {
@@ -65,7 +64,25 @@ function Navbar() {
     pathname === "/urology" ||
     pathname === "/ent" ||
     pathname === "/gastro" ||
+    pathname === "/ent-laser" ||
+    pathname === "/elmed" ||
+    pathname === "/rz" ||
+    pathname === "/morcellator" ||
+    pathname === "/gastro-laser" ||
     pathname.startsWith("/products");
+
+  // Get the category page path when the category has its own page
+  const getCategoryPath = (category) => {
+    if (category === "ENT Laser") return "/ent-laser";
+    if (category === "Elmed") return "/elmed";
+    if (category === "RZ") return "/rz";
+    if (category === "Morcellator") return "/morcellator";
+
+    if (category === "Surgical Laser") return "/urology";
+    if (category === "Gastro Laser") return "/gastro-laser";
+
+    return null;
+  };
 
   // Get the default category for each specialty
   const getDefaultCategory = (specialty) => {
@@ -105,9 +122,17 @@ function Navbar() {
       return ELMED_SUBTYPES;
     }
 
-    if (category === "Endo Urology UMD Endoscopy") {
-      return ENDO_UROLOGY_SUBTYPES;
+    if (category === "RZ") {
+      return RZ_SUBTYPES;
     }
+
+    if (category === "Morcellator") {
+      return MORCELLATOR_SUBTYPES;
+    }
+
+    // if (category === "Endo Urology UMD Endoscopy") {
+    //   return ENDO_UROLOGY_SUBTYPES;
+    // }
 
     return [];
   };
@@ -152,6 +177,15 @@ function Navbar() {
 
   // Mobile category accordion
   const handleMobileCategoryClick = (category) => {
+    const path = getCategoryPath(category);
+
+    if (path) {
+      setSelectedCategory(category);
+      navigate(path);
+      closeMobileMenu();
+      return;
+    }
+
     const isAlreadyOpen = mobileOpenCategory === category;
 
     if (isAlreadyOpen) {
@@ -291,6 +325,15 @@ function Navbar() {
                             key={cat}
                             type="button"
                             onMouseEnter={() => setSelectedCategory(cat)}
+                            onClick={() => {
+                              setSelectedCategory(cat);
+                              const path = getCategoryPath(cat);
+
+                              if (path) {
+                                navigate(path);
+                                setProductsOpen(false);
+                              }
+                            }}
                             className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[12px] transition-all ${
                               isSelected
                                 ? "bg-blue-50 font-semibold text-blue-600"
@@ -481,9 +524,7 @@ function Navbar() {
                                   {/* Category */}
                                   <button
                                     type="button"
-                                    onClick={() =>
-                                      handleMobileCategoryClick(cat)
-                                    }
+                                    onClick={() => handleMobileCategoryClick(cat)}
                                     className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 ${
                                       isCatOpen
                                         ? "text-primary"

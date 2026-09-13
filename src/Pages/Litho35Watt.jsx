@@ -413,7 +413,7 @@ const Litho35Watt = () => {
       <Litho35Recognition /> */}
       <Litho35Applications />
       <Litho35Specs />
-      <ProductInquireCTA productName="Litho 35 Watt Laser System" />
+      <ProductInquireCTA productName="Litho 35 Watt Laser System" productImage={machineImage} />
     </div>
   );
 };

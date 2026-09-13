@@ -12,6 +12,7 @@ import MultimedAbout from "../Components/Multimed/MultimedAbout";
 import MultimedTherapyHead from "../Components/Multimed/MultimedTherapyHead";
 import MultimedTable from "../Components/Multimed/MultimedTable";
 import MultimedSpecs from "../Components/Multimed/MultimedSpecs";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -236,6 +237,10 @@ const Multimed = () => {
       <MultimedTherapyHead />
       <MultimedTable />
       <MultimedSpecs />
+      <ProductInquireCTA
+        productName="MULTIMED EM System"
+        productImage={multimedImg}
+      />
     </div>
   );
 };

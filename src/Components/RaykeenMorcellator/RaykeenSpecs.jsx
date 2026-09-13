@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Layers,
   Sparkles,
@@ -11,7 +12,19 @@ import {
   Gauge,
 } from "lucide-react";
 
+import raykeenHeroImg from "../../assets/images/raykeen.png";
+import { saveEnquiryProduct } from "../../utils/enquiryStorage";
+
 const RaykeenSpecs = () => {
+  const navigate = useNavigate();
+
+  const handleInquire = () => {
+    saveEnquiryProduct({
+      name: "Raykeen Morcellator System SRM-S2VA",
+      image: raykeenHeroImg,
+    });
+    navigate("/product-enquiry");
+  };
   const specs = [
     { label: "Model", value: "SRM-S2VA" },
     { label: "Electrical Requirements", value: "~100–240V, 50/60 Hz Universal" },
@@ -105,13 +118,14 @@ const RaykeenSpecs = () => {
             </div>
           </div>
 
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:opacity-95"
+          <button
+            type="button"
+            onClick={handleInquire}
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:opacity-95 cursor-pointer"
           >
             <PhoneCall className="h-3.5 w-3.5" />
             <span>Inquire</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>

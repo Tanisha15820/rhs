@@ -1,12 +1,6 @@
-/**
- * Navigation Data for Reinforce Healthcare Services
- * Contains all menu links, specialties, categories, and medical product links.
- */
-
 // Top-level navigation items
 export const NAV_LINKS = [
   { label: "Home", path: "/" },
-  // { label: "Machine", path: "/machine" },
   { label: "Blogs", path: "/blogs" },
   { label: "Contact", path: "/contact" },
 ];
@@ -32,7 +26,7 @@ export const SPECIALTIES = [
 
 // Categories under each specialty
 export const CATEGORIES = {
-  ENT: ["ENT Laser", "Elmed"],
+  ENT: ["ENT Laser", "Elmed", "RZ", "Morcellator"],
   Urology: [
     "Surgical Laser",
     "Urodynamic System & Uroflowmetry",
@@ -77,10 +71,12 @@ export const ELMED_SUBTYPES = [
   { name: "Vibrolith Plus", path: "/vibrolith-plus" },
 ];
 
-// Endo Urology Subtypes
-export const ENDO_UROLOGY_SUBTYPES = [
+export const RZ_SUBTYPES = [
   { name: "RZ Medizintechnik Cystoscopy", path: "/cystoscopy" },
   { name: "RZ Slim Laser Enucleation System", path: "/morcescope" },
+];
+
+export const MORCELLATOR_SUBTYPES = [
   { name: "Cyber BLADE™ Morcellator", path: "/cyber-blade" },
   { name: "Raykeen Morcellator System", path: "/raykeen-morcellator" },
   { name: "Roboflex Avicenna", path: "/avicenna" },

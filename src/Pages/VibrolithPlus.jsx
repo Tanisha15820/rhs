@@ -13,6 +13,7 @@ import VibrolithPlusAbout from "../Components/VibrolithPlus/VibrolithPlusAbout";
 import VibrolithPlusCoupling from "../Components/VibrolithPlus/VibrolithPlusCoupling";
 import VibrolithPlusSuction from "../Components/VibrolithPlus/VibrolithPlusSuction";
 import VibrolithPlusSpecs from "../Components/VibrolithPlus/VibrolithPlusSpecs";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -237,6 +238,10 @@ const VibrolithPlus = () => {
       <VibrolithPlusCoupling />
       <VibrolithPlusSuction />
       <VibrolithPlusSpecs />
+      <ProductInquireCTA
+        productName="VIBROLITH Plus Lithotripter"
+        productImage={machineImg}
+      />
     </div>
   );
 };

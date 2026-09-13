@@ -17,6 +17,7 @@ import IntegratedMicroScan from "../Components/SmartXideTouch/IntegratedMicroSca
 import EasySpotHybrid from "../Components/SmartXideTouch/EasySpotHybrid";
 import HandpiecesSurgico from "../Components/SmartXideTouch/HandpiecesSurgico";
 import SurgicoMachine from "../Components/SmartXideTouch/SurgicoMachine";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, type, title, description, image, position }) => {
   return (
@@ -263,6 +264,10 @@ const SmartXideTouch = () => {
       <IntegratedMicroScan />
       <EasySpotHybrid />
       <HandpiecesSurgico />
+      <ProductInquireCTA
+        productName="SmartXide Touch SurgiCO Laser System"
+        productImage={machineImage}
+      />
     </div>
   );
 };

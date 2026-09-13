@@ -266,7 +266,10 @@ const Avicenna = () => {
       <RoboFlex />
       <Benefits />
       <HandpiecesAvicenna />
-      <ProductInquireCTA productName="Roboflex Avicenna Robotic System" />
+      <ProductInquireCTA
+        productName="Roboflex Avicenna Robotic System"
+        productImage={avicennaImg}
+      />
     </div>
   );
 };

@@ -290,6 +290,7 @@ const LithoEvo = () => {
         title="Ready to Elevate Your Surgical Suite?"
         subtitle="Upgrade your OR capabilities with the Litho EVO 35W Holmium Laser system on flexible rental or purchase terms."
         productName="Litho EVO 35 Watt Laser System"
+        productImage={machineImage}
       />
     </div>
   );

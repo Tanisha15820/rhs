@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
@@ -21,6 +22,9 @@ import uscanSurgicalImg from "../../assets/images/uscanSurgical.png";
 import dermaScanImg from "../../assets/images/DermaScan.png";
 import uscanScar3Img from "../../assets/images/uscanScar3.png";
 import uscanDotImg from "../../assets/images/uscanDot.png";
+import machineImage from "../../assets/images/SmartXideTouchSurgiCO.png";
+
+import { saveEnquiryProduct } from "../../utils/enquiryStorage";
 
 const products = [
   {
@@ -680,6 +684,16 @@ const HandpieceCard = ({ product, onSelect }) => {
 
 /* Interactive Modal Dialog Component */
 const HandpieceModal = ({ product, onClose }) => {
+  const navigate = useNavigate();
+
+  const handleInquire = () => {
+    saveEnquiryProduct({
+      name: "SmartXide Touch SurgiCO Laser System",
+      image: machineImage,
+    });
+    navigate("/product-enquiry");
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
       {/* Backdrop Overlay */}
@@ -809,13 +823,14 @@ const HandpieceModal = ({ product, onClose }) => {
             >
               Close
             </button>
-            <a
-              href="/contact"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:opacity-95"
+            <button
+              type="button"
+              onClick={handleInquire}
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:opacity-95 cursor-pointer"
             >
               <PhoneCall className="h-3.5 w-3.5" />
               Inquire Equipment
-            </a>
+            </button>
           </div>
         </div>
       </motion.div>

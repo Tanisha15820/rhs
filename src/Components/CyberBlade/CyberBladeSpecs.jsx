@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Layers,
   Sparkles,
@@ -10,7 +11,19 @@ import {
   Cpu,
 } from "lucide-react";
 
+import cyberBladeImg from "../../assets/images/cyberblade.png";
+import { saveEnquiryProduct } from "../../utils/enquiryStorage";
+
 const CyberBladeSpecs = () => {
+  const navigate = useNavigate();
+
+  const handleInquire = () => {
+    saveEnquiryProduct({
+      name: "CyberBLADE Morcellator System",
+      image: cyberBladeImg,
+    });
+    navigate("/product-enquiry");
+  };
   const specs = [
     { label: "Model", value: "Cyber BLADE™" },
     { label: "System Classification", value: "Battery-Powered Handpiece System" },
@@ -100,13 +113,14 @@ const CyberBladeSpecs = () => {
             </div>
           </div>
 
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:opacity-95"
+          <button
+            type="button"
+            onClick={handleInquire}
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:opacity-95 cursor-pointer"
           >
             <PhoneCall className="h-3.5 w-3.5" />
             <span>Inquire</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>

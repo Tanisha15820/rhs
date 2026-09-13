@@ -272,6 +272,7 @@ const SmartXide = () => {
         title="Interested in the SmartXide² TRIO System?"
         subtitle="Contact our specialists to learn more about flexible rental, demonstration, and procurement options for your hospital."
         productName="SmartXide² TRIO Laser System"
+        productImage={machineImage}
       />
     </div>
   );

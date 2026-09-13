@@ -13,6 +13,7 @@ import VibrolithOrthoAbout from "../Components/VibrolithOrtho/VibrolithOrthoAbou
 import VibrolithOrthoTransmitters from "../Components/VibrolithOrtho/VibrolithOrthoTransmitters";
 import VibrolithOrthoClinical from "../Components/VibrolithOrtho/VibrolithOrthoClinical";
 import VibrolithOrthoSpecs from "../Components/VibrolithOrtho/VibrolithOrthoSpecs";
+import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -237,6 +238,10 @@ const VibrolithOrtho = () => {
       <VibrolithOrthoTransmitters />
       <VibrolithOrthoClinical />
       <VibrolithOrthoSpecs />
+      <ProductInquireCTA
+        productName="VIBROLITH Ortho Shockwave System"
+        productImage={machineImg}
+      />
     </div>
   );
 };
