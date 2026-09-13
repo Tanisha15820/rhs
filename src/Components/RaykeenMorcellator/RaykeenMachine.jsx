@@ -1,10 +1,120 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import raykeen1 from "../../assets/images/raykeen1.png";
 import raykeen2 from "../../assets/images/raykeen2.png";
 import raykeen3 from "../../assets/images/raykeen3.png";
 import raykeen4 from "../../assets/images/raykeen4.png";
+
+// ================= MACHINE POINT DATA =================
+
+const machinePoints = [
+  {
+    title: "Main Console",
+    description: "Touch Screen Interface",
+  },
+  {
+    title: "Top Tray",
+    description: "Instrument Placement",
+  },
+  {
+    title: "Morcellator Handpiece",
+    description: "High Speed Rotation",
+  },
+  {
+    title: "Irrigation / Suction Line",
+    description: "Fluid Delivery & Suction",
+  },
+  {
+    title: "Instrument Holder",
+    description: "Secure Storage & Quick Access",
+  },
+  {
+    title: "Irrigation Fiber",
+    description: "Fluid Delivery",
+  },
+  {
+    title: "Irrigation Cartridge",
+    description: "Fluid Control Cartridge",
+  },
+  {
+    title: "Irrigation Canister",
+    description: "Continuous Fluid Supply",
+  },
+  {
+    title: "Mobile Trolley Base",
+    description: "Stable & Smooth Mobility",
+  },
+];
+
+// ================= MOBILE KEY POINT =================
+
+const MobileKeyPoint = ({ title, description, index }) => {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 8,
+      }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.04,
+      }}
+      className="
+        flex
+        min-h-[72px]
+        items-start
+        gap-3
+        rounded-xl
+        border
+        border-[#2F80ED]/20
+        bg-white
+        p-3
+        shadow-[0_5px_18px_rgba(15,23,42,0.05)]
+      "
+    >
+      <div
+        className="
+          flex
+          h-8
+          w-8
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-[#1677FF]/10
+        "
+      >
+        <div className="h-[14px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
+      </div>
+
+      <div className="min-w-0">
+        <h4
+          className="
+            text-[12px]
+            font-semibold
+            leading-[1.3]
+            text-slate-900
+          "
+        >
+          {title}
+        </h4>
+
+        <p className="mt-1 text-[10px] leading-[1.4] text-slate-400">
+          {description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
 
 const KeyPoint = ({
   title,
@@ -133,17 +243,12 @@ const RaykeenMachine = () => {
           duration-500
           ease-in-out
 
-          ${
-            isExploded
-              ? `
-                min-h-[850px]
-                lg:min-h-[880px]
-              `
-              : `
-                min-h-[620px]
-                lg:min-h-[680px]
-              `
-          }
+          min-h-[240px]
+          sm:min-h-[330px]
+          md:min-h-[440px]
+          lg:min-h-[680px]
+
+          ${isExploded ? "lg:min-h-[880px]" : ""}
         `}
       >
         <div
@@ -177,14 +282,22 @@ const RaykeenMachine = () => {
             }
           }}
           className="
-    relative
-    z-20
-    h-[690px]
-    w-[720px]
-    top-[-100px]
-    cursor-pointer
-    outline-none
-  "
+            absolute
+            left-1/2
+            top-1/2
+            z-20
+            h-[690px]
+            w-[720px]
+            cursor-pointer
+            outline-none
+            -translate-x-1/2
+            -translate-y-1/2
+            lg:-translate-y-[calc(-50%-100px)]
+            scale-[0.3]
+            sm:scale-[0.42]
+            md:scale-[0.58]
+            lg:scale-100
+          "
         >
           <AnimatePresence>
             {isExploded && (
@@ -360,7 +473,8 @@ const RaykeenMachine = () => {
         </div>
       </div>
 
-      <div className="mx-auto mt-1 flex justify-center lg:hidden">
+      {/* Mobile Explore Section */}
+      <div className="mx-auto mt-9 w-full max-w-[520px] px-4 lg:hidden">
         <motion.button
           type="button"
           whileTap={{
@@ -368,6 +482,7 @@ const RaykeenMachine = () => {
           }}
           onClick={toggleMachine}
           className="
+            mx-auto
             flex
             items-center
             gap-2
@@ -391,6 +506,8 @@ const RaykeenMachine = () => {
               justify-center
               rounded-full
               bg-[#1677FF]
+              text-[14px]
+              leading-none
               text-white
               transition-transform
               duration-300
@@ -400,8 +517,51 @@ const RaykeenMachine = () => {
             +
           </span>
 
-          {isExploded ? "Hide details" : "Tap to explore machine"}
+          {isExploded ? "Hide machine details" : "Tap to explore machine"}
         </motion.button>
+
+        <AnimatePresence>
+          {isExploded && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              className="overflow-hidden"
+            >
+              <div
+                className="
+                  mt-5
+                  grid
+                  grid-cols-1
+                  gap-2.5
+                  min-[430px]:grid-cols-2
+                "
+              >
+                {machinePoints.map((point, index) => (
+                  <MobileKeyPoint
+                    key={point.title}
+                    title={point.title}
+                    description={point.description}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

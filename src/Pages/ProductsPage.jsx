@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   LayoutGrid,
@@ -9,6 +10,20 @@ import {
   ChevronLeft,
   Package,
 } from "lucide-react";
+
+const CATEGORY_ROUTES = {
+  "ENT Laser": "/ent-laser",
+  "ENT Head & Neck Oncology": "/ent-head-neck-oncology",
+  ELMED: "/elmed",
+  RZ: "/rz",
+  Morcellator: "/morcellator",
+  "Gastro Laser": "/gastro-laser",
+  "Gastro Endoscopy": "/gastro-endoscopy",
+  "Surgical Laser": "/urology-surgical-laser",
+  "Urodynamic System & Uroflowmetry": "/urology-urodynamic",
+  "ESWL Lithotripsy": "/urology-eswl",
+  "Endo Urology UMD Endoscopy": "/urology-endo",
+};
 
 const ProductsPage = ({
   categoryName,
@@ -94,15 +109,19 @@ const ProductsPage = ({
               </div>
 
               <p className="text-sm text-slate-500">
-                Showing{" "}
-                <span className="font-semibold text-slate-700">
-                  1–{products.length}
-                </span>{" "}
-                of{" "}
-                <span className="font-semibold text-slate-700">
-                  {products.length}
-                </span>{" "}
-                products
+                {products.length > 0 ? "Showing" : "Categories"}{" "}
+                {products.length > 0 && (
+                  <>
+                    <span className="font-semibold text-slate-700">
+                      1–{products.length}
+                    </span>{" "}
+                    of{" "}
+                    <span className="font-semibold text-slate-700">
+                      {products.length}
+                    </span>{" "}
+                  </>
+                )}
+                {products.length > 0 ? "products" : "available"}
               </p>
             </motion.div>
 
@@ -208,29 +227,51 @@ const ProductsPage = ({
                     animate={{ opacity: 1, height: "auto" }}
                     transition={{ duration: 0.25 }}
                   >
-                    {subCategories.map((category) => (
-                      <button
-                        type="button"
-                        key={category}
-                        onClick={() =>
-                          setActiveSubCategory(
-                            activeSubCategory === category ? null : category,
-                          )
+                    {subCategories.map((category) => {
+                      const productLink = products.find(
+                        (product) => product.name === category,
+                      )?.link;
+
+                      const buttonContent = (
+                        <>
+                          {category}
+                        </>
+                      );
+
+                      const buttonClasses = `
+                        w-full rounded-lg px-3 py-2
+                        text-left text-[13px]
+                        transition-all duration-200
+                        ${
+                          activeSubCategory === category
+                            ? "bg-primary/10 font-semibold text-primary shadow-sm"
+                            : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
                         }
-                        className={`
-                          w-full rounded-lg px-3 py-2
-                          text-left text-[13px]
-                          transition-all duration-200
-                          ${
-                            activeSubCategory === category
-                              ? "bg-primary/10 font-semibold text-primary shadow-sm"
-                              : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
+                      `;
+
+                      return productLink ? (
+                        <Link
+                          key={category}
+                          to={productLink}
+                          className={buttonClasses}
+                        >
+                          {buttonContent}
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          key={category}
+                          onClick={() =>
+                            setActiveSubCategory(
+                              activeSubCategory === category ? null : category,
+                            )
                           }
-                        `}
-                      >
-                        {category}
-                      </button>
-                    ))}
+                          className={buttonClasses}
+                        >
+                          {buttonContent}
+                        </button>
+                      );
+                    })}
                   </motion.div>
                 )}
 
@@ -245,24 +286,40 @@ const ProductsPage = ({
                 </p>
 
                 <div className="space-y-1">
-                  {otherCategories.map((category) => (
-                    <button
-                      type="button"
-                      key={category}
-                      className="
-                        flex w-full items-center justify-between
-                        rounded-lg px-3 py-2.5
-                        text-left text-sm font-medium
-                        text-slate-600
-                        transition-all duration-200
-                        hover:bg-slate-50 hover:text-primary
-                      "
-                    >
-                      <span>{category}</span>
+                  {otherCategories.map((category) => {
+                    const categoryLink = CATEGORY_ROUTES[category];
 
-                      <ChevronRight className="h-4 w-4 text-slate-300 transition-colors group-hover:text-primary" />
-                    </button>
-                  ))}
+                    const linkClasses = `
+                      flex w-full items-center justify-between
+                      rounded-lg px-3 py-2.5
+                      text-left text-sm font-medium
+                      text-slate-600
+                      transition-all duration-200
+                      hover:bg-slate-50 hover:text-primary
+                    `;
+
+                    return categoryLink ? (
+                      <Link
+                        key={category}
+                        to={categoryLink}
+                        className={linkClasses}
+                      >
+                        <span>{category}</span>
+
+                        <ChevronRight className="h-4 w-4 text-slate-300 transition-colors hover:text-primary" />
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        key={category}
+                        className={linkClasses}
+                      >
+                        <span>{category}</span>
+
+                        <ChevronRight className="h-4 w-4 text-slate-300" />
+                      </button>
+                    );
+                  })}
                 </div>
               </motion.div>
             </aside>
@@ -270,7 +327,9 @@ const ProductsPage = ({
             {/* ================= PRODUCTS ================= */}
 
             <div className="min-w-0">
-              <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {products.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
                 {products.map((product, index) => (
                   <motion.div
                     key={`${product.name}-${index}`}
@@ -292,54 +351,56 @@ const ProductsPage = ({
                       }
                     `}
                   >
-                    {/* Hover Accent Line */}
+                    <Link to={product.link} className="block">
+                      {/* Hover Accent Line */}
 
-                    <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-primary to-primary-dark opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-primary to-primary-dark opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                    {/* Product Image */}
+                      {/* Product Image */}
 
-                    <div
-                      className="
-                        flex h-44 items-center justify-center
-                        overflow-hidden rounded-xl
-                        bg-gradient-to-br
-                        from-primary/5 via-white to-primary/10
-                        sm:h-52
-                        md:h-64
-                      "
-                    >
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className={`
-                          h-full w-full object-contain
-                          p-3 sm:p-5
-                          transition-transform duration-500
-                          group-hover:scale-110
-                          ${
-                            activeSubCategory === product.name
-                              ? "scale-110"
-                              : ""
-                          }
-                        `}
-                      />
-                    </div>
+                      <div
+                        className="
+                          flex h-44 items-center justify-center
+                          overflow-hidden rounded-xl
+                          bg-gradient-to-br
+                          from-primary/5 via-white to-primary/10
+                          sm:h-52
+                          md:h-64
+                        "
+                      >
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className={`
+                            h-full w-full object-contain
+                            p-3 sm:p-5
+                            transition-transform duration-500
+                            group-hover:scale-110
+                            ${
+                              activeSubCategory === product.name
+                                ? "scale-110"
+                                : ""
+                            }
+                          `}
+                        />
+                      </div>
 
-                    {/* Product Name */}
+                      {/* Product Name */}
 
-                    <h3
-                      className="
-                        mt-4 line-clamp-2 text-center
-                        text-sm font-semibold leading-5
-                        text-slate-800
-                        transition-colors duration-300
-                        group-hover:text-primary-dark
-                        sm:mt-5
-                        md:text-base
-                      "
-                    >
-                      {product.name}
-                    </h3>
+                      <h3
+                        className="
+                          mt-4 line-clamp-2 text-center
+                          text-sm font-semibold leading-5
+                          text-slate-800
+                          transition-colors duration-300
+                          group-hover:text-primary-dark
+                          sm:mt-5
+                          md:text-base
+                        "
+                      >
+                        {product.name}
+                      </h3>
+                    </Link>
                   </motion.div>
                 ))}
               </div>
@@ -392,6 +453,33 @@ const ProductsPage = ({
                   <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
+                </>
+              ) : (
+                <motion.div
+                  className="
+                    flex flex-col items-center justify-center
+                    rounded-2xl border border-dashed border-primary/25
+                    bg-gradient-to-br from-primary/5 via-white to-primary/5
+                    px-6 py-20 text-center
+                  "
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Package className="h-7 w-7" />
+                  </div>
+
+                  <h3 className="mt-4 text-lg font-bold text-slate-800">
+                    No products listed yet
+                  </h3>
+
+                  <p className="mt-1 max-w-sm text-sm leading-6 text-slate-500">
+                    Explore related categories from the sidebar to discover more
+                    equipment available for rental.
+                  </p>
+                </motion.div>
+              )}
             </div>
           </div>
         </div>

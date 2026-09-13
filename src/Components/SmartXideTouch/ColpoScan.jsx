@@ -40,28 +40,167 @@ const ColpoScan = () => {
     },
   ];
 
+  const featureList = (
+    <div className="mt-8 space-y-3">
+      {features.map((feature, index) => {
+        const Icon = feature.icon;
+
+        return (
+          <div
+            key={index}
+            className="
+              flex
+              items-center
+              gap-4
+              rounded-xl
+              border
+              border-[#DFEAF2]
+              bg-white/80
+              px-4
+              py-3.5
+              shadow-[0_5px_18px_rgba(30,90,130,0.04)]
+              backdrop-blur-sm
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:border-[#B9DFEA]
+              hover:shadow-[0_8px_22px_rgba(30,90,130,0.08)]
+            "
+          >
+            {/* Icon */}
+
+            <div
+              className="
+                flex
+                h-10
+                w-10
+                shrink-0
+                items-center
+                justify-center
+                rounded-lg
+                bg-[#EDF8FC]
+              "
+            >
+              <Icon size={20} strokeWidth={1.8} className="text-[#249BC0]" />
+            </div>
+
+            {/* Text */}
+
+            <div>
+              <h3 className="text-sm font-bold text-[#294362] sm:text-base">
+                {feature.title}
+              </h3>
+
+              <p className="mt-1 text-xs leading-4 text-[#7B8BA1] sm:text-[13px] sm:leading-5">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+
   return (
     <section className="relative overflow-hidden bg-[#F7FAFE] py-14 md:py-20 lg:py-24">
-      {/* Soft glow */}
-      <div className="pointer-events-none absolute -left-40 top-20 h-[450px] w-[450px] rounded-full bg-[#E5F5FB] opacity-70 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-180px] top-10 h-[550px] w-[550px] rounded-full bg-[#EAF2FF] opacity-70 blur-3xl" />
+      {/* Soft glow - left */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          top-20
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[#E5F5FB]
+          opacity-70
+          blur-3xl
+        "
+      />
+
+      {/* Soft glow - right */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[-180px]
+          top-10
+          h-[550px]
+          w-[550px]
+          rounded-full
+          bg-[#EAF2FF]
+          opacity-70
+          blur-3xl
+        "
+      />
 
       {/* Scanning rings behind machine */}
 
-      <div className="pointer-events-none absolute right-[15%] top-[25%] hidden h-[420px] w-[420px] rounded-full border border-[#DCECF7] lg:block" />
-      <div className="pointer-events-none absolute right-[17%] top-[28%] hidden h-[350px] w-[350px] rounded-full border border-[#E6F2F9] lg:block" />
-      <div className="pointer-events-none absolute right-[20%] top-[32%] hidden h-[270px] w-[270px] rounded-full border border-[#EDF6FA] lg:block" />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[15%]
+          top-[25%]
+          hidden
+          h-[420px]
+          w-[420px]
+          rounded-full
+          border
+          border-[#DCECF7]
+          lg:block
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[17%]
+          top-[28%]
+          hidden
+          h-[350px]
+          w-[350px]
+          rounded-full
+          border
+          border-[#E6F2F9]
+          lg:block
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[20%]
+          top-[32%]
+          hidden
+          h-[270px]
+          w-[270px]
+          rounded-full
+          border
+          border-[#EDF6FA]
+          lg:block
+        "
+      />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-5">
+          {/* LEFT CONTENT */}
+
           <div className="relative z-20">
             {/* Eyebrow */}
 
             <div className="flex items-center gap-2">
               <span className="h-[2px] w-6 bg-[#20AFA7]" />
+
               <p className="text-[10px] font-bold uppercase tracking-wider text-[#20AFA7] sm:text-xs">
                 Advanced Delivery & Scanner Solutions
               </p>
+
               <span className="h-[2px] w-6 bg-[#20AFA7]" />
             </div>
 
@@ -83,81 +222,49 @@ const ColpoScan = () => {
               SurgiCO₂ for scanner-assisted laser proctology and gynecology.
             </p>
 
-            <div className="mt-8 space-y-3">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
+            {/* Desktop Feature List */}
 
-                return (
-                  <div
-                    key={index}
-                    className="
-                      flex
-                      items-center
-                      gap-4
-                      rounded-xl
-                      border
-                      border-[#DFEAF2]
-                      bg-white/80
-                      px-4
-                      py-3.5
-                      shadow-[0_5px_18px_rgba(30,90,130,0.04)]
-                      backdrop-blur-sm
-                      transition-all
-                      duration-300
-                      hover:-translate-y-0.5
-                      hover:border-[#B9DFEA]
-                      hover:shadow-[0_8px_22px_rgba(30,90,130,0.08)]
-                    "
-                  >
-                    {/* Icon */}
-
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EDF8FC]">
-                      <Icon
-                        size={20}
-                        strokeWidth={1.8}
-                        className="text-[#249BC0]"
-                      />
-                    </div>
-
-                    {/* Text */}
-
-                    <div>
-                      <h3 className="text-sm font-bold text-[#294362] sm:text-base">
-                        {feature.title}
-                      </h3>
-
-                      <p className="mt-1 text-xs leading-4 text-[#7B8BA1] sm:text-[13px] sm:leading-5">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <div className="hidden lg:block">{featureList}</div>
           </div>
 
-          <div className="relative min-h-[500px] lg:min-h-[570px]">
+          {/* RIGHT PRODUCT AREA */}
+
+          <div
+            className="
+              relative
+              min-h-[380px]
+              sm:min-h-[450px]
+              lg:min-h-[570px]
+            "
+          >
+            {/* Product Image */}
+
             <div className="absolute inset-0 flex items-center justify-center">
               <div
                 className="
                   relative
                   z-10
                   flex
-                  h-[360px]
-                  w-[520px]
-                  max-w-full
+                  h-[300px]
+                  w-full
+                  max-w-[520px]
                   items-center
                   justify-center
-                  sm:h-[430px]
+                  sm:h-[380px]
+                  lg:h-[430px]
                 "
               >
                 <img
                   src={colpoScanImage}
                   alt="ColpoScan"
-                  className="w-full object-contain"
+                  className="h-full w-full object-contain"
                 />
               </div>
             </div>
+
+            {/* EASY PLUG */}
+
+            {/* Hidden on mobile so it does not cover the product image */}
 
             <div
               className="
@@ -165,7 +272,7 @@ const ColpoScan = () => {
                 right-0
                 top-6
                 z-30
-                flex
+                hidden
                 w-[180px]
                 items-center
                 gap-3
@@ -176,11 +283,23 @@ const ColpoScan = () => {
                 px-3.5
                 py-3
                 shadow-[0_10px_28px_rgba(40,90,130,0.09)]
+                lg:flex
                 sm:right-4
                 sm:w-[205px]
               "
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EEF8FC]">
+              <div
+                className="
+                  flex
+                  h-10
+                  w-10
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-lg
+                  bg-[#EEF8FC]
+                "
+              >
                 <Plug size={20} className="text-[#299BC3]" />
               </div>
 
@@ -197,14 +316,30 @@ const ColpoScan = () => {
 
             {/* Connector line */}
 
-            <div className="absolute right-[190px] top-16 hidden h-px w-16 bg-[#8DD6EA] sm:block" />
+            <div
+              className="
+                absolute
+                right-[190px]
+                top-16
+                hidden
+                h-px
+                w-16
+                bg-[#8DD6EA]
+                lg:block
+              "
+            />
+
+            {/* EASY CONTROL */}
+
+            {/* Hidden on mobile so it does not cover the product image */}
 
             <div
               className="
                 absolute
-                 left-[5%]
-                 top-[38%]
+                left-[5%]
+                top-[38%]
                 z-30
+                hidden
                 w-[185px]
                 rounded-xl
                 border
@@ -212,12 +347,23 @@ const ColpoScan = () => {
                 bg-white
                 p-3.5
                 shadow-[0_10px_28px_rgba(40,90,130,0.08)]
+                lg:block
                 sm:left-[15%]
                 sm:w-[210px]
               "
             >
               <div className="flex items-center gap-2">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#EFF9FC]">
+                <div
+                  className="
+                    flex
+                    h-9
+                    w-9
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-[#EFF9FC]
+                  "
+                >
                   <Settings2 size={18} className="text-[#279DC4]" />
                 </div>
 
@@ -249,13 +395,17 @@ const ColpoScan = () => {
               </ul>
             </div>
 
+            {/* EASY FIELD */}
+
+            {/* Hidden on mobile so it does not cover the product image */}
+
             <div
               className="
                 absolute
                 bottom-[1%]
                 left-[2%]
                 z-30
-                flex
+                hidden
                 w-[190px]
                 items-center
                 gap-3
@@ -266,11 +416,23 @@ const ColpoScan = () => {
                 px-3.5
                 py-3
                 shadow-[0_10px_28px_rgba(40,90,130,0.08)]
+                lg:flex
                 sm:left-[28%]
                 sm:w-[215px]
               "
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EEF8FC]">
+              <div
+                className="
+                  flex
+                  h-10
+                  w-10
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-lg
+                  bg-[#EEF8FC]
+                "
+              >
                 <Crosshair size={20} className="text-[#299BC3]" />
               </div>
 
@@ -288,7 +450,13 @@ const ColpoScan = () => {
             </div>
           </div>
         </div>
+
+        {/* MOBILE FEATURE CARDS */}
+
+        <div className="mt-8 lg:hidden">{featureList}</div>
       </div>
+
+      {/* Bottom decorative wave */}
 
       <div className="pointer-events-none absolute bottom-0 left-0 w-full opacity-70">
         <svg

@@ -10,14 +10,17 @@ const Morcellator = () => {
     {
       name: "Cyber BLADE™ Morcellator",
       image: cyberBlade,
+      link: "/cyber-blade",
     },
     {
       name: "Raykeen Morcellator System",
       image: raykeen,
+      link: "/raykeen-morcellator",
     },
     {
       name: "Roboflex Avicenna",
       image: avicenna,
+      link: "/avicenna",
     },
   ];
 

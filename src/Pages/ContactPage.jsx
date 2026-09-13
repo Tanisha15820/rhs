@@ -430,7 +430,7 @@ const ContactPage = () => {
     <div className="min-h-screen bg-white">
       {/* Contact Banner */}
       <section
-        className="relative h-[190px] w-full overflow-hidden sm:h-[220px] md:h-[250px]"
+        className="relative h-[200px] w-full overflow-hidden sm:h-[240px] md:h-[280px] lg:h-[320px]"
         style={{
           backgroundImage: `url(${contactBannerBg})`,
           backgroundSize: "100% 100%",

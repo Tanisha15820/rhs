@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import cystoscopy1 from "../../assets/images/cystoscopy1.png";
@@ -6,6 +6,116 @@ import cystoscopy2 from "../../assets/images/cystoscopy2.png";
 import cystoscopy3 from "../../assets/images/cystoscopy3.png";
 import cystoscopy4 from "../../assets/images/cystoscopy4.png";
 import cystoscopy5 from "../../assets/images/cystoscopy5.png";
+
+// ================= MACHINE POINT DATA =================
+
+const machinePoints = [
+  {
+    title: "Cystoscopy System",
+    description: "Complete Endoscopic System",
+  },
+  {
+    title: "Monitor Display",
+    description: "High Resolution Visualisation",
+  },
+  {
+    title: "Camera Control Unit",
+    description: "Image Processing & Control",
+  },
+  {
+    title: "LED Light Source",
+    description: "High Intensity Illuminations",
+  },
+  {
+    title: "Irrigation / Suction Line",
+    description: "Fluid Delivery & Suction",
+  },
+  {
+    title: "Irrigation Canister",
+    description: "Fluid Collection",
+  },
+  {
+    title: "Irrigation Pump",
+    description: "Controlled Fluid Flow",
+  },
+  {
+    title: "Foot Switch",
+    description: "Hands-free Operation",
+  },
+  {
+    title: "Mobile Trolley Base",
+    description: "Stable & Smooth Mobility",
+  },
+];
+
+// ================= MOBILE KEY POINT =================
+
+const MobileKeyPoint = ({ title, description, index }) => {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 8,
+      }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.04,
+      }}
+      className="
+        flex
+        min-h-[72px]
+        items-start
+        gap-3
+        rounded-xl
+        border
+        border-[#2F80ED]/20
+        bg-white
+        p-3
+        shadow-[0_5px_18px_rgba(15,23,42,0.05)]
+      "
+    >
+      <div
+        className="
+          flex
+          h-8
+          w-8
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-[#1677FF]/10
+        "
+      >
+        <div className="h-[14px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
+      </div>
+
+      <div className="min-w-0">
+        <h4
+          className="
+            text-[12px]
+            font-semibold
+            leading-[1.3]
+            text-slate-900
+          "
+        >
+          {title}
+        </h4>
+
+        <p className="mt-1 text-[10px] leading-[1.4] text-slate-400">
+          {description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
 
 // Cystoscopy Machine Component
 const CystoscopyMachine = () => {
@@ -27,21 +137,11 @@ const CystoscopyMachine = () => {
           items-center
           justify-center
           px-4
-          transition-all
-          duration-500
-          ease-in-out
 
-          ${
-            isExploded
-              ? `
-                min-h-[730px]
-                lg:min-h-[760px]
-              `
-              : `
-                min-h-[650px]
-                lg:min-h-[700px]
-              `
-          }
+          min-h-[300px]
+          sm:min-h-[400px]
+          md:min-h-[520px]
+          lg:min-h-[760px]
         `}
       >
         {/* Soft Background Glow */}
@@ -79,12 +179,20 @@ const CystoscopyMachine = () => {
             }
           }}
           className="
-            relative
+            absolute
+            left-1/2
+            top-1/2
             z-20
             h-[720px]
             w-[760px]
             cursor-pointer
             outline-none
+            -translate-x-1/2
+            -translate-y-1/2
+            scale-[0.5]
+            sm:scale-[0.68]
+            md:scale-[0.84]
+            lg:scale-100
           "
         >
           <AnimatePresence>
@@ -102,14 +210,6 @@ const CystoscopyMachine = () => {
                   title="Monitor Display"
                   description="High Resolution Visualisation"
                   position="right-[65px] top-[100px]"
-                  side="right"
-                  lineWidth={55}
-                />
-
-                <KeyPoint
-                  title="Camera Control Unit"
-                  description="Image Processing & Control"
-                  position="right-[95px] top-[280px]"
                   side="right"
                   lineWidth={55}
                 />
@@ -302,8 +402,8 @@ const CystoscopyMachine = () => {
         </div>
       </div>
 
-      {/* Mobile Explore Button */}
-      <div className="mx-auto mt-1 flex justify-center lg:hidden">
+      {/* Mobile Explore Section */}
+      <div className="mx-auto mt-9 w-full max-w-[520px] px-4 lg:hidden">
         <motion.button
           type="button"
           whileTap={{
@@ -311,6 +411,7 @@ const CystoscopyMachine = () => {
           }}
           onClick={toggleMachine}
           className="
+            mx-auto
             flex
             items-center
             gap-2
@@ -334,6 +435,8 @@ const CystoscopyMachine = () => {
               justify-center
               rounded-full
               bg-[#1677FF]
+              text-[14px]
+              leading-none
               text-white
               transition-transform
               duration-300
@@ -343,8 +446,51 @@ const CystoscopyMachine = () => {
             +
           </span>
 
-          {isExploded ? "Hide details" : "Tap to explore machine"}
+          {isExploded ? "Hide machine details" : "Tap to explore machine"}
         </motion.button>
+
+        <AnimatePresence>
+          {isExploded && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              className="overflow-hidden"
+            >
+              <div
+                className="
+                  mt-5
+                  grid
+                  grid-cols-1
+                  gap-2.5
+                  min-[430px]:grid-cols-2
+                "
+              >
+                {machinePoints.map((point, index) => (
+                  <MobileKeyPoint
+                    key={point.title}
+                    title={point.title}
+                    description={point.description}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import multimedia1 from "../../assets/images/multimedia1.png";
@@ -189,22 +189,22 @@ const MobileKeyPoint = ({ title, description, index }) => {
       }}
       className="
         flex
-        min-h-[58px]
+        min-h-[72px]
         items-start
-        gap-2.5
-        rounded-[10px]
+        gap-3
+        rounded-xl
         border
         border-[#2F80ED]/20
         bg-white
-        p-2.5
+        p-3
         shadow-[0_5px_18px_rgba(15,23,42,0.05)]
       "
     >
       <div
         className="
           flex
-          h-7
-          w-7
+          h-8
+          w-8
           shrink-0
           items-center
           justify-center
@@ -214,7 +214,7 @@ const MobileKeyPoint = ({ title, description, index }) => {
       >
         <div
           className="
-            h-[12px]
+            h-[14px]
             w-[3px]
             rotate-45
             rounded-full
@@ -226,7 +226,7 @@ const MobileKeyPoint = ({ title, description, index }) => {
       <div className="min-w-0">
         <h4
           className="
-            text-[11px]
+            text-[12px]
             font-semibold
             leading-[1.3]
             text-slate-900
@@ -237,8 +237,8 @@ const MobileKeyPoint = ({ title, description, index }) => {
 
         <p
           className="
-            mt-0.5
-            text-[9px]
+            mt-1
+            text-[10px]
             leading-[1.4]
             text-slate-400
           "
@@ -299,7 +299,7 @@ const MultimedMachine = () => {
     >
       {/* ================= HEADING ================= */}
 
-      <div className="mb-14 text-center">
+      {/* <div className="mb-14 text-center">
         <div className="mb-1.5 flex items-center justify-center gap-1">
           <span className="h-[2px] w-8 bg-[#19A8E8]" />
           <p className="text-xs font-bold uppercase tracking-wider text-[#19A8E8] sm:text-sm">
@@ -319,7 +319,7 @@ const MultimedMachine = () => {
           Explore the key components that work together for safe and effective
           treatments.
         </p>
-      </div>
+      </div> */}
 
       {/* ================= MACHINE AREA ================= */}
 
@@ -334,19 +334,10 @@ const MultimedMachine = () => {
           justify-center
           px-4
 
-          transition-all
-          duration-500
-
-          ${
-            isExploded
-              ? `
-            min-h-[650px]
-            `
-              : `
-            min-h-[550px]
-            `
-          }
-
+          min-h-[500px]
+          sm:min-h-[560px]
+          md:min-h-[620px]
+          lg:min-h-[720px]
         `}
       >
         {/* Background Glow */}
@@ -379,6 +370,8 @@ const MultimedMachine = () => {
             justify-center
 
             w-[260px]
+            sm:w-[280px]
+            lg:w-[320px]
 
             transition-all
             duration-500
@@ -401,14 +394,6 @@ const MultimedMachine = () => {
                   title="Optical Treatment Head"
                   description="Precision Laser Output"
                   position="right-[-240px] top-[-150px]"
-                  side="left"
-                  lineWidth={55}
-                />
-
-                <KeyPoint
-                  title="Mobile Base"
-                  description="Stable and smooth movement"
-                  position="right-[-160px] top-[200px]"
                   side="left"
                   lineWidth={55}
                 />
@@ -451,9 +436,12 @@ const MultimedMachine = () => {
               w-[350px]
               -translate-x-1/2
               -translate-y-1/2
+              lg:translate-y-[calc(-50%+37px)]
               origin-center
-              scale-[0.75]
-              lg:scale-[0.85]
+              scale-[0.62]
+              sm:scale-[0.72]
+              md:scale-[0.8]
+              lg:scale-[0.9]
             "
           >
             {/* ================= MULTIMEDIA 1 ================= */}
@@ -584,7 +572,7 @@ const MultimedMachine = () => {
 
       {/* ================= MOBILE SECTION ================= */}
 
-      <div className="mx-auto mt-4 w-full max-w-[520px] px-4 lg:hidden">
+      <div className="mx-auto mt-9 w-full max-w-[520px] px-4 lg:hidden">
         <motion.button
           type="button"
           onClick={toggleMachine}
@@ -598,11 +586,12 @@ const MultimedMachine = () => {
             gap-2
             rounded-full
             border
-            border-[#1677FF]/20
-            bg-[#1677FF]/5
+            border-[#1677FF]/15
+            bg-[#1677FF]/[0.04]
             px-4
             py-2
             text-[11px]
+            font-medium
             text-[#1677FF]
           "
         >

@@ -116,12 +116,12 @@ const ProductEnquiry = () => {
           src={productEnquiryBanner}
           alt="Product Enquiry"
           className="
-            h-[180px]
+            h-[200px]
             w-full
             object-cover
-            sm:h-[210px]
-            md:h-[240px]
-            lg:h-[270px]
+            sm:h-[240px]
+            md:h-[280px]
+            lg:h-[320px]
           "
         />
 

@@ -8,10 +8,12 @@ const GastroLaser = () => {
     {
       name: "LITHO 35 WATT",
       image: Litho35,
+      link: "/litho35watt",
     },
     {
       name: "LITHO EVO 35 WATT",
       image: LithoEVO,
+      link: "/lithoevo35watt",
     },
   ];
 

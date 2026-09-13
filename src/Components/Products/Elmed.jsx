@@ -11,18 +11,22 @@ const Elmed = () => {
     {
       name: "Multimed",
       image: multimed,
+      link: "/multimed",
     },
     {
       name: "Vibrolith",
       image: vibrolithMachine,
+      link: "/vibrolith",
     },
     {
       name: "Vibrolith Ortho",
       image: vibrolithOrthoHero,
+      link: "/vibrolith-ortho",
     },
     {
       name: "Vibrolith Plus",
       image: vibrolithPlusHero,
+      link: "/vibrolith-plus",
     },
   ];
 

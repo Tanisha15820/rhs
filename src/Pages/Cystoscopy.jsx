@@ -244,11 +244,11 @@ const Cystoscopy = () => {
       </section>
 
       {/* Interactive Machine Section */}
-      <CystoscopyMachine />
 
       {/* Modular Product Feature Sections */}
       <CystoscopyAbout />
       <CystoscopyTelescopes />
+      <CystoscopyMachine />
       <CystoscopySheaths />
       <CystoscopyBridges />
       <CystoscopySetCatalog />

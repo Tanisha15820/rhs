@@ -1,9 +1,111 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import cyberblade1 from "../../assets/images/cyberblade1.png";
 import cyberblade2 from "../../assets/images/cyberblade2.png";
 import cyberblade3 from "../../assets/images/cyberblade3.png";
+
+// ================= MACHINE POINT DATA =================
+
+const machinePoints = [
+  {
+    title: "Distal Tip",
+    description: "Precision cutting with high accuracy",
+  },
+  {
+    title: "Shaft",
+    description: "Slim and rigid design for optimal control",
+  },
+  {
+    title: "Locking Collet",
+    description: "Secure shaft fixation",
+  },
+  {
+    title: "Ergonomic Handle",
+    description: "Lightweight and comfortable grip",
+  },
+  {
+    title: "Drive Unit",
+    description: "High performance motor for consistent power",
+  },
+  {
+    title: "Cable Interface",
+    description: "Reliable connection for power and control",
+  },
+  {
+    title: "CyberBlade Tip",
+    description: "Advanced blade design for precise dissection",
+  },
+];
+
+// ================= MOBILE KEY POINT =================
+
+const MobileKeyPoint = ({ title, description, index }) => {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 8,
+      }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.04,
+      }}
+      className="
+        flex
+        min-h-[72px]
+        items-start
+        gap-3
+        rounded-xl
+        border
+        border-[#2F80ED]/20
+        bg-white
+        p-3
+        shadow-[0_5px_18px_rgba(15,23,42,0.05)]
+      "
+    >
+      <div
+        className="
+          flex
+          h-8
+          w-8
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-[#1677FF]/10
+        "
+      >
+        <div className="h-[14px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
+      </div>
+
+      <div className="min-w-0">
+        <h4
+          className="
+            text-[12px]
+            font-semibold
+            leading-[1.3]
+            text-slate-900
+          "
+        >
+          {title}
+        </h4>
+
+        <p className="mt-1 text-[10px] leading-[1.4] text-slate-400">
+          {description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
 
 // CyberBlade Machine Component
 const CyberBladeMachine = () => {
@@ -29,17 +131,12 @@ const CyberBladeMachine = () => {
           duration-500
           ease-in-out
 
-          ${
-            isExploded
-              ? `
-                min-h-[650px]
-                lg:min-h-[680px]
-              `
-              : `
-                min-h-[500px]
-                lg:min-h-[540px]
-              `
-          }
+          min-h-[220px]
+          sm:min-h-[300px]
+          md:min-h-[400px]
+          lg:min-h-[540px]
+
+          ${isExploded ? "lg:min-h-[680px]" : ""}
         `}
       >
         {/* Machine Container */}
@@ -56,12 +153,20 @@ const CyberBladeMachine = () => {
             }
           }}
           className="
-            relative
+            absolute
+            left-1/2
+            top-1/2
             z-20
             h-[520px]
             w-[1100px]
             cursor-pointer
             outline-none
+            -translate-x-1/2
+            -translate-y-1/2
+            scale-[0.3]
+            sm:scale-[0.45]
+            md:scale-[0.62]
+            lg:scale-100
           "
         >
           <AnimatePresence>
@@ -213,8 +318,8 @@ const CyberBladeMachine = () => {
         </div>
       </div>
 
-      {/* Mobile Explore Button */}
-      <div className="mx-auto mt-1 flex justify-center lg:hidden">
+      {/* Mobile Explore Section */}
+      <div className="mx-auto mt-9 w-full max-w-[520px] px-4 lg:hidden">
         <motion.button
           type="button"
           whileTap={{
@@ -222,13 +327,14 @@ const CyberBladeMachine = () => {
           }}
           onClick={toggleMachine}
           className="
+            mx-auto
             flex
             items-center
             gap-2
             rounded-full
             border
-            border-[#1677FF]/30
-            bg-[#1677FF]/10
+            border-[#1677FF]/20
+            bg-[#1677FF]/[0.04]
             px-4
             py-2
             text-[11px]
@@ -245,6 +351,8 @@ const CyberBladeMachine = () => {
               justify-center
               rounded-full
               bg-[#1677FF]
+              text-[14px]
+              leading-none
               text-white
               transition-transform
               duration-300
@@ -254,8 +362,51 @@ const CyberBladeMachine = () => {
             +
           </span>
 
-          {isExploded ? "Hide details" : "Tap to explore machine"}
+          {isExploded ? "Hide machine details" : "Tap to explore machine"}
         </motion.button>
+
+        <AnimatePresence>
+          {isExploded && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              className="overflow-hidden"
+            >
+              <div
+                className="
+                  mt-5
+                  grid
+                  grid-cols-1
+                  gap-2.5
+                  min-[430px]:grid-cols-2
+                "
+              >
+                {machinePoints.map((point, index) => (
+                  <MobileKeyPoint
+                    key={point.title}
+                    title={point.title}
+                    description={point.description}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

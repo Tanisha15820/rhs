@@ -113,8 +113,9 @@ const Multimed = () => {
             </h1>
 
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 lg:text-base">
-              Electro-Magnetic Extracorporeal Shock Wave Lithotripsy (ESWL) System.
-              The complete solution to the lithotripsy world with robotic precision.
+              Electro-Magnetic Extracorporeal Shock Wave Lithotripsy (ESWL)
+              System. The complete solution to the lithotripsy world with
+              robotic precision.
             </p>
           </div>
 
@@ -232,9 +233,10 @@ const Multimed = () => {
       </section>
 
       {/* Main Sections */}
-      <MultimedMachine />
+
       <MultimedAbout />
       <MultimedTherapyHead />
+      <MultimedMachine />
       <MultimedTable />
       <MultimedSpecs />
       <ProductInquireCTA

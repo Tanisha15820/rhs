@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Homepage from "./Pages/HomePage";
 import Urology from "./Components/Products/Urology";
+import SurgicalLaser from "./Components/Products/SurgicalLaser";
 import ENT from "./Components/Products/ENT";
 import Blogs from "./Pages/Blogs";
 import MachinePage from "./Pages/MachinePage";
@@ -35,6 +36,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/urology" element={<Urology />} />
+          <Route path="/urology-surgical-laser" element={<SurgicalLaser />} />
           <Route path="/ent" element={<ENT />} />
           <Route path="/ent-laser" element={<ENTLaser />} />
           <Route path="/elmed" element={<Elmed />} />

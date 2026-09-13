@@ -9,10 +9,12 @@ const ENTLaser = () => {
     {
       name: "Smartxide2 Trio",
       image: SmartXide2Trio,
+      link: "/smartxide",
     },
     {
       name: "SmartXide Touch SurgiCO",
       image: SmartXideTouchSurgiCO,
+      link: "/smartxide-touch",
     },
   ];
 

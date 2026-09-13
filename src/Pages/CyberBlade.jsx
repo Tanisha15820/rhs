@@ -241,11 +241,11 @@ const CyberBlade = () => {
       </section>
 
       {/* Interactive Machine Section */}
-      <CyberBladeMachine />
 
       {/* Modular Product Sections */}
       <CyberBladeConcept />
       <CyberBladeFeatures />
+      <CyberBladeMachine />
       <CyberBladeAdvantages />
       <CyberBladeSpecs />
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Bookmark, Plus } from "lucide-react";
-import blogBannerBg from "../assets/images/blogs.png";
+import blogBannerBg from "../assets/images/blogs-banner.png";
 import { getAllBlogs, getResolvedBlogImage } from "../utils/blogStorage";
 
 /**
@@ -41,7 +41,7 @@ function Blogs() {
     <div className="min-h-screen bg-white">
       {/* Hero Banner Header */}
       <section
-        className="relative h-[260px] w-full overflow-hidden md:h-[280px]"
+        className="relative h-[200px] w-full overflow-hidden sm:h-[240px] md:h-[280px] lg:h-[320px]"
         style={{
           backgroundImage: `url(${blogBannerBg})`,
           backgroundSize: "100% 100%",
@@ -59,7 +59,8 @@ function Blogs() {
             </h1>
             <div className="mt-3 h-[2px] w-10 bg-primary" />
             <p className="mt-4 max-w-md text-xs leading-5 text-slate-500 md:text-sm">
-              Insights, guides, and updates from the world of surgical equipment and hospital innovation.
+              Insights, guides, and updates from the world of surgical equipment
+              and hospital innovation.
             </p>
           </div>
         </div>

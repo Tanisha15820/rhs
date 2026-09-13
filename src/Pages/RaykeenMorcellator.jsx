@@ -244,10 +244,11 @@ const RaykeenMorcellator = () => {
       </section>
 
       {/* Interactive Machine Section */}
-      <RaykeenMachine />
+
       {/* Modular Product Sections */}
       <RaykeenAdvantages />
       <RaykeenFootswitch />
+      <RaykeenMachine />
       <RaykeenBladeSpecs />
       <RaykeenSpecs />
     </div>

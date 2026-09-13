@@ -242,11 +242,11 @@ const Morcescope = () => {
       </section>
 
       {/* Interactive Machine Section */}
-      <MorcescopeMachine />
 
       {/* Modular Product Sections */}
       <MorcescopeWorkflow />
       <MorcescopeFeatures />
+      <MorcescopeMachine />
       <MorcescopeClinical />
       <MorcescopeConfigurations />
     </div>

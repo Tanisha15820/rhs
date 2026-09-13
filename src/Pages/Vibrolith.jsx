@@ -115,8 +115,9 @@ const Vibrolith = () => {
             </h1>
 
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 lg:text-base">
-              Electro-Pneumatic Ballistic Lithotripter for precise, tissue-friendly
-              urinary stone disintegration across kidney, ureter, and bladder.
+              Electro-Pneumatic Ballistic Lithotripter for precise,
+              tissue-friendly urinary stone disintegration across kidney,
+              ureter, and bladder.
             </p>
           </div>
 
@@ -234,9 +235,10 @@ const Vibrolith = () => {
       </section>
 
       {/* Main Sections */}
-      <VibrolithMachine />
+
       <VibrolithBenefits />
       <VibrolithProcedures />
+      <VibrolithMachine />
       <VibrolithSystem />
       <VibrolithHandpiece />
       <VibrolithSpecs />

@@ -9,10 +9,12 @@ const RZ = () => {
     {
       name: "RZ Medizintechnik Cystoscopy",
       image: cystoscope,
+      link: "/cystoscopy",
     },
     {
       name: "RZ Slim Laser Enucleation System",
       image: morcescope,
+      link: "/morcescope",
     },
   ];
 

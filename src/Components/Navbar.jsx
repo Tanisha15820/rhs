@@ -62,6 +62,7 @@ function Navbar() {
 
   const isProductsActive =
     pathname === "/urology" ||
+    pathname === "/urology-surgical-laser" ||
     pathname === "/ent" ||
     pathname === "/gastro" ||
     pathname === "/ent-laser" ||
@@ -78,7 +79,7 @@ function Navbar() {
     if (category === "RZ") return "/rz";
     if (category === "Morcellator") return "/morcellator";
 
-    if (category === "Surgical Laser") return "/urology";
+    if (category === "Surgical Laser") return "/urology-surgical-laser";
     if (category === "Gastro Laser") return "/gastro-laser";
 
     return null;
@@ -106,7 +107,7 @@ function Navbar() {
     if (category === "Surgical Laser") {
       return SURGICAL_LASER_PRODUCTS.map((name) => ({
         name,
-        path: "/urology",
+        path: "/urology-surgical-laser",
       }));
     }
 

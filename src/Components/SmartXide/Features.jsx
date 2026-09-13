@@ -1,4 +1,3 @@
-import React from "react";
 import { UserRound, Crosshair, Focus, Plug, ScanLine } from "lucide-react";
 
 import hicanImg from "../../assets/images/hican_tech.png";
@@ -56,7 +55,7 @@ const Features = () => {
             number="01"
             title="Easy Control"
             icon={<UserRound size={22} />}
-            position="left-0 -top-15"
+            position="hidden md:block left-0 -top-15"
             description="Operate without ever moving your eyes from the microscope."
             points={[
               "4 functions control by the exclusive microswitch joystick",
@@ -77,7 +76,7 @@ const Features = () => {
             number="02"
             title="Easy Field"
             icon={<Crosshair size={22} />}
-            position="left-0 top-[250px]"
+            position="hidden md:block left-0 top-[250px]"
             description="Mechanical control of the working area to precisely confine the laser beam within the operating field."
             points={["Easy and safe."]}
           />
@@ -91,7 +90,7 @@ const Features = () => {
             number="04"
             title="Easy Plug"
             icon={<Plug size={22} />}
-            position="right-0 top-[28px]"
+            position="hidden md:block right-0 top-[28px]"
             description="Fast connections and internal wiring."
             points={[]}
           />
@@ -105,7 +104,7 @@ const Features = () => {
             number="05"
             title="HiScan Surgical"
             icon={<ScanLine size={22} />}
-            position="right-0 top-[245px]"
+            position="hidden md:block right-0 top-[245px]"
             description=""
             points={[
               "Ultra fast laser beam movement (100 millionths of a second), minimum dwell time.",
@@ -215,7 +214,7 @@ const FeatureCard = ({
 }) => {
   return (
     <div
-      className={`absolute ${position} hidden w-[285px] rounded-2xl border border-white bg-white/95 p-4 shadow-[0_8px_30px_rgba(25,70,110,0.08)] backdrop-blur-sm md:block`}
+      className={`${position} w-full rounded-2xl border border-white bg-white/95 p-4 shadow-[0_8px_30px_rgba(25,70,110,0.08)] backdrop-blur-sm md:absolute md:w-[285px]`}
     >
       {/* Card Header */}
       <div className="flex items-center gap-3">

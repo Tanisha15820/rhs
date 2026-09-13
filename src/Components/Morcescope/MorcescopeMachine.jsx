@@ -1,8 +1,118 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import morescope1 from "../../assets/images/morescope1.png";
 import morescope2 from "../../assets/images/morescope2.png";
+
+// ================= MACHINE POINT DATA =================
+
+const machinePoints = [
+  {
+    title: "Slim Resectoscope",
+    description: "Compact design for minimally invasive access",
+  },
+  {
+    title: "Laser Fiber Channel",
+    description: "Dedicated channel for laser fiber delivery",
+  },
+  {
+    title: "30° Telescope",
+    description: "Angled view for clear visualization",
+  },
+  {
+    title: "Optical Eyepiece",
+    description: "Connects to camera system",
+  },
+  {
+    title: "Irrigation Inlet",
+    description: "Continuous irrigation for clear visibility",
+  },
+  {
+    title: "Irrigation Outlet",
+    description: "Controlled drainage of irrigation fluid",
+  },
+  {
+    title: "Finger Ring Handle",
+    description: "Ergonomic design for stable and precise control",
+  },
+  {
+    title: "Rotatable Mechanism",
+    description: "Allows controlled rotation of the working element",
+  },
+  {
+    title: "Laser Delivery System",
+    description: "Enables precise energy delivery",
+  },
+];
+
+// ================= MOBILE KEY POINT =================
+
+const MobileKeyPoint = ({ title, description, index }) => {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 8,
+      }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.04,
+      }}
+      className="
+        flex
+        min-h-[72px]
+        items-start
+        gap-3
+        rounded-xl
+        border
+        border-[#2F80ED]/20
+        bg-white
+        p-3
+        shadow-[0_5px_18px_rgba(15,23,42,0.05)]
+      "
+    >
+      <div
+        className="
+          flex
+          h-8
+          w-8
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-[#1677FF]/10
+        "
+      >
+        <div className="h-[14px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
+      </div>
+
+      <div className="min-w-0">
+        <h4
+          className="
+            text-[12px]
+            font-semibold
+            leading-[1.3]
+            text-slate-900
+          "
+        >
+          {title}
+        </h4>
+
+        <p className="mt-1 text-[10px] leading-[1.4] text-slate-400">
+          {description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
 
 // Morcescope Machine Component
 const MorcescopeMachine = () => {
@@ -24,21 +134,11 @@ const MorcescopeMachine = () => {
           items-center
           justify-center
           px-4
-          transition-all
-          duration-500
-          ease-in-out
 
-          ${
-            isExploded
-              ? `
-                min-h-[650px]
-                lg:min-h-[680px]
-              `
-              : `
-                min-h-[500px]
-                lg:min-h-[540px]
-              `
-          }
+          min-h-[240px]
+          sm:min-h-[320px]
+          md:min-h-[420px]
+          lg:min-h-[620px]
         `}
       >
         {/* Soft Background Glow */}
@@ -72,12 +172,20 @@ const MorcescopeMachine = () => {
             }
           }}
           className="
-            relative
+            absolute
+            left-1/2
+            top-1/2
             z-20
             h-[520px]
             w-[900px]
             cursor-pointer
             outline-none
+            -translate-x-1/2
+            -translate-y-1/2
+            scale-[0.42]
+            sm:scale-[0.58]
+            md:scale-[0.72]
+            lg:scale-100
           "
         >
           <AnimatePresence>
@@ -212,8 +320,8 @@ const MorcescopeMachine = () => {
         </div>
       </div>
 
-      {/* Mobile Explore Button */}
-      <div className="mx-auto mt-1 flex justify-center lg:hidden">
+      {/* Mobile Explore Section */}
+      <div className="mx-auto mt-9 w-full max-w-[520px] px-4 lg:hidden">
         <motion.button
           type="button"
           whileTap={{
@@ -221,6 +329,7 @@ const MorcescopeMachine = () => {
           }}
           onClick={toggleMachine}
           className="
+            mx-auto
             flex
             items-center
             gap-2
@@ -244,6 +353,8 @@ const MorcescopeMachine = () => {
               justify-center
               rounded-full
               bg-[#1677FF]
+              text-[14px]
+              leading-none
               text-white
               transition-transform
               duration-300
@@ -253,8 +364,51 @@ const MorcescopeMachine = () => {
             +
           </span>
 
-          {isExploded ? "Hide details" : "Tap to explore machine"}
+          {isExploded ? "Hide machine details" : "Tap to explore machine"}
         </motion.button>
+
+        <AnimatePresence>
+          {isExploded && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              className="overflow-hidden"
+            >
+              <div
+                className="
+                  mt-5
+                  grid
+                  grid-cols-1
+                  gap-2.5
+                  min-[430px]:grid-cols-2
+                "
+              >
+                {machinePoints.map((point, index) => (
+                  <MobileKeyPoint
+                    key={point.title}
+                    title={point.title}
+                    description={point.description}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
