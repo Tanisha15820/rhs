@@ -16,11 +16,11 @@ const CATEGORY_ROUTES = {
   "ENT, Head & Neck Oncology": "/ent",
   ELMED: "/elmed",
   RZ: "/rz",
-  Morcellator: "/morcellator",
+  "Morcellator System": "/morcellator",
   "Gastro Laser": "/gastro-laser",
   "Gastro Endoscopy": "/gastro-endoscopy",
   "Surgical Laser": "/urology-surgical-laser",
-  "Urodynamic System & Uroflowmetry": "/urology-urodynamic",
+  "Urodynamic Systems & Uroflowmeters": "/urology-urodynamic",
   "ESWL Lithotripsy": "/urology-eswl",
   "Endo Urology UMD Endoscopy": "/urology-endo",
 };

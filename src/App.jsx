@@ -33,6 +33,7 @@ import Harmony from "./Pages/Harmony";
 import DanflowWave from "./Pages/DanflowWave";
 import DanflowCord from "./Pages/DanflowCord";
 import BladderScanner from "./Pages/BladderScanner";
+import PatientCouch from "./Pages/PatientCouch";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
           <Route path="/danflow-wave" element={<DanflowWave />} />
           <Route path="/danflow-cord" element={<DanflowCord />} />
           <Route path="/bladder-scanner" element={<BladderScanner />} />
+          <Route path="/patient-couch" element={<PatientCouch />} />
         </Route>
       </Routes>
     </BrowserRouter>

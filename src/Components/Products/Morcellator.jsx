@@ -26,7 +26,7 @@ const Morcellator = () => {
 
   return (
     <ProductsPage
-      categoryName="Morcellator"
+      categoryName="Morcellator System"
       bannerImage={ENTLaserBg}
       description="Advanced morcellation systems for rapid, safe and minimally invasive tissue removal."
       products={products}

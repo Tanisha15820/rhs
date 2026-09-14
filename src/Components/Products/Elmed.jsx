@@ -40,7 +40,7 @@ const Elmed = () => {
         "CO2 Surgical Laser",
         "ENT, Head & Neck Oncology",
         "RZ",
-        "Morcellator",
+        "Morcellator System",
       ]}
     />
   );

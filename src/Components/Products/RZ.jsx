@@ -28,7 +28,7 @@ const RZ = () => {
         "CO2 Surgical Laser",
         "ENT, Head & Neck Oncology",
         "ELMED",
-        "Morcellator",
+        "Morcellator System",
       ]}
     />
   );

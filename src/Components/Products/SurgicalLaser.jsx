@@ -16,7 +16,7 @@ const SurgicalLaser = () => {
         description="Explore our advanced surgical laser systems designed for precise, safe and minimally invasive procedures."
         products={[]}
         otherCategories={[
-          "Urodynamic System & Uroflowmetry",
+          "Urodynamic Systems & Uroflowmeters",
           "ESWL Lithotripsy",
           "Endo Urology UMD Endoscopy",
         ]}

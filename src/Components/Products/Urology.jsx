@@ -18,7 +18,7 @@ const Urology = () => {
       link: "/urology-surgical-laser",
     },
     {
-      title: "Urodynamic System & Uroflowmetry",
+      title: "Urodynamic Systems & Uroflowmeters",
       description:
         "Reliable systems for accurate bladder and urinary tract assessment.",
       image: diodeLaser,

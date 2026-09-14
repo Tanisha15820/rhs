@@ -34,30 +34,48 @@ export const CATEGORIES = {
   "ENT, Head & Neck Oncology": ["CO2 Surgical Laser"],
   Urology: [
     "Surgical Laser",
-    "Urodynamic System & Uroflowmetry",
+    "Urodynamic System & Uroflowmeters",
     "ESWL Lithotripsy",
     "Endo Urology UMD Endoscopy",
-    "Morcellator",
+    "Morcellator System",
     "Roboflex Avicenna",
   ],
   Gastro: ["Gastro Products", "Gastro Endoscopy", "Gastro Laser"],
 };
 
-// Surgical Laser Products (under Urology -> Surgical Laser)
-export const SURGICAL_LASER_PRODUCTS = [
-  "DK 30 WATT",
-  "TFL 60 WATT",
-  "Vikrant TFL 30/45/70 WATT",
-  "LITHO 35 WATT",
-  "CYBER TM 150 WATT",
-  "LITHO EVO 35 WATT",
-  "CYBER TM 200 WATT",
-  "LITHO EVO 60 WATT",
-  "LATEST TECHNOLOGY MAGNETO 100 WATT",
-  "CYBER HO 100 WATT",
-  "LATEST TECHNOLOGY MAGNETO 150 WATT",
-  "CYBER HO 150 WATT",
+// Surgical Laser Subcategories (under Urology -> Surgical Laser)
+export const SURGICAL_LASER_SUBCATEGORIES = [
+  { name: "Holmium YAG Laser", path: "/urology-surgical-laser" },
+  { name: "Thulium YAG Laser", path: "/urology-surgical-laser" },
+  { name: "Thulium Fiber Laser", path: "/urology-surgical-laser" },
 ];
+
+// Surgical Laser Products grouped by subcategory
+export const SURGICAL_LASER_PRODUCTS_BY_SUBCATEGORY = {
+  "Holmium YAG Laser": [
+    { name: "DK 30 WATT", path: "/urology-surgical-laser" },
+    { name: "LITHO 35 WATT", path: "/urology-surgical-laser" },
+    { name: "LITHO EVO 35 WATT", path: "/urology-surgical-laser" },
+    {
+      name: "LATEST TECHNOLOGY MAGNETO 100 WATT",
+      path: "/urology-surgical-laser",
+    },
+    { name: "CYBER HO 100 WATT", path: "/urology-surgical-laser" },
+    {
+      name: "LATEST TECHNOLOGY MAGNETO 150 WATT",
+      path: "/urology-surgical-laser",
+    },
+    { name: "CYBER HO 150 WATT", path: "/urology-surgical-laser" },
+  ],
+  "Thulium YAG Laser": [
+    { name: "Cyber TM 150 WATT", path: "/urology-surgical-laser" },
+    { name: "Cyber TM 200 WATT", path: "/urology-surgical-laser" },
+  ],
+  "Thulium Fiber Laser": [
+    { name: "Fiber Dust 60 WATT", path: "/urology-surgical-laser" },
+    { name: "Vikrant - 30/45/70 WATT", path: "/urology-surgical-laser" },
+  ],
+};
 
 export const ESWL_LITHOTRIPSY_SUBTYPES = [
   { name: "Multimed", path: "/multimed" },
