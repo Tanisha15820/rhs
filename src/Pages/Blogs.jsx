@@ -3,11 +3,6 @@ import { Bookmark, Plus } from "lucide-react";
 import blogBannerBg from "../assets/images/blogs-banner.png";
 import { getAllBlogs, getResolvedBlogImage } from "../utils/blogStorage";
 
-/**
- * Blogs Page
- * Displays the list of healthcare articles and surgical innovation insights.
- * Dynamically synchronizes with the Admin Dashboard via browser events and localStorage.
- */
 function Blogs() {
   // 1. Initialize blog posts from storage
   const [blogPosts, setBlogPosts] = useState(() => getAllBlogs());

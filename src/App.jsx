@@ -27,6 +27,12 @@ import ENTLaser from "./Components/Products/ENTLaser";
 import Elmed from "./Components/Products/Elmed";
 import RZ from "./Components/Products/RZ";
 import Morcellator from "./Components/Products/Morcellator";
+import Melody from "./Pages/Melody";
+import Symphony from "./Pages/Symphony";
+import Harmony from "./Pages/Harmony";
+import DanflowWave from "./Pages/DanflowWave";
+import DanflowCord from "./Pages/DanflowCord";
+import BladderScanner from "./Pages/BladderScanner";
 
 function App() {
   return (
@@ -64,10 +70,13 @@ function App() {
           <Route path="/cyber-blade" element={<CyberBlade />} />
           <Route path="/bro-morcellatore-cyberblade" element={<CyberBlade />} />
           <Route path="/raykeen-morcellator" element={<RaykeenMorcellator />} />
-          <Route
-            path="/raykeen-morcellatore"
-            element={<RaykeenMorcellator />}
-          />
+          <Route path="/raykeen-morcellatore" element={<RaykeenMorcellator />} />
+          <Route path="/melody" element={<Melody />} />
+          <Route path="/symphony" element={<Symphony />} />
+          <Route path="/harmony" element={<Harmony />} />
+          <Route path="/danflow-wave" element={<DanflowWave />} />
+          <Route path="/danflow-cord" element={<DanflowCord />} />
+          <Route path="/bladder-scanner" element={<BladderScanner />} />
         </Route>
       </Routes>
     </BrowserRouter>

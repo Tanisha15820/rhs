@@ -25,8 +25,8 @@ const RZ = () => {
       description="High-performance RZ Medizintechnik solutions designed for precision and better patient outcomes."
       products={products}
       otherCategories={[
-        "ENT Laser",
-        "ENT Head & Neck Oncology",
+        "CO2 Surgical Laser",
+        "ENT, Head & Neck Oncology",
         "ELMED",
         "Morcellator",
       ]}

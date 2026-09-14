@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 
 const CATEGORY_ROUTES = {
-  "ENT Laser": "/ent-laser",
-  "ENT Head & Neck Oncology": "/ent-head-neck-oncology",
+  "CO2 Surgical Laser": "/ent-laser",
+  "ENT, Head & Neck Oncology": "/ent",
   ELMED: "/elmed",
   RZ: "/rz",
   Morcellator: "/morcellator",

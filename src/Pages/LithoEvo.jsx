@@ -118,7 +118,7 @@ const LithoEvo = () => {
             </div>
 
             <h2 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl md:text-5xl">
-              Litho 35
+              Litho EVO 35{" "}
               <span className="bg-gradient-to-r from-[#19A8E8] to-[#2525B8] bg-clip-text text-transparent">
                 Watt
               </span>

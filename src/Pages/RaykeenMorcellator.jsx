@@ -16,7 +16,6 @@ import raykeenHeroImg from "../assets/images/raykeen.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
 import hollowFiber from "../assets/images/hollow_fiber.png";
-
 import RaykeenAdvantages from "../Components/RaykeenMorcellator/RaykeenAdvantages";
 import RaykeenFootswitch from "../Components/RaykeenMorcellator/RaykeenFootswitch";
 import RaykeenBladeSpecs from "../Components/RaykeenMorcellator/RaykeenBladeSpecs";

@@ -37,8 +37,8 @@ const Elmed = () => {
       description="Explore our advanced ELMED surgical systems engineered for precision, reliability and everyday clinical excellence."
       products={products}
       otherCategories={[
-        "ENT Laser",
-        "ENT Head & Neck Oncology",
+        "CO2 Surgical Laser",
+        "ENT, Head & Neck Oncology",
         "RZ",
         "Morcellator",
       ]}

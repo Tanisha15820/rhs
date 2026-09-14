@@ -1,0 +1,9 @@
+const Symphony = () => {
+  return (
+    <section className="flex min-h-[60vh] items-center justify-center">
+      <h1 className="text-2xl font-bold text-gray-800">Symphony</h1>
+    </section>
+  );
+};
+
+export default Symphony;

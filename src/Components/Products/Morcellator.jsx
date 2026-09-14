@@ -31,8 +31,8 @@ const Morcellator = () => {
       description="Advanced morcellation systems for rapid, safe and minimally invasive tissue removal."
       products={products}
       otherCategories={[
-        "ENT Laser",
-        "ENT Head & Neck Oncology",
+        "CO2 Surgical Laser",
+        "ENT, Head & Neck Oncology",
         "ELMED",
         "RZ",
       ]}

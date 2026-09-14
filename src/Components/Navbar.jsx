@@ -1,21 +1,18 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 
 // Material Icons
 import HomeIcon from "@mui/icons-material/Home";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
-import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
-import PeopleIcon from "@mui/icons-material/People";
 import ArticleIcon from "@mui/icons-material/Article";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AirIcon from "@mui/icons-material/Air";
-import HearingIcon from "@mui/icons-material/Hearing";
 import SpaIcon from "@mui/icons-material/Spa";
+import PsychologyIcon from "@mui/icons-material/Psychology";
 
 // Logo image
 import logo from "../assets/images/compressed_rhs_logo.png";
@@ -25,24 +22,28 @@ import {
   SPECIALTIES,
   CATEGORIES,
   SURGICAL_LASER_PRODUCTS,
+  ESWL_LITHOTRIPSY_SUBTYPES,
+  ENDO_UROLOGY_UMD_ENDOSCOPY_SUBTYPES,
   ENT_LASER_SUBTYPES,
   GASTRO_LASER_SUBTYPES,
-  ELMED_SUBTYPES,
-  RZ_SUBTYPES,
   MORCELLATOR_SUBTYPES,
+  URODYNAMIC_SUBTYPES,
+  ROBOFLEX_AVICENNA_SUBTYPE,
 } from "../data/navigationData";
 
 // Icon mapping for specialties
 const SPECIALTY_ICONS = {
-  ENT: <HearingIcon sx={{ fontSize: 19 }} />,
+  "ENT, Head & Neck Oncology": <PsychologyIcon sx={{ fontSize: 19 }} />,
   Urology: <AirIcon sx={{ fontSize: 19 }} />,
   Gastro: <SpaIcon sx={{ fontSize: 19 }} />,
 };
 
 // Styling helper classes
 const ACTIVE_LINK = "bg-primary/10 text-primary-dark";
+
 const INACTIVE_LINK =
   "text-gray-700 hover:bg-primary/5 hover:text-primary-dark";
+
 const MOBILE_INACTIVE = "text-gray-700 hover:bg-primary/5";
 
 function Navbar() {
@@ -52,13 +53,35 @@ function Navbar() {
   // Navigation state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const [selectedSpecialty, setSelectedSpecialty] = useState("ENT");
-  const [selectedCategory, setSelectedCategory] = useState("ENT Laser");
+  const [selectedSpecialty, setSelectedSpecialty] = useState(
+    "ENT, Head & Neck Oncology",
+  );
+  const [selectedCategory, setSelectedCategory] = useState("CO2 Surgical Laser");
 
   // Mobile accordion state
-  // null means that no specialty/category is open
   const [mobileOpenSpecialty, setMobileOpenSpecialty] = useState(null);
   const [mobileOpenCategory, setMobileOpenCategory] = useState(null);
+
+  // Products dropdown reference
+  const productsMenuRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        productsMenuRef.current &&
+        !productsMenuRef.current.contains(event.target)
+      ) {
+        setProductsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const isProductsActive =
     pathname === "/urology" ||
@@ -69,23 +92,36 @@ function Navbar() {
     pathname === "/elmed" ||
     pathname === "/rz" ||
     pathname === "/morcellator" ||
+    pathname === "/cystoscopy" ||
+    pathname === "/morcescope" ||
+    pathname === "/multimed" ||
+    pathname === "/vibrolith" ||
+    pathname === "/vibrolith-ortho" ||
+    pathname === "/vibrolith-plus" ||
     pathname === "/gastro-laser" ||
+    pathname === "/melody" ||
+    pathname === "/symphony" ||
+    pathname === "/harmony" ||
+    pathname === "/danflow-wave" ||
+    pathname === "/danflow-cord" ||
+    pathname === "/bladder-scanner" ||
+    pathname === "/avicenna" ||
     pathname.startsWith("/products");
 
-  // Get the category page path when the category has its own page
+  // Get category page path
   const getCategoryPath = (category) => {
-    if (category === "ENT Laser") return "/ent-laser";
-    if (category === "Elmed") return "/elmed";
+    if (category === "CO2 Surgical Laser") return "/ent-laser";
     if (category === "RZ") return "/rz";
     if (category === "Morcellator") return "/morcellator";
-
     if (category === "Surgical Laser") return "/urology-surgical-laser";
     if (category === "Gastro Laser") return "/gastro-laser";
 
+    // ESWL and Endo should open their products
+    // instead of navigating immediately
     return null;
   };
 
-  // Get the default category for each specialty
+  // Get default category for each specialty
   const getDefaultCategory = (specialty) => {
     if (specialty.name === "Gastro") {
       return "Gastro Laser";
@@ -102,7 +138,7 @@ function Navbar() {
     setMobileOpenCategory(null);
   };
 
-  // Get products or sub-items for the selected category
+  // Get products for selected category
   const getCategoryProducts = (category) => {
     if (category === "Surgical Laser") {
       return SURGICAL_LASER_PRODUCTS.map((name) => ({
@@ -111,7 +147,15 @@ function Navbar() {
       }));
     }
 
-    if (category === "ENT Laser") {
+    if (category === "ESWL Lithotripsy") {
+      return ESWL_LITHOTRIPSY_SUBTYPES;
+    }
+
+    if (category === "Endo Urology UMD Endoscopy") {
+      return ENDO_UROLOGY_UMD_ENDOSCOPY_SUBTYPES;
+    }
+
+    if (category === "CO2 Surgical Laser") {
       return ENT_LASER_SUBTYPES;
     }
 
@@ -119,21 +163,17 @@ function Navbar() {
       return GASTRO_LASER_SUBTYPES;
     }
 
-    if (category === "Elmed") {
-      return ELMED_SUBTYPES;
-    }
-
-    if (category === "RZ") {
-      return RZ_SUBTYPES;
-    }
-
     if (category === "Morcellator") {
       return MORCELLATOR_SUBTYPES;
     }
 
-    // if (category === "Endo Urology UMD Endoscopy") {
-    //   return ENDO_UROLOGY_SUBTYPES;
-    // }
+    if (category === "Urodynamic System & Uroflowmetry") {
+      return URODYNAMIC_SUBTYPES;
+    }
+
+    if (category === "Roboflex Avicenna") {
+      return ROBOFLEX_AVICENNA_SUBTYPE;
+    }
 
     return [];
   };
@@ -167,11 +207,8 @@ function Navbar() {
     }
 
     setMobileOpenSpecialty(spec.name);
-
-    // Close previously opened category
     setMobileOpenCategory(null);
 
-    // Keep desktop selection state updated
     setSelectedSpecialty(spec.name);
     setSelectedCategory(getDefaultCategory(spec));
   };
@@ -180,6 +217,7 @@ function Navbar() {
   const handleMobileCategoryClick = (category) => {
     const path = getCategoryPath(category);
 
+    // Categories with their own pages
     if (path) {
       setSelectedCategory(category);
       navigate(path);
@@ -187,6 +225,7 @@ function Navbar() {
       return;
     }
 
+    // Categories that contain products
     const isAlreadyOpen = mobileOpenCategory === category;
 
     if (isAlreadyOpen) {
@@ -222,7 +261,7 @@ function Navbar() {
 
         {/* Desktop Navigation Menu */}
         <nav className="hidden items-center gap-1 lg:flex lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-          {/* Home Link */}
+          {/* Home */}
           <Link
             to="/"
             className={`flex items-center gap-1.5 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
@@ -234,6 +273,7 @@ function Navbar() {
 
           {/* Products Mega Menu */}
           <div
+            ref={productsMenuRef}
             className="relative"
             onMouseEnter={() => setProductsOpen(true)}
             onMouseLeave={() => setProductsOpen(false)}
@@ -255,12 +295,12 @@ function Navbar() {
               />
             </button>
 
-            {/* Desktop Mega Menu Dropdown */}
+            {/* Desktop Mega Menu */}
             {productsOpen && (
-              <div className="absolute left-1/2 top-full z-50 w-[850px] -translate-x-1/2 pt-3">
+              <div className="absolute left-1/2 top-full z-50 w-[850px] -translate-x-1/2">
                 <div className="rounded-2xl bg-white p-5 shadow-[0_20px_60px_rgba(0,0,0,0.13)] ring-1 ring-gray-100">
                   <div className="grid grid-cols-[1fr_1.15fr_1.7fr]">
-                    {/* Specialties List */}
+                    {/* Specialties */}
                     <div className="space-y-1 border-r border-gray-100 pr-5">
                       <div className="mb-3 flex items-center gap-2">
                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600">
@@ -306,7 +346,7 @@ function Navbar() {
                       })}
                     </div>
 
-                    {/* Categories for Selected Specialty */}
+                    {/* Categories */}
                     <div className="space-y-1 border-r border-gray-100 px-5">
                       <div className="mb-3 flex items-center gap-2">
                         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600">
@@ -328,6 +368,7 @@ function Navbar() {
                             onMouseEnter={() => setSelectedCategory(cat)}
                             onClick={() => {
                               setSelectedCategory(cat);
+
                               const path = getCategoryPath(cat);
 
                               if (path) {
@@ -349,7 +390,7 @@ function Navbar() {
                       })}
                     </div>
 
-                    {/* Products for Selected Category */}
+                    {/* Products */}
                     <div className="max-h-[360px] space-y-1 overflow-y-auto pl-5">
                       <div className="mb-3 flex items-center gap-2">
                         <span className="text-base text-sky-600">✦</span>
@@ -389,7 +430,7 @@ function Navbar() {
             )}
           </div>
 
-          {/* Blogs Link */}
+          {/* Blogs */}
           <Link
             to="/blogs"
             className={`flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
@@ -399,17 +440,7 @@ function Navbar() {
             Blogs
           </Link>
 
-          {/* Machine Link */}
-          {/* <Link
-            to="/machine"
-            className={`flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
-              pathname === "/machine" ? ACTIVE_LINK : INACTIVE_LINK
-            }`}
-          >
-            Machine
-          </Link> */}
-
-          {/* Contact Link */}
+          {/* Contact */}
           <Link
             to="/contact"
             className={`flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
@@ -420,7 +451,7 @@ function Navbar() {
           </Link>
         </nav>
 
-        {/* Mobile Menu Toggle Button */}
+        {/* Mobile Menu Toggle */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
@@ -435,7 +466,7 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="mx-auto mt-3 max-w-7xl animate-fade-in rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden">
           <nav className="flex flex-col gap-1 text-sm font-medium">
@@ -451,7 +482,7 @@ function Navbar() {
               <span>Home</span>
             </Link>
 
-            {/* Products Accordion in Mobile */}
+            {/* Products */}
             <div>
               <button
                 type="button"
@@ -517,7 +548,6 @@ function Navbar() {
                           <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
                             {getVisibleCategories(spec.name).map((cat) => {
                               const catProducts = getCategoryProducts(cat);
-
                               const isCatOpen = mobileOpenCategory === cat;
 
                               return (
@@ -525,7 +555,9 @@ function Navbar() {
                                   {/* Category */}
                                   <button
                                     type="button"
-                                    onClick={() => handleMobileCategoryClick(cat)}
+                                    onClick={() =>
+                                      handleMobileCategoryClick(cat)
+                                    }
                                     className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 ${
                                       isCatOpen
                                         ? "text-primary"
@@ -586,20 +618,6 @@ function Navbar() {
               <ArticleIcon sx={{ fontSize: 18 }} />
               <span>Blogs</span>
             </Link>
-
-            {/* Machine Link */}
-            {/* <Link
-              to="/machine"
-              onClick={closeMobileMenu}
-              className={`flex items-center gap-2.5 rounded-xl px-4 py-3 ${
-                pathname === "/machine"
-                  ? ACTIVE_LINK
-                  : MOBILE_INACTIVE
-              }`}
-            >
-              <HealthAndSafetyIcon sx={{ fontSize: 18 }} />
-              <span>Machine</span>
-            </Link> */}
 
             {/* Contact */}
             <Link

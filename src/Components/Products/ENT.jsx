@@ -11,7 +11,7 @@ import cystoscope from "../../assets/images/cystoscope.png";
 const ENT = () => {
   const categories = [
     {
-      title: "ENT Laser",
+      title: "CO2 Surgical Laser",
       description:
         "Advanced laser systems for precise and minimally invasive ENT procedures.",
       image: SmartXide2Trio,
@@ -22,7 +22,7 @@ const ENT = () => {
       description:
         "Specialized equipment for head and neck cancer diagnosis and treatment.",
       image: SmartXideTouchSurgiCO,
-      link: "/ent-head-neck-oncology",
+      link: "/ent",
     },
     {
       title: "ELMED",
