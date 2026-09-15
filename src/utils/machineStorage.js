@@ -4,9 +4,10 @@ export const INTERACTIVE_MACHINE_KEY = "rhs_interactive_machine_v1";
 export const MACHINE_PRODUCTS_KEY = "rhs_machine_products_v1";
 
 export const DEFAULT_INTERACTIVE_MACHINE = {
-  machineImage: "", // empty means use default machine.png
+  machineImage: "",
   title: "Advanced Medical Machine & Healthcare Equipment Rental",
-  subtitle: "Interactive showcase of high-performance medical machinery available for rental to hospitals and surgical clinics.",
+  subtitle:
+    "Interactive showcase of high-performance medical machinery available for rental to hospitals and surgical clinics.",
   badgeText: "High-Performance Medical Technology",
   parts: [
     {
@@ -65,7 +66,7 @@ export const DEFAULT_INTERACTIVE_MACHINE = {
 export const DEFAULT_MACHINE_PRODUCTS = [
   {
     id: "prod-1",
-    name: "Bipolar Plasma Generator",
+    name: "SmartXide² Unique TRIO",
     category: "Surgical",
     image: "",
     presetImageKey: "bipolar_plasma_generator",
@@ -73,11 +74,12 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     iconBg: "bg-[#E4DAFF]",
     iconColor: "text-[#7357E8]",
     lineColor: "bg-[#7357E8]",
-    description: "High-frequency plasma resection system for precise tissue coagulation.",
+    description:
+      "High-frequency plasma resection system for precise tissue coagulation.",
   },
   {
     id: "prod-2",
-    name: "Diode Laser",
+    name: "SmartXide Touch SurgiCO",
     category: "Laser Surgery",
     image: "",
     presetImageKey: "diode_laser",
@@ -85,11 +87,12 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     iconBg: "bg-[#D5F2EC]",
     iconColor: "text-[#1EAE9B]",
     lineColor: "bg-[#1EAE9B]",
-    description: "Dual-wavelength high power diode laser for multiple clinical procedures.",
+    description:
+      "Dual-wavelength high power diode laser for multiple clinical procedures.",
   },
   {
     id: "prod-3",
-    name: "CyberBlade",
+    name: "Raykeen",
     category: "Urology",
     image: "",
     presetImageKey: "cyber_blade",
@@ -97,11 +100,12 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     iconBg: "bg-[#D9E8FF]",
     iconColor: "text-[#4285E8]",
     lineColor: "bg-[#4285E8]",
-    description: "Ultra-sharp precision surgical instrumentation for minimally invasive work.",
+    description:
+      "Ultra-sharp precision surgical instrumentation for minimally invasive work.",
   },
   {
     id: "prod-4",
-    name: "Flexible Video URS",
+    name: "Multimed",
     category: "Endoscopy",
     image: "",
     presetImageKey: "flexible_video_urs",
@@ -109,11 +113,12 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     iconBg: "bg-[#FFE0E9]",
     iconColor: "text-[#F15B91]",
     lineColor: "bg-[#F15B91]",
-    description: "High-resolution digital flexible ureteroscope for superior clinical visual clarity.",
+    description:
+      "High-resolution digital flexible ureteroscope for superior clinical visual clarity.",
   },
   {
     id: "prod-5",
-    name: "Endo Vision Set",
+    name: "RZ Slim Laser Enucleation System",
     category: "OR Imaging",
     image: "",
     presetImageKey: "endo_vision_set",
@@ -121,7 +126,8 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     iconBg: "bg-[#E6DDFF]",
     iconColor: "text-[#7357E8]",
     lineColor: "bg-[#7357E8]",
-    description: "Complete laparoscopic and endoscopic camera tower & cold light system.",
+    description:
+      "Complete laparoscopic and endoscopic camera tower & cold light system.",
   },
   {
     id: "prod-6",
@@ -133,7 +139,8 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     iconBg: "bg-[#DCEEFF]",
     iconColor: "text-[#4285E8]",
     lineColor: "bg-[#4285E8]",
-    description: "Non-invasive 3D ultrasound device for quick urinary volume assessment.",
+    description:
+      "Non-invasive 3D ultrasound device for quick urinary volume assessment.",
   },
 ];
 
@@ -187,7 +194,9 @@ export const getInteractiveMachineData = () => {
     return {
       ...DEFAULT_INTERACTIVE_MACHINE,
       ...parsed,
-      parts: Array.isArray(parsed.parts) ? parsed.parts : DEFAULT_INTERACTIVE_MACHINE.parts,
+      parts: Array.isArray(parsed.parts)
+        ? parsed.parts
+        : DEFAULT_INTERACTIVE_MACHINE.parts,
     };
   } catch (err) {
     console.error("Error loading interactive machine data:", err);
@@ -199,7 +208,9 @@ export const saveInteractiveMachineData = (data) => {
   try {
     localStorage.setItem(INTERACTIVE_MACHINE_KEY, JSON.stringify(data));
     window.dispatchEvent(
-      new CustomEvent("rhs_machines_updated", { detail: { type: "interactive", data } })
+      new CustomEvent("rhs_machines_updated", {
+        detail: { type: "interactive", data },
+      }),
     );
     return true;
   } catch (err) {
@@ -213,7 +224,9 @@ export const addMachineHotspot = (hotspot) => {
   const newPart = {
     id: `part-${Date.now()}`,
     title: hotspot.title || "New Feature Point",
-    description: hotspot.description || "Feature description for this medical machine part.",
+    description:
+      hotspot.description ||
+      "Feature description for this medical machine part.",
     icon: hotspot.icon || "Sparkles",
     top: hotspot.top || "50%",
     left: hotspot.left || "50%",
@@ -230,7 +243,7 @@ export const addMachineHotspot = (hotspot) => {
 export const updateMachineHotspot = (id, updatedFields) => {
   const current = getInteractiveMachineData();
   const updatedParts = current.parts.map((p) =>
-    p.id === id ? { ...p, ...updatedFields } : p
+    p.id === id ? { ...p, ...updatedFields } : p,
   );
   const updated = {
     ...current,
@@ -266,7 +279,7 @@ export const resetInteractiveMachineData = () => {
     window.dispatchEvent(
       new CustomEvent("rhs_machines_updated", {
         detail: { type: "interactive", data: DEFAULT_INTERACTIVE_MACHINE },
-      })
+      }),
     );
     return { ...DEFAULT_INTERACTIVE_MACHINE };
   } catch (err) {
@@ -294,7 +307,9 @@ export const saveMachineProducts = (products) => {
   try {
     localStorage.setItem(MACHINE_PRODUCTS_KEY, JSON.stringify(products));
     window.dispatchEvent(
-      new CustomEvent("rhs_machines_updated", { detail: { type: "products", data: products } })
+      new CustomEvent("rhs_machines_updated", {
+        detail: { type: "products", data: products },
+      }),
     );
     return true;
   } catch (err) {
@@ -305,7 +320,8 @@ export const saveMachineProducts = (products) => {
 
 export const addMachineProduct = (product) => {
   const current = getMachineProducts();
-  const theme = THEME_PRESETS.find((t) => t.id === product.themeId) || THEME_PRESETS[2];
+  const theme =
+    THEME_PRESETS.find((t) => t.id === product.themeId) || THEME_PRESETS[2];
   const newProd = {
     id: `prod-${Date.now()}`,
     name: product.name || "New Medical Machine",
@@ -316,7 +332,9 @@ export const addMachineProduct = (product) => {
     iconBg: theme.iconBg,
     iconColor: theme.iconColor,
     lineColor: theme.lineColor,
-    description: product.description || "High-precision medical machinery designed for clinical efficiency.",
+    description:
+      product.description ||
+      "High-precision medical machinery designed for clinical efficiency.",
   };
   const updated = [...current, newProd];
   saveMachineProducts(updated);
@@ -338,7 +356,7 @@ export const updateMachineProduct = (id, updatedFields) => {
     }
   }
   const updated = current.map((p) =>
-    p.id === id ? { ...p, ...updatedFields, ...themeObj } : p
+    p.id === id ? { ...p, ...updatedFields, ...themeObj } : p,
   );
   saveMachineProducts(updated);
   return updated;
@@ -367,7 +385,7 @@ export const resetMachineProducts = () => {
     window.dispatchEvent(
       new CustomEvent("rhs_machines_updated", {
         detail: { type: "products", data: DEFAULT_MACHINE_PRODUCTS },
-      })
+      }),
     );
     return DEFAULT_MACHINE_PRODUCTS;
   } catch (err) {
