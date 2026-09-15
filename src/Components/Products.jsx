@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import BipolarPlasmaGenerator from "../assets/images/bipolar_plasma_generator.png";
-import DiodeLaser from "../assets/images/diode_laser.png";
-import CyberBlade from "../assets/images/cyber_blade.png";
-import BladderScanner from "../assets/images/bladder_scanner.png";
-import FlexibleVideoURS from "../assets/images/flexible_video_urs.png";
-import EndoVisionSet from "../assets/images/endo_vision_set.png";
+import BipolarPlasmaGenerator from "../assets/images/SmartXide2Trio.png";
+import DiodeLaser from "../assets/images/SmartXideTouchSurgiCO.png";
+import CyberBlade from "../assets/images/raykeen.png";
+import BladderScanner from "../assets/images/roboflex_avicenna.png";
+import FlexibleVideoURS from "../assets/images/multimed.png";
+import EndoVisionSet from "../assets/images/morcescope.png";
 import { getMachineProducts } from "../utils/machineStorage";
 
 const PRESET_MAP = {
@@ -35,7 +35,8 @@ const Products = () => {
 
   const products = productsData.map((item) => ({
     ...item,
-    image: item.image || PRESET_MAP[item.presetImageKey] || BipolarPlasmaGenerator,
+    image:
+      item.image || PRESET_MAP[item.presetImageKey] || BipolarPlasmaGenerator,
     bg: item.bg || "bg-[#EEF5FF]",
     iconBg: item.iconBg || "bg-[#D9E8FF]",
     iconColor: item.iconColor || "text-[#4285E8]",

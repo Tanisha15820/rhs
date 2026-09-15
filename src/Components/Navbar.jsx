@@ -13,6 +13,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AirIcon from "@mui/icons-material/Air";
 import SpaIcon from "@mui/icons-material/Spa";
 import PsychologyIcon from "@mui/icons-material/Psychology";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 // Logo image
 import logo from "../assets/images/compressed_rhs_logo.png";
@@ -22,8 +23,8 @@ import {
   SPECIALTIES,
   CATEGORIES,
   SURGICAL_LASER_SUBCATEGORIES,
-  SURGICAL_LASER_PRODUCTS_BY_SUBCATEGORY,
-  URODYNAMIC_SUBCATEGORIES,
+SURGICAL_LASER_PRODUCTS_BY_SUBCATEGORY,
+  URODYNAMIC_SUBTYPES,
   URODYNAMIC_PRODUCTS_BY_SUBCATEGORY,
   ESWL_LITHOTRIPSY_SUBTYPES,
   ENDO_UROLOGY_UMD_ENDOSCOPY_SUBTYPES,
@@ -47,9 +48,9 @@ const SUBCATEGORY_DATA = {
     subcategories: SURGICAL_LASER_SUBCATEGORIES,
     productsBySubcategory: SURGICAL_LASER_PRODUCTS_BY_SUBCATEGORY,
   },
-  "Urodynamic Systems & Uroflowmeters": {
+  "Urodynamic System & Uroflowmeters": {
     header: "Product Type",
-    subcategories: URODYNAMIC_SUBCATEGORIES,
+    subcategories: URODYNAMIC_SUBTYPES,
     productsBySubcategory: URODYNAMIC_PRODUCTS_BY_SUBCATEGORY,
   },
 };
@@ -541,6 +542,15 @@ function Navbar() {
           </Link>
         </nav>
 
+        {/* Get in Touch - Desktop */}
+        <Link
+          to="/contact"
+          className="ml-4 hidden flex-shrink-0 cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg lg:flex"
+        >
+          Get in Touch
+          <ArrowForwardIcon style={{ fontSize: 18 }} />
+        </Link>
+
         {/* Mobile Menu Toggle */}
         <button
           type="button"
@@ -784,6 +794,16 @@ function Navbar() {
             >
               <ContactPhoneIcon sx={{ fontSize: 18 }} />
               <span>Contact Us</span>
+            </Link>
+
+            {/* Get in Touch - Mobile */}
+            <Link
+              to="/contact"
+              onClick={closeMobileMenu}
+              className="mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              Get in Touch
+              <ArrowForwardIcon style={{ fontSize: 18 }} />
             </Link>
           </nav>
         </div>

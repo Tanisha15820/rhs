@@ -83,7 +83,6 @@ function Blogs() {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-
                   {/* Category Pill */}
                   <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-sm backdrop-blur-sm md:left-5 md:top-5">
                     <span className="relative flex h-2 w-2">

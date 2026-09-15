@@ -1,32 +1,59 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
-// import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import homeBanner from "../assets/images/home.png";
-import homeBg1 from "../assets/images/home_bg1.png";
+
+import homeBanner from "../assets/images/home-banner.png";
+import homeBg1 from "../assets/images/home-banner2.png";
+import cyberBanner from "../assets/images/home-banner3.png";
+
 import Products from "../Components/Products";
 import WhyChooseUs from "../Components/WhyChooseUs";
 import TestimonialSection from "../Components/TestimonialSection";
 import FAQ from "../Components/FAQ";
 import Clients from "../Components/Clients";
 import SEO from "../Components/SEO";
-import { getAllBanners } from "../utils/bannerStorage";
+
+import {
+  getAllBanners,
+  saveAllBanners,
+  DEFAULT_BANNER_SLIDES,
+} from "../utils/bannerStorage";
 
 import { ORGANIZATION_SCHEMA } from "../config/seo";
 
-const defaultSlideImages = [homeBanner, homeBg1];
+const defaultSlideImages = [homeBanner, cyberBanner, homeBg1];
 
 const HomePage = () => {
   const navigate = useNavigate();
-  // Dynamic banner slides from localStorage
-  const [slidesData, setSlidesData] = useState(getAllBanners);
 
-  // Sync banner data dynamically when updated in Admin Dashboard
+  const [slidesData, setSlidesData] = useState(() => {
+    const savedSlides = getAllBanners();
+
+    if (savedSlides.length === 2) {
+      const updatedSlides = [
+        savedSlides[0],
+        DEFAULT_BANNER_SLIDES[1],
+        {
+          ...savedSlides[1],
+          id: "slide-3",
+          contentSide: "left",
+        },
+      ];
+
+      saveAllBanners(updatedSlides);
+
+      return updatedSlides;
+    }
+
+    return savedSlides;
+  });
+
   useEffect(() => {
     const handleUpdate = () => {
       const fresh = getAllBanners();
@@ -45,6 +72,7 @@ const HomePage = () => {
   const bannerSlides = slidesData.map((slide, idx) => ({
     ...slide,
     image: slide.image || defaultSlideImages[idx % defaultSlideImages.length],
+    contentSide: slide.contentSide || "left",
     smallHeading: slide.smallHeading || "Trusted Healthcare Services",
     headingLine1: slide.headingLine1 || "Quality Equipment.",
     headingHighlight: slide.headingHighlight || "Better Healthcare.",
@@ -58,7 +86,6 @@ const HomePage = () => {
     secondaryBtnLink: slide.secondaryBtnLink || "/machine",
   }));
 
-  // Numbers for the four statistics cards
   const [counts, setCounts] = useState({
     categories: 0,
     specialties: 0,
@@ -66,19 +93,17 @@ const HomePage = () => {
     support: 0,
   });
 
-  // Active slide of the hero banner slider
   const [activeSlide, setActiveSlide] = useState(0);
 
-  // Keep activeSlide in bounds
   useEffect(() => {
     if (activeSlide >= bannerSlides.length) {
       setActiveSlide(0);
     }
   }, [bannerSlides.length, activeSlide]);
 
-  // Auto-rotate the banner slides
   useEffect(() => {
     if (bannerSlides.length <= 1) return;
+
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % bannerSlides.length);
     }, 6000);
@@ -86,7 +111,6 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, [bannerSlides.length]);
 
-  // Start number animation when the page loads
   useEffect(() => {
     const interval = setInterval(() => {
       setCounts((prev) => ({
@@ -97,9 +121,10 @@ const HomePage = () => {
       }));
     }, 30);
 
-    // Stop the timer when the component is removed
     return () => clearInterval(interval);
   }, []);
+
+  const activeBanner = bannerSlides[activeSlide];
 
   return (
     <div className="w-full">
@@ -111,11 +136,10 @@ const HomePage = () => {
         jsonLd={ORGANIZATION_SCHEMA}
       />
 
-      {/* HERO SECTION  */}
       <section className="relative min-h-[500px] w-full overflow-hidden bg-primary/5">
         {bannerSlides.map((slide, index) => (
           <div
-            key={index}
+            key={slide.id || index}
             className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
               index === activeSlide
                 ? "z-0 opacity-100 animate-zoom-slow"
@@ -124,53 +148,65 @@ const HomePage = () => {
             style={{
               backgroundImage: `url(${slide.image})`,
             }}
-          ></div>
+          />
         ))}
 
-        <div className="absolute inset-0 bg-white/5"></div>
+        <div className="absolute inset-0 bg-white/5" />
 
-        {/* Main Content */}
-        <div className="relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-5 py-10 sm:px-6 md:min-h-[620px] md:py-16 lg:px-10">
-          {/* LEFT CONTENT */}
-          <div className="w-full max-w-[540px] md:-mt-16">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm">
+        <div
+          className={`relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-5 py-10 sm:px-6 md:min-h-[620px] md:py-16 lg:px-10 ${
+            activeBanner?.contentSide === "right"
+              ? "justify-end"
+              : "justify-start"
+          }`}
+        >
+          <div
+            className={`w-full max-w-[540px] md:-mt-16 ${
+              activeBanner?.contentSide === "right" ? "text-right" : "text-left"
+            }`}
+          >
+            <div
+              className={`mb-5 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm ${
+                activeBanner?.contentSide === "right" ? "ml-auto" : ""
+              }`}
+            >
               <ShieldOutlinedIcon
                 className="text-primary"
                 style={{ fontSize: 18 }}
               />
 
               <span className="text-sm font-medium text-slate-600">
-                {bannerSlides[activeSlide].smallHeading || "Trusted Healthcare Services"}
+                {activeBanner?.smallHeading || "Trusted Healthcare Services"}
               </span>
             </div>
 
-            {/* Heading */}
             <h1
               key={`heading-${activeSlide}`}
               className="animate-fade-in-up text-4xl font-bold leading-[1.15] text-slate-900 sm:text-5xl lg:text-[52px]"
             >
-              {bannerSlides[activeSlide].headingLine1}
-              {bannerSlides[activeSlide].singleLine ? (
-                " "
-              ) : (
-                <br />
-              )}
+              {activeBanner?.headingLine1}
+
+              {activeBanner?.singleLine ? " " : <br />}
+
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-                {bannerSlides[activeSlide].headingHighlight}
+                {activeBanner?.headingHighlight}
               </span>
             </h1>
 
-            {/* Description */}
             <p
               key={`description-${activeSlide}`}
-              className="animate-fade-in-up mt-5 max-w-[500px] text-base leading-7 text-slate-600"
+              className={`animate-fade-in-up mt-5 max-w-[500px] text-base leading-7 text-slate-600 ${
+                activeBanner?.contentSide === "right" ? "ml-auto" : ""
+              }`}
             >
-              {bannerSlides[activeSlide].description}
+              {activeBanner?.description}
             </p>
 
-            {/* FEATURES */}
-            <div className="mt-7 grid max-w-[500px] grid-cols-2 gap-3 sm:grid-cols-4">
-              {/* Feature 1 */}
+            <div
+              className={`mt-7 grid max-w-[500px] grid-cols-2 gap-3 sm:grid-cols-4 ${
+                activeBanner?.contentSide === "right" ? "ml-auto" : ""
+              }`}
+            >
               <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
                 <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                   <ShieldOutlinedIcon
@@ -184,7 +220,6 @@ const HomePage = () => {
                 </span>
               </div>
 
-              {/* Feature 2 */}
               <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
                 <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                   <CategoryOutlinedIcon
@@ -198,7 +233,6 @@ const HomePage = () => {
                 </span>
               </div>
 
-              {/* Feature 3 */}
               <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
                 <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-dark/10">
                   <LocalHospitalOutlinedIcon
@@ -212,7 +246,6 @@ const HomePage = () => {
                 </span>
               </div>
 
-              {/* Feature 4 */}
               <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
                 <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                   <PersonOutlineOutlinedIcon
@@ -227,49 +260,60 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* BUTTONS */}
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-              {/* Appointment Button */}
+            <div
+              className={`mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 ${
+                activeBanner?.contentSide === "right"
+                  ? "justify-end"
+                  : "justify-start"
+              }`}
+            >
               <button
                 type="button"
                 onClick={() => {
-                  const link = bannerSlides[activeSlide].primaryBtnLink || "/contact";
-                  if (link.startsWith("http://") || link.startsWith("https://")) {
+                  const link = activeBanner?.primaryBtnLink || "/contact";
+
+                  if (
+                    link.startsWith("http://") ||
+                    link.startsWith("https://")
+                  ) {
                     window.open(link, "_blank", "noopener,noreferrer");
                   } else {
                     navigate(link);
                   }
                 }}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto cursor-pointer"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto"
               >
-                {bannerSlides[activeSlide].primaryBtnText || "Book an Appointment"}
+                {activeBanner?.primaryBtnText || "Book an Appointment"}
+
                 <ArrowForwardIcon style={{ fontSize: 18 }} />
               </button>
 
-              {/* Secondary Button */}
               <button
                 type="button"
                 onClick={() => {
-                  const link = bannerSlides[activeSlide].secondaryBtnLink || "/machine";
-                  if (link.startsWith("http://") || link.startsWith("https://")) {
+                  const link = activeBanner?.secondaryBtnLink || "/machine";
+
+                  if (
+                    link.startsWith("http://") ||
+                    link.startsWith("https://")
+                  ) {
                     window.open(link, "_blank", "noopener,noreferrer");
                   } else {
                     navigate(link);
                   }
                 }}
-                className="flex w-full items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-5 py-3 text-sm font-semibold text-primary-dark backdrop-blur-sm transition-all duration-300 hover:bg-white sm:w-auto cursor-pointer"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-5 py-3 text-sm font-semibold text-primary-dark backdrop-blur-sm transition-all duration-300 hover:bg-white sm:w-auto"
               >
                 <ArrowForwardIcon style={{ fontSize: 18 }} />
-                {bannerSlides[activeSlide].secondaryBtnText || "Explore Products"}
+
+                {activeBanner?.secondaryBtnText || "Explore Products"}
               </button>
             </div>
           </div>
         </div>
 
-        {/* ================= STATS CARD ================= */}
         <div className="relative z-20 mx-auto mt-6 w-[92%] max-w-4xl md:absolute md:bottom-3 md:left-1/2 md:mt-0 md:-translate-x-1/2">
           <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-white/70 bg-white/90 shadow-xl backdrop-blur-md md:grid-cols-4">
-            {/* Product Categories */}
             <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <GroupsOutlinedIcon className="text-primary" />
@@ -284,7 +328,6 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Medical Specialties */}
             <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <LocalHospitalOutlinedIcon className="text-primary" />
@@ -299,7 +342,6 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Quality Products */}
             <div className="flex items-center gap-3 border-r border-slate-200 px-5 py-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <GroupsOutlinedIcon className="text-primary" />
@@ -314,7 +356,6 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Expert Support */}
             <div className="flex items-center gap-3 px-5 py-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <CategoryOutlinedIcon className="text-primary" />
@@ -332,7 +373,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ================= OTHER SECTIONS ================= */}
       <Products />
 
       <WhyChooseUs />

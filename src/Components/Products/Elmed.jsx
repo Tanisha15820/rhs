@@ -3,7 +3,6 @@ import multimed from "../../assets/images/multimed.png";
 import vibrolithMachine from "../../assets/images/vibrolith_machine.png";
 import vibrolithOrthoHero from "../../assets/images/vibrolith_ortho_hero.png";
 import vibrolithPlusHero from "../../assets/images/vibrolith_plus_hero.png";
-
 import ProductsPage from "../../Pages/ProductsPage";
 
 const Elmed = () => {

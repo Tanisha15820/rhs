@@ -107,15 +107,28 @@ export const MORCELLATOR_SUBTYPES = [
   { name: "Raykeen Morcellator System", path: "/raykeen-morcellator" },
 ];
 
-// Urodynamic System & Uroflowmetry Subtypes
+// Urodynamic System & Uroflowmetry Subcategories
 export const URODYNAMIC_SUBTYPES = [
-  { name: "UROMIC Melody", path: "/melody" },
-  { name: "UROMIC Symphony", path: "/symphony" },
-  { name: "UROMIC Harmony", path: "/harmony" },
-  { name: "Danflow Wave", path: "/danflow-wave" },
-  { name: "Danflow Cord", path: "/danflow-cord" },
+  { name: "Urodynamic Systems", path: "/melody" },
+  { name: "Uroflowmeters", path: "/danflow-wave" },
+  { name: "Patient Couch", path: "/patient-couch" },
   { name: "Bladder Scanner", path: "/bladder-scanner" },
 ];
+
+// Urodynamic Products grouped by subcategory
+export const URODYNAMIC_PRODUCTS_BY_SUBCATEGORY = {
+  "Urodynamic Systems": [
+    { name: "UROMIC Harmony", path: "/harmony" },
+    { name: "UROMIC Melody", path: "/melody" },
+    { name: "UROMIC Symphony", path: "/symphony" },
+  ],
+  Uroflowmeters: [
+    { name: "Danflow Wave", path: "/danflow-wave" },
+    { name: "Danflow Cord", path: "/danflow-cord" },
+  ],
+  "Patient Couch": [{ name: "Patient Couch", path: "/patient-couch" }],
+  "Bladder Scanner": [{ name: "Bladder Scanner", path: "/bladder-scanner" }],
+};
 
 // Roboflex Avicenna Subtype
 export const ROBOFLEX_AVICENNA_SUBTYPE = [
