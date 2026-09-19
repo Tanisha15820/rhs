@@ -71,19 +71,38 @@ const HomePage = () => {
 
   const bannerSlides = slidesData.map((slide, idx) => ({
     ...slide,
-    image: slide.image || defaultSlideImages[idx % defaultSlideImages.length],
+
+    image:
+      slide.image || defaultSlideImages[idx % defaultSlideImages.length],
+
     contentSide: slide.contentSide || "left",
-    smallHeading: slide.smallHeading || "Trusted Healthcare Services",
-    headingLine1: slide.headingLine1 || "Quality Equipment.",
-    headingHighlight: slide.headingHighlight || "Better Healthcare.",
+
+    smallHeading:
+      slide.smallHeading || "Trusted Healthcare Services",
+
+    headingLine1:
+      slide.headingLine1 || "Quality Equipment.",
+
+    headingHighlight:
+      slide.headingHighlight || "Better Healthcare.",
+
     singleLine: slide.singleLine || false,
+
     description:
       slide.description ||
       "Reinforce Healthcare Services delivers quality medical equipment and innovative solutions.",
-    primaryBtnText: slide.primaryBtnText || "Book an Appointment",
-    primaryBtnLink: slide.primaryBtnLink || "/contact",
-    secondaryBtnText: slide.secondaryBtnText || "Explore Products",
-    secondaryBtnLink: slide.secondaryBtnLink || "/machine",
+
+    primaryBtnText:
+      slide.primaryBtnText || "Book an Appointment",
+
+    primaryBtnLink:
+      slide.primaryBtnLink || "/contact",
+
+    secondaryBtnText:
+      slide.secondaryBtnText || "Explore Products",
+
+    secondaryBtnLink:
+      slide.secondaryBtnLink || "/machine",
   }));
 
   const [counts, setCounts] = useState({
@@ -105,7 +124,9 @@ const HomePage = () => {
     if (bannerSlides.length <= 1) return;
 
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % bannerSlides.length);
+      setActiveSlide(
+        (prev) => (prev + 1) % bannerSlides.length
+      );
     }, 6000);
 
     return () => clearInterval(interval);
@@ -114,10 +135,17 @@ const HomePage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCounts((prev) => ({
-        categories: prev.categories < 50 ? prev.categories + 1 : 50,
-        specialties: prev.specialties < 10 ? prev.specialties + 1 : 10,
-        products: prev.products < 100 ? prev.products + 1 : 100,
-        support: prev.support < 24 ? prev.support + 1 : 24,
+        categories:
+          prev.categories < 50 ? prev.categories + 1 : 50,
+
+        specialties:
+          prev.specialties < 10 ? prev.specialties + 1 : 10,
+
+        products:
+          prev.products < 100 ? prev.products + 1 : 100,
+
+        support:
+          prev.support < 24 ? prev.support + 1 : 24,
       }));
     }, 30);
 
@@ -127,7 +155,7 @@ const HomePage = () => {
   const activeBanner = bannerSlides[activeSlide];
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-full overflow-hidden">
       <SEO
         title="Medical Equipment & Machine Rental for Hospitals & Doctors"
         description="Reinforce Healthcare Services provides high-grade medical equipment, urology devices, and hospital machinery on rent for healthcare professionals and medical centers."
@@ -136,7 +164,12 @@ const HomePage = () => {
         jsonLd={ORGANIZATION_SCHEMA}
       />
 
-      <section className="relative min-h-[500px] w-full overflow-hidden bg-primary/5">
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
+      <section className="relative w-full overflow-hidden bg-primary/5 pb-5 sm:h-[530px] sm:pb-0 lg:h-[540px]">
+        <div className="relative mx-auto h-full w-full max-w-[1400px] overflow-hidden">
+        {/* Banner Images */}
         {bannerSlides.map((slide, index) => (
           <div
             key={slide.id || index}
@@ -151,23 +184,32 @@ const HomePage = () => {
           />
         ))}
 
+        {/* Light Overlay */}
         <div className="absolute inset-0 bg-white/5" />
 
+        {/* =================================================
+            HERO CONTENT
+        ================================================= */}
         <div
-          className={`relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-5 py-10 sm:px-6 md:min-h-[620px] md:py-16 lg:px-10 ${
+          className={`relative z-10 mx-auto flex h-full w-full max-w-[1400px] items-center px-5 pb-4 pt-8 sm:px-8 sm:pb-20 lg:px-12 ${
             activeBanner?.contentSide === "right"
               ? "justify-end"
               : "justify-start"
           }`}
         >
           <div
-            className={`w-full max-w-[540px] md:-mt-16 ${
-              activeBanner?.contentSide === "right" ? "text-right" : "text-left"
+            className={`w-full max-w-[540px] ${
+              activeBanner?.contentSide === "right"
+                ? "text-right"
+                : "text-left"
             }`}
           >
+            {/* Small Heading */}
             <div
-              className={`mb-5 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm ${
-                activeBanner?.contentSide === "right" ? "ml-auto" : ""
+              className={`mb-4 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm ${
+                activeBanner?.contentSide === "right"
+                  ? "ml-auto"
+                  : ""
               }`}
             >
               <ShieldOutlinedIcon
@@ -176,13 +218,15 @@ const HomePage = () => {
               />
 
               <span className="text-sm font-medium text-slate-600">
-                {activeBanner?.smallHeading || "Trusted Healthcare Services"}
+                {activeBanner?.smallHeading ||
+                  "Trusted Healthcare Services"}
               </span>
             </div>
 
+            {/* Heading */}
             <h1
               key={`heading-${activeSlide}`}
-              className="animate-fade-in-up text-4xl font-bold leading-[1.15] text-slate-900 sm:text-5xl lg:text-[52px]"
+              className="animate-fade-in-up text-3xl font-bold leading-[1.12] text-slate-900 sm:text-4xl md:text-5xl lg:text-[50px]"
             >
               {activeBanner?.headingLine1}
 
@@ -193,75 +237,82 @@ const HomePage = () => {
               </span>
             </h1>
 
+            {/* Description */}
             <p
               key={`description-${activeSlide}`}
-              className={`animate-fade-in-up mt-5 max-w-[500px] text-base leading-7 text-slate-600 ${
-                activeBanner?.contentSide === "right" ? "ml-auto" : ""
+              className={`animate-fade-in-up mt-4 max-w-[500px] text-sm leading-6 text-slate-600 sm:text-base sm:leading-7 ${
+                activeBanner?.contentSide === "right"
+                  ? "ml-auto"
+                  : ""
               }`}
             >
               {activeBanner?.description}
             </p>
 
+            {/* Feature Cards */}
             <div
-              className={`mt-7 grid max-w-[500px] grid-cols-2 gap-3 sm:grid-cols-4 ${
-                activeBanner?.contentSide === "right" ? "ml-auto" : ""
+              className={`mt-5 grid max-w-[500px] grid-cols-2 gap-2.5 sm:grid-cols-4 ${
+                activeBanner?.contentSide === "right"
+                  ? "ml-auto"
+                  : ""
               }`}
             >
-              <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
-                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+              <div className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-white/80 px-2 py-2.5 text-center shadow-sm backdrop-blur-sm">
+                <div className="mb-1.5 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
                   <ShieldOutlinedIcon
                     className="text-primary"
-                    style={{ fontSize: 21 }}
+                    style={{ fontSize: 20 }}
                   />
                 </div>
 
-                <span className="text-xs font-medium text-slate-600">
+                <span className="text-[11px] font-medium leading-4 text-slate-600 sm:text-xs">
                   Specialized Equipment
                 </span>
               </div>
 
-              <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
-                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+              <div className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-white/80 px-2 py-2.5 text-center shadow-sm backdrop-blur-sm">
+                <div className="mb-1.5 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
                   <CategoryOutlinedIcon
                     className="text-primary"
-                    style={{ fontSize: 21 }}
+                    style={{ fontSize: 20 }}
                   />
                 </div>
 
-                <span className="text-xs font-medium text-slate-600">
+                <span className="text-[11px] font-medium leading-4 text-slate-600 sm:text-xs">
                   Multiple Specialties
                 </span>
               </div>
 
-              <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
-                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-dark/10">
+              <div className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-white/80 px-2 py-2.5 text-center shadow-sm backdrop-blur-sm">
+                <div className="mb-1.5 flex h-9 w-9 items-center justify-center rounded-lg bg-primary-dark/10">
                   <LocalHospitalOutlinedIcon
                     className="text-primary-dark"
-                    style={{ fontSize: 21 }}
+                    style={{ fontSize: 20 }}
                   />
                 </div>
 
-                <span className="text-xs font-medium text-slate-600">
-                  Quality <br /> Products
+                <span className="text-[11px] font-medium leading-4 text-slate-600 sm:text-xs">
+                  Quality Products
                 </span>
               </div>
 
-              <div className="flex flex-col items-center rounded-xl bg-white/80 px-3 py-3 text-center shadow-sm backdrop-blur-sm">
-                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+              <div className="flex min-h-[82px] flex-col items-center justify-center rounded-xl bg-white/80 px-2 py-2.5 text-center shadow-sm backdrop-blur-sm">
+                <div className="mb-1.5 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
                   <PersonOutlineOutlinedIcon
                     className="text-primary"
-                    style={{ fontSize: 21 }}
+                    style={{ fontSize: 20 }}
                   />
                 </div>
 
-                <span className="text-xs font-medium text-slate-600">
-                  Expert <br /> Support
+                <span className="text-[11px] font-medium leading-4 text-slate-600 sm:text-xs">
+                  Expert Support
                 </span>
               </div>
             </div>
 
+            {/* Buttons */}
             <div
-              className={`mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 ${
+              className={`mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 ${
                 activeBanner?.contentSide === "right"
                   ? "justify-end"
                   : "justify-start"
@@ -270,52 +321,75 @@ const HomePage = () => {
               <button
                 type="button"
                 onClick={() => {
-                  const link = activeBanner?.primaryBtnLink || "/contact";
+                  const link =
+                    activeBanner?.primaryBtnLink ||
+                    "/contact";
 
                   if (
                     link.startsWith("http://") ||
                     link.startsWith("https://")
                   ) {
-                    window.open(link, "_blank", "noopener,noreferrer");
+                    window.open(
+                      link,
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
                   } else {
                     navigate(link);
                   }
                 }}
-                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto"
               >
-                {activeBanner?.primaryBtnText || "Book an Appointment"}
+                {activeBanner?.primaryBtnText ||
+                  "Book an Appointment"}
 
-                <ArrowForwardIcon style={{ fontSize: 18 }} />
+                <ArrowForwardIcon
+                  style={{ fontSize: 18 }}
+                />
               </button>
 
               <button
                 type="button"
                 onClick={() => {
-                  const link = activeBanner?.secondaryBtnLink || "/machine";
+                  const link =
+                    activeBanner?.secondaryBtnLink ||
+                    "/machine";
 
                   if (
                     link.startsWith("http://") ||
                     link.startsWith("https://")
                   ) {
-                    window.open(link, "_blank", "noopener,noreferrer");
+                    window.open(
+                      link,
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
                   } else {
                     navigate(link);
                   }
                 }}
-                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-5 py-3 text-sm font-semibold text-primary-dark backdrop-blur-sm transition-all duration-300 hover:bg-white sm:w-auto"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-5 py-2.5 text-sm font-semibold text-primary-dark backdrop-blur-sm transition-all duration-300 hover:bg-white sm:w-auto"
               >
-                <ArrowForwardIcon style={{ fontSize: 18 }} />
+                <ArrowForwardIcon
+                  style={{ fontSize: 18 }}
+                />
 
-                {activeBanner?.secondaryBtnText || "Explore Products"}
+                {activeBanner?.secondaryBtnText ||
+                  "Explore Products"}
               </button>
             </div>
           </div>
         </div>
 
-        <div className="relative z-20 mx-auto mt-6 w-[92%] max-w-4xl md:absolute md:bottom-3 md:left-1/2 md:mt-0 md:-translate-x-1/2">
+        {/* =================================================
+            STATS CARD
+        ================================================= */}
+        <div className="relative z-20 mx-auto mb-3 mt-5 w-[calc(100%-2rem)] max-w-5xl sm:absolute sm:bottom-3 sm:left-1/2 sm:m-0 sm:-translate-x-1/2">
           <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-white/70 bg-white/90 shadow-xl backdrop-blur-md md:grid-cols-4">
-            <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+
+            {/* Categories */}
+            <div className="flex items-center gap-2.5 border-b border-slate-200 px-4 py-3.5 sm:px-5 md:border-b-0 md:border-r">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <GroupsOutlinedIcon className="text-primary" />
               </div>
 
@@ -324,12 +398,15 @@ const HomePage = () => {
                   {counts.categories}+
                 </p>
 
-                <p className="text-xs text-slate-500">Product Categories</p>
+                <p className="text-[11px] text-slate-500 sm:text-xs">
+                  Product Categories
+                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+            {/* Specialties */}
+            <div className="flex items-center gap-2.5 border-b border-slate-200 px-4 py-3.5 sm:px-5 md:border-b-0 md:border-r">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <LocalHospitalOutlinedIcon className="text-primary" />
               </div>
 
@@ -338,12 +415,15 @@ const HomePage = () => {
                   {counts.specialties}+
                 </p>
 
-                <p className="text-xs text-slate-500">Medical Specialties</p>
+                <p className="text-[11px] text-slate-500 sm:text-xs">
+                  Medical Specialties
+                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 border-r border-slate-200 px-5 py-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+            {/* Products */}
+            <div className="flex items-center gap-2.5 border-r border-slate-200 px-4 py-3.5 sm:px-5">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <GroupsOutlinedIcon className="text-primary" />
               </div>
 
@@ -352,12 +432,15 @@ const HomePage = () => {
                   {counts.products}+
                 </p>
 
-                <p className="text-xs text-slate-500">Quality Products</p>
+                <p className="text-[11px] text-slate-500 sm:text-xs">
+                  Quality Products
+                </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 px-5 py-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+            {/* Support */}
+            <div className="flex items-center gap-2.5 px-4 py-3.5 sm:px-5">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <CategoryOutlinedIcon className="text-primary" />
               </div>
 
@@ -366,21 +449,22 @@ const HomePage = () => {
                   {counts.support}/7
                 </p>
 
-                <p className="text-xs text-slate-500">Expert Support</p>
+                <p className="text-[11px] text-slate-500 sm:text-xs">
+                  Expert Support
+                </p>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
 
+      {/*  HOMEPAGE SECTIONS */}
+
       <Products />
-
       <WhyChooseUs />
-
       <TestimonialSection />
-
       <FAQ />
-
       <Clients />
     </div>
   );

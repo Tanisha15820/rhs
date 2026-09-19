@@ -44,21 +44,38 @@ const Products = () => {
   }));
 
   const [startIndex, setStartIndex] = useState(0);
+  const [itemsToShow, setItemsToShow] = useState(5);
 
-  const maxStartIndex = Math.max(0, products.length - 5);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsToShow(3);
+      } else {
+        setItemsToShow(5);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxStartIndex = Math.max(0, products.length - itemsToShow);
 
   const nextSlide = () => {
-    if (products.length <= 5) return;
+    if (products.length <= itemsToShow) return;
     setStartIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    if (products.length <= 5) return;
+    if (products.length <= itemsToShow) return;
     setStartIndex((prev) => (prev <= 0 ? maxStartIndex : prev - 1));
   };
 
   useEffect(() => {
-    if (products.length <= 5) {
+    if (products.length <= itemsToShow) {
       setStartIndex(0);
       return;
     }
@@ -67,12 +84,12 @@ const Products = () => {
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [products.length, maxStartIndex]);
+  }, [products.length, maxStartIndex, itemsToShow]);
 
   const visibleProducts =
-    products.length <= 5
+    products.length <= itemsToShow
       ? products
-      : products.slice(startIndex, startIndex + 5);
+      : products.slice(startIndex, startIndex + itemsToShow);
 
   return (
     <section className="relative overflow-hidden bg-[#F9FBFF] py-16 sm:py-20">
@@ -83,7 +100,7 @@ const Products = () => {
       <div className="absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-[#E8F8F5] blur-3xl" />
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8">
         {/* Heading */}
         <div className="mb-10 text-center">
           <div className="mb-3 flex items-center justify-center gap-3">
@@ -145,9 +162,9 @@ const Products = () => {
           </button>
 
           {/* Cards */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-4">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 w-full">
             {visibleProducts.map((product, index) => {
-              const isCenter = index === 2;
+              const isCenter = itemsToShow === 1 ? true : itemsToShow === 3 ? index === 1 : index === 2;
 
               return (
                 <div
@@ -159,8 +176,8 @@ const Products = () => {
 
                     ${
                       isCenter
-                        ? "w-[23%] min-w-[205px] h-[325px] -translate-y-2 shadow-[0_18px_45px_rgba(55,75,110,0.15)]"
-                        : "w-[18.5%] min-w-[160px] h-[280px] shadow-[0_8px_30px_rgba(55,75,110,0.07)]"
+                        ? "w-[85%] sm:w-[45%] md:w-[30%] lg:w-[23%] min-w-[205px] h-[325px] -translate-y-2 shadow-[0_18px_45px_rgba(55,75,110,0.15)]"
+                        : "hidden sm:block sm:w-[25%] md:w-[20%] lg:w-[18.5%] min-w-[160px] h-[280px] shadow-[0_8px_30px_rgba(55,75,110,0.07)]"
                     }
 
                     transition-all duration-500 ease-out
@@ -221,7 +238,7 @@ const Products = () => {
 
         {/* Carousel Indicators */}
         <div className="mt-7 flex justify-center gap-2">
-          {products.slice(0, products.length - 4).map((_, index) => (
+          {products.slice(0, products.length - (itemsToShow - 1)).map((_, index) => (
             <button
               key={index}
               type="button"

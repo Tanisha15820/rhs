@@ -22,7 +22,7 @@ const TestimonialSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-[#F9FBFF] py-16 sm:py-20">
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8">
         {/* Heading */}
         <div className="mb-10 text-center">
           <div className="mb-3 flex items-center justify-center gap-3">
@@ -49,7 +49,7 @@ const TestimonialSection = () => {
         </div>
 
         {/* Testimonial Cards */}
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => {
             const animIdx = index % 6;
             return (

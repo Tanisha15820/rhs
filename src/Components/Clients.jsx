@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import fortisLogo from "../assets/images/fortis.png";
 import apolloLogo from "../assets/images/apollo.png";
 import aiimsLogo from "../assets/images/aiims.png";
@@ -11,6 +12,9 @@ import doonLogo from "../assets/images/doon-medical.webp";
 
 import { getAllClients } from "../utils/clientStorage";
 
+// =========================
+// Default Clients
+// =========================
 const DEFAULT_CLIENTS = [
   {
     id: "fortis",
@@ -27,6 +31,7 @@ const DEFAULT_CLIENTS = [
     logo: apolloLogo,
     accent: "bg-[#FFF5F2]",
   },
+
   {
     id: "aiims",
     name: "AIIMS",
@@ -34,6 +39,7 @@ const DEFAULT_CLIENTS = [
     logo: aiimsLogo,
     accent: "bg-[#F2F8FF]",
   },
+
   {
     id: "medanta",
     name: "Medanta",
@@ -41,6 +47,7 @@ const DEFAULT_CLIENTS = [
     logo: medantaLogo,
     accent: "bg-[#F5F3FF]",
   },
+
   {
     id: "gmch",
     name: "GMCH",
@@ -48,6 +55,7 @@ const DEFAULT_CLIENTS = [
     logo: gmchLogo,
     accent: "bg-[#F0FAF8]",
   },
+
   {
     id: "pgi",
     name: "PGI Chandigarh",
@@ -55,6 +63,7 @@ const DEFAULT_CLIENTS = [
     logo: pgiLogo,
     accent: "bg-[#FFF5F2]",
   },
+
   {
     id: "sskm",
     name: "SSKM",
@@ -62,6 +71,7 @@ const DEFAULT_CLIENTS = [
     logo: sskmLogo,
     accent: "bg-[#F2F8FF]",
   },
+
   {
     id: "doon",
     name: "Doon Medical College",
@@ -71,6 +81,9 @@ const DEFAULT_CLIENTS = [
   },
 ];
 
+// =========================
+// Client Logo Mapping
+// =========================
 const CLIENT_LOGO_MAP = {
   fortis: fortisLogo,
   apollo: apolloLogo,
@@ -82,18 +95,27 @@ const CLIENT_LOGO_MAP = {
   doon: doonLogo,
 };
 
+// =========================
+// Get Client Logo
+// =========================
 const getClientLogo = (client) => {
   if (client.logo) {
     return client.logo;
   }
 
-  if (client.presetKey && CLIENT_LOGO_MAP[client.presetKey]) {
+  if (
+    client.presetKey &&
+    CLIENT_LOGO_MAP[client.presetKey]
+  ) {
     return CLIENT_LOGO_MAP[client.presetKey];
   }
 
   return null;
 };
 
+// =========================
+// Client Card
+// =========================
 const ClientCard = ({ client }) => {
   const logo = getClientLogo(client);
 
@@ -101,23 +123,61 @@ const ClientCard = ({ client }) => {
     return null;
   }
 
-  const accentClass = client.accent || "bg-[#F3F7FF]";
+  const accentClass =
+    client.accent || "bg-[#F3F7FF]";
 
   return (
     <div
-      className={`group flex h-[140px] min-w-[260px] shrink-0 items-center justify-center border-b border-[#E2ECF5] px-5 ${accentClass} sm:h-[200px] sm:w-[250px] sm:min-w-[250px] md:h-[200px] md:w-[260px] md:min-w-[260px]`}
+      className={`
+        group
+        flex
+        h-[140px]
+        min-w-[260px]
+        shrink-0
+        items-center
+        justify-center
+        border-b
+        border-[#E2ECF5]
+        px-5
+        ${accentClass}
+
+        sm:h-[200px]
+        sm:w-[250px]
+        sm:min-w-[250px]
+
+        md:h-[200px]
+        md:w-[260px]
+        md:min-w-[260px]
+      `}
     >
       <div className="flex h-full w-full items-center justify-center">
         <img
           src={logo}
           alt={`${client.name || "Client"} logo`}
-          className="max-h-[100px] max-w-[165px] object-contain transition-transform duration-300 group-hover:scale-105 sm:max-h-[80px] sm:max-w-[175px] md:max-h-[85px] md:max-w-[185px]"
+          loading="lazy"
+          className="
+            max-h-[100px]
+            max-w-[165px]
+            object-contain
+            transition-transform
+            duration-300
+            group-hover:scale-105
+
+            sm:max-h-[80px]
+            sm:max-w-[175px]
+
+            md:max-h-[85px]
+            md:max-w-[185px]
+          "
         />
       </div>
     </div>
   );
 };
 
+// =========================
+// Clients Component
+// =========================
 function Clients() {
   const [adminClients, setAdminClients] = useState([]);
 
@@ -125,6 +185,9 @@ function Clients() {
   const animationRef = useRef(null);
   const isHovered = useRef(false);
 
+  // =========================
+  // Load Clients
+  // =========================
   useEffect(() => {
     const loadClients = () => {
       try {
@@ -134,32 +197,51 @@ function Clients() {
           setAdminClients(clients);
         }
       } catch (error) {
-        console.error("Error loading clients:", error);
+        console.error(
+          "Error loading clients:",
+          error
+        );
+
         setAdminClients([]);
       }
     };
 
     loadClients();
 
-    window.addEventListener("rhs_clients_updated", loadClients);
-    window.addEventListener("storage", loadClients);
+    window.addEventListener(
+      "rhs_clients_updated",
+      loadClients
+    );
+
+    window.addEventListener(
+      "storage",
+      loadClients
+    );
 
     return () => {
-      window.removeEventListener("rhs_clients_updated", loadClients);
-      window.removeEventListener("storage", loadClients);
+      window.removeEventListener(
+        "rhs_clients_updated",
+        loadClients
+      );
+
+      window.removeEventListener(
+        "storage",
+        loadClients
+      );
     };
   }, []);
 
-  /*
-   * Start with the 7 permanent logos.
-   *
-   * If admin has added additional clients,
-   * they will also be displayed.
-   *
-   * Duplicate preset logos are ignored.
-   */
-  const allClients = [...DEFAULT_CLIENTS, ...adminClients];
+  // =========================
+  // Combine Default + Admin Clients
+  // =========================
+  const allClients = [
+    ...DEFAULT_CLIENTS,
+    ...adminClients,
+  ];
 
+  // =========================
+  // Remove Duplicate Clients
+  // =========================
   const uniqueClients = [];
   const usedLogos = new Set();
 
@@ -180,10 +262,16 @@ function Clients() {
 
   const displayClients = uniqueClients;
 
+  // =========================
+  // Automatic Scrolling
+  // =========================
   useEffect(() => {
     const slider = sliderRef.current;
 
-    if (!slider || displayClients.length <= 1) {
+    if (
+      !slider ||
+      displayClients.length <= 1
+    ) {
       return;
     }
 
@@ -192,49 +280,90 @@ function Clients() {
     const speed = 35;
 
     const autoScroll = (currentTime) => {
-      const deltaTime = currentTime - lastTime;
+      const deltaTime =
+        currentTime - lastTime;
+
       lastTime = currentTime;
 
       if (!isHovered.current) {
-        slider.scrollLeft += (speed * deltaTime) / 1000;
+        slider.scrollLeft +=
+          (speed * deltaTime) / 1000;
       }
 
-      /*
-       * When the last card is reached,
-       * go back to the first card.
-       */
-      if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+      // Return to beginning after reaching the end
+      if (
+        slider.scrollLeft +
+          slider.clientWidth >=
+        slider.scrollWidth - 5
+      ) {
         slider.scrollTo({
           left: 0,
           behavior: "smooth",
         });
       }
 
-      animationRef.current = requestAnimationFrame(autoScroll);
+      animationRef.current =
+        requestAnimationFrame(autoScroll);
     };
 
-    animationRef.current = requestAnimationFrame(autoScroll);
+    animationRef.current =
+      requestAnimationFrame(autoScroll);
 
     return () => {
       if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+        cancelAnimationFrame(
+          animationRef.current
+        );
       }
     };
   }, [displayClients.length]);
 
+  // =========================
+  // Manual Scroll
+  // =========================
   const scroll = (direction) => {
     if (!sliderRef.current) return;
 
     sliderRef.current.scrollBy({
-      left: direction === "left" ? -500 : 500,
+      left:
+        direction === "left"
+          ? -500
+          : 500,
       behavior: "smooth",
     });
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#F9FBFF] py-16 sm:py-20 lg:py-24">
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mb-10 text-center">
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-[#F9FBFF]
+        py-14
+        sm:py-16
+        lg:py-20
+      "
+    >
+      {/* =========================
+          Main Content
+      ========================== */}
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          w-full
+          max-w-[1400px]
+          px-5
+          sm:px-8
+          lg:px-12
+        "
+      >
+        {/* =========================
+            Section Heading
+        ========================== */}
+        <div className="mb-8 text-center sm:mb-10">
           <div className="mb-3 flex items-center justify-center gap-3">
             <span className="h-px w-7 bg-[#20B7AE]" />
 
@@ -245,32 +374,99 @@ function Clients() {
             <span className="h-px w-7 bg-[#20B7AE]" />
           </div>
 
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+          <h2
+            className="
+              text-3xl
+              font-bold
+              tracking-tight
+              text-slate-900
+              sm:text-4xl
+              md:text-5xl
+            "
+          >
             Trusted by Leading{" "}
-            <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+            <span
+              className="
+                bg-gradient-to-r
+                from-primary
+                to-primary-dark
+                bg-clip-text
+                text-transparent
+              "
+            >
               Healthcare Brands
             </span>
           </h2>
 
-          <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#7C879C]">
-            We are proud to partner with renowned hospitals, clinics, and
-            healthcare organizations that trust our products and solutions for
-            better care and outcomes.
+          <p
+            className="
+              mx-auto
+              mt-3
+              max-w-md
+              text-sm
+              leading-6
+              text-[#7C879C]
+            "
+          >
+            We are proud to partner with renowned
+            hospitals, clinics, and healthcare
+            organizations that trust our products
+            and solutions for better care and
+            outcomes.
           </p>
         </div>
 
-        <div className="relative mx-auto max-w-[1200px]">
+        {/* =========================
+            Client Carousel
+        ========================== */}
+        <div
+          className="
+            relative
+            mx-auto
+            w-full
+            max-w-[1320px]
+          "
+        >
           {/* Left Arrow */}
           <button
             type="button"
             onClick={() => scroll("left")}
             aria-label="Previous clients"
-            className="absolute -left-4 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#DCE7F1] bg-white text-[#1684D8] shadow-md transition-all duration-200 hover:-translate-x-1 hover:shadow-lg lg:flex"
+            className="
+              absolute
+              -left-4
+              top-1/2
+              z-20
+              hidden
+              h-11
+              w-11
+              -translate-y-1/2
+              cursor-pointer
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#DCE7F1]
+              bg-white
+              text-[#1684D8]
+              shadow-md
+              transition-all
+              duration-200
+              hover:-translate-x-1
+              hover:shadow-lg
+              lg:flex
+              xl:-left-6
+            "
           >
-            <ChevronLeft size={21} strokeWidth={2} />
+            <ChevronLeft
+              size={21}
+              strokeWidth={2}
+            />
           </button>
 
-          {/* Cards */}
+          {/* =========================
+              Client Cards
+          ========================== */}
           <div
             ref={sliderRef}
             onMouseEnter={() => {
@@ -279,14 +475,28 @@ function Clients() {
             onMouseLeave={() => {
               isHovered.current = false;
             }}
-            className="flex flex-nowrap gap-5 overflow-x-auto px-2 pb-5 scrollbar-none"
+            className="
+              flex
+              flex-nowrap
+              gap-5
+              overflow-x-auto
+              px-2
+              pb-5
+              scrollbar-none
+            "
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
             }}
           >
             {displayClients.map((client) => (
-              <ClientCard key={client.presetKey || client.id} client={client} />
+              <ClientCard
+                key={
+                  client.presetKey ||
+                  client.id
+                }
+                client={client}
+              />
             ))}
           </div>
 
@@ -295,16 +505,56 @@ function Clients() {
             type="button"
             onClick={() => scroll("right")}
             aria-label="Next clients"
-            className="absolute -right-4 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#DCE7F1] bg-white text-[#1684D8] shadow-md transition-all duration-200 hover:translate-x-1 hover:shadow-lg lg:flex"
+            className="
+              absolute
+              -right-4
+              top-1/2
+              z-20
+              hidden
+              h-11
+              w-11
+              -translate-y-1/2
+              cursor-pointer
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#DCE7F1]
+              bg-white
+              text-[#1684D8]
+              shadow-md
+              transition-all
+              duration-200
+              hover:translate-x-1
+              hover:shadow-lg
+              lg:flex
+              xl:-right-6
+            "
           >
-            <ChevronRight size={21} strokeWidth={2} />
+            <ChevronRight
+              size={21}
+              strokeWidth={2}
+            />
           </button>
         </div>
 
-        {/* Mobile Indicator */}
-        <div className="mt-4 flex items-center justify-center gap-2 lg:hidden">
+        {/* =========================
+            Mobile Indicator
+        ========================== */}
+        <div
+          className="
+            mt-4
+            flex
+            items-center
+            justify-center
+            gap-2
+            lg:hidden
+          "
+        >
           <span className="h-1.5 w-8 rounded-full bg-[#20AFA7]" />
+
           <span className="h-1.5 w-1.5 rounded-full bg-[#D8E5F0]" />
+
           <span className="h-1.5 w-1.5 rounded-full bg-[#D8E5F0]" />
         </div>
       </div>

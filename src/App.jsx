@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Layout";
 import Homepage from "./Pages/HomePage";
 import Urology from "./Components/Products/Urology";
@@ -13,6 +13,14 @@ import Gastro from "./Components/Products/Gastro";
 import GastroLaser from "./Components/Products/GastroLaser";
 import LithoEvo from "./Pages/LithoEvo";
 import Litho35Watt from "./Pages/Litho35Watt";
+import DK30Watt from "./Pages/DK30Watt";
+import CyberHo100Watt from "./Pages/CyberHo100Watt";
+import CyberHo150Watt from "./Pages/CyberHo150Watt";
+import CyberTM150Watt from "./Pages/CyberTM150Watt";
+import CyberTM200Watt from "./Pages/CyberTM200Watt";
+import FiberDust60Watt from "./Pages/FiberDust60Watt";
+import VikrantTFL from "./Pages/VikrantTFL";
+import CyberHoMagnetoFamily from "./Pages/CyberHoMagnetoFamily";
 import Avicenna from "./Pages/Avicenna";
 import Multimed from "./Pages/Multimed";
 import Vibrolith from "./Pages/Vibrolith";
@@ -58,7 +66,15 @@ function App() {
           <Route path="/product-enquiry" element={<ProductEnquiry />} />
           <Route path="/smartxide" element={<SmartXide />} />
           <Route path="/smartxide-touch" element={<SmartXideTouch />} />
+          <Route path="/dk30watt" element={<DK30Watt />} />
           <Route path="/litho35watt" element={<Litho35Watt />} />
+          <Route path="/cyberho100watt" element={<CyberHo100Watt />} />
+          <Route path="/cyberho150watt" element={<CyberHo150Watt />} />
+          <Route path="/cyber-tm-150" element={<CyberTM150Watt />} />
+          <Route path="/cyber-tm-200" element={<CyberTM200Watt />} />
+          <Route path="/fiber-dust-60" element={<FiberDust60Watt />} />
+          <Route path="/vikrant-tfl" element={<VikrantTFL />} />
+          <Route path="/cyber-ho-magneto-family" element={<CyberHoMagnetoFamily />} />
           <Route path="/lithoevo35watt" element={<LithoEvo />} />
           <Route path="/litho-evo" element={<LithoEvo />} />
           <Route path="/avicenna" element={<Avicenna />} />
@@ -79,6 +95,7 @@ function App() {
           <Route path="/danflow-cord" element={<DanflowCord />} />
           <Route path="/bladder-scanner" element={<BladderScanner />} />
           <Route path="/patient-couch" element={<PatientCouch />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>

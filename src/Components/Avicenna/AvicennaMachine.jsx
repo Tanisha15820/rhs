@@ -76,9 +76,7 @@ const AvicennaMachine = () => {
   return (
     <section className="relative overflow-hidden bg-white py-[15px]">
       <div className={`relative mx-auto flex w-full max-w-[1000px] items-center justify-center px-4 transition-all duration-500 ${isExploded ? 'min-h-[540px] sm:min-h-[700px] lg:min-h-[950px]' : 'min-h-[480px] sm:min-h-[630px] lg:min-h-[850px]'}`}>
-        
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#1677FF]/[0.05] blur-[100px]" />
-
         <div className="relative z-20 flex h-[480px] w-[300px] cursor-pointer items-center justify-center sm:h-[630px] sm:w-[340px] lg:h-[850px] lg:w-[480px]" onClick={toggleMachine}>
           <AnimatePresence>
             {isExploded && (

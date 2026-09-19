@@ -53,27 +53,28 @@ export const SURGICAL_LASER_SUBCATEGORIES = [
 // Surgical Laser Products grouped by subcategory
 export const SURGICAL_LASER_PRODUCTS_BY_SUBCATEGORY = {
   "Holmium YAG Laser": [
-    { name: "DK 30 WATT", path: "/urology-surgical-laser" },
-    { name: "LITHO 35 WATT", path: "/urology-surgical-laser" },
-    { name: "LITHO EVO 35 WATT", path: "/urology-surgical-laser" },
+    { name: "DK 30 WATT", path: "/dk30watt" },
+    { name: "LITHO 35 WATT", path: "/litho35watt" },
+    { name: "LITHO EVO 35 WATT", path: "/lithoevo35watt" },
     {
       name: "LATEST TECHNOLOGY MAGNETO 100 WATT",
       path: "/urology-surgical-laser",
     },
-    { name: "CYBER HO 100 WATT", path: "/urology-surgical-laser" },
+    { name: "CYBER HO 100 WATT", path: "/cyberho100watt" },
     {
       name: "LATEST TECHNOLOGY MAGNETO 150 WATT",
       path: "/urology-surgical-laser",
     },
-    { name: "CYBER HO 150 WATT", path: "/urology-surgical-laser" },
+    { name: "CYBER HO 150 WATT", path: "/cyberho150watt" },
+    { name: "CYBER HO MAGNETO FAMILY", path: "/cyber-ho-magneto-family" },
   ],
   "Thulium YAG Laser": [
-    { name: "Cyber TM 150 WATT", path: "/urology-surgical-laser" },
-    { name: "Cyber TM 200 WATT", path: "/urology-surgical-laser" },
+    { name: "Cyber TM 150 WATT", path: "/cyber-tm-150" },
+    { name: "Cyber TM 200 WATT", path: "/cyber-tm-200" },
   ],
   "Thulium Fiber Laser": [
-    { name: "Fiber Dust 60 WATT", path: "/urology-surgical-laser" },
-    { name: "Vikrant - 30/45/70 WATT", path: "/urology-surgical-laser" },
+    { name: "Fiber Dust 60 WATT", path: "/fiber-dust-60" },
+    { name: "Vikrant - 30/45/70 WATT", path: "/vikrant-tfl" },
   ],
 };
 
