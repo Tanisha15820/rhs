@@ -39,6 +39,7 @@ export const CATEGORIES = {
     "Endo Urology UMD Endoscopy",
     "Morcellator System",
     "Roboflex Avicenna",
+    "Flexible Video Ureterorenoscope",
   ],
   Gastro: ["Gastro Products", "Gastro Endoscopy", "Gastro Laser"],
 };
@@ -135,3 +136,20 @@ export const URODYNAMIC_PRODUCTS_BY_SUBCATEGORY = {
 export const ROBOFLEX_AVICENNA_SUBTYPE = [
   { name: "Roboflex Avicenna", path: "/avicenna" },
 ];
+
+// Flexible Video Ureterorenoscope Subcategories
+export const URETERORENOSCOPE_SUBCATEGORIES = [
+  { name: "Medical Image Processor", path: "/urology" },
+  { name: "Reusable Ureterorenoscope", path: "/urology" },
+  { name: "Disposable Ureterorenoscope", path: "/urology" },
+];
+
+// Flexible Video Ureterorenoscope Products grouped by subcategory
+export const URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY = {
+  "Medica Image Processor": [
+    { name: "HUV 01", path: "/urology" },
+    { name: "HUV 02", path: "/urology" },
+  ],
+  "Reusable Ureterorenoscope": [],
+  "Disposable Ureterorenoscope": [],
+};

@@ -100,7 +100,7 @@ const Products = () => {
       <div className="absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-[#E8F8F5] blur-3xl" />
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* Heading */}
         <div className="mb-10 text-center">
           <div className="mb-3 flex items-center justify-center gap-3">

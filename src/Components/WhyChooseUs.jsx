@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
       {/* =========================
           Main Content
       ========================== */}
-      <div className="relative mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
+      <div className="relative mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* Main Layout */}
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           {/* =========================

@@ -89,7 +89,7 @@ function FAQ() {
       {/* =========================
           Main Content
       ========================== */}
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* =========================
             Section Heading
         ========================== */}
@@ -120,7 +120,7 @@ function FAQ() {
         {/* =========================
             FAQ Main Grid
         ========================== */}
-        <div className="mx-auto grid w-full max-w-[1320px] items-stretch gap-6 lg:grid-cols-[0.9fr_1.2fr] lg:gap-8">
+        <div className="mx-auto grid w-full max-w-[1440px] items-stretch gap-6 lg:grid-cols-[0.9fr_1.2fr] lg:gap-8">
           {/* =========================
               LEFT IMAGE BOX
           ========================== */}

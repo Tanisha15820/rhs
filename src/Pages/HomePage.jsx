@@ -168,8 +168,7 @@ const HomePage = () => {
           HERO SECTION
       ===================================================== */}
       <section className="relative w-full overflow-hidden bg-primary/5 pb-5 sm:h-[530px] sm:pb-0 lg:h-[540px]">
-        <div className="relative mx-auto h-full w-full max-w-[1400px] overflow-hidden">
-        {/* Banner Images */}
+        {/* Banner Images - Full Width */}
         {bannerSlides.map((slide, index) => (
           <div
             key={slide.id || index}
@@ -191,7 +190,7 @@ const HomePage = () => {
             HERO CONTENT
         ================================================= */}
         <div
-          className={`relative z-10 mx-auto flex h-full w-full max-w-[1400px] items-center px-5 pb-4 pt-8 sm:px-8 sm:pb-20 lg:px-12 ${
+          className={`relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-center px-5 pb-4 pt-8 sm:px-8 sm:pb-20 lg:px-12 ${
             activeBanner?.contentSide === "right"
               ? "justify-end"
               : "justify-start"
@@ -384,10 +383,9 @@ const HomePage = () => {
         {/* =================================================
             STATS CARD
         ================================================= */}
-        <div className="relative z-20 mx-auto mb-3 mt-5 w-[calc(100%-2rem)] max-w-5xl sm:absolute sm:bottom-3 sm:left-1/2 sm:m-0 sm:-translate-x-1/2">
+        {/* <div className="relative z-20 mx-auto mb-3 mt-5 w-[calc(100%-2rem)] max-w-5xl sm:absolute sm:bottom-3 sm:left-1/2 sm:m-0 sm:-translate-x-1/2">
           <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-white/70 bg-white/90 shadow-xl backdrop-blur-md md:grid-cols-4">
 
-            {/* Categories */}
             <div className="flex items-center gap-2.5 border-b border-slate-200 px-4 py-3.5 sm:px-5 md:border-b-0 md:border-r">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <GroupsOutlinedIcon className="text-primary" />
@@ -404,7 +402,6 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Specialties */}
             <div className="flex items-center gap-2.5 border-b border-slate-200 px-4 py-3.5 sm:px-5 md:border-b-0 md:border-r">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <LocalHospitalOutlinedIcon className="text-primary" />
@@ -421,7 +418,6 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Products */}
             <div className="flex items-center gap-2.5 border-r border-slate-200 px-4 py-3.5 sm:px-5">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <GroupsOutlinedIcon className="text-primary" />
@@ -438,7 +434,6 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Support */}
             <div className="flex items-center gap-2.5 px-4 py-3.5 sm:px-5">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <CategoryOutlinedIcon className="text-primary" />
@@ -455,8 +450,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          </div>
-        </div>
+          </div> */}
       </section>
 
       {/*  HOMEPAGE SECTIONS */}

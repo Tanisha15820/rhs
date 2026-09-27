@@ -1,14 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { PhoneCall, ShieldCheck } from "lucide-react";
-
 import { saveEnquiryProduct } from "../../utils/enquiryStorage";
 
-/**
- * ProductInquireCTA Component
- * Clean, beginner-friendly call-to-action placed at the end of product pages.
- * Displays a rental overview card and an "Inquire" button that saves the
- * product into the enquiry cart and redirects to the product enquiry page.
- */
 export default function ProductInquireCTA({
   productName = "this Medical Equipment",
   productImage = "",

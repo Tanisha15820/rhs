@@ -4,23 +4,15 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import GastroBg from "../../assets/images/gastro_banner.png";
 import LithoEVO from "../../assets/images/Litho_evo.png";
-import endoVisionSet from "../../assets/images/endo_vision_set.png";
 
 const Gastro = () => {
   const categories = [
     {
       title: "Gastro Laser",
       description:
-        "Advanced laser systems for precise and minimally invasive gastrointestinal procedures.",
+        "Advanced laser systems for precise, safe, and minimally invasive gastrointestinal procedures.",
       image: LithoEVO,
       link: "/gastro-laser",
-    },
-    {
-      title: "Gastro Endoscopy",
-      description:
-        "Specialized endoscopic equipment for diagnosis and treatment of gastrointestinal disorders.",
-      image: endoVisionSet,
-      link: "/gastro-endoscopy",
     },
   ];
 
@@ -80,7 +72,7 @@ const Gastro = () => {
       </div>
 
       {/* Main Content */}
-      <div className="mx-auto w-full max-w-[1200px] px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 lg:px-12">
         {/* Heading */}
         <motion.div
           className="mb-6"
@@ -111,7 +103,7 @@ const Gastro = () => {
         </motion.div>
 
         {/* Category Cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-2xl">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}

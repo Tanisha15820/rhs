@@ -32,6 +32,8 @@ SURGICAL_LASER_PRODUCTS_BY_SUBCATEGORY,
   GASTRO_LASER_SUBTYPES,
   MORCELLATOR_SUBTYPES,
   ROBOFLEX_AVICENNA_SUBTYPE,
+  URETERORENOSCOPE_SUBCATEGORIES,
+  URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY,
 } from "../data/navigationData";
 
 // Icon mapping for specialties
@@ -52,6 +54,11 @@ const SUBCATEGORY_DATA = {
     header: "Product Type",
     subcategories: URODYNAMIC_SUBTYPES,
     productsBySubcategory: URODYNAMIC_PRODUCTS_BY_SUBCATEGORY,
+  },
+  "Flexible Video Ureterorenoscope": {
+    header: "Product Type",
+    subcategories: URETERORENOSCOPE_SUBCATEGORIES,
+    productsBySubcategory: URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY,
   },
 };
 
@@ -124,6 +131,7 @@ function Navbar() {
     pathname === "/danflow-cord" ||
     pathname === "/bladder-scanner" ||
     pathname === "/patient-couch" ||
+    pathname === "/patient-coach" ||
     pathname === "/avicenna" ||
     pathname.startsWith("/products");
 
@@ -180,6 +188,14 @@ function Navbar() {
           subcategoryMeta.productsBySubcategory[selectedSubcategory] || []
         );
       }
+
+      if (
+        category === "Surgical Laser" ||
+        category === "Urodynamic System & Uroflowmeters"
+      ) {
+        return [];
+      }
+
       // Default: show all products grouped
       return Object.values(subcategoryMeta.productsBySubcategory).flat();
     }
@@ -280,7 +296,7 @@ function Navbar() {
 
   return (
     <header className="relative z-50 w-full bg-background px-3 py-4 md:px-5">
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
+      <div className="relative mx-auto flex max-w-[1440px] items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
         {/* Website Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
@@ -301,11 +317,11 @@ function Navbar() {
         </Link>
 
         {/* Desktop Navigation Menu */}
-        <nav className="hidden items-center gap-1 lg:flex lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+        <nav className="hidden items-center gap-1.5 lg:flex lg:absolute lg:left-1/2 lg:-translate-x-1/2">
           {/* Home */}
           <Link
             to="/"
-            className={`flex items-center gap-1.5 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
+            className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-[15px] font-semibold transition-all duration-200 ${
               pathname === "/" ? ACTIVE_LINK : INACTIVE_LINK
             }`}
           >
@@ -322,14 +338,14 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setProductsOpen((prev) => !prev)}
-              className={`flex cursor-pointer items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
+              className={`flex cursor-pointer items-center gap-1 rounded-full px-4 py-2 text-[15px] font-semibold transition-all duration-200 ${
                 isProductsActive ? ACTIVE_LINK : INACTIVE_LINK
               }`}
             >
               <span>Products</span>
 
               <KeyboardArrowDownIcon
-                sx={{ fontSize: 16 }}
+                sx={{ fontSize: 18 }}
                 className={`transition-transform duration-200 ${
                   productsOpen ? "rotate-180" : ""
                 }`}
@@ -338,7 +354,7 @@ function Navbar() {
 
             {/* Desktop Mega Menu */}
             {productsOpen && (
-              <div className="absolute left-1/2 top-full z-50 w-[1050px] -translate-x-1/2">
+              <div className="absolute left-1/2 top-full z-50 w-[1100px] -translate-x-1/2">
                 <div className="rounded-2xl bg-white p-5 shadow-[0_20px_60px_rgba(0,0,0,0.13)] ring-1 ring-gray-100">
                   <div className={`grid ${hasSubcategories ? "grid-cols-[1fr_1.15fr_1.3fr_1.5fr]" : "grid-cols-[1fr_1.15fr_1.7fr]"}`}>
                     {/* Specialties */}
@@ -372,7 +388,7 @@ function Navbar() {
                               navigate(spec.path);
                               setProductsOpen(false);
                             }}
-                            className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[13px] transition-all ${
+                            className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[14px] transition-all ${
                               isSelected
                                 ? "bg-blue-50 font-semibold text-blue-600"
                                 : "text-gray-600 hover:bg-gray-50"
@@ -410,11 +426,13 @@ function Navbar() {
                             type="button"
                             onMouseEnter={() => {
                               setSelectedCategory(cat);
-                              setSelectedSubcategory(null);
+                              const subcats = SUBCATEGORY_DATA[cat]?.subcategories || [];
+                              setSelectedSubcategory(subcats.length > 0 ? subcats[0].name : null);
                             }}
                             onClick={() => {
                               setSelectedCategory(cat);
-                              setSelectedSubcategory(null);
+                              const subcats = SUBCATEGORY_DATA[cat]?.subcategories || [];
+                              setSelectedSubcategory(subcats.length > 0 ? subcats[0].name : null);
 
                               const path = getCategoryPath(cat);
 
@@ -423,7 +441,7 @@ function Navbar() {
                                 setProductsOpen(false);
                               }
                             }}
-                            className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[12px] transition-all ${
+                            className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[13.5px] transition-all ${
                               isSelected
                                 ? "bg-blue-50 font-semibold text-blue-600"
                                 : "text-gray-600 hover:bg-gray-50"
@@ -465,7 +483,7 @@ function Navbar() {
                                 onClick={() =>
                                   setSelectedSubcategory(sub.name)
                                 }
-                                className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[12px] transition-all ${
+                                className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[13.5px] transition-all ${
                                   isSelected
                                     ? "bg-blue-50 font-semibold text-blue-600"
                                     : "text-gray-600 hover:bg-gray-50"
@@ -498,7 +516,7 @@ function Navbar() {
                               key={prod.name}
                               to={prod.path}
                               onClick={() => setProductsOpen(false)}
-                              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-[12px] text-gray-600 transition hover:bg-sky-50 hover:text-blue-600"
+                              className="group flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] text-gray-600 transition hover:bg-sky-50 hover:text-blue-600"
                             >
                               <ChevronRightIcon
                                 sx={{ fontSize: 14 }}
@@ -524,7 +542,7 @@ function Navbar() {
           {/* Blogs */}
           <Link
             to="/blogs"
-            className={`flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
+            className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-[15px] font-semibold transition-all duration-200 ${
               pathname === "/blogs" ? ACTIVE_LINK : INACTIVE_LINK
             }`}
           >
@@ -534,7 +552,7 @@ function Navbar() {
           {/* Contact */}
           <Link
             to="/contact"
-            className={`flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
+            className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-[15px] font-semibold transition-all duration-200 ${
               pathname === "/contact" ? ACTIVE_LINK : INACTIVE_LINK
             }`}
           >
@@ -545,7 +563,7 @@ function Navbar() {
         {/* Get in Touch - Desktop */}
         <Link
           to="/contact"
-          className="ml-4 hidden flex-shrink-0 cursor-pointer items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg lg:flex"
+          className="ml-4 hidden flex-shrink-0 cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-6 py-2.5 text-[15px] font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg lg:flex"
         >
           Get in Touch
           <ArrowForwardIcon style={{ fontSize: 18 }} />

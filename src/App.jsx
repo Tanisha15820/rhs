@@ -95,6 +95,7 @@ function App() {
           <Route path="/danflow-cord" element={<DanflowCord />} />
           <Route path="/bladder-scanner" element={<BladderScanner />} />
           <Route path="/patient-couch" element={<PatientCouch />} />
+          <Route path="/patient-coach" element={<PatientCouch />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

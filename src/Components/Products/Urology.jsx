@@ -4,8 +4,12 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import urologyBg from "../../assets/images/urology_banner_1.png";
 import bipolarPlasmaGenerator from "../../assets/images/bipolar_plasma_generator.png";
-import diodeLaser from "../../assets/images/diode_laser.png";
+import melodyImg from "../../assets/images/melody.png";
 import multimedImg from "../../assets/images/multimed.png";
+import cystoscopeImg from "../../assets/images/cystoscope.png";
+import cyberBladeImg from "../../assets/images/cyberblade.png";
+import avicennaImg from "../../assets/images/roboflex_avicenna.png";
+import flexibleURSImg from "../../assets/images/flexible_video_urs.png";
 import SEO from "../SEO";
 
 const Urology = () => {
@@ -13,30 +17,51 @@ const Urology = () => {
     {
       title: "Surgical Laser",
       description:
-        "Advanced laser systems for precise and minimally invasive urological procedures.",
+        "Advanced Holmium, Thulium YAG, and Thulium Fiber surgical lasers for lithotripsy and soft tissue surgery.",
       image: bipolarPlasmaGenerator,
       link: "/urology-surgical-laser",
     },
     {
-      title: "Urodynamic Systems & Uroflowmeters",
+      title: "Urodynamic System & Uroflowmeters",
       description:
-        "Reliable systems for accurate bladder and urinary tract assessment.",
-      image: diodeLaser,
-      link: "/urology-urodynamic",
+        "Comprehensive diagnostic urodynamic carts, wireless uroflowmeters, bladder scanners, and examination couches.",
+      image: melodyImg,
+      link: "/melody",
     },
     {
       title: "ESWL Lithotripsy",
       description:
-        "Extracorporeal shock wave systems for effective stone fragmentation.",
+        "Extracorporeal shock wave lithotripsy systems for non-invasive renal and ureteral stone fragmentation.",
       image: multimedImg,
-      link: "/urology-eswl",
+      link: "/vibrolith",
     },
     {
       title: "Endo Urology UMD Endoscopy",
       description:
-        "High-performance endoscopic equipment for minimally invasive endo-urology.",
-      image: diodeLaser,
-      link: "/urology-endo",
+        "High-definition video cystoscopy and slim laser enucleation endoscopic systems for minimally invasive endourology.",
+      image: cystoscopeImg,
+      link: "/cystoscopy",
+    },
+    {
+      title: "Morcellator System",
+      description:
+        "High-efficiency tissue morcellation systems for fast, controlled, and safe tissue retrieval during endourology.",
+      image: cyberBladeImg,
+      link: "/morcellator",
+    },
+    {
+      title: "Roboflex Avicenna",
+      description:
+        "Robotic manipulation system for flexible ureterorenoscopy, offering supreme precision and ergonomic comfort.",
+      image: avicennaImg,
+      link: "/avicenna",
+    },
+    {
+      title: "Flexible Video Ureterorenoscope",
+      description:
+        "Digital video ureterorenoscopes delivering high-resolution visualization, ergonomic control, and ultra-deflection.",
+      image: flexibleURSImg,
+      link: "/morcescope",
     },
   ];
 
@@ -102,7 +127,7 @@ const Urology = () => {
       </div>
 
       {/* Main Content */}
-      <div className="mx-auto w-full max-w-[1200px] px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 lg:px-12">
         {/* Heading */}
         <motion.div
           className="mb-6"
@@ -133,7 +158,7 @@ const Urology = () => {
         </motion.div>
 
         {/* Category Cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}

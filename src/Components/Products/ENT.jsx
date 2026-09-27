@@ -4,38 +4,15 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import ENTBg from "../../assets/images/ENT_banner.png";
 import SmartXide2Trio from "../../assets/images/SmartXide2Trio.png";
-import SmartXideTouchSurgiCO from "../../assets/images/SmartXideTouchSurgiCO.png";
-import multimed from "../../assets/images/multimed.png";
-import cystoscope from "../../assets/images/cystoscope.png";
 
 const ENT = () => {
   const categories = [
     {
       title: "CO2 Surgical Laser",
       description:
-        "Advanced laser systems for precise and minimally invasive ENT procedures.",
+        "Advanced laser systems for precise, safe, and minimally invasive ENT and head & neck surgical procedures.",
       image: SmartXide2Trio,
       link: "/ent-laser",
-    },
-    {
-      title: "ENT Head & Neck Oncology",
-      description:
-        "Specialized equipment for head and neck cancer diagnosis and treatment.",
-      image: SmartXideTouchSurgiCO,
-      link: "/ent",
-    },
-    {
-      title: "ELMED",
-      description: "Reliable surgical instruments for everyday clinical use.",
-      image: multimed,
-      link: "/elmed",
-    },
-    {
-      title: "RZ",
-      description:
-        "High-performance ENT solutions designed for precision and better outcomes.",
-      image: cystoscope,
-      link: "/rz",
     },
   ];
 
@@ -45,7 +22,7 @@ const ENT = () => {
       <div className="relative w-full overflow-hidden">
         <img
           src={ENTBg}
-          alt="ENT"
+          alt="ENT, Head & Neck Oncology"
           className="
             h-[200px]
             w-full
@@ -69,7 +46,7 @@ const ENT = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Ear · Nose · Throat
+              Head & Neck Oncology · Surgery
             </motion.p>
 
             <motion.h1
@@ -78,7 +55,7 @@ const ENT = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              ENT
+              ENT, Head & Neck Oncology
             </motion.h1>
 
             <motion.p
@@ -95,7 +72,7 @@ const ENT = () => {
       </div>
 
       {/* Main Content */}
-      <div className="mx-auto w-full max-w-[1200px] px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 lg:px-12">
         {/* Heading */}
         <motion.div
           className="mb-6"
@@ -125,7 +102,7 @@ const ENT = () => {
         </motion.div>
 
         {/* Category Cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-2xl">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
