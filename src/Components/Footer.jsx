@@ -34,7 +34,7 @@ const specialtyLinks = [
 const Footer = () => {
   return (
     <footer className="relative bg-background px-3 pt-12 pb-6 md:px-5">
-      <div className="mx-auto max-w-[1440px] overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-[0_12px_45px_rgba(25,168,232,0.08)] ring-1 ring-primary/10">
+      <div className="w-full overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-[0_12px_45px_rgba(25,168,232,0.08)] ring-1 ring-primary/10">
 
         {/* =====================================================
             MAIN FOOTER GRID

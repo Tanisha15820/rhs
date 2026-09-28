@@ -44,7 +44,7 @@ function Blogs() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 md:px-8">
+        <div className="relative flex h-full w-full items-center px-5 md:px-8 lg:px-12 xl:px-16">
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
               Our{" "}
@@ -62,8 +62,8 @@ function Blogs() {
       </section>
 
       {/* Blog Cards List */}
-      <section className="bg-white px-4 py-12 sm:px-5 md:px-8 lg:py-16">
-        <div className="mx-auto max-w-6xl space-y-6">
+      <section className="bg-white px-4 py-12 sm:px-5 md:px-8 lg:px-12 lg:py-16 xl:px-16">
+        <div className="w-full space-y-6">
           {blogPosts.map((post, index) => (
             <div
               key={post.id}

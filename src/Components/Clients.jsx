@@ -352,12 +352,11 @@ function Clients() {
         className="
           relative
           z-10
-          mx-auto
           w-full
-          max-w-[1440px]
           px-5
           sm:px-8
           lg:px-12
+          xl:px-16
         "
       >
         {/* =========================
@@ -422,9 +421,7 @@ function Clients() {
         <div
           className="
             relative
-            mx-auto
             w-full
-            max-w-[1440px]
           "
         >
           {/* Left Arrow */}

@@ -296,7 +296,7 @@ function Navbar() {
 
   return (
     <header className="relative z-50 w-full bg-background px-3 py-4 md:px-5">
-      <div className="relative mx-auto flex max-w-[1440px] items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
+      <div className="relative flex w-full items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-[0_6px_30px_rgba(37,37,184,0.1)] ring-1 ring-primary/10 md:px-6">
         {/* Website Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
@@ -586,7 +586,7 @@ function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="mx-auto mt-3 max-w-7xl animate-fade-in rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden">
+        <div className="mt-3 w-full animate-fade-in rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden">
           <nav className="flex flex-col gap-1 text-sm font-medium">
             {/* Home */}
             <Link

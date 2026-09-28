@@ -31,7 +31,7 @@ const ProductsPage = ({
   description,
   products = [],
   subCategories = products.map((product) => product.name),
-  otherCategories = ["ENT, Urology, Gastro"],
+  otherCategories = [],
 }) => {
   const [categoryOpen, setCategoryOpen] = useState(true);
   const [activeSubCategory, setActiveSubCategory] = useState(null);
@@ -47,7 +47,7 @@ const ProductsPage = ({
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 md:px-8">
+        <div className="relative z-10 flex h-full w-full items-center px-5 md:px-8 lg:px-12 xl:px-16">
           <motion.div
             className="max-w-xl"
             initial={{ opacity: 0, x: -50 }}
@@ -93,8 +93,8 @@ const ProductsPage = ({
 
       {/* ================= PRODUCTS SECTION ================= */}
 
-      <section className="w-full bg-white px-4 py-7 sm:px-5 md:px-8 md:py-8 lg:py-10">
-        <div className="mx-auto w-full max-w-7xl">
+      <section className="w-full bg-white px-4 py-7 sm:px-5 md:px-8 md:py-8 lg:px-12 lg:py-10 xl:px-16">
+        <div className="w-full">
           {/* ================= TOP BAR ================= */}
 
           <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -222,7 +222,7 @@ const ProductsPage = ({
 
                 {categoryOpen && subCategories.length > 0 && (
                   <motion.div
-                    className="mb-3 space-y-1 pl-2"
+                    className="mb-3 flex flex-col gap-1.5 pl-2"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     transition={{ duration: 0.25 }}
@@ -232,15 +232,11 @@ const ProductsPage = ({
                         (product) => product.name === category,
                       )?.link;
 
-                      const buttonContent = (
-                        <>
-                          {category}
-                        </>
-                      );
+                      const buttonContent = <span>{category}</span>;
 
                       const buttonClasses = `
-                        w-full rounded-lg px-3 py-2
-                        text-left text-[13px]
+                        block w-full rounded-lg px-3 py-2
+                        text-left text-[13px] font-medium leading-snug
                         transition-all duration-200
                         ${
                           activeSubCategory === category
@@ -275,52 +271,53 @@ const ProductsPage = ({
                   </motion.div>
                 )}
 
-                {/* Divider */}
+                {/* Divider and Other Categories */}
+                {otherCategories && otherCategories.length > 0 && (
+                  <>
+                    <div className="my-3 border-t border-slate-100" />
 
-                <div className="my-3 border-t border-slate-100" />
+                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                      Other Categories
+                    </p>
 
-                {/* Other Categories */}
+                    <div className="space-y-1">
+                      {otherCategories.map((category) => {
+                        const categoryLink = CATEGORY_ROUTES[category];
 
-                <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                  Other Categories
-                </p>
+                        const linkClasses = `
+                          flex w-full items-center justify-between
+                          rounded-lg px-3 py-2.5
+                          text-left text-sm font-medium
+                          text-slate-600
+                          transition-all duration-200
+                          hover:bg-slate-50 hover:text-primary
+                        `;
 
-                <div className="space-y-1">
-                  {otherCategories.map((category) => {
-                    const categoryLink = CATEGORY_ROUTES[category];
+                        return categoryLink ? (
+                          <Link
+                            key={category}
+                            to={categoryLink}
+                            className={linkClasses}
+                          >
+                            <span>{category}</span>
 
-                    const linkClasses = `
-                      flex w-full items-center justify-between
-                      rounded-lg px-3 py-2.5
-                      text-left text-sm font-medium
-                      text-slate-600
-                      transition-all duration-200
-                      hover:bg-slate-50 hover:text-primary
-                    `;
+                            <ChevronRight className="h-4 w-4 text-slate-300 transition-colors hover:text-primary" />
+                          </Link>
+                        ) : (
+                          <button
+                            type="button"
+                            key={category}
+                            className={linkClasses}
+                          >
+                            <span>{category}</span>
 
-                    return categoryLink ? (
-                      <Link
-                        key={category}
-                        to={categoryLink}
-                        className={linkClasses}
-                      >
-                        <span>{category}</span>
-
-                        <ChevronRight className="h-4 w-4 text-slate-300 transition-colors hover:text-primary" />
-                      </Link>
-                    ) : (
-                      <button
-                        type="button"
-                        key={category}
-                        className={linkClasses}
-                      >
-                        <span>{category}</span>
-
-                        <ChevronRight className="h-4 w-4 text-slate-300" />
-                      </button>
-                    );
-                  })}
-                </div>
+                            <ChevronRight className="h-4 w-4 text-slate-300" />
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
               </motion.div>
             </aside>
 

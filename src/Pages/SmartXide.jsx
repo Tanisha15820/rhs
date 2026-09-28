@@ -135,7 +135,7 @@ const SmartXide = () => {
         <div className="absolute inset-0 z-[1] bg-white/5"></div>
 
         {/* Main Content */}
-        <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 xl:px-16">
           {/* Heading */}
           <div className="pt-6 text-center sm:pt-8 lg:pt-12">
             {/* Small Heading */}

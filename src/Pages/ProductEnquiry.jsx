@@ -125,7 +125,7 @@ const ProductEnquiry = () => {
           "
         />
 
-        <div className="absolute inset-0 mx-auto flex max-w-7xl items-center px-5 md:px-8">
+        <div className="absolute inset-0 flex w-full items-center px-5 md:px-8 lg:px-12 xl:px-16">
           <motion.div
             className="max-w-xl"
             initial={{ opacity: 0, x: -50 }}
@@ -158,7 +158,7 @@ const ProductEnquiry = () => {
       </section>
 
       {/* Main Content */}
-      <section className="mx-auto w-full max-w-[1100px] px-4 py-8 sm:px-6 lg:px-8">
+      <section className="w-full px-4 py-8 sm:px-6 lg:px-12 xl:px-16">
         <div className="space-y-6">
           {/* Selected Products */}
           <div

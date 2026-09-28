@@ -24,7 +24,7 @@ const ENTLaser = () => {
       bannerImage={ENTLaserBg}
       description="Explore our advanced ENT laser systems designed for precise, safe, and minimally invasive ENT procedures."
       products={products}
-      otherCategories={["ENT, Head & Neck Oncology", "ELMED", "RZ"]}
+      otherCategories={[]}
     />
   );
 };

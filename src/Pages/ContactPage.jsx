@@ -26,7 +26,7 @@ const ContactPage = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="mx-auto flex h-full max-w-7xl items-center px-5 md:px-8">
+        <div className="flex h-full w-full items-center px-5 md:px-8 lg:px-12 xl:px-16">
           <motion.div
             className="max-w-xl"
             initial={{ opacity: 0, x: -50 }}
@@ -59,7 +59,7 @@ const ContactPage = () => {
       </section>
 
       {/* Main Contact Section */}
-      <section className="relative z-10 mx-auto -mt-8 max-w-6xl px-4 pb-10 sm:-mt-10 md:px-6">
+      <section className="relative z-10 w-full -mt-8 px-4 pb-10 sm:-mt-10 md:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-1 gap-6 rounded-2xl bg-white p-4 shadow-[0_10px_40px_rgba(30,80,140,0.12)] sm:p-5 lg:grid-cols-[270px_1fr]">
           {/* Left Side */}
           <motion.div

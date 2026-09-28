@@ -190,7 +190,7 @@ const HomePage = () => {
             HERO CONTENT
         ================================================= */}
         <div
-          className={`relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-center px-5 pb-4 pt-8 sm:px-8 sm:pb-20 lg:px-12 ${
+          className={`relative z-10 flex h-full w-full items-center px-5 pb-4 pt-8 sm:px-8 sm:pb-20 lg:px-12 xl:px-16 ${
             activeBanner?.contentSide === "right"
               ? "justify-end"
               : "justify-start"

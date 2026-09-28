@@ -121,7 +121,7 @@ const InteractiveMachine = () => {
 
       {/* Machine Area */}
 
-      <div className="relative z-10 mx-auto h-[650px] max-w-7xl px-5 md:h-[750px]">
+      <div className="relative z-10 h-[650px] w-full px-5 md:h-[750px] lg:px-12 xl:px-16">
         {/* Machine */}
 
         <motion.div

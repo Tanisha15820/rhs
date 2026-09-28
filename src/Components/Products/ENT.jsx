@@ -33,7 +33,7 @@ const ENT = () => {
           "
         />
 
-        <div className="absolute inset-0 mx-auto flex max-w-7xl items-center px-5 md:px-8">
+        <div className="absolute inset-0 flex w-full items-center px-5 md:px-8 lg:px-12 xl:px-16">
           <motion.div
             className="max-w-xl"
             initial={{ opacity: 0, x: -50 }}
@@ -72,7 +72,7 @@ const ENT = () => {
       </div>
 
       {/* Main Content */}
-      <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 lg:px-12">
+      <div className="w-full px-4 py-8 sm:px-6 lg:px-12 xl:px-16">
         {/* Heading */}
         <motion.div
           className="mb-6"
