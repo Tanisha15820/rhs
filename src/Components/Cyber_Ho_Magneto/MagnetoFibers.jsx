@@ -101,7 +101,7 @@ const MagnetoFibers = () => {
           })}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto border-t border-slate-800 pt-16">
+        <div className="grid md:grid-cols-2 gap-8 w-full border-t border-slate-800 pt-16">
           {maintenance.map((item, idx) => {
             const Icon = item.icon;
             return (

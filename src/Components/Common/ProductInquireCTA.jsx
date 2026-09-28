@@ -15,8 +15,8 @@ export default function ProductInquireCTA({
   };
 
   return (
-    <section className="bg-[#F8FAFE] py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-100">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-[#F8FAFE] py-12 px-4 sm:px-6 lg:px-12 xl:px-16 border-t border-slate-100">
+      <div className="w-full">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-gradient-to-r from-blue-50 to-cyan-50 p-6 border border-blue-100 shadow-xs">
           <div className="flex items-center gap-3.5">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-xs">

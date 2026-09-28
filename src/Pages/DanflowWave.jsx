@@ -514,7 +514,7 @@ const DanflowWave = () => {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-blue-100 bg-white shadow-sm max-w-4xl mx-auto">
+          <div className="overflow-x-auto rounded-2xl border border-blue-100 bg-white shadow-sm w-full">
             <table className="w-full text-left text-xs sm:text-sm">
               <thead className="bg-[#F0F7FD] text-slate-700 uppercase font-semibold text-[11px]">
                 <tr>

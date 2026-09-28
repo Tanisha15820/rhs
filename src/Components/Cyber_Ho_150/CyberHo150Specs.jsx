@@ -21,7 +21,7 @@ const CyberHo150Specs = () => {
 
   return (
     <section className="bg-white py-16 lg:py-24 border-t border-slate-100">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
             Technical <span className="text-blue-600">Specifications</span>

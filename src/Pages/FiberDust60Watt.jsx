@@ -554,7 +554,7 @@ const FiberDust60Watt = () => {
 
       {/* Technical Specifications */}
       <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 border-b border-slate-200 pb-5">
             <h2 className="text-3xl font-extrabold text-slate-900">Technical Specifications</h2>
           </div>

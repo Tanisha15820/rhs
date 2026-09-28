@@ -100,7 +100,7 @@ const Applications = () => {
           mx-auto
           flex
           min-h-[620px]
-          max-w-[1450px]
+          w-full
           items-center
           px-6
           py-12

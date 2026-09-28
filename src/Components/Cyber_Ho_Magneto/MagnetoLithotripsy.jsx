@@ -76,7 +76,7 @@ const MagnetoLithotripsy = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-800/50 border border-slate-700 rounded-3xl p-8 max-w-4xl mx-auto"
+          className="bg-slate-800/50 border border-slate-700 rounded-3xl p-8 w-full"
         >
           <div className="text-center mb-10">
             <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wider">Peak Power Comparison</h3>

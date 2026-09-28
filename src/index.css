@@ -303,3 +303,48 @@ img {
   max-width: 100%;
   display: block;
 }
+
+/* =====================================================
+   RESPONSIVE PRODUCT PAGES & CONTAINER WIDTH RULES
+   Ensures consistent full-width utilization across:
+   1366px laptop, 1440px desktop, 1600px desktop, 
+   1920px desktop, and larger monitors.
+===================================================== */
+
+/* Ensure all max-w-7xl section containers expand to fill available viewport */
+.max-w-7xl {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+/* Fluid responsive padding for max-w-7xl on desktop screens */
+@media (min-width: 1280px) {
+  .max-w-7xl {
+    padding-left: clamp(1.5rem, 3.5vw, 4rem) !important;
+    padding-right: clamp(1.5rem, 3.5vw, 4rem) !important;
+  }
+}
+
+/* Ensure product hero interactive stages expand responsively on wider screens */
+.max-w-\[1200px\] {
+  max-width: 100% !important;
+}
+
+@media (min-width: 1440px) {
+  .max-w-\[1200px\] {
+    max-width: 1440px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .max-w-\[1200px\] {
+    max-width: 1600px !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .max-w-\[1200px\] {
+    max-width: 1800px !important;
+  }
+}
+

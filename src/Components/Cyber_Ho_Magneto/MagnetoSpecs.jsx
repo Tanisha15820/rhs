@@ -27,7 +27,7 @@ const MagnetoSpecs = () => {
 
   return (
     <section className="bg-slate-50 py-16 lg:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">
             Technical Specifications

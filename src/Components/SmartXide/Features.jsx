@@ -35,7 +35,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="relative mx-auto min-h-[700px] max-w-6xl">
+        <div className="relative mx-auto min-h-[700px] w-full">
           <div className="absolute left-1/2 top-[80px] z-20 hidden w-[470px] -translate-x-1/2 md:block">
             {/* Decorative Circle */}
             <div className="absolute left-1/2 top-1/2 h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#20B7AE]/15" />

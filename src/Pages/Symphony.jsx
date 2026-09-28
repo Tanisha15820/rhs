@@ -485,7 +485,7 @@ const Symphony = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
             {softwareFeatures.map((feature, idx) => (
               <div
                 key={idx}
@@ -565,7 +565,7 @@ const Symphony = () => {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-blue-100 bg-white shadow-sm max-w-5xl mx-auto">
+          <div className="overflow-x-auto rounded-2xl border border-blue-100 bg-white shadow-sm w-full">
             <table className="w-full text-left text-xs sm:text-sm">
               <thead className="bg-[#F0F7FD] text-slate-700 uppercase font-semibold text-[11px]">
                 <tr>

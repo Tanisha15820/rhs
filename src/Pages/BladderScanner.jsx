@@ -807,7 +807,7 @@ const BladderScanner = () => {
             </p>
           </div>
 
-          <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="mx-auto w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <div className="grid grid-cols-1 divide-y divide-slate-100 sm:grid-cols-2 sm:divide-y-0 sm:divide-x">
               <div className="divide-y divide-slate-100">
                 {technicalSpecs.slice(0, 4).map((spec, idx) => (
@@ -838,7 +838,7 @@ const BladderScanner = () => {
           </div>
 
           {/* Manufacturer & Certification Footer Box */}
-          <div className="mx-auto mt-8 max-w-4xl rounded-2xl border border-blue-100 bg-[#F0F8FF] p-4 text-center text-xs text-slate-600">
+          <div className="mx-auto mt-8 w-full rounded-2xl border border-blue-100 bg-[#F0F8FF] p-4 text-center text-xs text-slate-600">
             <span className="font-semibold text-slate-800">
               MEDKONSULT medical technology s.r.o.
             </span>{" "}
