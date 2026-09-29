@@ -120,68 +120,68 @@ const Multimed = () => {
           </div>
 
           {/* Product Area with Floating Feature Cards */}
-          <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1060px] sm:mt-6">
             <FeatureCard
               number="01"
               title="4 AP/PA Treatment Angles"
               description="Supine & prone therapy from top/bottom without displacing the focal point."
               image={multimedImg}
-              position="left-6 top-16"
+              position="left-4 top-16"
             />
             <FeatureCard
               number="02"
               title="Degassing Water Circuit"
               description="Heated 30°C–36°C with micro-bubble elimination for acoustic efficiency."
               image={therapyHeadImg}
-              position="bottom-14 left-6"
+              position="bottom-16 left-4"
             />
             <FeatureCard
               number="03"
               title="Dual X-Ray & Ultrasound"
               description="Simultaneous localization with LITHOSCOPE U-Arm and LITHOARM robotics."
               image={suiteImg}
-              position="top-16 right-6"
+              position="right-4 top-16"
             />
             <FeatureCard
               number="04"
               title="6-Way Motorized Table"
               description="Radiolucent table with Trendelenburg tilt for ESWL and endourology."
               image={multimedImg}
-              position="bottom-14 right-6"
+              position="bottom-16 right-4"
             />
 
             {/* Desktop Arrows */}
-            <div className="absolute left-[305px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[315px] top-[116px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[305px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] left-[315px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[305px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[315px] top-[116px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[305px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] right-[315px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
             {/* Central Machine - Desktop */}
-            <div className="relative mx-auto hidden h-[390px] w-full max-w-[520px] items-end justify-center sm:h-[430px] lg:flex lg:h-[490px]">
+            <div className="relative mx-auto hidden h-[390px] w-full max-w-[520px] items-end justify-center sm:h-[430px] xl:flex xl:h-[460px]">
               <div className="absolute bottom-10 left-1/2 h-36 w-60 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
               <motion.img
                 src={multimedImg}
                 alt="Multimed EM Shockwave Lithotripsy System"
-                className="relative z-10 h-[370px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] lg:h-[450px]"
+                className="relative z-10 h-[370px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[460px]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -189,7 +189,7 @@ const Multimed = () => {
             </div>
 
             {/* Central Machine - Mobile */}
-            <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 lg:hidden">
+            <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 xl:hidden">
               <div className="absolute bottom-6 left-1/2 h-24 w-44 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
               <motion.img
                 src={multimedImg}
@@ -202,7 +202,7 @@ const Multimed = () => {
             </div>
 
             {/* Mobile Cards */}
-            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 lg:hidden">
+            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 xl:hidden">
               <MobileFeatureCard
                 number="01"
                 title="4 AP/PA Treatment Angles"

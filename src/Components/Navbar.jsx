@@ -133,6 +133,18 @@ function Navbar() {
     pathname === "/patient-couch" ||
     pathname === "/patient-coach" ||
     pathname === "/avicenna" ||
+    pathname === "/huv02" ||
+    pathname === "/huv-02" ||
+    pathname === "/huv01" ||
+    pathname === "/huv-01" ||
+    pathname === "/reusable-ureterorenoscope" ||
+    pathname === "/disposable-hu30m-6-3fr" ||
+    pathname === "/disposable-hu30m-6.3-fr" ||
+    pathname === "/hu30m-6-3fr" ||
+    pathname === "/disposable-cystoscope" ||
+    pathname === "/cystoscope" ||
+    pathname === "/access-sheath" ||
+    pathname === "/ureteral-access-sheath" ||
     pathname.startsWith("/products");
 
   // Get category page path
@@ -191,7 +203,8 @@ function Navbar() {
 
       if (
         category === "Surgical Laser" ||
-        category === "Urodynamic System & Uroflowmeters"
+        category === "Urodynamic System & Uroflowmeters" ||
+        category === "Flexible Video Ureterorenoscope"
       ) {
         return [];
       }

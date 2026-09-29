@@ -133,92 +133,70 @@ const LithoEvo = () => {
           </div>
 
           {/* Product Area */}
-          <div className="relative mx-auto mt-2 max-w-[1200px] sm:mt-3">
+          <div className="relative mx-auto mt-2 max-w-[1040px] sm:mt-3">
             {/* Desktop Feature Cards */}
             <FeatureCard
               number="01"
               description="Effective Lithotripsy"
               image={articulatedArm}
-              position="left-8 top-20"
+              position="left-4 top-16"
             />
             <FeatureCard
               number="02"
               description="Vapor TunnelTM Technology."
               image={hollowFiber}
-              position="bottom-16 left-8"
+              position="bottom-16 left-4"
             />
             <FeatureCard
               number="03"
               description="High Power and Frequency also with Small Fibers"
               image={diodeImage}
-              position="bottom-80 right-8"
+              position="right-4 top-16"
             />
             <FeatureCard
               number="04"
               description="Versatile treatment with diode laser module."
               image={diodeImage}
-              position="bottom-20 right-8"
+              position="bottom-16 right-4"
             />
-
-            {/* Desktop Arrows */}
-            {/* <div className="absolute left-[305px] top-[125px] hidden items-center xl:flex">
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
-              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
-            </div>
-            <div className="absolute bottom-[120px] left-[305px] hidden items-center xl:flex">
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
-              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
-            </div>
-            <div className="absolute bottom-[210px] right-[305px] hidden items-center xl:flex">
-              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-            </div>
-            <div className="absolute bottom-[210px] right-[305px] hidden items-center xl:flex">
-              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-            </div> */}
 
             {/* Desktop Arrows */}
 
             {/* LEFT TOP */}
-            <div className="absolute left-[305px] top-[125px] hidden items-center xl:flex">
+            <div className="absolute left-[300px] top-[116px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[36px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
             {/* LEFT BOTTOM */}
-            <div className="absolute bottom-[110px] left-[305px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] left-[300px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[36px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
             {/* RIGHT TOP */}
-            <div className="absolute right-[305px] top-[125px] hidden items-center xl:flex">
+            <div className="absolute right-[300px] top-[116px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[36px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
             {/* RIGHT BOTTOM */}
-            <div className="absolute bottom-[110px] right-[305px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] right-[300px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[36px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
             {/* Central Machine - Desktop */}
-            <div className="relative mx-auto hidden h-[380px] w-full max-w-[550px] items-end justify-center sm:h-[420px] lg:flex lg:h-[500px]">
+            <div className="relative mx-auto hidden h-[380px] w-full max-w-[550px] items-end justify-center sm:h-[420px] xl:flex xl:h-[480px]">
               <div className="absolute bottom-14 left-1/2 h-36 w-60 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"></div>
               <motion.img
                 src={machineImage}
-                alt="SmartXide2 Unique TRIO laser system"
-                className="relative z-10 h-[380px] w-auto object-contain drop-shadow-[0_25px_25px_rgba(39,96,150,0.18)] lg:h-[500px]"
+                alt="Quanta System Litho Evo Holmium Laser System"
+                className="relative z-10 h-[380px] w-auto object-contain drop-shadow-[0_25px_25px_rgba(39,96,150,0.18)] xl:h-[480px]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -226,11 +204,11 @@ const LithoEvo = () => {
             </div>
 
             {/* Central Machine - Mobile */}
-            <div className="relative mx-auto flex h-auto w-full max-w-[300px] items-end justify-center pb-4 lg:hidden sm:max-w-[350px]">
+            <div className="relative mx-auto flex h-auto w-full max-w-[300px] items-end justify-center pb-4 xl:hidden sm:max-w-[350px]">
               <div className="absolute bottom-8 left-1/2 h-24 w-40 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
               <motion.img
                 src={machineImage}
-                alt="SmartXide2 Unique TRIO laser system"
+                alt="Quanta System Litho Evo Holmium Laser System"
                 className="relative z-10 h-[250px] w-auto object-contain drop-shadow-[0_15px_15px_rgba(39,96,150,0.18)] sm:h-[300px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -239,7 +217,7 @@ const LithoEvo = () => {
             </div>
 
             {/* Mobile Feature Cards */}
-            <div className="mx-auto grid max-w-[400px] grid-cols-1 gap-3 px-2 sm:px-4 lg:hidden">
+            <div className="mx-auto grid max-w-[400px] grid-cols-1 gap-3 px-2 sm:px-4 xl:hidden">
               <MobileFeatureCard
                 number="01"
                 type="CO₂ LASER"

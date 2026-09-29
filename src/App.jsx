@@ -42,6 +42,12 @@ import DanflowWave from "./Pages/DanflowWave";
 import DanflowCord from "./Pages/DanflowCord";
 import BladderScanner from "./Pages/BladderScanner";
 import PatientCouch from "./Pages/PatientCouch";
+import HUV02 from "./Pages/HUV02";
+import HUV01 from "./Pages/HUV01";
+import ReusableUreterorenoscope from "./Pages/ReusableUreterorenoscope";
+import DisposableHU30M63Fr from "./Pages/DisposableHU30M63Fr";
+import DisposableCystoscope from "./Pages/DisposableCystoscope";
+import AccessSheath from "./Pages/AccessSheath";
 
 function App() {
   return (
@@ -96,6 +102,18 @@ function App() {
           <Route path="/bladder-scanner" element={<BladderScanner />} />
           <Route path="/patient-couch" element={<PatientCouch />} />
           <Route path="/patient-coach" element={<PatientCouch />} />
+          <Route path="/huv02" element={<HUV02 />} />
+          <Route path="/huv-02" element={<HUV02 />} />
+          <Route path="/huv01" element={<HUV01 />} />
+          <Route path="/huv-01" element={<HUV01 />} />
+          <Route path="/reusable-ureterorenoscope" element={<ReusableUreterorenoscope />} />
+          <Route path="/disposable-hu30m-6-3fr" element={<DisposableHU30M63Fr />} />
+          <Route path="/disposable-hu30m-6.3-fr" element={<DisposableHU30M63Fr />} />
+          <Route path="/hu30m-6-3fr" element={<DisposableHU30M63Fr />} />
+          <Route path="/disposable-cystoscope" element={<DisposableCystoscope />} />
+          <Route path="/cystoscope" element={<DisposableCystoscope />} />
+          <Route path="/access-sheath" element={<AccessSheath />} />
+          <Route path="/ureteral-access-sheath" element={<AccessSheath />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

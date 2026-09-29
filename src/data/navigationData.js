@@ -146,10 +146,19 @@ export const URETERORENOSCOPE_SUBCATEGORIES = [
 
 // Flexible Video Ureterorenoscope Products grouped by subcategory
 export const URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY = {
-  "Medica Image Processor": [
-    { name: "HUV 01", path: "/urology" },
-    { name: "HUV 02", path: "/urology" },
+  "Medical Image Processor": [
+    { name: "HUV01", path: "/huv01" },
+    { name: "HUV02", path: "/huv02" },
   ],
-  "Reusable Ureterorenoscope": [],
-  "Disposable Ureterorenoscope": [],
+  "Reusable Ureterorenoscope": [
+    { name: "Reusable Ureterorenoscope", path: "/reusable-ureterorenoscope" },
+  ],
+  "Disposable Ureterorenoscope": [
+    { name: "Disposable HU30M 6.3/6 Fr", path: "/disposable-hu30m-6-3fr" },
+    { name: "Disposable HU30M 7.5 Fr", path: "/urology" },
+    { name: "Cystonephroscope", path: "/urology" },
+    { name: "Cystoscope", path: "/disposable-cystoscope" },
+    { name: "Access sheath", path: "/access-sheath" },
+    { name: "Suction Pump", path: "/urology" },
+  ],
 };

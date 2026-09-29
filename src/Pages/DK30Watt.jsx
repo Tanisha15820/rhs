@@ -147,73 +147,73 @@ const DK30Watt = () => {
             </p>
           </div>
 
-          <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1080px] sm:mt-6">
             <FeatureCard
               number="01"
               title="Effective Lithotripsy"
               description="High absorption at 2100 nm for rapid stone ablation."
               image={machineImage}
-              position="left-6 top-16"
+              position="left-4 top-16"
             />
             <FeatureCard
               number="02"
               title="Reduced Penetration"
               description="0.3–0.4 mm penetration prevents surrounding tissue damage."
               image={fiberImg}
-              position="bottom-14 left-6"
+              position="bottom-16 left-4"
             />
             <FeatureCard
               number="03"
               title="Smart Recognition"
               description="RFID auto-adjustment based on connected fiber diameter."
               image={recognitionImg}
-              position="top-16 right-6"
+              position="right-4 top-16"
             />
             <FeatureCard
               number="04"
               title="Proximity Sensor"
               description="Proximity sensor for automatic aperture control."
               image={footswitchImg}
-              position="bottom-14 right-6"
+              position="bottom-16 right-4"
             />
 
-            <div className="absolute left-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[315px] top-[116px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] left-[315px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[315px] top-[116px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] right-[315px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="relative mx-auto hidden h-[400px] w-full max-w-[500px] items-end justify-center sm:h-[440px] lg:flex lg:h-[490px]">
+            <div className="relative mx-auto hidden h-[400px] w-full max-w-[500px] items-end justify-center sm:h-[440px] xl:flex xl:h-[470px]">
               <div className="absolute bottom-10 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
               <motion.img
                 src={machineImage}
                 alt="Litho DK30 Laser System"
-                className="relative z-10 h-[380px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.25)] lg:h-[460px] rounded-2xl"
+                className="relative z-10 h-[380px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.25)] xl:h-[470px] rounded-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               />
             </div>
 
-            <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 lg:hidden">
+            <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 xl:hidden">
               <div className="absolute bottom-6 left-1/2 h-24 w-44 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
               <motion.img
                 src={machineImage}
@@ -225,7 +225,7 @@ const DK30Watt = () => {
               />
             </div>
 
-            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 lg:hidden">
+            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 xl:hidden">
               <MobileFeatureCard
                 number="01"
                 title="Effective Lithotripsy"

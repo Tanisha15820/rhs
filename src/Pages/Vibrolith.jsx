@@ -122,68 +122,68 @@ const Vibrolith = () => {
           </div>
 
           {/* Product Area with Floating Feature Cards */}
-          <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1080px] sm:mt-6">
             <FeatureCard
               number="01"
               title="Safe & Tissue-Friendly"
               description="Zero thermal injury, eliminating risk to mucosal tissue or scope optics."
               image={machineImg}
-              position="left-6 top-16"
+              position="left-4 top-16"
             />
             <FeatureCard
               number="02"
               title="Multi-Caliber Probes"
               description="Reusable steel probes from 0.8 mm to 2.0 mm for PNL, URS & Bladder."
               image={handpieceImg}
-              position="bottom-14 left-6"
+              position="bottom-16 left-4"
             />
             <FeatureCard
               number="03"
               title="Mobile Compressor Cart"
               description="Compatible with central hospital air or silent mobile compressor cart."
               image={cartImg}
-              position="top-16 right-6"
+              position="right-4 top-16"
             />
             <FeatureCard
               number="04"
               title="Endoscopic Suction"
               description="Optional suction adapter for instant stone particle evacuation."
               image={procedureImg}
-              position="bottom-14 right-6"
+              position="bottom-16 right-4"
             />
 
             {/* Desktop Arrows */}
-            <div className="absolute left-[305px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[315px] top-[116px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[32px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[305px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] left-[315px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[32px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[305px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[315px] top-[116px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[32px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[305px] hidden items-center xl:flex">
+            <div className="absolute bottom-[116px] right-[315px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[50px] bg-primary"></div>
+              <div className="h-[1px] w-[32px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
             {/* Central Machine - Desktop */}
-            <div className="relative mx-auto hidden h-[380px] w-full max-w-[520px] items-end justify-center sm:h-[420px] lg:flex lg:h-[480px]">
+            <div className="relative mx-auto hidden h-[380px] w-full max-w-[520px] items-end justify-center sm:h-[420px] xl:flex xl:h-[430px]">
               <div className="absolute bottom-10 left-1/2 h-36 w-60 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
               <motion.img
                 src={machineImg}
                 alt="Vibrolith Pneumatic Lithotripter System"
-                className="relative z-10 h-[360px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] lg:h-[430px]"
+                className="relative z-10 h-[360px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[430px]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -191,7 +191,7 @@ const Vibrolith = () => {
             </div>
 
             {/* Central Machine - Mobile */}
-            <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 lg:hidden">
+            <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 xl:hidden">
               <div className="absolute bottom-6 left-1/2 h-24 w-44 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
               <motion.img
                 src={machineImg}
@@ -204,7 +204,7 @@ const Vibrolith = () => {
             </div>
 
             {/* Mobile Cards */}
-            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 lg:hidden">
+            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 xl:hidden">
               <MobileFeatureCard
                 number="01"
                 title="Safe & Tissue-Friendly"

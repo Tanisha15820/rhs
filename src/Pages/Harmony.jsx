@@ -162,7 +162,6 @@ const Harmony = () => {
         canonical="/harmony"
       />
 
-      {/* 1st Section: Product Banner */}
       <section className="relative min-h-[500px] overflow-hidden bg-background sm:min-h-[600px] lg:min-h-[680px]">
         <div className="absolute inset-0 z-0">
           <img
@@ -429,7 +428,7 @@ const Harmony = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {softwareFeatures.map((feature, idx) => (
               <div
                 key={idx}
