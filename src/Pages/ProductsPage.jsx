@@ -11,27 +11,12 @@ import {
   Package,
 } from "lucide-react";
 
-const CATEGORY_ROUTES = {
-  "CO2 Surgical Laser": "/ent-laser",
-  "ENT, Head & Neck Oncology": "/ent",
-  ELMED: "/elmed",
-  RZ: "/rz",
-  "Morcellator System": "/morcellator",
-  "Gastro Laser": "/gastro-laser",
-  "Gastro Endoscopy": "/gastro-endoscopy",
-  "Surgical Laser": "/urology-surgical-laser",
-  "Urodynamic Systems & Uroflowmeters": "/urology-urodynamic",
-  "ESWL Lithotripsy": "/urology-eswl",
-  "Endo Urology UMD Endoscopy": "/urology-endo",
-};
-
 const ProductsPage = ({
   categoryName,
   bannerImage,
   description,
   products = [],
   subCategories = products.map((product) => product.name),
-  otherCategories = [],
 }) => {
   const [categoryOpen, setCategoryOpen] = useState(true);
   const [activeSubCategory, setActiveSubCategory] = useState(null);
@@ -269,54 +254,6 @@ const ProductsPage = ({
                       );
                     })}
                   </motion.div>
-                )}
-
-                {/* Divider and Other Categories */}
-                {otherCategories && otherCategories.length > 0 && (
-                  <>
-                    <div className="my-3 border-t border-slate-100" />
-
-                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                      Other Categories
-                    </p>
-
-                    <div className="space-y-1">
-                      {otherCategories.map((category) => {
-                        const categoryLink = CATEGORY_ROUTES[category];
-
-                        const linkClasses = `
-                          flex w-full items-center justify-between
-                          rounded-lg px-3 py-2.5
-                          text-left text-sm font-medium
-                          text-slate-600
-                          transition-all duration-200
-                          hover:bg-slate-50 hover:text-primary
-                        `;
-
-                        return categoryLink ? (
-                          <Link
-                            key={category}
-                            to={categoryLink}
-                            className={linkClasses}
-                          >
-                            <span>{category}</span>
-
-                            <ChevronRight className="h-4 w-4 text-slate-300 transition-colors hover:text-primary" />
-                          </Link>
-                        ) : (
-                          <button
-                            type="button"
-                            key={category}
-                            className={linkClasses}
-                          >
-                            <span>{category}</span>
-
-                            <ChevronRight className="h-4 w-4 text-slate-300" />
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </>
                 )}
               </motion.div>
             </aside>

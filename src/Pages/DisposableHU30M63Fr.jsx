@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import fullScopeImg from "../assets/images/hu30m.png";
+import fullScopeImg from "../assets/images/hu30m6.3.png";
 import surgeonHandImg from "../assets/images/hu30m_surgeon_hand.jpg";
 import tipImg from "../assets/images/ureterorenoscope_tip.jpg";
-
 import HU30MFeatures from "../Components/DisposableHU30M/HU30MFeatures";
 import HU30MKeyBenefits from "../Components/DisposableHU30M/HU30MKeyBenefits";
 import HU30MCapabilities from "../Components/DisposableHU30M/HU30MCapabilities";

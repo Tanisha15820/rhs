@@ -2,82 +2,42 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import urologyBg from "../../assets/images/urology_banner_1.png";
-import bipolarPlasmaGenerator from "../../assets/images/bipolar_plasma_generator.png";
+import urodynamicsBg from "../../assets/images/urodynamics_banner.jpg";
 import melodyImg from "../../assets/images/melody.png";
-import multimedImg from "../../assets/images/multimed.png";
-import cystoscopeImg from "../../assets/images/cystoscope.png";
-import cyberBladeImg from "../../assets/images/cyberblade.png";
-import avicennaImg from "../../assets/images/roboflex_avicenna.png";
-import flexibleURSImg from "../../assets/images/flexible_video_urs.png";
+import danflowWaveImg from "../../assets/images/danflow_wave_machine.jpg";
 import SEO from "../SEO";
 
-const Urology = () => {
+const UrodynamicSystem = () => {
   const categories = [
     {
-      title: "Surgical Laser",
+      title: "Urodynamic Systems",
       description:
-        "Advanced Holmium, Thulium YAG, and Thulium Fiber surgical lasers for lithotripsy and soft tissue surgery.",
-      image: bipolarPlasmaGenerator,
-      link: "/urology-surgical-laser",
-    },
-    {
-      title: "Urodynamic System & Uroflowmeters",
-      description:
-        "Comprehensive diagnostic urodynamic carts, wireless uroflowmeters, bladder scanners, and examination couches.",
+        "Comprehensive diagnostic workstations (UROMIC Symphony, Harmony, Melody) offering automated calibration, multi-channel cystometry, and video-urodynamics.",
       image: melodyImg,
-      link: "/urology-urodynamic",
+      link: "/urodynamic-systems",
     },
     {
-      title: "ESWL Lithotripsy",
+      title: "Uroflowmeters",
       description:
-        "Extracorporeal shock wave lithotripsy systems for non-invasive renal and ureteral stone fragmentation.",
-      image: multimedImg,
-      link: "/urology-eswl",
-    },
-    {
-      title: "Endo Urology UMD Endoscopy",
-      description:
-        "High-definition video cystoscopy and slim laser enucleation endoscopic systems for minimally invasive endourology.",
-      image: cystoscopeImg,
-      link: "/urology-endo",
-    },
-    {
-      title: "Morcellator System",
-      description:
-        "High-efficiency tissue morcellation systems for fast, controlled, and safe tissue retrieval during endourology.",
-      image: cyberBladeImg,
-      link: "/morcellator",
-    },
-    {
-      title: "Roboflex Avicenna",
-      description:
-        "Robotic manipulation system for flexible ureterorenoscopy, offering supreme precision and ergonomic comfort.",
-      image: avicennaImg,
-      link: "/avicenna",
-    },
-    {
-      title: "Flexible Video Ureterorenoscope",
-      description:
-        "Digital video ureterorenoscopes delivering high-resolution visualization, ergonomic control, and ultra-deflection.",
-      image: flexibleURSImg,
-      link: "/flexible-video-ureterorenoscope",
+        "High-precision wireless digital uroflowmeters (Danflow Wave & Cord) with automatic flow curve recording, built-in thermal printers, and real-time reports.",
+      image: danflowWaveImg,
+      link: "/uroflowmeters",
     },
   ];
 
   return (
     <section className="min-h-screen bg-white">
       <SEO
-        title="Urology Medical Machine & Equipment Rental for Hospitals & Doctors"
-        description="Rent advanced urology medical equipment including surgical lasers, ESWL lithotripsy, urodynamic systems, and video cystoscopes from Reinforce Healthcare Services."
-        keywords="urology machine rental, surgical laser rental, ESWL lithotripsy machine rent, video cystoscope rental, hospital urology equipment"
+        title="Urodynamic Systems & Uroflowmeters Equipment Rental | Reinforce Healthcare Services"
+        description="Explore our comprehensive urodynamic product lineup including UROMIC workstations and Danflow wireless uroflowmeters."
+        keywords="urodynamics rental, uroflowmeter rental, UROMIC workstations, Danflow Wave, urology diagnostic equipment"
       />
 
       {/* Banner */}
       <div className="relative w-full overflow-hidden">
         <img
-          src={urologyBg}
-          alt="Urology"
+          src={urodynamicsBg}
+          alt="Urodynamic System & Uroflowmeters"
           className="
             h-[200px]
             w-full
@@ -101,7 +61,7 @@ const Urology = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Urology
+              Urology · Diagnostic Solutions
             </motion.p>
 
             <motion.h1
@@ -110,7 +70,7 @@ const Urology = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              Urology
+              Urodynamic System & Uroflowmeters
             </motion.h1>
 
             <motion.p
@@ -119,8 +79,7 @@ const Urology = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              Advanced laser, lithotripsy and endoscopic systems for precise,
-              safe, and minimally invasive urological procedures.
+              Explore our modular diagnostic urodynamic workstations and wireless digital uroflowmeters.
             </motion.p>
           </motion.div>
         </div>
@@ -145,20 +104,19 @@ const Urology = () => {
               md:text-[32px]
             "
           >
-            Explore Our Urology{" "}
+            Explore Our Urodynamics & Uroflowmetry{" "}
             <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
               Categories
             </span>
           </h1>
 
           <p className="mt-2 max-w-[650px] text-[13px] leading-[1.6] text-gray-500 sm:text-[15px]">
-            Advanced solutions for urological diagnosis, surgery and patient
-            care.
+            Comprehensive clinical diagnostic solutions for accurate lower urinary tract assessments, cystometry, and non-invasive uroflowmetry.
           </p>
         </motion.div>
 
         {/* Category Cards */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-5xl">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -304,4 +262,4 @@ const Urology = () => {
   );
 };
 
-export default Urology;
+export default UrodynamicSystem;

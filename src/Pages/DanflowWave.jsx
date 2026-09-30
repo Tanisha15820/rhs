@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import machineImage from "../assets/images/danflow_wave_machine.jpg";
+import machineImage from "../assets/images/danflow-wave.png";
 import printerImg from "../assets/images/danflow_thermal_printer.jpg";
 import transducerImg from "../assets/images/danflow_transducer_funnel.jpg";
 import standImg from "../assets/images/danflow_stands_commode.jpg";
@@ -35,7 +35,6 @@ const FeatureCard = ({ number, type, title, description, image, position }) => {
         <span className="text-lg font-bold text-white">{number}</span>
       </div>
 
-      {/* Blue Border Accent */}
       <div className="absolute left-0 top-[42px] h-[65px] w-[1px] bg-primary"></div>
 
       <div className="flex h-full items-center gap-3 px-3 py-2 pl-4">

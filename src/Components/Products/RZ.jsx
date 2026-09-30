@@ -24,12 +24,6 @@ const RZ = () => {
       bannerImage={ENTLaserBg}
       description="High-performance RZ Medizintechnik solutions designed for precision and better patient outcomes."
       products={products}
-      otherCategories={[
-        "CO2 Surgical Laser",
-        "ENT, Head & Neck Oncology",
-        "ELMED",
-        "Morcellator System",
-      ]}
     />
   );
 };

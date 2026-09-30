@@ -148,8 +148,8 @@ const AccessSheath = () => {
             </p>
           </div>
 
-          {/* Product Center Area with Floating Feature Cards */}
-          <div className="relative mx-auto mt-4 max-w-[1040px] sm:mt-6">
+          {/* Product Center Area with Floating Feature Cards & Generous Spacing */}
+          <div className="relative mx-auto mt-6 max-w-[1240px]">
             {/* Desktop Feature Card 01 - Top Left */}
             <FeatureCard
               number="01"
@@ -157,7 +157,7 @@ const AccessSheath = () => {
               title="Pressure Control Slider"
               description="Oblique side port with slider valve enables fine regulation of suction power and intrarenal pressure."
               image={sheathHeroImg}
-              position="left-4 top-16"
+              position="left-0 2xl:left-4 top-10"
             />
 
             {/* Desktop Feature Card 02 - Bottom Left */}
@@ -167,7 +167,7 @@ const AccessSheath = () => {
               title="Hydrophilic Coating"
               description="External sheath and dilator tip feature hydrophilic coating for smooth and atraumatic insertion."
               image={sheathHeroImg}
-              position="bottom-16 left-4"
+              position="bottom-10 left-0 2xl:left-4"
             />
 
             {/* Desktop Feature Card 03 - Top Right */}
@@ -177,7 +177,7 @@ const AccessSheath = () => {
               title="RESD = 0.741 Safety"
               description="Combines 6.3Fr URS with 8.5/10.5Fr UAS to reach tortuous calyces and clear challenging calculi."
               image={sheathSizesImg}
-              position="top-16 right-4"
+              position="top-10 right-0 2xl:right-4"
             />
 
             {/* Desktop Feature Card 04 - Bottom Right */}
@@ -187,54 +187,54 @@ const AccessSheath = () => {
               title="Single-Latch Mechanism"
               description="Enables effortless one-handed latching with zero rotational alignment needed between hub & dilator."
               image={sheathHeroImg}
-              position="bottom-16 right-4"
+              position="bottom-10 right-0 2xl:right-4"
             />
 
-            {/* Desktop Connecting Arrows */}
-            <div className="absolute left-[310px] top-[115px] hidden items-center xl:flex">
+            {/* Desktop Connecting Arrows with Comfortable Clearance */}
+            <div className="absolute left-[295px] 2xl:left-[315px] top-[95px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[35px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[115px] left-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[95px] left-[295px] 2xl:left-[315px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[35px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[310px] top-[115px] hidden items-center xl:flex">
+            <div className="absolute right-[295px] 2xl:right-[315px] top-[95px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[35px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[115px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[95px] right-[295px] 2xl:right-[315px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[35px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            {/* Central Scope - Desktop */}
-            <div className="relative mx-auto hidden h-[380px] w-full max-w-[500px] items-center justify-center sm:h-[420px] xl:flex xl:h-[460px]">
-              <div className="absolute bottom-10 left-1/2 h-36 w-64 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
+            {/* Central Scope - Desktop (Scaled and Centered with Clean Clearance) */}
+            <div className="relative mx-auto hidden h-[380px] w-full max-w-[420px] items-center justify-center sm:h-[400px] xl:flex xl:h-[440px]">
+              <div className="absolute left-1/2 top-1/2 h-36 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl"></div>
               <motion.img
                 src={sheathHeroImg}
                 alt="HugeMed Single-use Ureteral Access Sheath"
-                className="relative z-10 max-h-[360px] w-auto object-contain drop-shadow-[0_20px_30px_rgba(25,168,232,0.22)] xl:max-h-[420px] rounded-2xl"
+                className="relative z-10 w-full max-w-[380px] xl:max-w-[400px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(25,168,232,0.22)] rounded-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               />
             </div>
 
-            {/* Central Scope - Mobile */}
-            <div className="relative mx-auto flex h-auto w-full max-w-[290px] items-center justify-center pb-4 xl:hidden sm:max-w-[340px]">
-              <div className="absolute bottom-6 left-1/2 h-24 w-44 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
+            {/* Central Scope - Mobile (with generous vertical margin) */}
+            <div className="relative mx-auto flex h-auto w-full max-w-[280px] sm:max-w-[340px] items-center justify-center my-6 sm:my-8 xl:hidden">
+              <div className="absolute left-1/2 top-1/2 h-24 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-2xl"></div>
               <motion.img
                 src={sheathHeroImg}
                 alt="HugeMed Single-use Ureteral Access Sheath"
-                className="relative z-10 max-h-[220px] w-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)] sm:max-h-[260px] rounded-2xl"
+                className="relative z-10 w-full h-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)] rounded-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -242,7 +242,7 @@ const AccessSheath = () => {
             </div>
 
             {/* Mobile Feature Cards */}
-            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 xl:hidden">
+            <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-3.5 px-2 pb-8 sm:px-4 xl:hidden">
               <MobileFeatureCard
                 number="01"
                 type="SUCTION CONTROL"

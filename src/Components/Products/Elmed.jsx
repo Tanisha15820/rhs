@@ -35,12 +35,6 @@ const Elmed = () => {
       bannerImage={ENTLaserBg}
       description="Explore our advanced ELMED surgical systems engineered for precision, reliability and everyday clinical excellence."
       products={products}
-      otherCategories={[
-        "CO2 Surgical Laser",
-        "ENT, Head & Neck Oncology",
-        "RZ",
-        "Morcellator System",
-      ]}
     />
   );
 };

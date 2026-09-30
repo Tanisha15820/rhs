@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Compass, Layers, ShieldCheck, Zap } from "lucide-react";
 import tipImg from "../../assets/images/ureterorenoscope_tip.jpg";
 import handleImg from "../../assets/images/ureterorenoscope_handle.jpg";
-import fullScopeImg from "../../assets/images/reusable_ureterorenoscope.jpg";
+import fullScopeImg from "../../assets/images/reusable-ureterorenoscope.png";
 
 const UreterorenoscopeCapabilities = () => {
   const deepDives = [

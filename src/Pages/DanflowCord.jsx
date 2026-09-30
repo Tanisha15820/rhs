@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import machineImage from "../assets/images/danflow_cord_machine.jpg";
+import machineImage from "../assets/images/danflow-cord.png";
 import transducerImg from "../assets/images/danflow_transducer_funnel.jpg";
 import printerImg from "../assets/images/danflow_thermal_printer.jpg";
 import standImg from "../assets/images/danflow_stands_commode.jpg";

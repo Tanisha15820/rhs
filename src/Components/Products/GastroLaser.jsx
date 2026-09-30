@@ -23,7 +23,6 @@ const GastroLaser = () => {
       bannerImage={GastroBg}
       description="Explore our wide range of high-quality laser systems designed for precise gastrointestinal procedures."
       products={products}
-      otherCategories={["Gastro Endoscopy"]}
     />
   );
 };

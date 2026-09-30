@@ -46,9 +46,9 @@ export const CATEGORIES = {
 
 // Surgical Laser Subcategories (under Urology -> Surgical Laser)
 export const SURGICAL_LASER_SUBCATEGORIES = [
-  { name: "Holmium YAG Laser", path: "/urology-surgical-laser" },
-  { name: "Thulium YAG Laser", path: "/urology-surgical-laser" },
-  { name: "Thulium Fiber Laser", path: "/urology-surgical-laser" },
+  { name: "Holmium YAG Laser", path: "/holmium-yag-laser" },
+  { name: "Thulium YAG Laser", path: "/thulium-yag-laser" },
+  { name: "Thulium Fiber Laser", path: "/thulium-fiber-laser" },
 ];
 
 // Surgical Laser Products grouped by subcategory
@@ -111,10 +111,8 @@ export const MORCELLATOR_SUBTYPES = [
 
 // Urodynamic System & Uroflowmetry Subcategories
 export const URODYNAMIC_SUBTYPES = [
-  { name: "Urodynamic Systems", path: "/melody" },
-  { name: "Uroflowmeters", path: "/danflow-wave" },
-  { name: "Patient Couch", path: "/patient-couch" },
-  { name: "Bladder Scanner", path: "/bladder-scanner" },
+  { name: "Urodynamic Systems", path: "/urodynamic-systems" },
+  { name: "Uroflowmeters", path: "/uroflowmeters" },
 ];
 
 // Urodynamic Products grouped by subcategory
@@ -128,8 +126,6 @@ export const URODYNAMIC_PRODUCTS_BY_SUBCATEGORY = {
     { name: "Danflow Wave", path: "/danflow-wave" },
     { name: "Danflow Cord", path: "/danflow-cord" },
   ],
-  "Patient Couch": [{ name: "Patient Couch", path: "/patient-couch" }],
-  "Bladder Scanner": [{ name: "Bladder Scanner", path: "/bladder-scanner" }],
 };
 
 // Roboflex Avicenna Subtype

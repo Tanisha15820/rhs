@@ -111,6 +111,8 @@ function Navbar() {
   const isProductsActive =
     pathname === "/urology" ||
     pathname === "/urology-surgical-laser" ||
+    pathname === "/urology-urodynamic" ||
+    pathname === "/urology-eswl" ||
     pathname === "/ent" ||
     pathname === "/gastro" ||
     pathname === "/ent-laser" ||
@@ -129,9 +131,6 @@ function Navbar() {
     pathname === "/harmony" ||
     pathname === "/danflow-wave" ||
     pathname === "/danflow-cord" ||
-    pathname === "/bladder-scanner" ||
-    pathname === "/patient-couch" ||
-    pathname === "/patient-coach" ||
     pathname === "/avicenna" ||
     pathname === "/huv02" ||
     pathname === "/huv-02" ||
@@ -145,6 +144,18 @@ function Navbar() {
     pathname === "/cystoscope" ||
     pathname === "/access-sheath" ||
     pathname === "/ureteral-access-sheath" ||
+    pathname === "/urology-endo" ||
+    pathname === "/endo-urology" ||
+    pathname === "/flexible-video-ureterorenoscope" ||
+    pathname === "/urology-ureterorenoscope" ||
+    pathname === "/holmium-yag-laser" ||
+    pathname === "/holmium-laser" ||
+    pathname === "/thulium-yag-laser" ||
+    pathname === "/thulium-laser" ||
+    pathname === "/thulium-fiber-laser" ||
+    pathname === "/thulium-fiber" ||
+    pathname === "/urodynamic-systems" ||
+    pathname === "/uroflowmeters" ||
     pathname.startsWith("/products");
 
   // Get category page path
@@ -154,9 +165,15 @@ function Navbar() {
     if (category === "Morcellator System") return "/morcellator";
     if (category === "Surgical Laser") return "/urology-surgical-laser";
     if (category === "Gastro Laser") return "/gastro-laser";
+    if (
+      category === "Urodynamic System & Uroflowmeters" ||
+      category === "Urodynamic Systems & Uroflowmeters"
+    )
+      return "/urology-urodynamic";
+    if (category === "ESWL Lithotripsy") return "/urology-eswl";
+    if (category === "Endo Urology UMD Endoscopy") return "/urology-endo";
+    if (category === "Flexible Video Ureterorenoscope") return "/flexible-video-ureterorenoscope";
 
-    // ESWL and Endo should open their products
-    // instead of navigating immediately
     return null;
   };
 
@@ -493,9 +510,13 @@ function Navbar() {
                                 onMouseEnter={() =>
                                   setSelectedSubcategory(sub.name)
                                 }
-                                onClick={() =>
-                                  setSelectedSubcategory(sub.name)
-                                }
+                                onClick={() => {
+                                  setSelectedSubcategory(sub.name);
+                                  if (sub.path && sub.path !== "/urology") {
+                                    navigate(sub.path);
+                                    setProductsOpen(false);
+                                  }
+                                }}
                                 className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 text-left text-[13.5px] transition-all ${
                                   isSelected
                                     ? "bg-blue-50 font-semibold text-blue-600"

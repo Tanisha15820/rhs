@@ -16,7 +16,6 @@ import cystoscopeImg from "../assets/images/cystoscope.png";
 import endoVisionImg from "../assets/images/endo_vision_set.png";
 import articulatedArm from "../assets/images/articulate_arm.png";
 import diodeImage from "../assets/images/diode.png";
-
 import CystoscopyAbout from "../Components/Cystoscopy/CystoscopyAbout";
 import CystoscopyTelescopes from "../Components/Cystoscopy/CystoscopyTelescopes";
 import CystoscopySheaths from "../Components/Cystoscopy/CystoscopySheaths";

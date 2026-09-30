@@ -27,8 +27,11 @@ const specialtyLinks = [
   { label: "Urology Surgical Lasers", path: "/urology-surgical-laser" },
   { label: "ENT CO2 Surgical Laser", path: "/ent-laser" },
   { label: "Gastro Laser & Endoscopy", path: "/gastro-laser" },
-  { label: "ESWL Lithotripsy Systems", path: "/vibrolith" },
-  { label: "Urodynamics & Bladder Scanners", path: "/bladder-scanner" },
+  { label: "ESWL Lithotripsy Systems", path: "/urology-eswl" },
+  { label: "Urodynamics & Bladder Scanners", path: "/urology-urodynamic" },
+  { label: "Endo Urology & Endoscopy", path: "/urology-endo" },
+  { label: "Morcellator Systems", path: "/morcellator" },
+  { label: "Flexible Video URS", path: "/flexible-video-ureterorenoscope" },
 ];
 
 const Footer = () => {

@@ -12,7 +12,7 @@ import {
   Maximize2,
   Sliders,
 } from "lucide-react";
-import scopeImg from "../../assets/images/reusable_ureterorenoscope.jpg";
+import scopeImg from "../../assets/images/reusable-ureterorenoscope.png";
 
 const UreterorenoscopeFeatures = () => {
   const [activeCallout, setActiveCallout] = useState(null);

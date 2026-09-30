@@ -3,6 +3,8 @@ import Layout from "./Layout";
 import Homepage from "./Pages/HomePage";
 import Urology from "./Components/Products/Urology";
 import SurgicalLaser from "./Components/Products/SurgicalLaser";
+import UrodynamicSystem from "./Components/Products/UrodynamicSystem";
+import ESWLLithotripsy from "./Components/Products/ESWLLithotripsy";
 import ENT from "./Components/Products/ENT";
 import Blogs from "./Pages/Blogs";
 import MachinePage from "./Pages/MachinePage";
@@ -35,6 +37,13 @@ import ENTLaser from "./Components/Products/ENTLaser";
 import Elmed from "./Components/Products/Elmed";
 import RZ from "./Components/Products/RZ";
 import Morcellator from "./Components/Products/Morcellator";
+import EndoUrology from "./Components/Products/EndoUrology";
+import FlexibleVideoUreterorenoscope from "./Components/Products/FlexibleVideoUreterorenoscope";
+import HolmiumLaser from "./Components/Products/HolmiumLaser";
+import ThuliumLaser from "./Components/Products/ThuliumLaser";
+import ThuliumFiberLaser from "./Components/Products/ThuliumFiberLaser";
+import UrodynamicSystems from "./Components/Products/UrodynamicSystems";
+import Uroflowmeters from "./Components/Products/Uroflowmeters";
 import Melody from "./Pages/Melody";
 import Symphony from "./Pages/Symphony";
 import Harmony from "./Pages/Harmony";
@@ -58,11 +67,32 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/urology" element={<Urology />} />
           <Route path="/urology-surgical-laser" element={<SurgicalLaser />} />
+          <Route path="/holmium-yag-laser" element={<HolmiumLaser />} />
+          <Route path="/holmium-laser" element={<HolmiumLaser />} />
+          <Route path="/thulium-yag-laser" element={<ThuliumLaser />} />
+          <Route path="/thulium-laser" element={<ThuliumLaser />} />
+          <Route path="/thulium-fiber-laser" element={<ThuliumFiberLaser />} />
+          <Route path="/thulium-fiber" element={<ThuliumFiberLaser />} />
+          <Route path="/urology-urodynamic" element={<UrodynamicSystem />} />
+          <Route path="/urodynamic-system" element={<UrodynamicSystem />} />
+          <Route path="/urodynamics" element={<UrodynamicSystem />} />
+          <Route path="/urodynamic-systems" element={<UrodynamicSystems />} />
+          <Route path="/uroflowmeters" element={<Uroflowmeters />} />
+          <Route path="/urology-eswl" element={<ESWLLithotripsy />} />
+          <Route path="/eswl-lithotripsy" element={<ESWLLithotripsy />} />
+          <Route path="/eswl" element={<ESWLLithotripsy />} />
           <Route path="/ent" element={<ENT />} />
           <Route path="/ent-laser" element={<ENTLaser />} />
           <Route path="/elmed" element={<Elmed />} />
           <Route path="/rz" element={<RZ />} />
           <Route path="/morcellator" element={<Morcellator />} />
+          <Route path="/morcellator-system" element={<Morcellator />} />
+          <Route path="/urology-morcellator" element={<Morcellator />} />
+          <Route path="/urology-endo" element={<EndoUrology />} />
+          <Route path="/endo-urology" element={<EndoUrology />} />
+          <Route path="/flexible-video-ureterorenoscope" element={<FlexibleVideoUreterorenoscope />} />
+          <Route path="/urology-ureterorenoscope" element={<FlexibleVideoUreterorenoscope />} />
+          <Route path="/flexible-video-urs" element={<FlexibleVideoUreterorenoscope />} />
 
           <Route path="/gastro" element={<Gastro />} />
           <Route path="/gastro-laser" element={<GastroLaser />} />
@@ -99,9 +129,10 @@ function App() {
           <Route path="/harmony" element={<Harmony />} />
           <Route path="/danflow-wave" element={<DanflowWave />} />
           <Route path="/danflow-cord" element={<DanflowCord />} />
-          <Route path="/bladder-scanner" element={<BladderScanner />} />
-          <Route path="/patient-couch" element={<PatientCouch />} />
-          <Route path="/patient-coach" element={<PatientCouch />} />
+          <Route path="/bladder-scanner-details" element={<BladderScanner />} />
+          <Route path="/mmt-bladder-scanner" element={<BladderScanner />} />
+          <Route path="/patient-couch-details" element={<PatientCouch />} />
+          <Route path="/trytable-patient-coach" element={<PatientCouch />} />
           <Route path="/huv02" element={<HUV02 />} />
           <Route path="/huv-02" element={<HUV02 />} />
           <Route path="/huv01" element={<HUV01 />} />
