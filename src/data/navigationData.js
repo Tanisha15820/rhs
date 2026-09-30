@@ -113,6 +113,8 @@ export const MORCELLATOR_SUBTYPES = [
 export const URODYNAMIC_SUBTYPES = [
   { name: "Urodynamic Systems", path: "/urodynamic-systems" },
   { name: "Uroflowmeters", path: "/uroflowmeters" },
+  { name: "Patient Couch", path: "/patient-couch-details" },
+  { name: "Bladder Scanner", path: "/bladder-scanner-details" },
 ];
 
 // Urodynamic Products grouped by subcategory
@@ -125,6 +127,12 @@ export const URODYNAMIC_PRODUCTS_BY_SUBCATEGORY = {
   Uroflowmeters: [
     { name: "Danflow Wave", path: "/danflow-wave" },
     { name: "Danflow Cord", path: "/danflow-cord" },
+  ],
+  "Patient Couch": [
+    { name: "TRYTABLE Patient Couch", path: "/patient-couch-details" },
+  ],
+  "Bladder Scanner": [
+    { name: "MMT Bladder Scanner", path: "/bladder-scanner-details" },
   ],
 };
 
@@ -151,7 +159,7 @@ export const URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY = {
   ],
   "Disposable Ureterorenoscope": [
     { name: "Disposable HU30M 6.3/6 Fr", path: "/disposable-hu30m-6-3fr" },
-    { name: "Disposable HU30M 7.5 Fr", path: "/urology" },
+    { name: "Disposable HU30M 7.5 Fr", path: "/disposable-hu30m-7-5fr" },
     { name: "Cystonephroscope", path: "/urology" },
     { name: "Cystoscope", path: "/disposable-cystoscope" },
     { name: "Access sheath", path: "/access-sheath" },

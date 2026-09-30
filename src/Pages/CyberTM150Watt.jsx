@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import machineImage from "../assets/images/cybertm_machine.jpg";
+import machineImage from "../assets/images/cybertm_machine.png";
 import footswitchImg from "../assets/images/cybertm_footswitch.jpg";
 import fiberImg from "../assets/images/litho35_fiber.png";
 import recognitionImg from "../assets/images/litho35_recognition.png";
@@ -351,7 +351,7 @@ const CyberTM150Watt = () => {
                   </div>
 
                   <div className="rounded-2xl bg-white p-4 shadow-sm">
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
                         <ShieldCheck size={20} />
                       </div>
@@ -367,7 +367,7 @@ const CyberTM150Watt = () => {
                   </div>
 
                   <div className="rounded-2xl bg-white p-4 shadow-sm">
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
                         <Cpu size={20} />
                       </div>
@@ -439,21 +439,21 @@ const CyberTM150Watt = () => {
             <div className="bg-[#F8FCFF] border border-blue-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-slate-800 mb-4 border-b border-blue-200 pb-2">UROLOGY</h3>
               <ul className="space-y-3 text-slate-700 font-medium">
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> BPH (THuVAP - THuVARP - THuLEP - THuVEP)</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> Tumors of the Upper Urinary Tract</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> Bladder Tumors</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> Strictures</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> Partial Nephrectomy</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> BPH (THuVAP - THuVARP - THuLEP - THuVEP)</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> Tumors of the Upper Urinary Tract</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> Bladder Tumors</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> Strictures</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> Partial Nephrectomy</li>
               </ul>
             </div>
             <div className="bg-[#F8FCFF] border border-blue-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-slate-800 mb-4 border-b border-blue-200 pb-2">MULTIDISCIPLINARY</h3>
               <ul className="space-y-3 text-slate-700 font-medium">
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> Thoracic Surgery</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> ENT</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> Neurology</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> General Surgery</li>
-                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5"/> Gastroenterology</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> Thoracic Surgery</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> ENT</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> Neurology</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> General Surgery</li>
+                <li className="flex items-center gap-2"><CheckCircle className="text-[#19A8E8] h-5 w-5" /> Gastroenterology</li>
               </ul>
             </div>
           </div>
@@ -463,44 +463,44 @@ const CyberTM150Watt = () => {
       {/* Cyber TM In Brief & Optionals */}
       <section className="bg-slate-50 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-           <div className="grid lg:grid-cols-2 gap-12">
-             <div>
-                <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Cyber TM In Brief</h2>
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Cyber TM In Brief</h2>
+              <ul className="space-y-4 text-slate-700 text-sm leading-6">
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> Power Output - 150W</li>
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> High precision action without affecting the surrounding tissue</li>
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> Minimal post-operative catheterization time</li>
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> Reduction of time of hospitalization time and return to normal quality of life</li>
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> Minimal blood loss also for high-risk patients (ex. anticoagulant therapy)</li>
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> Multidisciplinary system for minimally invasive surgery</li>
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> Double footswitch with Ready/Standby element</li>
+                <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5" /> Conservation of Antegrade Ejaculation</li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Optionals & Accessories</h2>
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                 <ul className="space-y-4 text-slate-700 text-sm leading-6">
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> Power Output - 150W</li>
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> High precision action without affecting the surrounding tissue</li>
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> Minimal post-operative catheterization time</li>
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> Reduction of time of hospitalization time and return to normal quality of life</li>
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> Minimal blood loss also for high-risk patients (ex. anticoagulant therapy)</li>
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> Multidisciplinary system for minimally invasive surgery</li>
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> Double footswitch with Ready/Standby element</li>
-                  <li className="flex items-start gap-2"><CheckCircle className="text-[#19A8E8] shrink-0 h-5 w-5 mt-0.5"/> Conservation of Antegrade Ejaculation</li>
+                  <li className="border-b border-slate-100 pb-3">
+                    <strong>Optical fibers with frontal emission</strong><br />
+                    Sterile - Single Use or Reusable<br />
+                    Core diameter from 200 µm to 1000µm (3m long)
+                  </li>
+                  <li className="border-b border-slate-100 pb-3">
+                    <strong>Optical fibers with lateral emission</strong><br />
+                    Sterile - Single Use<br />
+                    Core diameter 600µm (3m long)
+                  </li>
+                  <li className="pb-3">
+                    <strong>Additional Accessories:</strong><br />
+                    • Adjustable Stripper for Optical Fibers<br />
+                    • Special Sterilizable Stripper for Optical Fibers<br />
+                    • Ceramic Scissors
+                  </li>
                 </ul>
-             </div>
-             <div>
-                <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Optionals & Accessories</h2>
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                  <ul className="space-y-4 text-slate-700 text-sm leading-6">
-                    <li className="border-b border-slate-100 pb-3">
-                      <strong>Optical fibers with frontal emission</strong><br/>
-                      Sterile - Single Use or Reusable<br/>
-                      Core diameter from 200 µm to 1000µm (3m long)
-                    </li>
-                    <li className="border-b border-slate-100 pb-3">
-                      <strong>Optical fibers with lateral emission</strong><br/>
-                      Sterile - Single Use<br/>
-                      Core diameter 600µm (3m long)
-                    </li>
-                    <li className="pb-3">
-                      <strong>Additional Accessories:</strong><br/>
-                      • Adjustable Stripper for Optical Fibers<br/>
-                      • Special Sterilizable Stripper for Optical Fibers<br/>
-                      • Ceramic Scissors
-                    </li>
-                  </ul>
-                </div>
-             </div>
-           </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

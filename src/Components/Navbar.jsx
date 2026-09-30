@@ -111,6 +111,8 @@ function Navbar() {
   const isProductsActive =
     pathname === "/urology" ||
     pathname === "/urology-surgical-laser" ||
+    pathname === "/surgical-laser" ||
+    pathname === "/surgical-lasers" ||
     pathname === "/urology-urodynamic" ||
     pathname === "/urology-eswl" ||
     pathname === "/ent" ||
@@ -140,6 +142,14 @@ function Navbar() {
     pathname === "/disposable-hu30m-6-3fr" ||
     pathname === "/disposable-hu30m-6.3-fr" ||
     pathname === "/hu30m-6-3fr" ||
+    pathname === "/disposable-hu30m-7-5fr" ||
+    pathname === "/disposable-hu30m-7.5-fr" ||
+    pathname === "/disposable-hu30m-7.5fr" ||
+    pathname === "/disposable-hu30m-7.5" ||
+    pathname === "/hu30m-7-5fr" ||
+    pathname === "/hu30m-7.5" ||
+    pathname === "/hu30s-7-5fr" ||
+    pathname === "/hu30s" ||
     pathname === "/disposable-cystoscope" ||
     pathname === "/cystoscope" ||
     pathname === "/access-sheath" ||
@@ -156,6 +166,12 @@ function Navbar() {
     pathname === "/thulium-fiber" ||
     pathname === "/urodynamic-systems" ||
     pathname === "/uroflowmeters" ||
+    pathname === "/bladder-scanner-details" ||
+    pathname === "/bladder-scanner" ||
+    pathname === "/mmt-bladder-scanner" ||
+    pathname === "/patient-couch-details" ||
+    pathname === "/patient-couch" ||
+    pathname === "/trytable-patient-coach" ||
     pathname.startsWith("/products");
 
   // Get category page path
@@ -218,16 +234,7 @@ function Navbar() {
         );
       }
 
-      if (
-        category === "Surgical Laser" ||
-        category === "Urodynamic System & Uroflowmeters" ||
-        category === "Flexible Video Ureterorenoscope"
-      ) {
-        return [];
-      }
-
-      // Default: show all products grouped
-      return Object.values(subcategoryMeta.productsBySubcategory).flat();
+      return [];
     }
 
     if (category === "ESWL Lithotripsy") {
@@ -294,15 +301,18 @@ function Navbar() {
 
   // Mobile category accordion
   const handleMobileCategoryClick = (category) => {
-    const path = getCategoryPath(category);
+    const hasSubs = (SUBCATEGORY_DATA[category]?.subcategories || []).length > 0;
 
-    // Categories with their own pages
-    if (path) {
-      setSelectedCategory(category);
-      setSelectedSubcategory(null);
-      navigate(path);
-      closeMobileMenu();
-      return;
+    // Categories with their own pages and no subcategory layer
+    if (!hasSubs) {
+      const path = getCategoryPath(category);
+      if (path) {
+        setSelectedCategory(category);
+        setSelectedSubcategory(null);
+        navigate(path);
+        closeMobileMenu();
+        return;
+      }
     }
 
     // Categories that contain products
@@ -449,6 +459,7 @@ function Navbar() {
 
                       {getVisibleCategories(selectedSpecialty).map((cat) => {
                         const isSelected = selectedCategory === cat;
+                        const hasSubs = (SUBCATEGORY_DATA[cat]?.subcategories || []).length > 0;
 
                         return (
                           <button
@@ -456,16 +467,13 @@ function Navbar() {
                             type="button"
                             onMouseEnter={() => {
                               setSelectedCategory(cat);
-                              const subcats = SUBCATEGORY_DATA[cat]?.subcategories || [];
-                              setSelectedSubcategory(subcats.length > 0 ? subcats[0].name : null);
+                              setSelectedSubcategory(null);
                             }}
                             onClick={() => {
                               setSelectedCategory(cat);
-                              const subcats = SUBCATEGORY_DATA[cat]?.subcategories || [];
-                              setSelectedSubcategory(subcats.length > 0 ? subcats[0].name : null);
+                              setSelectedSubcategory(null);
 
                               const path = getCategoryPath(cat);
-
                               if (path) {
                                 navigate(path);
                                 setProductsOpen(false);
@@ -488,14 +496,16 @@ function Navbar() {
                     {/* Subcategories (Laser Type / Product Type) */}
                     {hasSubcategories && (
                       <div className="space-y-1 border-r border-gray-100 px-5">
-                        <div className="mb-3 flex items-center gap-2">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600">
-                            <AirIcon sx={{ fontSize: 18 }} />
-                          </div>
+                        <div className="mb-3 flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600">
+                              <AirIcon sx={{ fontSize: 18 }} />
+                            </div>
 
-                          <h3 className="truncate text-sm font-bold text-gray-800">
-                            {getSubcategoryHeader(selectedCategory)}
-                          </h3>
+                            <h3 className="truncate text-sm font-bold text-gray-800">
+                              {getSubcategoryHeader(selectedCategory)}
+                            </h3>
+                          </div>
                         </div>
 
                         {getCategorySubcategories(selectedCategory).map(
@@ -535,36 +545,36 @@ function Navbar() {
 
                     {/* Products */}
                     <div className="max-h-[360px] space-y-1 overflow-y-auto pl-5">
-                      <div className="mb-3 flex items-center gap-2">
-                        <span className="text-base text-sky-600">✦</span>
+                      {hasSubcategories && !selectedSubcategory ? null : (
+                        <>
+                          <div className="mb-3 flex items-center gap-2">
+                            <span className="text-base text-sky-600">✦</span>
 
-                        <h3 className="truncate text-sm font-bold text-gray-800">
-                          {selectedSubcategory || selectedCategory}
-                        </h3>
-                      </div>
+                            <h3 className="truncate text-sm font-bold text-gray-800">
+                              {selectedSubcategory || selectedCategory}
+                            </h3>
+                          </div>
 
-                      {currentProducts.length > 0 ? (
-                        <div className="grid grid-cols-1 gap-1">
-                          {currentProducts.map((prod) => (
-                            <Link
-                              key={prod.name}
-                              to={prod.path}
-                              onClick={() => setProductsOpen(false)}
-                              className="group flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] text-gray-600 transition hover:bg-sky-50 hover:text-blue-600"
-                            >
-                              <ChevronRightIcon
-                                sx={{ fontSize: 14 }}
-                                className="shrink-0 text-blue-500"
-                              />
+                          {currentProducts.length > 0 ? (
+                            <div className="grid grid-cols-1 gap-1">
+                              {currentProducts.map((prod) => (
+                                <Link
+                                  key={prod.name}
+                                  to={prod.path}
+                                  onClick={() => setProductsOpen(false)}
+                                  className="group flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] text-gray-600 transition hover:bg-sky-50 hover:text-blue-600"
+                                >
+                                  <ChevronRightIcon
+                                    sx={{ fontSize: 14 }}
+                                    className="shrink-0 text-blue-500"
+                                  />
 
-                              <span className="truncate">{prod.name}</span>
-                            </Link>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="py-3 text-xs text-gray-400">
-                          Select a category to view items
-                        </p>
+                                  <span className="truncate">{prod.name}</span>
+                                </Link>
+                              ))}
+                            </div>
+                          ) : null}
+                        </>
                       )}
                     </div>
                   </div>
@@ -731,6 +741,16 @@ function Navbar() {
                                       {getCategorySubcategories(cat).length >
                                       0 ? (
                                         <>
+                                          {getCategoryPath(cat) && (
+                                            <Link
+                                              to={getCategoryPath(cat)}
+                                              onClick={closeMobileMenu}
+                                              className="mb-1 flex items-center justify-between rounded-lg bg-primary/10 px-3 py-2 text-xs font-bold text-primary hover:bg-primary/15"
+                                            >
+                                              <span>View All {cat}</span>
+                                              <ChevronRightIcon sx={{ fontSize: 14 }} />
+                                            </Link>
+                                          )}
                                           {getCategorySubcategories(cat).map(
                                             (sub) => {
                                               const isSubSelected =

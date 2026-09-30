@@ -1,6 +1,7 @@
 import flexUreterorenoscopeBg from "../../assets/images/flexible_ureterorenoscope_banner.jpg";
 import reusableURSImg from "../../assets/images/reusable-ureterorenoscope.png";
 import hu30mImg from "../../assets/images/hu30m6.3.png";
+import hu30m75Img from "../../assets/images/hu30m_75_scope.png";
 import disposableCystoImg from "../../assets/images/disposable_cystoscope.jpg";
 import huv01Img from "../../assets/images/huv01.png";
 import huv02Img from "../../assets/images/huv02.png";
@@ -21,6 +22,11 @@ const FlexibleVideoUreterorenoscope = () => {
       name: "Disposable HU30M 6.3/6 Fr",
       image: hu30mImg,
       link: "/disposable-hu30m-6-3fr",
+    },
+    {
+      name: "Disposable HU30M 7.5 Fr",
+      image: hu30m75Img,
+      link: "/disposable-hu30m-7-5fr",
     },
     {
       name: "Disposable Cystoscope",

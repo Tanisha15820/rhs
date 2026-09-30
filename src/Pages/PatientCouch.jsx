@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import couchImage from "../assets/images/trytable_patient_coach.jpg";
+import couchImage from "../assets/images/trytable_patient_coach.png";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 const FeatureCard = ({ number, title, description, position }) => {

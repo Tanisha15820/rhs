@@ -20,7 +20,7 @@ import {
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
 import probeImg from "../assets/images/mmt_bladder_probe.jpg";
-import cartImg from "../assets/images/mmt_standalone_cart.jpg";
+import cartImg from "../assets/images/bladder_scanner.png";
 import softwareImg from "../assets/images/mmt_software_pvr.jpg";
 import holdersImg from "../assets/images/uromic_holders_suite.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
@@ -689,11 +689,10 @@ const BladderScanner = () => {
               <div
                 key={idx}
                 onClick={() => setActiveScanDepth(idx)}
-                className={`cursor-pointer rounded-3xl p-6 transition-all border ${
-                  activeScanDepth === idx
-                    ? "border-primary bg-white shadow-lg ring-2 ring-primary/20 scale-[1.02]"
-                    : "border-slate-200 bg-white/70 hover:bg-white hover:border-slate-300"
-                }`}
+                className={`cursor-pointer rounded-3xl p-6 transition-all border ${activeScanDepth === idx
+                  ? "border-primary bg-white shadow-lg ring-2 ring-primary/20 scale-[1.02]"
+                  : "border-slate-200 bg-white/70 hover:bg-white hover:border-slate-300"
+                  }`}
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className={`text-xs font-bold uppercase px-3 py-1 rounded-full ${item.bgBadge}`}>

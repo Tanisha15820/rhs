@@ -24,7 +24,7 @@ import pullerImg from "../assets/images/mmt_profilometry_puller.jpg";
 import pumpImg from "../assets/images/mmt_cystometry_pump.jpg";
 import emgImg from "../assets/images/mmt_emg_sensor.jpg";
 import uroflowImg from "../assets/images/danflow_wave_machine.jpg";
-import scannerImg from "../assets/images/bladder_scanner_1789984360514.jpg";
+import scannerImg from "../assets/images/bladder_scanner.png";
 import commodeImg from "../assets/images/danflow_stands_commode.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 

@@ -1,5 +1,5 @@
 import thuliumYagBg from "../../assets/images/thulium_yag_banner.jpg";
-import cyberTmImg from "../../assets/images/cybertm_machine.jpg";
+import cyberTmImg from "../../assets/images/cybertm_machine.png";
 
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";

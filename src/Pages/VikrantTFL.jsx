@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import machineImage from "../assets/images/vikrant_machine.jpg";
+import machineImage from "../assets/images/vikrant_machine.png";
 import footswitchImg from "../assets/images/cybertm_footswitch.jpg";
 import fiberImg from "../assets/images/litho35_fiber.png";
 import recognitionImg from "../assets/images/litho35_recognition.png";
@@ -30,7 +30,7 @@ const FeatureCard = ({ number, title, description, image, position }) => {
 
       <div className="absolute left-0 top-[42px] h-[45px] w-[1px] bg-primary"></div>
       <div className="flex h-full items-center gap-3 px-3 py-2 pl-4">
-        <div className="relative ml-8 flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-full border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-sm">
+        <div className="relative ml-8 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-sm">
           <img
             src={image}
             alt={title}
@@ -167,69 +167,69 @@ const VikrantTFL = () => {
             </p>
           </div>
 
-          <div className="relative mx-auto mt-4 max-w-[1080px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1240px] sm:mt-6">
             {/* Desktop Feature Cards */}
             <FeatureCard
               number="01"
               title="Fine Dusting"
               description="Low pulse energy combined with very high repetition rate."
               image={machineImage}
-              position="left-4 top-16"
+              position="left-2 xl:left-4 top-12 xl:top-14"
             />
             <FeatureCard
               number="02"
               title="Broad Parameter Control"
               description="Tailor energy, frequency and pulse duration."
               image={fiberImg}
-              position="bottom-16 left-4"
+              position="bottom-12 xl:bottom-14 left-2 xl:left-4"
             />
             <FeatureCard
               number="03"
               title="Reduced Retropulsion"
               description="Finely adjustable pulse delivery helps maintain target contact."
               image={recognitionImg}
-              position="right-4 top-16"
+              position="right-2 xl:right-4 top-12 xl:top-14"
             />
             <FeatureCard
               number="04"
               title="Controlled Tissue Effect"
               description="Pulsed, QCW and continuous delivery options."
               image={footswitchImg}
-              position="bottom-16 right-4"
+              position="bottom-12 xl:bottom-14 right-2 xl:right-4"
             />
 
             {/* Desktop Arrows */}
-            <div className="absolute left-[315px] top-[116px] hidden items-center xl:flex">
+            <div className="absolute left-[310px] xl:left-[324px] top-[108px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[24px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[116px] left-[315px] hidden items-center xl:flex">
+            <div className="absolute bottom-[108px] left-[310px] xl:left-[324px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[24px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[315px] top-[116px] hidden items-center xl:flex">
+            <div className="absolute right-[310px] xl:right-[324px] top-[108px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[116px] right-[315px] hidden items-center xl:flex">
+            <div className="absolute bottom-[108px] right-[310px] xl:right-[324px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
             {/* Central Machine - Desktop */}
-            <div className="relative mx-auto hidden h-[400px] w-full max-w-[500px] items-end justify-center sm:h-[440px] xl:flex xl:h-[460px]">
-              <div className="absolute bottom-10 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
+            <div className="relative mx-auto hidden h-[340px] xl:h-[370px] w-full max-w-[380px] items-center justify-center xl:flex">
+              <div className="absolute bottom-8 left-1/2 h-28 w-56 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"></div>
               <motion.img
                 src={machineImage}
                 alt="Vikrant TFL Laser System"
-                className="relative z-10 h-[380px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.25)] xl:h-[440px] rounded-2xl"
+                className="relative z-10 max-h-[240px] xl:max-h-[270px] w-auto max-w-[340px] xl:max-w-[370px] object-contain drop-shadow-[0_20px_30px_rgba(25,168,232,0.22)] rounded-xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -237,12 +237,12 @@ const VikrantTFL = () => {
             </div>
 
             {/* Central Machine - Mobile */}
-            <div className="relative mx-auto flex h-auto w-full max-w-[280px] items-end justify-center pb-4 xl:hidden">
-              <div className="absolute bottom-6 left-1/2 h-24 w-44 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
+            <div className="relative mx-auto flex h-auto w-full max-w-[280px] sm:max-w-[320px] items-center justify-center my-4 sm:my-6 xl:hidden">
+              <div className="absolute bottom-4 left-1/2 h-20 w-40 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
               <motion.img
                 src={machineImage}
                 alt="Vikrant TFL Laser System"
-                className="relative z-10 h-[260px] w-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)] rounded-xl"
+                className="relative z-10 max-h-[180px] sm:max-h-[210px] w-auto max-w-full object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)] rounded-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -352,7 +352,7 @@ const VikrantTFL = () => {
                   </div>
 
                   <div className="rounded-2xl bg-white p-4 shadow-sm">
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
                         <ShieldCheck size={20} />
                       </div>
@@ -368,7 +368,7 @@ const VikrantTFL = () => {
                   </div>
 
                   <div className="rounded-2xl bg-white p-4 shadow-sm">
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
                         <Cpu size={20} />
                       </div>
@@ -404,19 +404,19 @@ const VikrantTFL = () => {
               <p className="text-slate-600 font-semibold mb-4">Choose the right stone strategy (URS, RIRS, PCNL / MINI):</p>
               <ul className="space-y-4 text-slate-700">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Dusting:</strong> Fine-particle strategy at low pulse energy.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Fragmentation:</strong> Controlled creation of retrievable fragments.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Popcorn:</strong> Non-contact fragment reduction in a calyx.
                   </div>
@@ -428,31 +428,31 @@ const VikrantTFL = () => {
               <p className="text-slate-600 font-semibold mb-4">Cut. Vaporise. Coagulate.</p>
               <ul className="space-y-4 text-slate-700">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-orange-500 h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-orange-500 h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Enucleation:</strong> Anatomical BPH tissue dissection.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Vaporisation / ablation:</strong> Controlled tissue removal.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-emerald-500 h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-emerald-500 h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>TUIP / bladder neck incision:</strong> Targeted incision workflows.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Urethral or ureteric stricture:</strong> Precise endoscopic incision.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-orange-500 h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-orange-500 h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Bladder and upper-tract lesions:</strong> Resection or vaporisation where indicated.
                   </div>
@@ -466,26 +466,26 @@ const VikrantTFL = () => {
       {/* Energy Delivery Modes */}
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-12">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Energy delivery matched to the task</h2>
             <div className="mt-4 flex justify-center">
               <div className="h-1 w-20 rounded bg-primary"></div>
             </div>
           </div>
-           <div className="grid md:grid-cols-3 gap-6">
-             <div className="bg-[#102A43] text-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
-               <h3 className="text-2xl font-bold mb-4 text-[#19A8E8]">QCW</h3>
-               <p className="text-sm text-slate-300">High peak power delivery for demanding stone and tissue tasks.</p>
-             </div>
-             <div className="bg-[#102A43] text-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
-               <h3 className="text-2xl font-bold mb-4 text-[#19A8E8]">PULSED</h3>
-               <p className="text-sm text-slate-300">Adjustable energy, frequency and pulse duration for procedural flexibility.</p>
-             </div>
-             <div className="bg-[#102A43] text-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
-               <h3 className="text-2xl font-bold mb-4 text-[#19A8E8]">CONTINUOUS WAVE</h3>
-               <p className="text-sm text-slate-300">Smooth energy delivery for controlled cutting and coagulation.</p>
-             </div>
-           </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-[#102A43] text-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+              <h3 className="text-2xl font-bold mb-4 text-[#19A8E8]">QCW</h3>
+              <p className="text-sm text-slate-300">High peak power delivery for demanding stone and tissue tasks.</p>
+            </div>
+            <div className="bg-[#102A43] text-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+              <h3 className="text-2xl font-bold mb-4 text-[#19A8E8]">PULSED</h3>
+              <p className="text-sm text-slate-300">Adjustable energy, frequency and pulse duration for procedural flexibility.</p>
+            </div>
+            <div className="bg-[#102A43] text-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+              <h3 className="text-2xl font-bold mb-4 text-[#19A8E8]">CONTINUOUS WAVE</h3>
+              <p className="text-sm text-slate-300">Smooth energy delivery for controlled cutting and coagulation.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -504,7 +504,7 @@ const VikrantTFL = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-12 bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
             <h3 className="text-lg font-bold text-slate-800 mb-4">Quality, Compliance & Support</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">

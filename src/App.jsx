@@ -55,6 +55,7 @@ import HUV02 from "./Pages/HUV02";
 import HUV01 from "./Pages/HUV01";
 import ReusableUreterorenoscope from "./Pages/ReusableUreterorenoscope";
 import DisposableHU30M63Fr from "./Pages/DisposableHU30M63Fr";
+import DisposableHU30M75Fr from "./Pages/DisposableHU30M75Fr";
 import DisposableCystoscope from "./Pages/DisposableCystoscope";
 import AccessSheath from "./Pages/AccessSheath";
 
@@ -67,6 +68,8 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/urology" element={<Urology />} />
           <Route path="/urology-surgical-laser" element={<SurgicalLaser />} />
+          <Route path="/surgical-laser" element={<SurgicalLaser />} />
+          <Route path="/surgical-lasers" element={<SurgicalLaser />} />
           <Route path="/holmium-yag-laser" element={<HolmiumLaser />} />
           <Route path="/holmium-laser" element={<HolmiumLaser />} />
           <Route path="/thulium-yag-laser" element={<ThuliumLaser />} />
@@ -130,8 +133,11 @@ function App() {
           <Route path="/danflow-wave" element={<DanflowWave />} />
           <Route path="/danflow-cord" element={<DanflowCord />} />
           <Route path="/bladder-scanner-details" element={<BladderScanner />} />
+          <Route path="/bladder-scanner" element={<BladderScanner />} />
           <Route path="/mmt-bladder-scanner" element={<BladderScanner />} />
           <Route path="/patient-couch-details" element={<PatientCouch />} />
+          <Route path="/patient-couch" element={<PatientCouch />} />
+          <Route path="/patient-coach" element={<PatientCouch />} />
           <Route path="/trytable-patient-coach" element={<PatientCouch />} />
           <Route path="/huv02" element={<HUV02 />} />
           <Route path="/huv-02" element={<HUV02 />} />
@@ -141,6 +147,21 @@ function App() {
           <Route path="/disposable-hu30m-6-3fr" element={<DisposableHU30M63Fr />} />
           <Route path="/disposable-hu30m-6.3-fr" element={<DisposableHU30M63Fr />} />
           <Route path="/hu30m-6-3fr" element={<DisposableHU30M63Fr />} />
+          <Route path="/disposable-hu30m-7-5fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/disposable-hu30m-7.5-fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/disposable-hu30m-7.5fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/disposable-hu30m-7.5" element={<DisposableHU30M75Fr />} />
+          <Route path="/disposable-hu30m-7-5" element={<DisposableHU30M75Fr />} />
+          <Route path="/disposable-hu30m-75fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/disposable-hu30m-75" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30m-7-5fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30m-7.5-fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30m-7.5" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30m-7-5" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30s-7-5fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30s-7.5-fr" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30s-7.5" element={<DisposableHU30M75Fr />} />
+          <Route path="/hu30s" element={<DisposableHU30M75Fr />} />
           <Route path="/disposable-cystoscope" element={<DisposableCystoscope />} />
           <Route path="/cystoscope" element={<DisposableCystoscope />} />
           <Route path="/access-sheath" element={<AccessSheath />} />

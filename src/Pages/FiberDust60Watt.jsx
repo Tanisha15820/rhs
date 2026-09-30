@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import machineImage from "../assets/images/fiberdust_machine.jpg";
+import machineImage from "../assets/images/fiberdust_machine.png";
 import footswitchImg from "../assets/images/cybertm_footswitch.jpg";
 import fiberImg from "../assets/images/litho35_fiber.png";
 import recognitionImg from "../assets/images/litho35_recognition.png";
@@ -349,7 +349,7 @@ const FiberDust60Watt = () => {
                   </div>
 
                   <div className="rounded-2xl bg-white p-4 shadow-sm">
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
                         <ShieldCheck size={20} />
                       </div>
@@ -365,7 +365,7 @@ const FiberDust60Watt = () => {
                   </div>
 
                   <div className="rounded-2xl bg-white p-4 shadow-sm">
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
                         <Cpu size={20} />
                       </div>
@@ -459,19 +459,19 @@ const FiberDust60Watt = () => {
               <p className="text-slate-600 mb-6">TFL technology has been described as a promising alternative to Holmium laser in stone management.</p>
               <ul className="space-y-4 text-slate-700">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Limited Retropulsion:</strong> Low stone retropulsion during treatment.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Extreme Frequency:</strong> Up to 2500 Hz to tailor technique to specific cases.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Dust & Bust:</strong> Excellent dusting tool, with specific settings for soft stone fragmentation.
                   </div>
@@ -483,19 +483,19 @@ const FiberDust60Watt = () => {
               <p className="text-slate-600 mb-6">Precise and smooth ablation, resection and incision in soft tissues requiring low-medium power.</p>
               <ul className="space-y-4 text-slate-700">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>BPH Management:</strong> 60W power enables low-power ThuLEP (Thulium Laser Enucleation of the Prostate) in both superpulsed and continuous modes.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Effective Hemostasis:</strong> Highly absorbed by water, allowing quick coagulation of bleedings.
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5"/> 
+                  <CheckCircle className="text-[#19A8E8] h-5 w-5 shrink-0 mt-0.5" />
                   <div>
                     <strong>Reduced Penetration:</strong> Shallow depth of penetration, about 0.1-0.2 mm.
                   </div>
@@ -509,46 +509,46 @@ const FiberDust60Watt = () => {
       {/* GUI & Fiber Information */}
       <section className="bg-slate-50 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-           <div className="grid lg:grid-cols-2 gap-12">
-             <div>
-                <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Intuitive GUI & Controls</h2>
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                  <ul className="space-y-4 text-slate-700 text-sm leading-6">
-                    <li className="border-b border-slate-100 pb-3">
-                      <strong>Greater Flexibility</strong><br/>
-                      7 levels of pulse width offer greater flexibility compared to the traditional 3 levels.
-                    </li>
-                    <li className="border-b border-slate-100 pb-3">
-                      <strong>Effect Tuning</strong><br/>
-                      Adjust cutting and lithotripsy fashion step by step based on target hardness and visual feedback.
-                    </li>
-                    <li className="pb-3">
-                      <strong>Save and Load Settings</strong><br/>
-                      Save a suitable settings combination in a customized preset and reload it in future treatments.
-                    </li>
-                  </ul>
-                </div>
-             </div>
-             <div>
-                <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Compatible Fibers</h2>
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                  <ul className="space-y-4 text-slate-700 text-sm leading-6">
-                    <li className="border-b border-slate-100 pb-3">
-                      <strong>Standard Fibers</strong><br/>
-                      For general use in stone and soft tissue treatments.
-                    </li>
-                    <li className="border-b border-slate-100 pb-3">
-                      <strong>Ball Tip Fibers</strong><br/>
-                      Strongly simplify the insertion in already bent scopes.
-                    </li>
-                    <li className="pb-3">
-                      <strong>Gastro Fibers</strong><br/>
-                      Specifically designed for the fragmentation of gallstones.
-                    </li>
-                  </ul>
-                </div>
-             </div>
-           </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Intuitive GUI & Controls</h2>
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <ul className="space-y-4 text-slate-700 text-sm leading-6">
+                  <li className="border-b border-slate-100 pb-3">
+                    <strong>Greater Flexibility</strong><br />
+                    7 levels of pulse width offer greater flexibility compared to the traditional 3 levels.
+                  </li>
+                  <li className="border-b border-slate-100 pb-3">
+                    <strong>Effect Tuning</strong><br />
+                    Adjust cutting and lithotripsy fashion step by step based on target hardness and visual feedback.
+                  </li>
+                  <li className="pb-3">
+                    <strong>Save and Load Settings</strong><br />
+                    Save a suitable settings combination in a customized preset and reload it in future treatments.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Compatible Fibers</h2>
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <ul className="space-y-4 text-slate-700 text-sm leading-6">
+                  <li className="border-b border-slate-100 pb-3">
+                    <strong>Standard Fibers</strong><br />
+                    For general use in stone and soft tissue treatments.
+                  </li>
+                  <li className="border-b border-slate-100 pb-3">
+                    <strong>Ball Tip Fibers</strong><br />
+                    Strongly simplify the insertion in already bent scopes.
+                  </li>
+                  <li className="pb-3">
+                    <strong>Gastro Fibers</strong><br />
+                    Specifically designed for the fragmentation of gallstones.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

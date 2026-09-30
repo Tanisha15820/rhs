@@ -1,6 +1,6 @@
 import thuliumFiberBg from "../../assets/images/thulium_fiber_banner.jpg";
-import fiberdustImg from "../../assets/images/fiberdust_machine.jpg";
-import vikrantImg from "../../assets/images/vikrant_machine.jpg";
+import fiberdustImg from "../../assets/images/fiberdust_machine.png";
+import vikrantImg from "../../assets/images/vikrant_machine.png";
 
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";
