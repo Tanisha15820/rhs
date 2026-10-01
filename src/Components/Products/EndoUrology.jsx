@@ -1,8 +1,6 @@
 import endoUrologyBg from "../../assets/images/endo_urology_banner.jpg";
 import cystoscopeImg from "../../assets/images/cystoscope.png";
 import morcescopeImg from "../../assets/images/morcescope.png";
-import endoVisionImg from "../../assets/images/endo_vision_set.png";
-import bipolarPlasmaImg from "../../assets/images/bipolar_plasma_generator.png";
 
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";
@@ -19,23 +17,13 @@ const EndoUrology = () => {
       image: morcescopeImg,
       link: "/morcescope",
     },
-    {
-      name: "Endo Vision System",
-      image: endoVisionImg,
-      link: "/cystoscopy",
-    },
-    {
-      name: "Bipolar Plasma Generator",
-      image: bipolarPlasmaImg,
-      link: "/cystoscopy",
-    },
   ];
 
   return (
     <>
       <SEO
         title="Endo Urology UMD Endoscopy Equipment Rental | Reinforce Healthcare Services"
-        description="Explore our advanced Endo Urology and UMD Endoscopy solutions, including RZ Cystoscopes, Slim Laser Enucleation systems, Endo Vision sets, and plasma generators."
+        description="Explore our advanced Endo Urology and UMD Endoscopy solutions, including RZ Cystoscopes and Slim Laser Enucleation systems."
         keywords="endo urology equipment, RZ cystoscopy rental, morcescope, urology endoscopy rental, laser enucleation system, endourology machines"
       />
       <ProductsPage

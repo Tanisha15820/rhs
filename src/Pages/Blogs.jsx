@@ -35,25 +35,26 @@ function Blogs() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner Header */}
-      <section
-        className="relative h-[200px] w-full overflow-hidden sm:h-[240px] md:h-[280px] lg:h-[320px]"
-        style={{
-          backgroundImage: `url(${blogBannerBg})`,
-          backgroundSize: "100% 100%",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="relative flex h-full w-full items-center px-5 md:px-8 lg:px-12 xl:px-16">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+      <section className="relative h-[200px] w-full overflow-hidden sm:h-[240px] md:h-[280px] lg:h-[320px]">
+        <img
+          src={blogBannerBg}
+          alt="Our Blogs banner"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+
+        <div className="relative z-10 flex h-full w-full items-center px-5 md:px-8 lg:px-12 xl:px-16">
+          <div className="max-w-xl">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[2px] text-primary sm:text-xs">
+              Reinforce Healthcare
+            </p>
+            <h1 className="text-2xl font-black uppercase tracking-[1px] text-slate-800 sm:text-3xl md:text-4xl">
               Our{" "}
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
                 Blog
               </span>
             </h1>
-            <div className="mt-3 h-[2px] w-10 bg-primary" />
-            <p className="mt-4 max-w-md text-xs leading-5 text-slate-500 md:text-sm">
+            <div className="mt-2 h-[3px] w-12 rounded-full bg-primary" />
+            <p className="mt-3 max-w-md text-xs leading-5 text-slate-500 md:text-sm">
               Insights, guides, and updates from the world of surgical equipment
               and hospital innovation.
             </p>

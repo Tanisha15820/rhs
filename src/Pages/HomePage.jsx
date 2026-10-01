@@ -346,36 +346,6 @@ const HomePage = () => {
                   style={{ fontSize: 18 }}
                 />
               </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  const link =
-                    activeBanner?.secondaryBtnLink ||
-                    "/machine";
-
-                  if (
-                    link.startsWith("http://") ||
-                    link.startsWith("https://")
-                  ) {
-                    window.open(
-                      link,
-                      "_blank",
-                      "noopener,noreferrer"
-                    );
-                  } else {
-                    navigate(link);
-                  }
-                }}
-                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-5 py-2.5 text-sm font-semibold text-primary-dark backdrop-blur-sm transition-all duration-300 hover:bg-white sm:w-auto"
-              >
-                <ArrowForwardIcon
-                  style={{ fontSize: 18 }}
-                />
-
-                {activeBanner?.secondaryBtnText ||
-                  "Explore Products"}
-              </button>
             </div>
           </div>
         </div>

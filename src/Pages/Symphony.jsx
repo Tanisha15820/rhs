@@ -20,7 +20,7 @@ import {
 import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
-import uromicHero from "../assets/images/uromic_hero_1789984346425.jpg";
+import uromicHero from "../assets/images/uromic_hero_1789984346425.png";
 import pullerImg from "../assets/images/mmt_profilometry_puller.jpg";
 import pumpImg from "../assets/images/mmt_cystometry_pump.jpg";
 import emgImg from "../assets/images/mmt_emg_sensor.jpg";

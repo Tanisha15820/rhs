@@ -101,6 +101,7 @@ function App() {
           <Route path="/gastro-laser" element={<GastroLaser />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/machine" element={<MachinePage />} />
+          <Route path="/products" element={<MachinePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/product-enquiry" element={<ProductEnquiry />} />
           <Route path="/smartxide" element={<SmartXide />} />

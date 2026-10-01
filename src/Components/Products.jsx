@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import BipolarPlasmaGenerator from "../assets/images/SmartXide2Trio.png";
 import DiodeLaser from "../assets/images/SmartXideTouchSurgiCO.png";
 import CyberBlade from "../assets/images/raykeen.png";
@@ -14,6 +15,116 @@ const PRESET_MAP = {
   bladder_scanner: BladderScanner,
   flexible_video_urs: FlexibleVideoURS,
   endo_vision_set: EndoVisionSet,
+};
+
+const PRODUCT_LINK_MAP = {
+  // SmartXide Trio
+  "smartxide² unique trio": "/smartxide",
+  "smartxide unique trio": "/smartxide",
+  "smartxide2 unique trio": "/smartxide",
+  "smartxide": "/smartxide",
+
+  // SmartXide Touch SurgiCO
+  "smartxide touch surgico": "/smartxide-touch",
+  "smartxide touch": "/smartxide-touch",
+
+  // Raykeen
+  "raykeen": "/raykeen-morcellator",
+  "raykeen morcellator": "/raykeen-morcellator",
+  "raykeen morcellator system": "/raykeen-morcellator",
+
+  // Multimed
+  "multimed": "/multimed",
+
+  // RZ Slim Laser / Morcescope
+  "rz slim laser enucleation system": "/morcescope",
+  "morcescope": "/morcescope",
+  "rz morcescope": "/morcescope",
+
+  // Bladder Scanner
+  "bladder scanner": "/bladder-scanner-details",
+  "mmt bladder scanner": "/bladder-scanner-details",
+
+  // Lasers
+  "dk 30 watt": "/dk30watt",
+  "dk 30": "/dk30watt",
+  "litho 35 watt": "/litho35watt",
+  "litho evo 35 watt": "/lithoevo35watt",
+  "litho evo": "/lithoevo35watt",
+  "cyber ho 100 watt": "/cyberho100watt",
+  "cyber ho 150 watt": "/cyberho150watt",
+  "cyber ho magneto family": "/cyber-ho-magneto-family",
+  "cyber tm 150 watt": "/cyber-tm-150",
+  "cyber tm 200 watt": "/cyber-tm-200",
+  "fiber dust 60 watt": "/fiber-dust-60",
+  "vikrant - 30/45/70 watt": "/vikrant-tfl",
+  "vikrant": "/vikrant-tfl",
+
+  // Lithotripsy / ESWL
+  "vibrolith": "/vibrolith",
+  "vibrolith plus": "/vibrolith-plus",
+  "vibrolith ortho": "/vibrolith-ortho",
+
+  // Endoscopy / Morcellator / Robotic
+  "cystoscopy": "/cystoscopy",
+  "rz medizintechnik cystoscopy": "/cystoscopy",
+  "cyber blade": "/cyber-blade",
+  "cyber blade™ morcellator": "/cyber-blade",
+  "roboflex avicenna": "/avicenna",
+  "avicenna": "/avicenna",
+
+  // Urodynamics
+  "uromic harmony": "/harmony",
+  "harmony": "/harmony",
+  "uromic melody": "/melody",
+  "melody": "/melody",
+  "uromic symphony": "/symphony",
+  "symphony": "/symphony",
+  "danflow wave": "/danflow-wave",
+  "danflow cord": "/danflow-cord",
+  "trytable patient couch": "/patient-couch-details",
+  "patient couch": "/patient-couch-details",
+
+  // Scopes & Sheaths
+  "huv01": "/huv01",
+  "huv02": "/huv02",
+  "reusable ureterorenoscope": "/reusable-ureterorenoscope",
+  "disposable hu30m 6.3/6 fr": "/disposable-hu30m-6-3fr",
+  "disposable hu30m 7.5 fr": "/disposable-hu30m-7-5fr",
+  "disposable cystoscope": "/disposable-cystoscope",
+  "cystoscope": "/disposable-cystoscope",
+  "access sheath": "/access-sheath",
+};
+
+const PRESET_KEY_MAP = {
+  bipolar_plasma_generator: "/smartxide",
+  diode_laser: "/smartxide-touch",
+  cyber_blade: "/raykeen-morcellator",
+  flexible_video_urs: "/multimed",
+  endo_vision_set: "/morcescope",
+  bladder_scanner: "/bladder-scanner-details",
+};
+
+const getProductLink = (product) => {
+  if (product.link) return product.link;
+  if (product.path) return product.path;
+
+  const normalized = (product.name || "").toLowerCase().trim();
+  if (normalized && PRODUCT_LINK_MAP[normalized]) {
+    return PRODUCT_LINK_MAP[normalized];
+  }
+
+  for (const [key, link] of Object.entries(PRODUCT_LINK_MAP)) {
+    if (normalized && (normalized.includes(key) || key.includes(normalized))) {
+      return link;
+    }
+  }
+
+  if (product.presetImageKey && PRESET_KEY_MAP[product.presetImageKey]) {
+    return PRESET_KEY_MAP[product.presetImageKey];
+  }
+
+  return "/products";
 };
 
 const Products = () => {
@@ -35,6 +146,7 @@ const Products = () => {
 
   const products = productsData.map((item) => ({
     ...item,
+    link: getProductLink(item),
     image:
       item.image || PRESET_MAP[item.presetImageKey] || BipolarPlasmaGenerator,
     bg: item.bg || "bg-[#EEF5FF]",
@@ -165,24 +277,27 @@ const Products = () => {
           <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 w-full">
             {visibleProducts.map((product, index) => {
               const isCenter = itemsToShow === 1 ? true : itemsToShow === 3 ? index === 1 : index === 2;
+              const link = getProductLink(product);
 
               return (
-                <div
+                <Link
                   key={`${product.name}-${startIndex}-${index}`}
+                  to={link}
+                  onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "instant" })}
                   className={`
                     group relative shrink-0 overflow-hidden rounded-2xl
-                    border border-white/90
+                    border border-white/90 block cursor-pointer
                     ${product.bg}
 
                     ${
                       isCenter
-                        ? "w-[85%] sm:w-[45%] md:w-[30%] lg:w-[23%] min-w-[205px] h-[325px] -translate-y-2 shadow-[0_18px_45px_rgba(55,75,110,0.15)]"
-                        : "hidden sm:block sm:w-[25%] md:w-[20%] lg:w-[18.5%] min-w-[160px] h-[280px] shadow-[0_8px_30px_rgba(55,75,110,0.07)]"
+                        ? "w-[85%] sm:w-[45%] md:w-[30%] lg:w-[23%] min-w-[205px] h-[330px] -translate-y-2 shadow-[0_18px_45px_rgba(55,75,110,0.15)]"
+                        : "hidden sm:block sm:w-[25%] md:w-[20%] lg:w-[18.5%] min-w-[160px] h-[285px] shadow-[0_8px_30px_rgba(55,75,110,0.07)]"
                     }
 
                     transition-all duration-500 ease-out
-                    hover:-translate-y-2
-                    hover:shadow-[0_18px_45px_rgba(55,75,110,0.14)]
+                    hover:-translate-y-2.5
+                    hover:shadow-[0_20px_50px_rgba(37,99,235,0.18)]
                   `}
                 >
                   {/* Soft Decorative Circle */}
@@ -219,18 +334,21 @@ const Products = () => {
                   </div>
 
                   {/* Bottom Content */}
-                  <div className="relative z-10 px-2 pb-2 text-center">
+                  <div className="relative z-10 px-3 pb-3 text-center">
                     <h3
                       className={`
-                        mt-2
-                        font-semibold text-[#253653]
+                        mt-1 font-semibold text-[#253653] transition-colors duration-200 group-hover:text-primary
                         ${isCenter ? "text-sm" : "text-[11px] sm:text-xs"}
                       `}
                     >
                       {product.name}
                     </h3>
+                    <div className="mt-1 flex items-center justify-center gap-1 text-[11px] font-bold text-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <span>View Details</span>
+                      <span className="text-xs transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

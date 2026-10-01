@@ -70,6 +70,7 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     category: "Surgical",
     image: "",
     presetImageKey: "bipolar_plasma_generator",
+    link: "/smartxide",
     bg: "bg-[#F1EDFF]",
     iconBg: "bg-[#E4DAFF]",
     iconColor: "text-[#7357E8]",
@@ -83,6 +84,7 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     category: "Laser Surgery",
     image: "",
     presetImageKey: "diode_laser",
+    link: "/smartxide-touch",
     bg: "bg-[#EDF9F7]",
     iconBg: "bg-[#D5F2EC]",
     iconColor: "text-[#1EAE9B]",
@@ -96,6 +98,7 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     category: "Urology",
     image: "",
     presetImageKey: "cyber_blade",
+    link: "/raykeen-morcellator",
     bg: "bg-[#EEF5FF]",
     iconBg: "bg-[#D9E8FF]",
     iconColor: "text-[#4285E8]",
@@ -109,6 +112,7 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     category: "Endoscopy",
     image: "",
     presetImageKey: "flexible_video_urs",
+    link: "/multimed",
     bg: "bg-[#FFF1F5]",
     iconBg: "bg-[#FFE0E9]",
     iconColor: "text-[#F15B91]",
@@ -122,6 +126,7 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     category: "OR Imaging",
     image: "",
     presetImageKey: "endo_vision_set",
+    link: "/morcescope",
     bg: "bg-[#F4F0FF]",
     iconBg: "bg-[#E6DDFF]",
     iconColor: "text-[#7357E8]",
@@ -135,6 +140,7 @@ export const DEFAULT_MACHINE_PRODUCTS = [
     category: "Diagnostics",
     image: "",
     presetImageKey: "bladder_scanner",
+    link: "/bladder-scanner-details",
     bg: "bg-[#EDF8FF]",
     iconBg: "bg-[#DCEEFF]",
     iconColor: "text-[#4285E8]",
@@ -295,7 +301,22 @@ export const getMachineProducts = () => {
     const raw = localStorage.getItem(MACHINE_PRODUCTS_KEY);
     if (!raw) return DEFAULT_MACHINE_PRODUCTS;
     const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return parsed.map((item) => {
+        if (!item.link) {
+          const match = DEFAULT_MACHINE_PRODUCTS.find(
+            (d) =>
+              d.id === item.id ||
+              d.name === item.name ||
+              d.presetImageKey === item.presetImageKey,
+          );
+          if (match?.link) {
+            return { ...item, link: match.link };
+          }
+        }
+        return item;
+      });
+    }
     return DEFAULT_MACHINE_PRODUCTS;
   } catch (err) {
     console.error("Error loading machine products:", err);
@@ -328,6 +349,7 @@ export const addMachineProduct = (product) => {
     category: product.category || "Healthcare Equipment",
     image: product.image || "",
     presetImageKey: product.presetImageKey || "",
+    link: product.link || "",
     bg: theme.bg,
     iconBg: theme.iconBg,
     iconColor: theme.iconColor,

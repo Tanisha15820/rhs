@@ -113,7 +113,7 @@ export const MORCELLATOR_SUBTYPES = [
 export const URODYNAMIC_SUBTYPES = [
   { name: "Urodynamic Systems", path: "/urodynamic-systems" },
   { name: "Uroflowmeters", path: "/uroflowmeters" },
-  { name: "Patient Couch", path: "/patient-couch-details" },
+  { name: "Patient Coach", path: "/patient-couch-details" },
   { name: "Bladder Scanner", path: "/bladder-scanner-details" },
 ];
 
@@ -128,18 +128,13 @@ export const URODYNAMIC_PRODUCTS_BY_SUBCATEGORY = {
     { name: "Danflow Wave", path: "/danflow-wave" },
     { name: "Danflow Cord", path: "/danflow-cord" },
   ],
-  "Patient Couch": [
-    { name: "TRYTABLE Patient Couch", path: "/patient-couch-details" },
-  ],
-  "Bladder Scanner": [
-    { name: "MMT Bladder Scanner", path: "/bladder-scanner-details" },
-  ],
+  "Patient Coach": [],
+  "Patient Couch": [],
+  "Bladder Scanner": [],
 };
 
 // Roboflex Avicenna Subtype
-export const ROBOFLEX_AVICENNA_SUBTYPE = [
-  { name: "Roboflex Avicenna", path: "/avicenna" },
-];
+export const ROBOFLEX_AVICENNA_SUBTYPE = [];
 
 // Flexible Video Ureterorenoscope Subcategories
 export const URETERORENOSCOPE_SUBCATEGORIES = [

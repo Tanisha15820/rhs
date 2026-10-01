@@ -1,7 +1,6 @@
 import morcellatorBg from "../../assets/images/morcellator_banner.jpg";
 import cyberBlade from "../../assets/images/cyberblade.png";
 import raykeen from "../../assets/images/raykeen.png";
-import avicenna from "../../assets/images/roboflex_avicenna.png";
 
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";
@@ -17,11 +16,6 @@ const Morcellator = () => {
       name: "Raykeen Morcellator System",
       image: raykeen,
       link: "/raykeen-morcellator",
-    },
-    {
-      name: "Roboflex Avicenna",
-      image: avicenna,
-      link: "/avicenna",
     },
   ];
 

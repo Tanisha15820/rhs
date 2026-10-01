@@ -31,7 +31,6 @@ SURGICAL_LASER_PRODUCTS_BY_SUBCATEGORY,
   ENT_LASER_SUBTYPES,
   GASTRO_LASER_SUBTYPES,
   MORCELLATOR_SUBTYPES,
-  ROBOFLEX_AVICENNA_SUBTYPE,
   URETERORENOSCOPE_SUBCATEGORIES,
   URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY,
 } from "../data/navigationData";
@@ -188,6 +187,7 @@ function Navbar() {
       return "/urology-urodynamic";
     if (category === "ESWL Lithotripsy") return "/urology-eswl";
     if (category === "Endo Urology UMD Endoscopy") return "/urology-endo";
+    if (category === "Roboflex Avicenna") return "/avicenna";
     if (category === "Flexible Video Ureterorenoscope") return "/flexible-video-ureterorenoscope";
 
     return null;
@@ -258,7 +258,7 @@ function Navbar() {
     }
 
     if (category === "Roboflex Avicenna") {
-      return ROBOFLEX_AVICENNA_SUBTYPE;
+      return [];
     }
 
     return [];
@@ -460,6 +460,8 @@ function Navbar() {
                       {getVisibleCategories(selectedSpecialty).map((cat) => {
                         const isSelected = selectedCategory === cat;
                         const hasSubs = (SUBCATEGORY_DATA[cat]?.subcategories || []).length > 0;
+                        const catProducts = getCategoryProducts(cat);
+                        const hasChildren = hasSubs || catProducts.length > 0;
 
                         return (
                           <button
@@ -487,7 +489,9 @@ function Navbar() {
                           >
                             <span className="truncate">{cat}</span>
 
-                            <ChevronRightIcon sx={{ fontSize: 15 }} />
+                            {hasChildren ? (
+                              <ChevronRightIcon sx={{ fontSize: 15 }} />
+                            ) : null}
                           </button>
                         );
                       })}
@@ -512,6 +516,10 @@ function Navbar() {
                           (sub) => {
                             const isSelected =
                               selectedSubcategory === sub.name;
+                            const subProducts =
+                              SUBCATEGORY_DATA[selectedCategory]
+                                ?.productsBySubcategory[sub.name] || [];
+                            const hasProducts = subProducts.length > 0;
 
                             return (
                               <button
@@ -535,7 +543,9 @@ function Navbar() {
                               >
                                 <span className="truncate">{sub.name}</span>
 
-                                <ChevronRightIcon sx={{ fontSize: 15 }} />
+                                {hasProducts ? (
+                                  <ChevronRightIcon sx={{ fontSize: 15 }} />
+                                ) : null}
                               </button>
                             );
                           },
@@ -545,7 +555,7 @@ function Navbar() {
 
                     {/* Products */}
                     <div className="max-h-[360px] space-y-1 overflow-y-auto pl-5">
-                      {hasSubcategories && !selectedSubcategory ? null : (
+                      {currentProducts && currentProducts.length > 0 ? (
                         <>
                           <div className="mb-3 flex items-center gap-2">
                             <span className="text-base text-sky-600">✦</span>
@@ -555,27 +565,25 @@ function Navbar() {
                             </h3>
                           </div>
 
-                          {currentProducts.length > 0 ? (
-                            <div className="grid grid-cols-1 gap-1">
-                              {currentProducts.map((prod) => (
-                                <Link
-                                  key={prod.name}
-                                  to={prod.path}
-                                  onClick={() => setProductsOpen(false)}
-                                  className="group flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] text-gray-600 transition hover:bg-sky-50 hover:text-blue-600"
-                                >
-                                  <ChevronRightIcon
-                                    sx={{ fontSize: 14 }}
-                                    className="shrink-0 text-blue-500"
-                                  />
+                          <div className="grid grid-cols-1 gap-1">
+                            {currentProducts.map((prod) => (
+                              <Link
+                                key={prod.name}
+                                to={prod.path}
+                                onClick={() => setProductsOpen(false)}
+                                className="group flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] text-gray-600 transition hover:bg-sky-50 hover:text-blue-600"
+                              >
+                                <ChevronRightIcon
+                                  sx={{ fontSize: 14 }}
+                                  className="shrink-0 text-blue-500"
+                                />
 
-                                  <span className="truncate">{prod.name}</span>
-                                </Link>
-                              ))}
-                            </div>
-                          ) : null}
+                                <span className="truncate">{prod.name}</span>
+                              </Link>
+                            ))}
+                          </div>
                         </>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -711,6 +719,22 @@ function Navbar() {
                             {getVisibleCategories(spec.name).map((cat) => {
                               const catProducts = getCategoryProducts(cat);
                               const isCatOpen = mobileOpenCategory === cat;
+                              const hasSubs = (SUBCATEGORY_DATA[cat]?.subcategories || []).length > 0;
+                              const hasChildren = hasSubs || catProducts.length > 0;
+
+                              if (!hasChildren && getCategoryPath(cat)) {
+                                return (
+                                  <Link
+                                    key={cat}
+                                    to={getCategoryPath(cat)}
+                                    onClick={closeMobileMenu}
+                                    className="flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold text-slate-600 hover:bg-primary/5 hover:text-primary"
+                                  >
+                                    <span className="truncate">{cat}</span>
+                                    <ChevronRightIcon sx={{ fontSize: 14 }} className="text-gray-400" />
+                                  </Link>
+                                );
+                              }
 
                               return (
                                 <div key={cat}>
@@ -760,6 +784,27 @@ function Navbar() {
                                                   ?.productsBySubcategory[
                                                   sub.name
                                                 ] || [];
+                                              const hasProducts =
+                                                subProducts.length > 0;
+
+                                              if (!hasProducts && sub.path) {
+                                                return (
+                                                  <Link
+                                                    key={sub.name}
+                                                    to={sub.path}
+                                                    onClick={closeMobileMenu}
+                                                    className="flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold text-slate-600 hover:bg-primary/5 hover:text-primary"
+                                                  >
+                                                    <span className="truncate">
+                                                      {sub.name}
+                                                    </span>
+                                                    <ChevronRightIcon
+                                                      sx={{ fontSize: 14 }}
+                                                      className="text-gray-400"
+                                                    />
+                                                  </Link>
+                                                );
+                                              }
 
                                               return (
                                                 <div key={sub.name}>

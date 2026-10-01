@@ -178,10 +178,11 @@ const VibrolithOrtho = () => {
             {/* Central Machine - Desktop */}
             <div className="relative mx-auto hidden h-[390px] w-full max-w-[520px] items-end justify-center sm:h-[430px] xl:flex xl:h-[460px]">
               <div className="absolute bottom-10 left-1/2 h-36 w-60 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
+
               <motion.img
                 src={machineImg}
                 alt="Vibrolith Ortho Extracorporeal Radial Shockwave Therapy Machine on Cart"
-                className="relative z-10 h-[370px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[460px]"
+                className="relative z-10 h-[120px] w-auto -translate-y-25 object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[250px]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -194,7 +195,7 @@ const VibrolithOrtho = () => {
               <motion.img
                 src={machineImg}
                 alt="Vibrolith Ortho Extracorporeal Radial Shockwave Therapy Machine on Cart"
-                className="relative z-10 h-[250px] w-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)]"
+                className="relative z-10 h-[200px] w-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}

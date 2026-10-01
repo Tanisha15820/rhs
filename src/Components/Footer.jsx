@@ -17,10 +17,12 @@ import logo from "../assets/images/compressed_rhs_logo.png";
 
 const quickLinks = [
   { label: "Home", path: "/" },
-  { label: "All Equipment", path: "/machine" },
-  { label: "Surgical Lasers", path: "/urology-surgical-laser" },
-  { label: "Healthcare Blogs", path: "/blogs" },
-  { label: "Contact & Support", path: "/contact" },
+  { label: "Products", path: "/products" },
+  { label: "Urology", path: "/urology" },
+  { label: "ENT, Head & Neck Oncology", path: "/ent" },
+  { label: "Gastro", path: "/gastro" },
+  { label: "Blogs", path: "/blogs" },
+  { label: "Contact Us", path: "/contact" },
 ];
 
 const specialtyLinks = [
@@ -34,6 +36,10 @@ const specialtyLinks = [
   { label: "Flexible Video URS", path: "/flexible-video-ureterorenoscope" },
 ];
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+};
+
 const Footer = () => {
   return (
     <footer className="relative bg-background px-3 pt-12 pb-6 md:px-5">
@@ -43,10 +49,10 @@ const Footer = () => {
             MAIN FOOTER GRID
         ===================================================== */}
         <div className="px-6 py-12 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
-            {/* COLUMN 1: BRAND & MISSION (4 COLS) */}
-            <div className="space-y-6 lg:col-span-4">
-              <Link to="/" className="inline-flex items-center gap-3">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+            {/* COLUMN 1: BRAND & MISSION (3 COLS) */}
+            <div className="space-y-6 lg:col-span-3">
+              <Link to="/" onClick={scrollToTop} className="inline-flex items-center gap-3">
                 <img
                   src={logo}
                   alt="Reinforce Healthcare Services"
@@ -110,8 +116,8 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* COLUMN 2: QUICK LINKS (2 COLS) */}
-            <div className="space-y-4 lg:col-span-2">
+            {/* COLUMN 2: QUICK LINKS (3 COLS) */}
+            <div className="space-y-4 lg:col-span-3">
               <FooterHeading title="Quick Links" />
 
               <ul className="space-y-2.5">
@@ -119,13 +125,14 @@ const Footer = () => {
                   <li key={link.label}>
                     <Link
                       to={link.path}
+                      onClick={scrollToTop}
                       className="group flex items-center gap-1.5 text-[13.5px] font-medium text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-primary"
                     >
                       <KeyboardArrowRightIcon
                         sx={{ fontSize: 16 }}
-                        className="text-slate-400 transition-colors group-hover:text-primary"
+                        className="shrink-0 text-slate-400 transition-colors group-hover:text-primary"
                       />
-                      <span>{link.label}</span>
+                      <span className="truncate">{link.label}</span>
                     </Link>
                   </li>
                 ))}
@@ -141,11 +148,12 @@ const Footer = () => {
                   <li key={link.label}>
                     <Link
                       to={link.path}
+                      onClick={scrollToTop}
                       className="group flex items-center gap-1.5 text-[13.5px] font-medium text-slate-600 transition-all duration-200 hover:translate-x-1 hover:text-primary"
                     >
                       <KeyboardArrowRightIcon
                         sx={{ fontSize: 16 }}
-                        className="text-slate-400 transition-colors group-hover:text-primary"
+                        className="shrink-0 text-slate-400 transition-colors group-hover:text-primary"
                       />
                       <span className="truncate">{link.label}</span>
                     </Link>
@@ -194,8 +202,37 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Contact Actions (Email & Phone) */}
+              {/* Contact Actions (Emails & Phone) */}
               <div className="space-y-2 pt-1">
+                {/* Sales Email */}
+                <a
+                  href="mailto:sales@rhscare.org"
+                  className="group flex items-center gap-2.5 text-[12.5px] text-slate-600 transition-colors hover:text-primary"
+                >
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    <EmailOutlinedIcon sx={{ fontSize: 15 }} />
+                  </div>
+                  <div className="flex items-center gap-1.5 truncate">
+                    <span className="font-bold text-slate-700">Sales:</span>
+                    <span className="font-medium text-slate-600 group-hover:text-primary">sales@rhscare.org</span>
+                  </div>
+                </a>
+
+                {/* Service Support Email */}
+                <a
+                  href="mailto:service@rhscare.org"
+                  className="group flex items-center gap-2.5 text-[12.5px] text-slate-600 transition-colors hover:text-primary"
+                >
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    <EmailOutlinedIcon sx={{ fontSize: 15 }} />
+                  </div>
+                  <div className="flex items-center gap-1.5 truncate">
+                    <span className="font-bold text-slate-700">Service:</span>
+                    <span className="font-medium text-slate-600 group-hover:text-primary">service@rhscare.org</span>
+                  </div>
+                </a>
+
+                {/* General Inquiry Email */}
                 <a
                   href="mailto:info@rhscare.org"
                   className="group flex items-center gap-2.5 text-[12.5px] text-slate-600 transition-colors hover:text-primary"
@@ -203,9 +240,13 @@ const Footer = () => {
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                     <EmailOutlinedIcon sx={{ fontSize: 15 }} />
                   </div>
-                  <span className="font-medium">info@rhscare.org</span>
+                  <div className="flex items-center gap-1.5 truncate">
+                    <span className="font-bold text-slate-700">Info:</span>
+                    <span className="font-medium text-slate-600 group-hover:text-primary">info@rhscare.org</span>
+                  </div>
                 </a>
 
+                {/* Phone Numbers */}
                 <a
                   href="tel:+918860086232"
                   className="group flex items-center gap-2.5 text-[12.5px] text-slate-600 transition-colors hover:text-primary"
@@ -213,7 +254,7 @@ const Footer = () => {
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                     <PhoneOutlinedIcon sx={{ fontSize: 15 }} />
                   </div>
-                  <span className="font-medium">+91 8860086232 / +91 8448385864</span>
+                  <span className="font-medium truncate">+91 8860086232 / +91 8448385864</span>
                 </a>
               </div>
             </div>
@@ -243,21 +284,21 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-[12px] text-slate-400">
-              <Link to="/contact" className="transition-colors hover:text-white">
+              <Link to="/contact" onClick={scrollToTop} className="transition-colors hover:text-white">
                 Equipment Rental Terms
               </Link>
 
               <span className="h-3 w-px bg-white/20" />
 
-              <a href="#" className="transition-colors hover:text-white">
+              <Link to="/contact" onClick={scrollToTop} className="transition-colors hover:text-white">
                 Privacy Policy
-              </a>
+              </Link>
 
               <span className="h-3 w-px bg-white/20" />
 
-              <a href="#" className="transition-colors hover:text-white">
+              <Link to="/contact" onClick={scrollToTop} className="transition-colors hover:text-white">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import SEO from "../Components/SEO";
-import DK30Machine from "../Components/DK30Watt/DK30Machine";
+// import DK30Machine from "../Components/DK30Watt/DK30Machine";
 import bannerBg from "../assets/images/smartxide_banner.png";
 import machineImage from "../assets/images/dk30.png";
 import footswitchImg from "../assets/images/litho35_footswitch.png";
@@ -494,7 +494,7 @@ const DK30Watt = () => {
         </div>
       </section>
 
-      <DK30Machine />
+      {/* <DK30Machine /> */}
 
       {/* Technical Specifications */}
       <section className="bg-white py-16 md:py-24">

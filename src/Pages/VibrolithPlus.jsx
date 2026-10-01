@@ -181,7 +181,7 @@ const VibrolithPlus = () => {
               <motion.img
                 src={machineImg}
                 alt="Vibrolith Plus Ultrasonic and Pneumatic Lithotripter System"
-                className="relative z-10 h-[370px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[460px]"
+                className="relative z-10 h-[120px] w-auto -translate-y-27 object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[250px]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}

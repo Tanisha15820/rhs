@@ -1,7 +1,7 @@
 import urodynamicSystemsBg from "../../assets/images/urodynamic_systems_banner.jpg";
 import harmonyImg from "../../assets/images/harmony.png";
 import melodyImg from "../../assets/images/melody.png";
-import symphonyImg from "../../assets/images/uromic_hero_1789984346425.jpg";
+import symphonyImg from "../../assets/images/uromic_hero_1789984346425.png";
 
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";
