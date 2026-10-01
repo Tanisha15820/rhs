@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  ArrowLeft,
   ShieldCheck,
   Sparkles,
   CheckCircle2,
@@ -161,7 +159,7 @@ const Cystoscopy = () => {
           </div>
 
           {/* Product Showcase Area */}
-          <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1020px] sm:mt-6">
             {/* Desktop Feature Cards */}
             <FeatureCard
               number="01"
@@ -169,7 +167,7 @@ const Cystoscopy = () => {
               title="CAD Rod-Lens Optics"
               description="High-definition rod-lens system with sapphire crystal protective glass."
               image={articulatedArm}
-              position="left-6 top-16"
+              position="left-2 top-16"
             />
             <FeatureCard
               number="02"
@@ -177,7 +175,7 @@ const Cystoscopy = () => {
               title="Direction of View"
               description="Instantly identified 0°, 12°, 30°, 45°, and 70° optical viewing angles."
               image={endoVisionImg}
-              position="bottom-14 left-6"
+              position="bottom-14 left-2"
             />
             <FeatureCard
               number="03"
@@ -185,7 +183,7 @@ const Cystoscopy = () => {
               title="Atraumatic Sheaths"
               description="17 to 25 Charr sheaths with central valve & Albarran deflecting bridges."
               image={cystoscopeImg}
-              position="bottom-32 right-6"
+              position="bottom-32 right-2"
             />
 
             {/* Central Endoscope Image - Desktop */}

@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  ArrowLeft,
   ShieldCheck,
   Sparkles,
   CheckCircle2,
@@ -20,7 +18,7 @@ import RaykeenAdvantages from "../Components/RaykeenMorcellator/RaykeenAdvantage
 import RaykeenFootswitch from "../Components/RaykeenMorcellator/RaykeenFootswitch";
 import RaykeenBladeSpecs from "../Components/RaykeenMorcellator/RaykeenBladeSpecs";
 import RaykeenSpecs from "../Components/RaykeenMorcellator/RaykeenSpecs";
-import RaykeenMachine from "../Components/RaykeenMorcellator/RaykeenMachine";
+// import RaykeenMachine from "../Components/RaykeenMorcellator/RaykeenMachine";
 
 /* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -161,7 +159,7 @@ const RaykeenMorcellator = () => {
           </div>
 
           {/* Product Showcase Area */}
-          <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1020px] sm:mt-6">
             {/* Desktop Feature Cards */}
             <FeatureCard
               number="01"
@@ -169,7 +167,7 @@ const RaykeenMorcellator = () => {
               title="10-Level Speed Range"
               description="From 350 to 2500 r/min for smooth, controlled tissue extraction in all prostates."
               image={articulatedArm}
-              position="left-6 top-16"
+              position="left-2 top-16"
             />
             <FeatureCard
               number="02"
@@ -177,7 +175,7 @@ const RaykeenMorcellator = () => {
               title="Segmental Safety Switch"
               description="Level 1 suction & Level 2 suction+crushing prevents accidental bladder injury."
               image={hollowFiber}
-              position="bottom-14 left-6"
+              position="bottom-14 left-2"
             />
             <FeatureCard
               number="03"
@@ -185,7 +183,7 @@ const RaykeenMorcellator = () => {
               title="Durable Handpiece"
               description="Tolerates over 200 steam autoclave cycles, significantly lowering expenses."
               image={diodeImage}
-              position="bottom-32 right-6"
+              position="bottom-32 right-2"
             />
 
             {/* Central Product Image - Desktop */}
@@ -247,7 +245,7 @@ const RaykeenMorcellator = () => {
       {/* Modular Product Sections */}
       <RaykeenAdvantages />
       <RaykeenFootswitch />
-      <RaykeenMachine />
+      {/* <RaykeenMachine /> */}
       <RaykeenBladeSpecs />
       <RaykeenSpecs />
     </div>

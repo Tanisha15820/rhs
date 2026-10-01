@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  ArrowLeft,
   ShieldCheck,
   Sparkles,
   CheckCircle2,
@@ -159,7 +157,7 @@ const CyberBlade = () => {
           </div>
 
           {/* Product Showcase Area */}
-          <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1020px] sm:mt-6">
             {/* Desktop Feature Cards */}
             <FeatureCard
               number="01"
@@ -167,7 +165,7 @@ const CyberBlade = () => {
               title="Without Consoles"
               description="Hand-controlled operation with zero foot pedal cords or drive console clutter."
               image={articulatedArm}
-              position="left-6 top-16"
+              position="left-2 top-16"
             />
             <FeatureCard
               number="02"
@@ -175,7 +173,7 @@ const CyberBlade = () => {
               title="Single-Use Outer Case"
               description="No reprocessing labor or maintenance costs. Dispose outer casing after case."
               image={hollowFiber}
-              position="bottom-14 left-6"
+              position="bottom-14 left-2"
             />
             <FeatureCard
               number="03"
@@ -183,7 +181,7 @@ const CyberBlade = () => {
               title="4.5mm Cutting Blade"
               description="Anti-detachment window maintains continuous tissue contact without spinning."
               image={diodeImage}
-              position="bottom-32 right-6"
+              position="bottom-32 right-2"
             />
 
             {/* Central Product Image - Desktop */}

@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  ArrowLeft,
   ShieldCheck,
   Sparkles,
   CheckCircle2,
@@ -160,7 +158,7 @@ const Morcescope = () => {
           </div>
 
           {/* Product Showcase Area */}
-          <div className="relative mx-auto mt-4 max-w-[1200px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1020px] sm:mt-6">
             {/* Desktop Feature Cards */}
             <FeatureCard
               number="01"
@@ -168,7 +166,7 @@ const Morcescope = () => {
               title="Single Sheath Concept"
               description="Perform enucleation and morcellation with the same sheath without re-dilation."
               image={articulatedArm}
-              position="left-6 top-16"
+              position="left-2 top-16"
             />
             <FeatureCard
               number="02"
@@ -176,7 +174,7 @@ const Morcescope = () => {
               title="Universal Morcellator"
               description="Compatible with standard blades of Richard Wolf, Lumenis, Storz, and Dornier."
               image={hollowFiber}
-              position="bottom-14 left-6"
+              position="bottom-14 left-2"
             />
             <FeatureCard
               number="03"
@@ -184,11 +182,11 @@ const Morcescope = () => {
               title="Shock-Resistant Fibers"
               description="Protected optical fiber bundles guarantee maximum longevity and crisp imaging."
               image={diodeImage}
-              position="bottom-32 right-6"
+              position="bottom-32 right-2"
             />
 
             {/* Central Product Image - Desktop */}
-            <div className="relative mx-auto hidden h-[380px] w-full max-w-[550px] items-end justify-center sm:h-[420px] lg:flex lg:h-[480px]">
+            <div className="relative mx-auto hidden h-[380px] w-full max-w-[550px] items-end justify-center px-12 sm:h-[420px] lg:flex lg:h-[480px]">
               <div className="absolute bottom-14 left-1/2 h-40 w-72 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"></div>
               <motion.img
                 src={morcescopeHeroImg}
