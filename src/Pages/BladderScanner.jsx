@@ -97,28 +97,28 @@ const BladderScanner = () => {
       title: "One-Button Control",
       description: "One tactile button starts and stops scanning instantaneously.",
       image: probeImg,
-      position: "left-6 top-16",
+      position: "left-28 top-16",
     },
     {
       number: "02",
       title: "Manual Correction Mode",
       description: "Convenient manual bladder contour correction for clinical precision.",
       image: softwareImg,
-      position: "bottom-14 left-6",
+      position: "bottom-14 left-28",
     },
     {
       number: "03",
       title: "Real-Time 3D & PVR",
       description: "3D volume calculations saved into Uromic app within seconds.",
       image: softwareImg,
-      position: "top-16 right-6",
+      position: "top-16 right-28",
     },
     {
       number: "04",
       title: "Anomaly Visualization",
       description: "Physiological anomalies affecting volume calculations visualized live.",
       image: probeImg,
-      position: "bottom-14 right-6",
+      position: "bottom-14 right-28",
     },
   ];
 
@@ -280,25 +280,25 @@ const BladderScanner = () => {
             ))}
 
             {/* Desktop Pointer Arrows to Center */}
-            <div className="absolute left-[315px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[424px] top-[105px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[315px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] left-[424px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[315px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[424px] top-[105px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[315px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] right-[424px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>

@@ -7,7 +7,6 @@ import machineImg from "../assets/images/vibrolith_machine.png";
 import handpieceImg from "../assets/images/vibrolith_handpiece.jpg";
 import cartImg from "../assets/images/vibrolith_cart.jpg";
 import procedureImg from "../assets/images/vibrolith_procedure.jpg";
-
 import VibrolithMachine from "../Components/Vibrolith/VibrolithMachine";
 import VibrolithBenefits from "../Components/Vibrolith/VibrolithBenefits";
 import VibrolithProcedures from "../Components/Vibrolith/VibrolithProcedures";
@@ -26,7 +25,6 @@ const FeatureCard = ({ number, title, description, image, position }) => {
       </div>
 
       <div className="absolute left-0 top-[42px] h-[45px] w-[1px] bg-primary"></div>
-
       <div className="flex h-full items-center gap-3 px-3 py-2 pl-4">
         <div className="relative ml-8 flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-full border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-sm overflow-hidden">
           <img
@@ -238,7 +236,7 @@ const Vibrolith = () => {
 
       <VibrolithBenefits />
       <VibrolithProcedures />
-      <VibrolithMachine />
+      {/* <VibrolithMachine /> */}
       <VibrolithSystem />
       <VibrolithHandpiece />
       <VibrolithSpecs />

@@ -20,7 +20,6 @@ import RaykeenBladeSpecs from "../Components/RaykeenMorcellator/RaykeenBladeSpec
 import RaykeenSpecs from "../Components/RaykeenMorcellator/RaykeenSpecs";
 // import RaykeenMachine from "../Components/RaykeenMorcellator/RaykeenMachine";
 
-/* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
   return (
     <div
@@ -131,7 +130,6 @@ const RaykeenMorcellator = () => {
         </div>
 
         <div className="absolute inset-0 z-[1] bg-white/5"></div>
-
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 xl:px-16">
           <div className="pt-6 text-center sm:pt-8 lg:pt-12">
             <div className="mb-3 flex items-center justify-center gap-4">

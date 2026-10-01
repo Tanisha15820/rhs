@@ -179,26 +179,26 @@ const DK30Watt = () => {
             />
 
             {/* Desktop Arrows */}
-            <div className="absolute left-[310px] xl:left-[324px] top-[108px] hidden items-center xl:flex">
+            <div className="absolute left-[308px] xl:left-[316px] top-[108px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[24px] bg-primary"></div>
-              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+              <ArrowRight className="h-5 w-5 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[108px] left-[310px] xl:left-[324px] hidden items-center xl:flex">
+            <div className="absolute bottom-[108px] left-[308px] xl:left-[316px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[24px] bg-primary"></div>
-              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+              <ArrowRight className="h-5 w-5 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[310px] xl:right-[324px] top-[108px] hidden items-center xl:flex">
-              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+            <div className="absolute right-[308px] xl:right-[316px] top-[108px] hidden items-center xl:flex">
+              <ArrowLeft className="h-5 w-5 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[108px] right-[310px] xl:right-[324px] hidden items-center xl:flex">
-              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+            <div className="absolute bottom-[108px] right-[308px] xl:right-[316px] hidden items-center xl:flex">
+              <ArrowLeft className="h-5 w-5 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[24px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>

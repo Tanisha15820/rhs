@@ -253,7 +253,7 @@ const DanflowWave = () => {
               title="866/915 MHz RF Link"
               description="Massively improved 50m range through walls & doors without BT dropout."
               image={printerImg}
-              position="left-6 top-16"
+              position="left-28 top-16"
             />
             <FeatureCard
               number="02"
@@ -261,7 +261,7 @@ const DanflowWave = () => {
               title="Precision Weight Cell"
               description="Accurate measurement of Qmax, Qavg, voided volume & flow time."
               image={transducerImg}
-              position="bottom-14 left-6"
+              position="bottom-14 left-28"
             />
             <FeatureCard
               number="03"
@@ -269,7 +269,7 @@ const DanflowWave = () => {
               title="2-Year Battery Life"
               description="Incredible battery performance. No daily charging or flat battery clinics."
               image={standImg}
-              position="top-16 right-6"
+              position="top-16 right-28"
             />
             <FeatureCard
               number="04"
@@ -277,26 +277,26 @@ const DanflowWave = () => {
               title="SD Card & Reports"
               description="Automatic data backup onto SD card and fast thermal graph printing."
               image={caseImg}
-              position="bottom-14 right-6"
+              position="bottom-14 right-28"
             />
 
             {/* Desktop Connective Arrows */}
-            <div className="absolute left-[310px] top-[100px] hidden items-center xl:flex">
+            <div className="absolute left-[414px] top-[100px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
-            <div className="absolute bottom-[90px] left-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[90px] left-[414px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
-            <div className="absolute top-[100px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute top-[100px] right-[414px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
-            <div className="absolute bottom-[90px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[90px] right-[414px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[50px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>

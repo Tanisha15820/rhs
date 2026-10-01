@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
+  ArrowLeft,
   CheckCircle,
   Activity,
   Layers,
@@ -169,26 +171,48 @@ const PatientCouch = () => {
               number="01"
               title="Easy Back / Seat Setup"
               description="Flexible electric adjustments designed to meet the needs of clinical daily practice."
-              position="left-6 top-16"
+              position="left-16 top-16"
             />
             <FeatureCard
               number="02"
               title="Trendelenburg Position"
               description="Automated Trendelenburg and rapid emergency resuscitation leveling."
-              position="bottom-14 left-6"
+              position="bottom-14 left-16"
             />
             <FeatureCard
               number="03"
               title="Smart DANFLOW Integration"
               description="Seamless combination with DANFLOW uroflowmetry for simultaneous flow tests."
-              position="top-16 right-6"
+              position="top-16 right-16"
             />
             <FeatureCard
               number="04"
               title="No Delays in Work Flow"
               description="Optimized design eliminates unnecessary patient transfers during examinations."
-              position="bottom-14 right-6"
+              position="bottom-14 right-16"
             />
+
+            {/* Desktop Arrows */}
+            <div className="absolute left-[366px] top-[120px] hidden items-center xl:flex">
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+              <div className="h-[1px] w-[45px] bg-primary"></div>
+              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+            </div>
+            <div className="absolute bottom-[120px] left-[366px] hidden items-center xl:flex">
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+              <div className="h-[1px] w-[45px] bg-primary"></div>
+              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+            </div>
+            <div className="absolute right-[366px] top-[120px] hidden items-center xl:flex">
+              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+              <div className="h-[1px] w-[45px] bg-primary"></div>
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+            </div>
+            <div className="absolute bottom-[120px] right-[366px] hidden items-center xl:flex">
+              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+              <div className="h-[1px] w-[45px] bg-primary"></div>
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+            </div>
 
             {/* Central Machine - Desktop */}
             <div className="relative mx-auto hidden h-[400px] w-full max-w-[540px] items-end justify-center sm:h-[440px] lg:flex lg:h-[490px]">

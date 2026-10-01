@@ -1,4 +1,3 @@
-// LocalStorage manager for Blogs CRUD (RHS Frontend)
 import blogImg1 from "../assets/images/blog_3.png";
 import blogImg2 from "../assets/images/blog_2.png";
 import blogImg3 from "../assets/images/blog_1.png";

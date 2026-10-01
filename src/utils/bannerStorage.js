@@ -1,6 +1,5 @@
 export const BANNER_SLIDES_KEY = "rhs_banner_slides_v2";
 export const BANNER_STORAGE_KEY = "rhs_banner_data";
-
 export const DEFAULT_BANNER_SLIDES = [
   {
     id: "slide-1",
