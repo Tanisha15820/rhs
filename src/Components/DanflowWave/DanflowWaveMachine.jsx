@@ -723,8 +723,8 @@ const DanflowWaveMachine = () => {
                                     description="Real-Time Flow Parameters"
 
                                     position="
-                                        left-[-230px]
-                                        top-[55px]
+                                        left-[-220px]
+                                        top-[5px]
                                     "
 
                                     side="left"
@@ -739,8 +739,8 @@ const DanflowWaveMachine = () => {
                                     description="Sample Intake Cone"
 
                                     position="
-                                        left-[-235px]
-                                        top-[190px]
+                                        left-[-100px]
+                                        top-[80px]
                                     "
 
                                     side="left"
@@ -755,8 +755,8 @@ const DanflowWaveMachine = () => {
                                     description="Calibrated Collection Container"
 
                                     position="
-                                        left-[-235px]
-                                        top-[290px]
+                                        left-[-120px]
+                                        top-[200px]
                                     "
 
                                     side="left"
@@ -771,8 +771,8 @@ const DanflowWaveMachine = () => {
                                     description="Result Printout Module"
 
                                     position="
-                                        right-[-235px]
-                                        top-[180px]
+                                        right-[-275px]
+                                        top-[100px]
                                     "
 
                                     side="right"
@@ -781,21 +781,6 @@ const DanflowWaveMachine = () => {
                                 />
 
 
-                                {/* SHELF */}
-                                <KeyPoint
-                                    title="Support Shelf"
-                                    description="Device Accessory Platform"
-
-                                    position="
-                                        right-[-240px]
-                                        top-[285px]
-                                    "
-
-                                    side="right"
-
-                                    lineWidth={64}
-                                />
-
 
                                 {/* STAND */}
                                 <KeyPoint
@@ -803,8 +788,8 @@ const DanflowWaveMachine = () => {
                                     description="Stable Vertical Support"
 
                                     position="
-                                        right-[-250px]
-                                        top-[420px]
+                                        right-[-200px]
+                                        top-[400px]
                                     "
 
                                     side="right"
