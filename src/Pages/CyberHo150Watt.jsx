@@ -14,10 +14,10 @@
 // import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 // // Assets
-// import bannerBg from "../assets/images/cyber_ho_150_banner.png";
-// import machineImage from "../assets/images/cyber_ho_150_machine.png";
-// import footswitchImg from "../assets/images/cyber_ho_150_footswitch.png";
-// import vaporTunnelImg from "../assets/images/cyber_ho_150_vapor_tunnel.png";
+// import bannerBg from "../assets/images/cyber_ho_150_banner.jpg";
+// import machineImage from "../assets/images/cyber_ho_150_machine.jpg";
+// import footswitchImg from "../assets/images/cyber_ho_150_footswitch.jpg";
+// import vaporTunnelImg from "../assets/images/cyber_ho_150_vapor_tunnel.jpg";
 
 // // Components
 // import CyberHo150BPH from "../Components/Cyber_Ho_150/CyberHo150BPH";

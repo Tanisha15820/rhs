@@ -9,9 +9,9 @@ import SEO from "../SEO";
 const FlexibleVideoUreterorenoscope = () => {
   const products = [
     {
-      name: "HUV01 Medical Image Processor",
+      name: "Medical Image Processor",
       image: huv01Img,
-      link: "/huv01",
+      link: "/medical-image-processor",
     },
     {
       name: "Reusable Ureterorenoscope",
@@ -21,7 +21,7 @@ const FlexibleVideoUreterorenoscope = () => {
     {
       name: "Disposable Ureterorenoscope",
       image: hu30m75Img,
-      link: "/disposable-hu30m-7-5fr",
+      link: "/disposable-ureterorenoscope",
     },
   ];
 

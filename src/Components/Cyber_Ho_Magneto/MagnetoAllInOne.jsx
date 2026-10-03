@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Activity, Scissors, Droplets } from "lucide-react";
-import magnetoAllInOneImg from "../../assets/images/magneto_all_in_one.png";
+import magnetoAllInOneImg from "../../assets/images/magneto_all_in_one.jpg";
 
 const MagnetoAllInOne = () => {
   const features = [
@@ -32,7 +32,7 @@ const MagnetoAllInOne = () => {
     <section className="bg-white py-16 lg:py-24 border-b border-slate-100 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -73,16 +73,16 @@ const MagnetoAllInOne = () => {
             className="relative"
           >
             <div className="absolute inset-0 bg-blue-50/50 rounded-3xl blur-3xl transform rotate-3"></div>
-            
+
             {/* Visual Image */}
             <div className="relative mb-8 rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
-              <img 
-                src={magnetoAllInOneImg} 
-                alt="All in one device" 
+              <img
+                src={magnetoAllInOneImg}
+                alt="All in one device"
                 className="w-full h-48 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-6">
-                 <h3 className="text-white text-xl font-bold">Comprehensive Treatments</h3>
+                <h3 className="text-white text-xl font-bold">Comprehensive Treatments</h3>
               </div>
             </div>
 
@@ -90,7 +90,7 @@ const MagnetoAllInOne = () => {
               {features.map((feature, idx) => {
                 const Icon = feature.icon;
                 return (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     whileHover={{ scale: 1.02 }}
                     className="flex items-start gap-4 p-5 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow"

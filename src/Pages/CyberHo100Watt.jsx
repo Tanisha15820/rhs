@@ -13,9 +13,9 @@ import {
 import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
 import machineImage from "../assets/images/cyber-ho-150.png";
-import footswitchImg from "../assets/images/cyber_ho_150_footswitch.png";
-import vaporTunnelImg from "../assets/images/cyber_ho_150_vapor_tunnel.png";
-import virtualBasketImg from "../assets/images/cyber_ho_150_virtual_basket.png";
+import footswitchImg from "../assets/images/cyber_ho_150_footswitch.jpg";
+import vaporTunnelImg from "../assets/images/cyber_ho_150_vapor_tunnel.jpg";
+import virtualBasketImg from "../assets/images/cyber_ho_150_virtual_basket.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 import Fragmentation from "../Components/Gastro_Laser/Fragmentation";
@@ -428,7 +428,7 @@ const CyberHo100Watt = () => {
                 HoLEP is a proven technique for the treatment of BPH (Benign Prostatic Hyperplasia), with high effectiveness, safety and durability.
               </p>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                The large amount of literature demonstrates its advantages in terms of efficacy and safety with respect to traditional treatments available for BPH. Recent studies and trials have validated the excellent outcomes achieved by this technique, with its success being reproduced in a diverse array of patients. 
+                The large amount of literature demonstrates its advantages in terms of efficacy and safety with respect to traditional treatments available for BPH. Recent studies and trials have validated the excellent outcomes achieved by this technique, with its success being reproduced in a diverse array of patients.
               </p>
               <p className="text-slate-600 leading-relaxed font-medium">
                 HoLEP can be applied regardless of prostate size and in retreatment setting, with a low complication incidence and retreatment rate on long term follow-up.

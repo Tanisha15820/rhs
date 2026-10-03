@@ -1,5 +1,5 @@
 import surgicalLaserBg from "../../assets/images/surgical_laser_banner.jpg";
-import cyberHo150Img from "../../assets/images/cyber_ho_150_machine.png";
+import cyberHo150Img from "../../assets/images/cyber_ho_150_machine.jpg";
 import cyberTmImg from "../../assets/images/cybertm_machine.png";
 import fiberdustImg from "../../assets/images/fiberdust_machine.png";
 

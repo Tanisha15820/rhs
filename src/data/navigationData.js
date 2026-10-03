@@ -138,9 +138,9 @@ export const ROBOFLEX_AVICENNA_SUBTYPE = [];
 
 // Flexible Video Ureterorenoscope Subcategories
 export const URETERORENOSCOPE_SUBCATEGORIES = [
-  { name: "Medical Image Processor", path: "/urology" },
-  { name: "Reusable Ureterorenoscope", path: "/urology" },
-  { name: "Disposable Ureterorenoscope", path: "/urology" },
+  { name: "Medical Image Processor", path: "/medical-image-processor" },
+  { name: "Reusable Ureterorenoscope", path: "/reusable-ureterorenoscope" },
+  { name: "Disposable Ureterorenoscope", path: "/disposable-ureterorenoscope" },
 ];
 
 // Flexible Video Ureterorenoscope Products grouped by subcategory
@@ -155,9 +155,9 @@ export const URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY = {
   "Disposable Ureterorenoscope": [
     { name: "Disposable HU30M 6.3/6 Fr", path: "/disposable-hu30m-6-3fr" },
     { name: "Disposable HU30M 7.5 Fr", path: "/disposable-hu30m-7-5fr" },
-    { name: "Cystonephroscope", path: "/urology" },
+    { name: "Cystonephroscope", path: "/cystonephroscope" },
     { name: "Cystoscope", path: "/disposable-cystoscope" },
     { name: "Access sheath", path: "/access-sheath" },
-    { name: "Suction Pump", path: "/urology" },
+    { name: "Suction Pump", path: "/suction-pump" },
   ],
 };

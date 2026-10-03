@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { DollarSign, Magnet, CheckCircle2, Clock } from "lucide-react";
-import vaporTunnelImg from "../../assets/images/cyber_ho_150_vapor_tunnel.png";
-import virtualBasketImg from "../../assets/images/cyber_ho_150_virtual_basket.png";
+import vaporTunnelImg from "../../assets/images/cyber_ho_150_vapor_tunnel.jpg";
+import virtualBasketImg from "../../assets/images/cyber_ho_150_virtual_basket.jpg";
 
 const CyberHo150VaporTunnel = () => {
   const advantages = [

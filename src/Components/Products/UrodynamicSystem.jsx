@@ -3,7 +3,6 @@ import melodyImg from "../../assets/images/melody.png";
 import danflowWaveImg from "../../assets/images/danflow-wave.png";
 import patientCoachImg from "../../assets/images/trytable_patient_coach.png";
 import bladderScannerImg from "../../assets/images/bladder_scanner.png";
-
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";
 

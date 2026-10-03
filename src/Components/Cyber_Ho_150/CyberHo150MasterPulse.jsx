@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Anchor, Settings2, ThumbsUp, Clock, Layers } from "lucide-react";
-import masterpulseImg from "../../assets/images/cyber_ho_150_masterpulse.png";
+import masterpulseImg from "../../assets/images/cyber_ho_150_masterpulse.jpg";
 
 const CyberHo150MasterPulse = () => {
   const benefits = [

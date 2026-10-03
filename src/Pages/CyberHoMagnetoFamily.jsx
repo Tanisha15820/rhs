@@ -7,8 +7,8 @@ import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 // Assets
 import magnetoBannerBg from "../assets/images/smartxide_banner.png";
 import magnetoMachineImg from "../assets/images/magneto.png";
-import magnetoAllInOneImg from "../assets/images/magneto_all_in_one.png";
-import magnetoLithotripsyImg from "../assets/images/magneto_lithotripsy.png";
+import magnetoAllInOneImg from "../assets/images/magneto_all_in_one.jpg";
+import magnetoLithotripsyImg from "../assets/images/magneto_lithotripsy.jpg";
 import litho35FiberImg from "../assets/images/litho35_fiber.png";
 
 // Components

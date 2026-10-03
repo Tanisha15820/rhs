@@ -58,6 +58,10 @@ import DisposableHU30M63Fr from "./Pages/DisposableHU30M63Fr";
 import DisposableHU30M75Fr from "./Pages/DisposableHU30M75Fr";
 import DisposableCystoscope from "./Pages/DisposableCystoscope";
 import AccessSheath from "./Pages/AccessSheath";
+import MedicalImageProcessor from "./Pages/MedicalImageProcessor";
+import DisposableUreterorenoscope from "./Pages/DisposableUreterorenoscope";
+import Cystonephroscope from "./Pages/Cystonephroscope";
+import SuctionPump from "./Pages/SuctionPump";
 
 function App() {
   return (
@@ -167,6 +171,10 @@ function App() {
           <Route path="/cystoscope" element={<DisposableCystoscope />} />
           <Route path="/access-sheath" element={<AccessSheath />} />
           <Route path="/ureteral-access-sheath" element={<AccessSheath />} />
+          <Route path="/medical-image-processor" element={<MedicalImageProcessor />} />
+          <Route path="/disposable-ureterorenoscope" element={<DisposableUreterorenoscope />} />
+          <Route path="/cystonephroscope" element={<Cystonephroscope />} />
+          <Route path="/suction-pump" element={<SuctionPump />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

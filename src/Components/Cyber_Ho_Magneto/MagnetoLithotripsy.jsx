@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Activity, ShieldCheck, Maximize2, Zap } from "lucide-react";
-import magnetoLithotripsyImg from "../../assets/images/magneto_lithotripsy.png";
+import magnetoLithotripsyImg from "../../assets/images/magneto_lithotripsy.jpg";
 
 const MagnetoLithotripsy = () => {
   return (
@@ -12,7 +12,7 @@ const MagnetoLithotripsy = () => {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
           {/* Left Text */}
           <motion.div
@@ -28,7 +28,7 @@ const MagnetoLithotripsy = () => {
 
             <div className="space-y-5 text-slate-300 text-sm sm:text-base leading-relaxed">
               <p>
-                <strong className="text-white">Quanta Magneto Technology</strong> revolutionizes laser lithotripsy by achieving lower peak power levels. 
+                <strong className="text-white">Quanta Magneto Technology</strong> revolutionizes laser lithotripsy by achieving lower peak power levels.
                 <strong className="text-cyan-300"> Stone retropulsion is significantly lower compared to standard Holmium laser systems</strong> and is also reduced when compared to TFL systems, enabling more efficient treatment that benefits both patients and healthcare providers.
               </p>
               <p>
@@ -49,15 +49,15 @@ const MagnetoLithotripsy = () => {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden border border-slate-700 bg-slate-800 shadow-2xl aspect-[4/3] group">
-              <img 
-                src={magnetoLithotripsyImg} 
-                alt="Magneto Lithotripsy Technology" 
+              <img
+                src={magnetoLithotripsyImg}
+                alt="Magneto Lithotripsy Technology"
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
               />
-              
+
               {/* Overlay elements */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-              
+
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
@@ -89,7 +89,7 @@ const MagnetoLithotripsy = () => {
               <span>{'>'}10kW</span>
               <span className="hidden sm:block absolute -left-12 top-1/2 -rotate-90 origin-center text-slate-600 font-bold tracking-widest uppercase">Peak Power</span>
             </div>
-            
+
             {/* TFL Bar */}
             <div className="relative w-16 sm:w-24 group">
               <div className="h-10 bg-slate-600 rounded-t-sm w-full mx-auto transition-colors group-hover:bg-slate-500"></div>
@@ -108,20 +108,20 @@ const MagnetoLithotripsy = () => {
             <div className="relative w-16 sm:w-24 group">
               <div className="h-10 bg-cyan-500 rounded-t-sm w-full mx-auto transition-colors group-hover:bg-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-cyan-300">0,5kW</div>
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm font-bold text-cyan-400 whitespace-nowrap text-center">Cyber Ho<br/>Magneto</div>
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm font-bold text-cyan-400 whitespace-nowrap text-center">Cyber Ho<br />Magneto</div>
             </div>
-            
+
             {/* High Power Top Bar representing >10kW capability */}
             <div className="absolute top-0 right-0 left-12 h-16 bg-gradient-to-r from-transparent via-slate-700/20 to-slate-700/40 border-t border-slate-600 flex items-center justify-end px-4 pointer-events-none">
-                <span className="text-xs text-slate-400 text-right">
-                  HoLEP<br/>ShockWave mechanical<br/>dissection effect
-                </span>
+              <span className="text-xs text-slate-400 text-right">
+                HoLEP<br />ShockWave mechanical<br />dissection effect
+              </span>
             </div>
-            
+
             <div className="absolute bottom-12 right-0 left-12 h-12 bg-gradient-to-r from-transparent via-blue-900/10 to-blue-900/30 border-b border-blue-500/20 flex items-center justify-end px-4 pointer-events-none">
-                <span className="text-xs text-blue-300 text-right font-semibold">
-                  HARD STONES<br/>LOW RETROPULSION
-                </span>
+              <span className="text-xs text-blue-300 text-right font-semibold">
+                HARD STONES<br />LOW RETROPULSION
+              </span>
             </div>
 
           </div>
