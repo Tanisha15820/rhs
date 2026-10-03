@@ -27,6 +27,7 @@ import scannerImg from "../assets/images/bladder_scanner.png";
 import commodeImg from "../assets/images/danflow_stands_commode.jpg";
 import caseImg from "../assets/images/danflow_case_portable.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import HarmonyMachine from "../Components/Harmony/HarmonyMachine";
 
 const FeatureCard = ({ number, title, description, position }) => {
   return (
@@ -412,6 +413,8 @@ const Harmony = () => {
           </div>
         </div>
       </section>
+
+      <HarmonyMachine />
 
       {/* 3rd Section: Software Showcase (UDMvision) */}
       <section className="bg-slate-50 py-16 md:py-20 border-b border-slate-100">

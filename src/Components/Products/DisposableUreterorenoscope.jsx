@@ -1,10 +1,10 @@
 import dispUreterorenoscopeBg from "../../assets/images/disposable_ureterorenoscope_banner.jpg";
 import hu30m63Img from "../../assets/images/hu30m6.3.png";
 import hu30m75Img from "../../assets/images/hu30m_75_scope.png";
-import cystonephroscopeImg from "../../assets/images/cystonephroscope.jpg";
+import cystonephroscopeImg from "../../assets/images/cystonephroscope.png";
 import cystoscopeImg from "../../assets/images/disposable_cystoscope.jpg";
 import accessSheathImg from "../../assets/images/access-shealth.png";
-import suctionPumpImg from "../../assets/images/suction_pump.jpg";
+import suctionPumpImg from "../../assets/images/suction_pump.png";
 
 import ProductsPage from "../../Pages/ProductsPage";
 import SEO from "../SEO";

@@ -23,6 +23,7 @@ import transducerImg from "../assets/images/danflow_transducer_funnel.jpg";
 import standImg from "../assets/images/danflow_stands_commode.jpg";
 import caseImg from "../assets/images/danflow_case_portable.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import DanflowWaveMachine from "../Components/DanflowWave/DanflowWaveMachine";
 
 /* Desktop Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -401,6 +402,8 @@ const DanflowWave = () => {
           </div>
         </div>
       </section>
+
+      <DanflowWaveMachine />
 
       {/* Wireless DanFlow Configurations */}
       <section className="bg-white py-16 md:py-20 border-t border-slate-100">

@@ -17,6 +17,7 @@ import MagnetoLithotripsy from "../Components/Cyber_Ho_Magneto/MagnetoLithotrips
 import MagnetoAllInOne from "../Components/Cyber_Ho_Magneto/MagnetoAllInOne";
 import MagnetoFibers from "../Components/Cyber_Ho_Magneto/MagnetoFibers";
 import MagnetoSpecs from "../Components/Cyber_Ho_Magneto/MagnetoSpecs";
+import MagnetoMachine from "../Components/Magneto/MagnetoMachine";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -240,6 +241,7 @@ const CyberHoMagnetoFamily = () => {
       {/* Feature Sections */}
       <MagnetoInnovation />
       <MagnetoLithotripsy />
+      <MagnetoMachine />
       <MagnetoAllInOne />
       <MagnetoFibers />
       <MagnetoSpecs />

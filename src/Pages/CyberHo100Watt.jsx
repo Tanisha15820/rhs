@@ -17,7 +17,7 @@ import footswitchImg from "../assets/images/cyber_ho_150_footswitch.jpg";
 import vaporTunnelImg from "../assets/images/cyber_ho_150_vapor_tunnel.jpg";
 import virtualBasketImg from "../assets/images/cyber_ho_150_virtual_basket.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
-
+import CyberHoMachine from "../Components/Cyber_Ho_150/CyberHoMachine";
 import Fragmentation from "../Components/Gastro_Laser/Fragmentation";
 import DustingEffect from "../Components/Gastro_Laser/DustingEffect";
 import Fibers from "../Components/Gastro_Laser/Fibers";
@@ -457,6 +457,8 @@ const CyberHo100Watt = () => {
           </div>
         </div>
       </section>
+
+      <CyberHoMachine />
 
       {/* Vapor Tunnel */}
       <section className="bg-[#050A11] py-16 md:py-24 text-white relative overflow-hidden">

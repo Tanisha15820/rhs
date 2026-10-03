@@ -18,6 +18,7 @@ import footswitchImg from "../assets/images/cybertm_footswitch.jpg";
 import fiberImg from "../assets/images/litho35_fiber.png";
 import recognitionImg from "../assets/images/litho35_recognition.png";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import CyberTmMachine from "../Components/Cyber_Tm/CyberTmMachine";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -387,6 +388,8 @@ const CyberTM150Watt = () => {
           </div>
         </div>
       </section>
+
+      <CyberTmMachine />
 
       {/* Techniques for BPH */}
       <section className="bg-slate-50 py-16 md:py-24">

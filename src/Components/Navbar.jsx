@@ -83,8 +83,10 @@ function Navbar() {
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
 
   // Mobile accordion state
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [mobileOpenSpecialty, setMobileOpenSpecialty] = useState(null);
   const [mobileOpenCategory, setMobileOpenCategory] = useState(null);
+  const [mobileOpenSubcategory, setMobileOpenSubcategory] = useState(null);
 
   // Products dropdown reference
   const productsMenuRef = useRef(null);
@@ -205,9 +207,10 @@ function Navbar() {
   // Close mobile menu
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
-    setProductsOpen(false);
+    setMobileProductsOpen(false);
     setMobileOpenSpecialty(null);
     setMobileOpenCategory(null);
+    setMobileOpenSubcategory(null);
   };
 
   // Get subcategories for selected category (for 3rd column)
@@ -289,49 +292,32 @@ function Navbar() {
     if (isAlreadyOpen) {
       setMobileOpenSpecialty(null);
       setMobileOpenCategory(null);
+      setMobileOpenSubcategory(null);
       return;
     }
 
     setMobileOpenSpecialty(spec.name);
     setMobileOpenCategory(null);
-
-    setSelectedSpecialty(spec.name);
-    setSelectedCategory(getDefaultCategory(spec));
+    setMobileOpenSubcategory(null);
   };
 
   // Mobile category accordion
   const handleMobileCategoryClick = (category) => {
-    const hasSubs = (SUBCATEGORY_DATA[category]?.subcategories || []).length > 0;
-
-    // Categories with their own pages and no subcategory layer
-    if (!hasSubs) {
-      const path = getCategoryPath(category);
-      if (path) {
-        setSelectedCategory(category);
-        setSelectedSubcategory(null);
-        navigate(path);
-        closeMobileMenu();
-        return;
-      }
-    }
-
-    // Categories that contain products
     const isAlreadyOpen = mobileOpenCategory === category;
 
     if (isAlreadyOpen) {
       setMobileOpenCategory(null);
-      setSelectedSubcategory(null);
+      setMobileOpenSubcategory(null);
       return;
     }
 
     setMobileOpenCategory(category);
-    setSelectedCategory(category);
-    setSelectedSubcategory(null);
+    setMobileOpenSubcategory(null);
   };
 
   // Mobile subcategory click handler
   const handleMobileSubcategoryClick = (subcatName) => {
-    setSelectedSubcategory(subcatName);
+    setMobileOpenSubcategory((prev) => (prev === subcatName ? null : subcatName));
   };
 
   return (
@@ -638,7 +624,7 @@ function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="mt-3 w-full animate-fade-in rounded-2xl bg-white p-4 shadow-xl ring-1 ring-primary/10 lg:hidden">
+        <div className="mt-3 w-full animate-fade-in rounded-2xl bg-white p-3.5 sm:p-4 shadow-xl ring-1 ring-primary/10 lg:hidden max-h-[calc(100vh-100px)] overflow-y-auto overscroll-contain">
           <nav className="flex flex-col gap-1 text-sm font-medium">
             {/* Home */}
             <Link
@@ -652,22 +638,23 @@ function Navbar() {
               <span>Home</span>
             </Link>
 
-            {/* Products */}
-            <div>
+            {/* Products & Specialties */}
+            <div className="rounded-xl overflow-hidden">
               <button
                 type="button"
                 onClick={() => {
-                  const isClosing = productsOpen;
-
-                  setProductsOpen((prev) => !prev);
-
+                  const isClosing = mobileProductsOpen;
+                  setMobileProductsOpen((prev) => !prev);
                   if (isClosing) {
                     setMobileOpenSpecialty(null);
                     setMobileOpenCategory(null);
+                    setMobileOpenSubcategory(null);
                   }
                 }}
-                className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-4 py-3 ${
-                  isProductsActive ? ACTIVE_LINK : MOBILE_INACTIVE
+                className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                  isProductsActive || mobileProductsOpen
+                    ? ACTIVE_LINK
+                    : MOBILE_INACTIVE
                 }`}
               >
                 <span className="flex items-center gap-2.5">
@@ -678,201 +665,233 @@ function Navbar() {
                 <KeyboardArrowDownIcon
                   sx={{ fontSize: 18 }}
                   className={`transition-transform duration-200 ${
-                    productsOpen ? "rotate-180" : ""
+                    mobileProductsOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
-              {productsOpen && (
-                <div className="ml-4 mt-1 space-y-1 border-l-2 border-primary/20 pl-3">
+              {mobileProductsOpen && (
+                <div className="mt-2 space-y-2 pl-1 sm:pl-2">
                   {SPECIALTIES.map((spec) => {
                     const isSpecOpen = mobileOpenSpecialty === spec.name;
 
                     return (
-                      <div key={spec.name}>
-                        {/* Specialty */}
+                      <div
+                        key={spec.name}
+                        className="overflow-hidden rounded-xl border border-slate-100 bg-slate-50/50"
+                      >
+                        {/* Specialty Header Toggle */}
                         <button
                           type="button"
                           onClick={() => handleMobileSpecialtyClick(spec)}
-                          className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold hover:bg-primary/5 ${
+                          className={`flex w-full cursor-pointer items-center justify-between px-3 py-2.5 text-xs font-bold transition-colors ${
                             isSpecOpen
-                              ? "text-primary"
-                              : "text-slate-700 hover:text-primary"
+                              ? "bg-primary/10 text-primary"
+                              : "text-slate-800 hover:bg-slate-100/70"
                           }`}
                         >
-                          <span className="flex items-center gap-2">
-                            {SPECIALTY_ICONS[spec.name]}
-                            {spec.name}
+                          <span className="flex items-center gap-2 min-w-0">
+                            <span
+                              className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${
+                                isSpecOpen
+                                  ? "bg-primary text-white"
+                                  : "bg-primary/10 text-primary"
+                              }`}
+                            >
+                              {SPECIALTY_ICONS[spec.name]}
+                            </span>
+                            <span className="truncate">{spec.name}</span>
                           </span>
 
                           <ChevronRightIcon
                             sx={{ fontSize: 16 }}
-                            className={`transition-transform duration-200 ${
-                              isSpecOpen ? "rotate-90" : ""
+                            className={`shrink-0 transition-transform duration-200 ${
+                              isSpecOpen ? "rotate-90 text-primary" : "text-slate-400"
                             }`}
                           />
                         </button>
 
-                        {/* Categories */}
+                        {/* Categories under Specialty */}
                         {isSpecOpen && (
-                          <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
+                          <div className="space-y-1.5 p-2 bg-white/80 border-t border-slate-100">
+                            {/* Specialty Overview Link */}
+                            {spec.path && (
+                              <Link
+                                to={spec.path}
+                                onClick={closeMobileMenu}
+                                className="flex items-center justify-between rounded-lg bg-primary/5 px-2.5 py-1.5 text-[11px] font-semibold text-primary hover:bg-primary/10 transition-colors"
+                              >
+                                <span>Explore All {spec.name}</span>
+                                <ArrowForwardIcon sx={{ fontSize: 13 }} />
+                              </Link>
+                            )}
+
                             {getVisibleCategories(spec.name).map((cat) => {
                               const catProducts = getCategoryProducts(cat);
                               const isCatOpen = mobileOpenCategory === cat;
-                              const hasSubs = (SUBCATEGORY_DATA[cat]?.subcategories || []).length > 0;
+                              const subcategories = getCategorySubcategories(cat);
+                              const hasSubs = subcategories.length > 0;
                               const hasChildren = hasSubs || catProducts.length > 0;
+                              const categoryPath = getCategoryPath(cat);
 
-                              if (!hasChildren && getCategoryPath(cat)) {
+                              if (!hasChildren && categoryPath) {
                                 return (
                                   <Link
                                     key={cat}
-                                    to={getCategoryPath(cat)}
+                                    to={categoryPath}
                                     onClick={closeMobileMenu}
-                                    className="flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold text-slate-600 hover:bg-primary/5 hover:text-primary"
+                                    className="flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-primary/5 hover:text-primary transition-colors"
                                   >
                                     <span className="truncate">{cat}</span>
-                                    <ChevronRightIcon sx={{ fontSize: 14 }} className="text-gray-400" />
+                                    <ChevronRightIcon
+                                      sx={{ fontSize: 14 }}
+                                      className="text-gray-400 shrink-0"
+                                    />
                                   </Link>
                                 );
                               }
 
                               return (
-                                <div key={cat}>
-                                  {/* Category */}
+                                <div
+                                  key={cat}
+                                  className="rounded-lg border border-slate-100 bg-white overflow-hidden"
+                                >
+                                  {/* Category Toggle */}
                                   <button
                                     type="button"
-                                    onClick={() =>
-                                      handleMobileCategoryClick(cat)
-                                    }
-                                    className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 ${
+                                    onClick={() => handleMobileCategoryClick(cat)}
+                                    className={`flex w-full items-center justify-between px-2.5 py-2 text-left text-xs font-medium transition-colors ${
                                       isCatOpen
-                                        ? "text-primary"
-                                        : "text-slate-600 hover:text-primary"
+                                        ? "bg-slate-100/70 font-semibold text-primary"
+                                        : "text-slate-700 hover:bg-slate-50"
                                     }`}
                                   >
-                                    <span className="truncate">{cat}</span>
-
+                                    <span className="truncate pr-1">{cat}</span>
                                     <ChevronRightIcon
-                                      sx={{ fontSize: 15 }}
+                                      sx={{ fontSize: 14 }}
                                       className={`shrink-0 transition-transform duration-200 ${
-                                        isCatOpen ? "rotate-90" : ""
+                                        isCatOpen
+                                          ? "rotate-90 text-primary"
+                                          : "text-gray-400"
                                       }`}
                                     />
                                   </button>
 
+                                  {/* Category Content: Subcategories or Direct Products */}
                                   {isCatOpen && (
-                                    <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
-                                      {getCategorySubcategories(cat).length >
-                                      0 ? (
-                                        <>
-                                          {getCategoryPath(cat) && (
-                                            <Link
-                                              to={getCategoryPath(cat)}
-                                              onClick={closeMobileMenu}
-                                              className="mb-1 flex items-center justify-between rounded-lg bg-primary/10 px-3 py-2 text-xs font-bold text-primary hover:bg-primary/15"
+                                    <div className="space-y-1 p-2 bg-slate-50/50 border-t border-slate-100">
+                                      {/* View All Category Overview Link */}
+                                      {categoryPath && (
+                                        <Link
+                                          to={categoryPath}
+                                          onClick={closeMobileMenu}
+                                          className="flex items-center justify-between rounded-md bg-primary/10 px-2.5 py-1.5 text-[11px] font-bold text-primary hover:bg-primary/15 transition-colors mb-1"
+                                        >
+                                          <span>View All {cat}</span>
+                                          <ChevronRightIcon sx={{ fontSize: 13 }} />
+                                        </Link>
+                                      )}
+
+                                      {/* If Category has Subcategories */}
+                                      {hasSubs ? (
+                                        subcategories.map((sub) => {
+                                          const isSubOpen =
+                                            mobileOpenSubcategory === sub.name;
+                                          const subProducts =
+                                            SUBCATEGORY_DATA[cat]
+                                              ?.productsBySubcategory[sub.name] || [];
+                                          const hasProducts = subProducts.length > 0;
+
+                                          if (!hasProducts && sub.path) {
+                                            return (
+                                              <Link
+                                                key={sub.name}
+                                                to={sub.path}
+                                                onClick={closeMobileMenu}
+                                                className="flex items-center justify-between rounded-md px-2.5 py-2 text-[11px] font-medium text-slate-600 hover:bg-white hover:text-primary transition-colors"
+                                              >
+                                                <span className="truncate">
+                                                  {sub.name}
+                                                </span>
+                                                <ChevronRightIcon
+                                                  sx={{ fontSize: 13 }}
+                                                  className="text-gray-400 shrink-0"
+                                                />
+                                              </Link>
+                                            );
+                                          }
+
+                                          return (
+                                            <div
+                                              key={sub.name}
+                                              className="rounded-md border border-slate-200/60 bg-white overflow-hidden"
                                             >
-                                              <span>View All {cat}</span>
-                                              <ChevronRightIcon sx={{ fontSize: 14 }} />
-                                            </Link>
-                                          )}
-                                          {getCategorySubcategories(cat).map(
-                                            (sub) => {
-                                              const isSubSelected =
-                                                selectedSubcategory === sub.name;
-                                              const subProducts =
-                                                SUBCATEGORY_DATA[cat]
-                                                  ?.productsBySubcategory[
-                                                  sub.name
-                                                ] || [];
-                                              const hasProducts =
-                                                subProducts.length > 0;
+                                              <button
+                                                type="button"
+                                                onClick={() =>
+                                                  handleMobileSubcategoryClick(
+                                                    sub.name
+                                                  )
+                                                }
+                                                className={`flex w-full items-center justify-between px-2.5 py-1.5 text-left text-[11px] font-semibold transition-colors ${
+                                                  isSubOpen
+                                                    ? "text-primary bg-primary/5"
+                                                    : "text-slate-700 hover:bg-slate-50"
+                                                }`}
+                                              >
+                                                <span className="truncate pr-1">
+                                                  {sub.name}
+                                                </span>
+                                                <ChevronRightIcon
+                                                  sx={{ fontSize: 13 }}
+                                                  className={`shrink-0 transition-transform duration-200 ${
+                                                    isSubOpen
+                                                      ? "rotate-90 text-primary"
+                                                      : "text-gray-400"
+                                                  }`}
+                                                />
+                                              </button>
 
-                                              if (!hasProducts && sub.path) {
-                                                return (
-                                                  <Link
-                                                    key={sub.name}
-                                                    to={sub.path}
-                                                    onClick={closeMobileMenu}
-                                                    className="flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold text-slate-600 hover:bg-primary/5 hover:text-primary"
-                                                  >
-                                                    <span className="truncate">
-                                                      {sub.name}
-                                                    </span>
-                                                    <ChevronRightIcon
-                                                      sx={{ fontSize: 14 }}
-                                                      className="text-gray-400"
-                                                    />
-                                                  </Link>
-                                                );
-                                              }
-
-                                              return (
-                                                <div key={sub.name}>
-                                                  <button
-                                                    type="button"
-                                                    onClick={() =>
-                                                      handleMobileSubcategoryClick(
-                                                        sub.name,
-                                                      )
-                                                    }
-                                                    className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left text-xs font-semibold hover:bg-primary/5 ${
-                                                      isSubSelected
-                                                        ? "text-primary"
-                                                        : "text-slate-600 hover:text-primary"
-                                                    }`}
-                                                  >
-                                                    <span className="truncate">
-                                                      {sub.name}
-                                                    </span>
-
-                                                    <ChevronRightIcon
-                                                      sx={{ fontSize: 15 }}
-                                                      className={`shrink-0 transition-transform duration-200 ${
-                                                        isSubSelected
-                                                          ? "rotate-90"
-                                                          : ""
-                                                      }`}
-                                                    />
-                                                  </button>
-
-                                                  {isSubSelected &&
-                                                    subProducts.length > 0 && (
-                                                      <div className="ml-3 mt-1 space-y-1 border-l border-primary/20 pb-2 pl-3">
-                                                        {subProducts.map(
-                                                          (prod) => (
-                                                            <Link
-                                                              key={prod.name}
-                                                              to={prod.path}
-                                                              onClick={
-                                                                closeMobileMenu
-                                                              }
-                                                              className="block rounded-lg px-3 py-2 text-xs text-slate-500 hover:bg-sky-50 hover:text-blue-600"
-                                                            >
-                                                              {prod.name}
-                                                            </Link>
-                                                          ),
-                                                        )}
-                                                      </div>
-                                                    )}
+                                              {isSubOpen && subProducts.length > 0 && (
+                                                <div className="space-y-0.5 p-1.5 bg-slate-50/70 border-t border-slate-100">
+                                                  {subProducts.map((prod) => (
+                                                    <Link
+                                                      key={prod.name}
+                                                      to={prod.path}
+                                                      onClick={closeMobileMenu}
+                                                      className="flex items-center gap-1.5 rounded-md px-2 py-1.5 text-[11px] text-slate-600 hover:bg-white hover:text-primary hover:shadow-2xs transition-all"
+                                                    >
+                                                      <span className="h-1 w-1 rounded-full bg-primary/40 shrink-0" />
+                                                      <span className="truncate">
+                                                        {prod.name}
+                                                      </span>
+                                                    </Link>
+                                                  ))}
                                                 </div>
-                                              );
-                                            },
-                                          )}
-                                        </>
+                                              )}
+                                            </div>
+                                          );
+                                        })
                                       ) : catProducts.length > 0 ? (
-                                        catProducts.map((prod) => (
-                                          <Link
-                                            key={prod.name}
-                                            to={prod.path}
-                                            onClick={closeMobileMenu}
-                                            className="block rounded-lg px-3 py-2 text-xs text-slate-500 hover:bg-sky-50 hover:text-blue-600"
-                                          >
-                                            {prod.name}
-                                          </Link>
-                                        ))
+                                        /* If Category has Direct Products */
+                                        <div className="space-y-0.5">
+                                          {catProducts.map((prod) => (
+                                            <Link
+                                              key={prod.name}
+                                              to={prod.path}
+                                              onClick={closeMobileMenu}
+                                              className="flex items-center gap-1.5 rounded-md px-2.5 py-2 text-[11px] text-slate-600 hover:bg-white hover:text-primary hover:shadow-2xs transition-all"
+                                            >
+                                              <span className="h-1.5 w-1.5 rounded-full bg-primary/50 shrink-0" />
+                                              <span className="truncate">
+                                                {prod.name}
+                                              </span>
+                                            </Link>
+                                          ))}
+                                        </div>
                                       ) : (
-                                        <p className="px-3 py-2 text-xs text-gray-400">
-                                          Select a category to view items
+                                        <p className="px-2.5 py-1.5 text-[11px] text-slate-400 italic">
+                                          No products listed
                                         </p>
                                       )}
                                     </div>

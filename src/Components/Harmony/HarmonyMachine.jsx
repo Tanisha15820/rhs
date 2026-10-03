@@ -3,137 +3,50 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import {
-    Activity,
-    CircleDot,
-    Crosshair,
     Monitor,
+    CircleDot,
+    Power,
+    BatteryMedium,
+    Radio,
     MousePointerClick,
-    OctagonX,
-    PlugZap,
-    RotateCcw,
-    Wind,
-    Zap,
+    Cable,
+    Layers3,
 } from "lucide-react";
 
-import dk30Img from "../../assets/images/dk30.png";
+import harmonyImg from "../../assets/images/harmony.png";
 
 
 /* =========================================================
-   EASY POSITION SETTINGS
+   HARMONY KEY POINTS
 
-   Edit mostly this array.
-
-   CARD:
+   CARD POSITION:
    left / right / top / bottom
 
-   CONNECTOR:
+   CONNECTOR POSITION:
    left / right / top / bottom
    width
    angle
 
-   Dot is attached to connector automatically.
+   For vertical line:
+   vertical: true
+   verticalDirection: "down" / "up"
+
+   Dot remains attached automatically.
    ========================================================= */
 
 const keyPoints = [
     {
         id: 1,
 
-        title: "Laser Output Port",
-        subtitle: "Holmium Laser Energy Delivery",
-
-        icon: CircleDot,
-
-        card: {
-            left: "8%",
-            right: "auto",
-            top: "32%",
-            bottom: "auto",
-        },
-
-        connector: {
-            left: "21%",
-            right: "auto",
-            top: "37%",
-            bottom: "auto",
-
-            width: 120,
-            angle: 35,
-
-            dotAt: "end",
-        },
-    },
-
-
-    {
-        id: 2,
-
-        title: "Energy Control",
-        subtitle: "Adjustable Pulse Energy Setting",
-
-        icon: Zap,
-
-        card: {
-            left: "7%",
-            right: "auto",
-            top: "45%",
-            bottom: "auto",
-        },
-
-        connector: {
-            left: "19%",
-            right: "auto",
-            top: "50%",
-            bottom: "auto",
-
-            width: 145,
-            angle: 7,
-
-            dotAt: "end",
-        },
-    },
-
-
-    {
-        id: 3,
-
-        title: "Footswitch / Accessory Port",
-        subtitle: "External Procedure Control",
-
-        icon: PlugZap,
-
-        card: {
-            left: "4%",
-            right: "auto",
-            top: "57%",
-            bottom: "auto",
-        },
-
-        connector: {
-            left: "19%",
-            right: "auto",
-            top: "62%",
-            bottom: "auto",
-
-            width: 120,
-            angle: 5,
-
-            dotAt: "end",
-        },
-    },
-
-
-    {
-        id: 4,
-
-        title: "Touchscreen Display",
-        subtitle: "Treatment Parameters & System Status",
+        title: "Digital Display",
+        subtitle: "Channel & System Status Interface",
 
         icon: Monitor,
 
         card: {
-            left: "43%",
+            left: "50%",
             right: "auto",
-            top: "8%",
+            top: "4%",
             bottom: "auto",
 
             transform: "translateX(-50%)",
@@ -142,7 +55,7 @@ const keyPoints = [
         connector: {
             left: "50%",
             right: "auto",
-            top: "17%",
+            top: "14%",
             bottom: "auto",
 
             width: 95,
@@ -156,28 +69,115 @@ const keyPoints = [
 
 
     {
+        id: 2,
+
+        title: "Central Control Button",
+        subtitle: "Primary User Control",
+
+        icon: Power,
+
+        card: {
+            left: "5%",
+            right: "auto",
+            top: "31%",
+            bottom: "auto",
+        },
+
+        connector: {
+            left: "21%",
+            right: "auto",
+            top: "36%",
+            bottom: "auto",
+
+            width: 165,
+            angle: 12,
+
+            dotAt: "end",
+        },
+    },
+
+
+    {
+        id: 3,
+
+        title: "Channel 1 Input",
+        subtitle: "CH1 Sensor Connection",
+
+        icon: CircleDot,
+
+        card: {
+            left: "4%",
+            right: "auto",
+            top: "48%",
+            bottom: "auto",
+        },
+
+        connector: {
+            left: "20%",
+            right: "auto",
+            top: "53%",
+            bottom: "auto",
+
+            width: 135,
+            angle: 8,
+
+            dotAt: "end",
+        },
+    },
+
+
+    {
+        id: 4,
+
+        title: "Channel 2 Input",
+        subtitle: "CH2 Sensor Connection",
+
+        icon: Cable,
+
+        card: {
+            left: "4%",
+            right: "auto",
+            top: "64%",
+            bottom: "auto",
+        },
+
+        connector: {
+            left: "20%",
+            right: "auto",
+            top: "69%",
+            bottom: "auto",
+
+            width: 165,
+            angle: -8,
+
+            dotAt: "end",
+        },
+    },
+
+
+    {
         id: 5,
 
-        title: "Frequency Control",
-        subtitle: "Adjustable Pulse Rate Control",
+        title: "Channel 3 Input",
+        subtitle: "CH3 Sensor Connection",
 
-        icon: Activity,
+        icon: Layers3,
 
         card: {
             left: "auto",
-            right: "6%",
-            top: "27%",
+            right: "4%",
+            top: "48%",
             bottom: "auto",
         },
 
         connector: {
             left: "auto",
-            right: "21%",
-            top: "34%",
+            right: "20%",
+            top: "53%",
             bottom: "auto",
 
-            width: 330,
-            angle: 145,
+            width: 145,
+            angle: 172,
 
             dotAt: "end",
         },
@@ -187,26 +187,26 @@ const keyPoints = [
     {
         id: 6,
 
-        title: "Aiming Beam Control",
-        subtitle: "Precision Treatment Targeting",
+        title: "Channel 4 Input",
+        subtitle: "CH4 Sensor Connection",
 
-        icon: Crosshair,
+        icon: CircleDot,
 
         card: {
             left: "auto",
-            right: "7%",
-            top: "40%",
+            right: "4%",
+            top: "64%",
             bottom: "auto",
         },
 
         connector: {
             left: "auto",
-            right: "22%",
-            top: "44%",
+            right: "20%",
+            top: "69%",
             bottom: "auto",
 
-            width: 350,
-            angle: 165,
+            width: 150,
+            angle: 188,
 
             dotAt: "end",
         },
@@ -216,26 +216,26 @@ const keyPoints = [
     {
         id: 7,
 
-        title: "Cooling & Ventilation",
-        subtitle: "Stable System Temperature Management",
+        title: "Channel 5 Input",
+        subtitle: "CH5 Sensor Connection",
 
-        icon: Wind,
+        icon: Cable,
 
         card: {
             left: "auto",
-            right: "5%",
-            top: "60%",
+            right: "4%",
+            top: "80%",
             bottom: "auto",
         },
 
         connector: {
             left: "auto",
             right: "20%",
-            top: "65%",
+            top: "84%",
             bottom: "auto",
 
-            width: 110,
-            angle: 180,
+            width: 135,
+            angle: 185,
 
             dotAt: "end",
         },
@@ -245,30 +245,55 @@ const keyPoints = [
     {
         id: 8,
 
-        title: "Emergency Stop",
-        subtitle: "Immediate Safety Shutdown",
+        title: "Battery Indicator",
+        subtitle: "Portable Power Status",
 
-        icon: OctagonX,
+        icon: BatteryMedium,
 
         card: {
-            left: "45%",
-            right: "auto",
-            top: "auto",
-            bottom: "3%",
-
-            transform: "translateX(-50%)",
+            left: "auto",
+            right: "5%",
+            top: "30%",
+            bottom: "auto",
         },
 
         connector: {
-            left: "53%",
+            left: "auto",
+            right: "21%",
+            top: "35%",
+            bottom: "auto",
+
+            width: 170,
+            angle: 165,
+
+            dotAt: "end",
+        },
+    },
+
+
+    {
+        id: 9,
+
+        title: "Wireless Status",
+        subtitle: "Communication Status Indicator",
+
+        icon: Radio,
+
+        card: {
+            left: "5%",
             right: "auto",
-            top: "auto",
-            bottom: "12%",
+            top: "16%",
+            bottom: "auto",
+        },
 
-            width: 110,
+        connector: {
+            left: "21%",
+            right: "auto",
+            top: "21%",
+            bottom: "auto",
 
-            vertical: true,
-            verticalDirection: "up",
+            width: 175,
+            angle: 12,
 
             dotAt: "end",
         },
@@ -277,64 +302,7 @@ const keyPoints = [
 
 
 /* =========================================================
-   MACHINE PARTS
-
-   Current part positions kept as-is.
-   ========================================================= */
-
-const machineParts = [
-    {
-        id: "left-section",
-
-        clipPath: "inset(14% 67% 10% 0%)",
-
-        x: -38,
-        y: 0,
-    },
-
-    {
-        id: "display-section",
-
-        clipPath: "inset(13% 29% 37% 29%)",
-
-        x: 0,
-        y: -30,
-    },
-
-    {
-        id: "right-section",
-
-        clipPath: "inset(12% 0% 12% 66%)",
-
-        x: 52,
-        y: 0,
-    },
-
-    {
-        id: "control-section",
-
-        clipPath: "inset(57% 26% 15% 27%)",
-
-        x: 0,
-
-        // Emergency stop section slightly lower
-        y: 45,
-    },
-
-    {
-        id: "base-section",
-
-        clipPath: "inset(79% 12% 0% 12%)",
-
-        x: 0,
-        y: 38,
-    },
-];
-
-
-/* =========================================================
    KEY POINT CARD
-   Smaller / compact design
    ========================================================= */
 
 const KeyPointCard = ({
@@ -348,32 +316,48 @@ const KeyPointCard = ({
     return (
         <AnimatePresence>
             {show && (
+
                 <motion.div
+
                     initial={{
                         opacity: 0,
                         scale: 0.94,
                     }}
+
                     animate={{
                         opacity: 1,
                         scale: 1,
                     }}
+
                     exit={{
                         opacity: 0,
                         scale: 0.94,
                     }}
+
                     transition={{
                         duration: 0.3,
                         delay,
                     }}
+
                     style={{
                         left: card.left,
                         right: card.right,
                         top: card.top,
                         bottom: card.bottom,
-                        transform: card.transform || "none",
+
+                        transform:
+                            card.transform ||
+                            "none",
                     }}
-                    className="absolute z-40 hidden xl:block"
+
+                    className="
+            absolute
+            z-40
+            hidden
+            xl:block
+          "
                 >
+
                     <div
                         className="
               flex
@@ -391,6 +375,7 @@ const KeyPointCard = ({
               backdrop-blur-md
             "
                     >
+
                         {/* Icon */}
                         <div
                             className="
@@ -405,10 +390,12 @@ const KeyPointCard = ({
                 text-[#1681FF]
               "
                         >
+
                             <Icon
                                 size={16}
                                 strokeWidth={2.3}
                             />
+
                         </div>
 
 
@@ -441,7 +428,9 @@ const KeyPointCard = ({
                         </div>
 
                     </div>
+
                 </motion.div>
+
             )}
         </AnimatePresence>
     );
@@ -449,14 +438,7 @@ const KeyPointCard = ({
 
 
 /* =========================================================
-   CONNECTOR LINE + DOT
-
-   Line + dot stay attached.
-
-   Move connector using:
-   left/right/top/bottom
-
-   Dot will move automatically.
+   CONNECTOR LINE + ATTACHED DOT
    ========================================================= */
 
 const FloatingConnector = ({
@@ -517,165 +499,135 @@ const FloatingConnector = ({
                         top: connector.top,
                         bottom: connector.bottom,
 
-                        /* Normal connectors remain unchanged */
-                        ...(
-                            !isVertical
-                                ? {
-                                    width: connector.width,
-                                    transform: `rotate(${connector.angle}deg)`,
-                                    transformOrigin:
-                                        dotIsStart
-                                            ? "left center"
-                                            : "right center",
-                                }
-                                : {
-                                    width: "1.5px",
-                                    height: connector.width,
 
-                                    transformOrigin:
-                                        verticalUp
-                                            ? "center bottom"
-                                            : "center top",
-                                }
-                        ),
+                        ...(isVertical
+                            ? {
+                                width: "1.5px",
+                                height: connector.width,
+
+                                transformOrigin:
+                                    verticalUp
+                                        ? "center bottom"
+                                        : "center top",
+                            }
+
+                            : {
+                                width: connector.width,
+
+                                transform:
+                                    `rotate(${connector.angle}deg)`,
+
+                                transformOrigin:
+                                    dotIsStart
+                                        ? "left center"
+                                        : "right center",
+                            }),
                     }}
 
                     className={`
-                        pointer-events-none
-                        absolute
-                        z-30
-                        hidden
-                        bg-[#1681FF]
-                        xl:block
+            pointer-events-none
+            absolute
+            z-30
+            hidden
+            bg-[#1681FF]
+            xl:block
 
-                        ${isVertical
+            ${isVertical
                             ? "w-[1.5px]"
                             : "h-[1.5px] origin-left"
                         }
-                    `}
+          `}
                 >
 
-                    {/* =====================================
-                        NORMAL HORIZONTAL / DIAGONAL DOTS
-                       ===================================== */}
+                    {/* Horizontal Start Dot */}
+                    {!isVertical &&
+                        dotIsStart && (
 
-                    {!isVertical && dotIsStart && (
+                            <div
+                                className="
+                  absolute
+                  -left-[4px]
+                  top-1/2
+                  h-[8px]
+                  w-[8px]
+                  -translate-y-1/2
+                  rounded-full
+                  border-[1.5px]
+                  border-white
+                  bg-[#1681FF]
+                  shadow-sm
+                "
+                            />
 
-                        <div
-                            className="
-                                absolute
-                                -left-[4px]
-                                top-1/2
-
-                                h-[8px]
-                                w-[8px]
-
-                                -translate-y-1/2
-
-                                rounded-full
-
-                                border-[1.5px]
-                                border-white
-
-                                bg-[#1681FF]
-
-                                shadow-sm
-                            "
-                        />
-
-                    )}
+                        )}
 
 
-                    {!isVertical && !dotIsStart && (
+                    {/* Horizontal End Dot */}
+                    {!isVertical &&
+                        !dotIsStart && (
 
-                        <div
-                            className="
-                                absolute
-                                -right-[4px]
-                                top-1/2
+                            <div
+                                className="
+                  absolute
+                  -right-[4px]
+                  top-1/2
+                  h-[8px]
+                  w-[8px]
+                  -translate-y-1/2
+                  rounded-full
+                  border-[1.5px]
+                  border-white
+                  bg-[#1681FF]
+                  shadow-sm
+                "
+                            />
 
-                                h-[8px]
-                                w-[8px]
-
-                                -translate-y-1/2
-
-                                rounded-full
-
-                                border-[1.5px]
-                                border-white
-
-                                bg-[#1681FF]
-
-                                shadow-sm
-                            "
-                        />
-
-                    )}
+                        )}
 
 
-                    {/* =====================================
-                        VERTICAL DOWN
-                        Touchscreen
-                       ===================================== */}
-
+                    {/* Vertical Down Dot */}
                     {isVertical &&
                         !verticalUp &&
                         !dotIsStart && (
 
                             <div
                                 className="
-                                absolute
-                                -bottom-[4px]
-                                left-1/2
-
-                                h-[8px]
-                                w-[8px]
-
-                                -translate-x-1/2
-
-                                rounded-full
-
-                                border-[1.5px]
-                                border-white
-
-                                bg-[#1681FF]
-
-                                shadow-sm
-                            "
+                  absolute
+                  -bottom-[4px]
+                  left-1/2
+                  h-[8px]
+                  w-[8px]
+                  -translate-x-1/2
+                  rounded-full
+                  border-[1.5px]
+                  border-white
+                  bg-[#1681FF]
+                  shadow-sm
+                "
                             />
 
                         )}
 
 
-                    {/* =====================================
-                        VERTICAL UP
-                        Emergency Stop
-                       ===================================== */}
-
+                    {/* Vertical Up Dot */}
                     {isVertical &&
                         verticalUp &&
                         !dotIsStart && (
 
                             <div
                                 className="
-                                absolute
-                                -top-[4px]
-                                left-1/2
-
-                                h-[8px]
-                                w-[8px]
-
-                                -translate-x-1/2
-
-                                rounded-full
-
-                                border-[1.5px]
-                                border-white
-
-                                bg-[#1681FF]
-
-                                shadow-sm
-                            "
+                  absolute
+                  -top-[4px]
+                  left-1/2
+                  h-[8px]
+                  w-[8px]
+                  -translate-x-1/2
+                  rounded-full
+                  border-[1.5px]
+                  border-white
+                  bg-[#1681FF]
+                  shadow-sm
+                "
                             />
 
                         )}
@@ -690,7 +642,7 @@ const FloatingConnector = ({
 
 
 /* =========================================================
-   MOBILE KEY POINT
+   MOBILE KEYPOINT
    ========================================================= */
 
 const MobileKeyPoint = ({
@@ -699,7 +651,8 @@ const MobileKeyPoint = ({
     show,
 }) => {
 
-    const Icon = item.icon;
+    const Icon =
+        item.icon;
 
 
     return (
@@ -708,22 +661,28 @@ const MobileKeyPoint = ({
             {show && (
 
                 <motion.div
+
                     initial={{
                         opacity: 0,
                         y: 10,
                     }}
+
                     animate={{
                         opacity: 1,
                         y: 0,
                     }}
+
                     exit={{
                         opacity: 0,
                         y: 8,
                     }}
+
                     transition={{
                         duration: 0.3,
-                        delay: index * 0.04,
+                        delay:
+                            index * 0.04,
                     }}
+
                     className="
             flex
             items-center
@@ -750,7 +709,9 @@ const MobileKeyPoint = ({
               text-[#1681FF]
             "
                     >
+
                         <Icon size={16} />
+
                     </div>
 
 
@@ -790,17 +751,23 @@ const MobileKeyPoint = ({
 
 
 /* =========================================================
-   MAIN DK30 COMPONENT
+   MAIN HARMONY COMPONENT
    ========================================================= */
 
-const DK30Machine = () => {
+const HarmonyMachine = () => {
 
-    const [exploded, setExploded] =
-        useState(false);
+    const [
+        showKeyPoints,
+        setShowKeyPoints,
+    ] = useState(false);
 
 
-    const toggleMachine = () => {
-        setExploded((prev) => !prev);
+    const toggleKeyPoints = () => {
+
+        setShowKeyPoints(
+            (prev) => !prev
+        );
+
     };
 
 
@@ -834,9 +801,12 @@ const DK30Machine = () => {
                 <div className="mb-2 text-center">
 
                     <motion.div
+
                         animate={
-                            exploded
+                            showKeyPoints
+
                                 ? {}
+
                                 : {
                                     scale: [
                                         1,
@@ -845,13 +815,16 @@ const DK30Machine = () => {
                                     ],
                                 }
                         }
+
                         transition={{
                             duration: 2,
+
                             repeat:
-                                exploded
+                                showKeyPoints
                                     ? 0
                                     : Infinity,
                         }}
+
                         className="
               mx-auto
               inline-flex
@@ -869,21 +842,13 @@ const DK30Machine = () => {
             "
                     >
 
-                        {exploded ? (
+                        <MousePointerClick
+                            size={15}
+                        />
 
-                            <>
-                                <RotateCcw size={15} />
-                                Click machine to assemble
-                            </>
-
-                        ) : (
-
-                            <>
-                                <MousePointerClick size={15} />
-                                Click machine to explore
-                            </>
-
-                        )}
+                        {showKeyPoints
+                            ? "Click machine to hide key points"
+                            : "Click machine to view key points"}
 
                     </motion.div>
 
@@ -899,7 +864,7 @@ const DK30Machine = () => {
             relative
             mx-auto
             hidden
-            h-[700px]
+            h-[650px]
             max-w-[1200px]
             xl:block
           "
@@ -907,29 +872,48 @@ const DK30Machine = () => {
 
                     {/* Key point cards */}
                     {keyPoints.map(
-                        (item, index) => (
+                        (
+                            item,
+                            index
+                        ) => (
 
                             <KeyPointCard
-                                key={item.id}
+                                key={
+                                    item.id
+                                }
                                 {...item}
-                                show={exploded}
-                                delay={index * 0.04}
+                                show={
+                                    showKeyPoints
+                                }
+                                delay={
+                                    index *
+                                    0.04
+                                }
                             />
 
                         )
                     )}
 
 
-                    {/* Connector lines */}
+                    {/* Connectors */}
                     {keyPoints.map(
-                        (item, index) => (
+                        (
+                            item,
+                            index
+                        ) => (
 
                             <FloatingConnector
                                 key={`connector-${item.id}`}
-                                connector={item.connector}
-                                show={exploded}
+                                connector={
+                                    item.connector
+                                }
+                                show={
+                                    showKeyPoints
+                                }
                                 delay={
-                                    index * 0.04 + 0.05
+                                    index *
+                                    0.04 +
+                                    0.05
                                 }
                             />
 
@@ -942,21 +926,27 @@ const DK30Machine = () => {
              ================================================= */}
 
                     <motion.div
-                        onClick={toggleMachine}
+
+                        onClick={
+                            toggleKeyPoints
+                        }
+
                         whileHover={{
                             scale: 1.01,
                         }}
+
                         whileTap={{
                             scale: 0.995,
                         }}
+
                         className="
               absolute
               left-1/2
               top-1/2
               z-20
 
-              h-[430px]
-              w-[560px]
+              h-[390px]
+              w-[500px]
 
               -translate-x-1/2
               -translate-y-1/2
@@ -970,128 +960,57 @@ const DK30Machine = () => {
                         <motion.div
                             animate={{
                                 opacity:
-                                    exploded
-                                        ? 0.24
-                                        : 0.14,
-
-                                scale:
-                                    exploded
-                                        ? 1.08
-                                        : 1,
+                                    showKeyPoints
+                                        ? 0.23
+                                        : 0.13,
                             }}
                             className="
                 absolute
                 left-1/2
                 top-1/2
-                h-[270px]
-                w-[390px]
+                h-[260px]
+                w-[360px]
                 -translate-x-1/2
                 -translate-y-1/2
                 rounded-full
                 bg-blue-300/25
-                blur-[65px]
+                blur-[60px]
               "
                         />
 
 
-                        {/* Original faint machine */}
+                        {/* Machine */}
                         <motion.img
-                            src={dk30Img}
-                            alt="Litho DK30 Holmium Laser System"
-                            draggable={false}
-                            animate={{
-                                opacity:
-                                    exploded
-                                        ? 0.08
-                                        : 1,
+                            src={
+                                harmonyImg
+                            }
 
+                            alt="MMT Harmony System"
+
+                            draggable={
+                                false
+                            }
+
+                            animate={{
                                 scale:
-                                    exploded
-                                        ? 0.99
+                                    showKeyPoints
+                                        ? 1.01
                                         : 1,
                             }}
+
                             transition={{
-                                duration: 0.35,
+                                duration: 0.3,
                             }}
+
                             className="
-                absolute
-                inset-0
+                relative
+                z-20
                 h-full
                 w-full
                 object-contain
-                drop-shadow-[0_22px_28px_rgba(15,23,42,0.16)]
+                drop-shadow-[0_18px_24px_rgba(15,23,42,0.16)]
               "
                         />
-
-
-                        {/* 5 exploded parts */}
-                        {machineParts.map(
-                            (part, index) => (
-
-                                <motion.div
-                                    key={part.id}
-                                    initial={false}
-                                    animate={{
-                                        x:
-                                            exploded
-                                                ? part.x
-                                                : 0,
-
-                                        y:
-                                            exploded
-                                                ? part.y
-                                                : 0,
-
-                                        opacity:
-                                            exploded
-                                                ? 1
-                                                : 0,
-                                    }}
-                                    transition={{
-                                        duration: 0.5,
-
-                                        delay:
-                                            exploded
-                                                ? index * 0.035
-                                                : 0,
-
-                                        ease: [
-                                            0.22,
-                                            1,
-                                            0.36,
-                                            1,
-                                        ],
-                                    }}
-                                    style={{
-                                        clipPath:
-                                            part.clipPath,
-                                    }}
-                                    className="
-                    absolute
-                    inset-0
-                    h-full
-                    w-full
-                  "
-                                >
-
-                                    <img
-                                        src={dk30Img}
-                                        alt=""
-                                        draggable={false}
-                                        className="
-                      absolute
-                      inset-0
-                      h-full
-                      w-full
-                      object-contain
-                      drop-shadow-[0_12px_16px_rgba(15,23,42,0.11)]
-                    "
-                                    />
-
-                                </motion.div>
-
-                            )
-                        )}
 
                     </motion.div>
 
@@ -1105,17 +1024,19 @@ const DK30Machine = () => {
                 <div className="xl:hidden">
 
                     <div
-                        onClick={toggleMachine}
+                        onClick={
+                            toggleKeyPoints
+                        }
+
                         className="
               relative
               mx-auto
               flex
-              min-h-[260px]
-              max-w-[560px]
+              min-h-[280px]
+              max-w-[520px]
               cursor-pointer
               items-center
               justify-center
-              sm:min-h-[330px]
             "
                     >
 
@@ -1125,7 +1046,7 @@ const DK30Machine = () => {
                 left-1/2
                 top-1/2
                 h-44
-                w-60
+                w-64
                 -translate-x-1/2
                 -translate-y-1/2
                 rounded-full
@@ -1136,19 +1057,31 @@ const DK30Machine = () => {
 
 
                         <motion.img
-                            src={dk30Img}
-                            alt="DK30 Holmium Laser Machine"
-                            draggable={false}
+                            src={
+                                harmonyImg
+                            }
+
+                            alt="MMT Harmony System"
+
+                            draggable={
+                                false
+                            }
+
                             animate={{
                                 scale:
-                                    exploded
+                                    showKeyPoints
                                         ? 1.01
                                         : 1,
                             }}
+
+                            transition={{
+                                duration: 0.3,
+                            }}
+
                             className="
                 relative
                 z-10
-                max-h-[290px]
+                max-h-[300px]
                 w-full
                 object-contain
                 drop-shadow-[0_16px_22px_rgba(15,23,42,0.17)]
@@ -1172,13 +1105,24 @@ const DK30Machine = () => {
                     >
 
                         {keyPoints.map(
-                            (item, index) => (
+                            (
+                                item,
+                                index
+                            ) => (
 
                                 <MobileKeyPoint
-                                    key={item.id}
-                                    item={item}
-                                    index={index}
-                                    show={exploded}
+                                    key={
+                                        item.id
+                                    }
+                                    item={
+                                        item
+                                    }
+                                    index={
+                                        index
+                                    }
+                                    show={
+                                        showKeyPoints
+                                    }
                                 />
 
                             )
@@ -1188,71 +1132,6 @@ const DK30Machine = () => {
 
                 </div>
 
-
-                {/* =================================================
-            ASSEMBLE BUTTON
-           ================================================= */}
-
-                <AnimatePresence>
-
-                    {exploded && (
-
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                                y: 10,
-                            }}
-                            animate={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            exit={{
-                                opacity: 0,
-                                y: 8,
-                            }}
-                            className="
-                mt-3
-                flex
-                justify-center
-              "
-                        >
-
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    setExploded(false)
-                                }
-                                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-xl
-                  border
-                  border-blue-200
-                  bg-white
-                  px-4
-                  py-2
-                  text-[11px]
-                  font-bold
-                  text-[#1681FF]
-                  shadow-sm
-                  transition
-                  hover:bg-blue-50
-                "
-                            >
-
-                                <RotateCcw size={14} />
-
-                                Assemble DK30
-
-                            </button>
-
-                        </motion.div>
-
-                    )}
-
-                </AnimatePresence>
-
             </div>
 
         </section>
@@ -1261,4 +1140,4 @@ const DK30Machine = () => {
 };
 
 
-export default DK30Machine;
+export default HarmonyMachine;

@@ -18,6 +18,7 @@ import footswitchImg from "../assets/images/cybertm_footswitch.jpg";
 import fiberImg from "../assets/images/litho35_fiber.png";
 import recognitionImg from "../assets/images/litho35_recognition.png";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import FiberDustMachine from "../Components/FiberDust/FiberDustMachine";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -385,6 +386,8 @@ const FiberDust60Watt = () => {
           </div>
         </div>
       </section>
+
+      <FiberDustMachine />
 
       {/* Why Quanta TFL? */}
       <section className="bg-slate-50 py-16 md:py-24">

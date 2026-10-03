@@ -364,6 +364,7 @@ import CyberHo150FiberDetails from "../Components/Cyber_Ho_150/CyberHo150FiberDe
 import CyberHo150Applications from "../Components/Cyber_Ho_150/CyberHo150Applications";
 import CyberHo150Specs from "../Components/Cyber_Ho_150/CyberHo150Specs";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import CyberHoMachine from "../Components/Cyber_Ho_150/CyberHoMachine";
 
 /* Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -506,9 +507,9 @@ const CyberHo150Watt = () => {
 
             {/* Description */}
             <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6 lg:text-base">
-              Cyber Ho 150 can reach up to 152 W power and brings outstanding innovation by offering the 
+              Cyber Ho 150 can reach up to 152 W power and brings outstanding innovation by offering the
               <br className="hidden sm:block" />
-                exclusive  Vapor Tunnel™, Virtual Basket™ and MasterPULSE technologies.
+              exclusive  Vapor Tunnel™, Virtual Basket™ and MasterPULSE technologies.
             </p>
 
           </div>
@@ -611,15 +612,16 @@ const CyberHo150Watt = () => {
           </div>
         </div>
       </section>
-    //       <CyberHo150BPH />
-//       <CyberHo150VaporTunnel />
-//       <CyberHo150Lithotripsy />
-//       <CyberHo150MasterPulse />
-       <CyberHo150Fibers />
-       <CyberHo150FiberDetails />
-       <CyberHo150Applications />
-       <CyberHo150Specs />
-       <ProductInquireCTA productName="Cyber Ho 150 Watt Laser System" productImage={machineImage} />
+      <CyberHo150BPH />
+      <CyberHo150VaporTunnel />
+      <CyberHo150Lithotripsy />
+      <CyberHoMachine />
+      <CyberHo150MasterPulse />
+      <CyberHo150Fibers />
+      <CyberHo150FiberDetails />
+      <CyberHo150Applications />
+      <CyberHo150Specs />
+      <ProductInquireCTA productName="Cyber Ho 150 Watt Laser System" productImage={machineImage} />
     </div>
   );
 };
