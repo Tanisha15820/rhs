@@ -28,6 +28,7 @@ import uroflowImg from "../assets/images/danflow_wave_machine.jpg";
 import scannerImg from "../assets/images/bladder_scanner.png";
 import commodeImg from "../assets/images/danflow_stands_commode.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import SymphonyMachine from "../Components/Symphony/SymphonyMachine";
 
 const FeatureCard = ({ number, title, description, position }) => {
   return (
@@ -320,6 +321,9 @@ const Symphony = () => {
           </div>
         </div>
       </section>
+
+      {/* Machine Interactive View */}
+      <SymphonyMachine />
 
       {/* 2nd Section: Clinical Overview */}
       <section className="bg-white py-16 md:py-20 border-b border-slate-100">

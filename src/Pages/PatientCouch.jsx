@@ -14,6 +14,7 @@ import SEO from "../Components/SEO";
 import bannerBg from "../assets/images/smartxide_banner.png";
 import couchImage from "../assets/images/trytable_patient_coach.png";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import PatientCoachMachine from "../Components/PatientCoach/PatientCoachMachine";
 
 const FeatureCard = ({ number, title, description, position }) => {
   return (
@@ -396,6 +397,8 @@ const PatientCouch = () => {
           </div>
         </div>
       </section>
+
+      <PatientCoachMachine />
 
       {/* Wide Range of Accessories */}
       <section className="bg-white py-16 md:py-24">

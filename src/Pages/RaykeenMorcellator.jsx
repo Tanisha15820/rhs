@@ -18,7 +18,7 @@ import RaykeenAdvantages from "../Components/RaykeenMorcellator/RaykeenAdvantage
 import RaykeenFootswitch from "../Components/RaykeenMorcellator/RaykeenFootswitch";
 import RaykeenBladeSpecs from "../Components/RaykeenMorcellator/RaykeenBladeSpecs";
 import RaykeenSpecs from "../Components/RaykeenMorcellator/RaykeenSpecs";
-// import RaykeenMachine from "../Components/RaykeenMorcellator/RaykeenMachine";
+import RaykeenMachine from "../Components/RaykeenMorcellator/RaykeenMachine";
 
 const FeatureCard = ({ number, type, title, description, image, position }) => {
   return (
@@ -243,7 +243,7 @@ const RaykeenMorcellator = () => {
       {/* Modular Product Sections */}
       <RaykeenAdvantages />
       <RaykeenFootswitch />
-      {/* <RaykeenMachine /> */}
+      <RaykeenMachine />
       <RaykeenBladeSpecs />
       <RaykeenSpecs />
     </div>

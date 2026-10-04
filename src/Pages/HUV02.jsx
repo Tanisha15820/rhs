@@ -7,6 +7,7 @@ import machineImage from "../assets/images/huv02.png";
 import fhdMonitorImg from "../assets/images/huv02_fhd_monitor.jpg";
 import touchscreenImg from "../assets/images/huv02_touchscreen.jpg";
 import edgeConnectorImg from "../assets/images/huv02_edge_connector.jpg";
+import HUV02Machine from "../Components/HUV02/HUV02Machine";
 import HUV02Features from "../Components/HUV02/HUV02Features";
 import HUV02Capabilities from "../Components/HUV02/HUV02Capabilities";
 import HUV02Specs from "../Components/HUV02/HUV02Specs";
@@ -277,7 +278,10 @@ const HUV02 = () => {
         </div>
       </section>
 
-      {/* SECTION 2: Features & Architecture with Dimension Lines (Screenshot 2) */}
+      {/* SECTION 2: Machine Interactive View */}
+      <HUV02Machine />
+
+      {/* SECTION 3: Features & Architecture with Dimension Lines (Screenshot 2) */}
       <HUV02Features />
 
       {/* SECTION 3: Deep-Dive Core Capabilities (Screenshot 1) */}

@@ -18,6 +18,8 @@ import suctionPumpImg from "../assets/images/suction_pump.png";
 
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
+import SuctionPumpMachine from "../Components/SuctionPump/SuctionPumpMachine";
+
 
 /* =========================================================
    DESKTOP FEATURE CARD
@@ -543,6 +545,12 @@ const SuctionPump = () => {
         </div>
 
       </section>
+
+
+      {/* ===================================================
+          MACHINE EXPLORER (click to explode parts & keypoints)
+         =================================================== */}
+      <SuctionPumpMachine />
 
 
       {/* ===================================================

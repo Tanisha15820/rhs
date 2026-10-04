@@ -18,6 +18,8 @@ import cystonephroscopeImg from "../assets/images/cystonephroscope.png";
 
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
+import CystonephroscopeMachine from "../Components/Cystoscopy/CystonephroscopeMachine";
+
 
 /* =========================================================
    DESKTOP FEATURE CARD
@@ -526,6 +528,10 @@ const Cystonephroscope = () => {
         </div>
 
       </section>
+
+
+      {/* MACHINE EXPLORER (click to explode parts & view keypoints) */}
+      <CystonephroscopeMachine />
 
 
       {/* ===================================================

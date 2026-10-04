@@ -10,6 +10,7 @@ import CystoscopeCapabilities from "../Components/DisposableCystoscope/Cystoscop
 import CystoscopeSpecs from "../Components/DisposableCystoscope/CystoscopeSpecs";
 import CystoscopeClinical from "../Components/DisposableCystoscope/CystoscopeClinical";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import CystoscopeMachine from "../Components/DisposableCystoscope/CystoscopeMachine";
 
 /* Desktop Floating Feature Card (matching SmartXide & Litho35Watt) */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -274,6 +275,9 @@ const DisposableCystoscope = () => {
           </div>
         </div>
       </section>
+
+      {/* MACHINE EXPLORER (click to explode parts & view keypoints) */}
+      <CystoscopeMachine />
 
       {/* SECTION 2: Key Benefits (5 Cards from User Prompt) */}
       <CystoscopeKeyBenefits />

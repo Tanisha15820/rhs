@@ -27,6 +27,7 @@ import uroflowImg from "../assets/images/danflow_wave_machine.jpg";
 import scannerImg from "../assets/images/bladder_scanner.png";
 import commodeImg from "../assets/images/danflow_stands_commode.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import MelodyMachine from "../Components/Melody/MelodyMachine";
 
 const FeatureCard = ({ number, title, description, position }) => {
   return (
@@ -300,6 +301,9 @@ const Melody = () => {
           </div>
         </div>
       </section>
+
+      {/* Machine Interactive View */}
+      <MelodyMachine />
 
       {/* 2nd Section: General Clinical Overview (Styled like Litho35Watt / SmartXide) */}
       <section className="bg-white py-16 md:py-20 border-b border-slate-100">

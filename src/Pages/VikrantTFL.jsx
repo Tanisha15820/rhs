@@ -18,6 +18,7 @@ import footswitchImg from "../assets/images/cybertm_footswitch.jpg";
 import fiberImg from "../assets/images/litho35_fiber.png";
 import recognitionImg from "../assets/images/litho35_recognition.png";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import VikrantMachine from "../Components/Vikrant/VikrantMachine";
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -279,6 +280,9 @@ const VikrantTFL = () => {
           </div>
         </div>
       </section>
+
+      {/* Machine Interactive View */}
+      <VikrantMachine />
 
       {/* General Overview Section */}
       <section className="bg-white py-16 md:py-20 border-b border-slate-100">

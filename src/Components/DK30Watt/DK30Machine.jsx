@@ -1001,9 +1001,7 @@ const DK30Machine = () => {
                             draggable={false}
                             animate={{
                                 opacity:
-                                    exploded
-                                        ? 0.08
-                                        : 1,
+                                    exploded ? 0 : 1,
 
                                 scale:
                                     exploded
@@ -1084,7 +1082,6 @@ const DK30Machine = () => {
                       h-full
                       w-full
                       object-contain
-                      drop-shadow-[0_12px_16px_rgba(15,23,42,0.11)]
                     "
                                     />
 

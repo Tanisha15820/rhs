@@ -534,10 +534,7 @@ const FiberDustMachine = () => {
 
             min-h-[610px]
 
-            w-[180px]
-            xs:w-[195px]
-            sm:w-[215px]
-            lg:w-[245px]
+            w-[245px]
 
             max-w-full
           "

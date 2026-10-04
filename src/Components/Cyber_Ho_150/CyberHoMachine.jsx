@@ -603,14 +603,7 @@ const CyberHoMachine = () => {
 
             min-h-[500px]
 
-            w-[190px]
-
-            xs:w-[205px]
-            sm:w-[220px]
-
-            lg:min-h-[500px]
-
-            lg:w-[240px]
+            w-[240px]
 
             max-w-full
           "

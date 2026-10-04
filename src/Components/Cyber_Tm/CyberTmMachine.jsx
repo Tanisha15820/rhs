@@ -538,11 +538,7 @@ const CyberTmMachine = () => {
 
             min-h-[590px]
 
-            w-[190px]
-            xs:w-[205px]
-            sm:w-[225px]
-
-            lg:w-[255px]
+            w-[255px]
 
             max-w-full
           "

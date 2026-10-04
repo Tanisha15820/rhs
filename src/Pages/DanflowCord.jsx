@@ -23,6 +23,7 @@ import printerImg from "../assets/images/danflow_thermal_printer.jpg";
 import standImg from "../assets/images/danflow_stands_commode.jpg";
 import caseImg from "../assets/images/danflow_case_portable.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import DanflowCordMachine from "../Components/DanflowCord/DanflowCordMachine";
 
 /* Desktop Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -374,6 +375,8 @@ const DanflowCord = () => {
           </div>
         </div>
       </section>
+
+      <DanflowCordMachine />
 
       {/* Software Capabilities Section */}
       <section className="bg-white py-16 md:py-20 border-t border-slate-100">

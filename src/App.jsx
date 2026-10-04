@@ -7,6 +7,7 @@ import UrodynamicSystem from "./Components/Products/UrodynamicSystem";
 import ESWLLithotripsy from "./Components/Products/ESWLLithotripsy";
 import ENT from "./Components/Products/ENT";
 import Blogs from "./Pages/Blogs";
+import Newsletter from "./Pages/Newsletter";
 import MachinePage from "./Pages/MachinePage";
 import ContactPage from "./Pages/ContactPage";
 import SmartXide from "./Pages/SmartXide";
@@ -104,6 +105,7 @@ function App() {
           <Route path="/gastro" element={<Gastro />} />
           <Route path="/gastro-laser" element={<GastroLaser />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/machine" element={<MachinePage />} />
           <Route path="/products" element={<MachinePage />} />
           <Route path="/contact" element={<ContactPage />} />

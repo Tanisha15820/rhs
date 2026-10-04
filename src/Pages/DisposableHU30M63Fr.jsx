@@ -11,6 +11,7 @@ import HU30MKeyBenefits from "../Components/DisposableHU30M/HU30MKeyBenefits";
 import HU30MCapabilities from "../Components/DisposableHU30M/HU30MCapabilities";
 import HU30MSpecs from "../Components/DisposableHU30M/HU30MSpecs";
 import HU30MClinical from "../Components/DisposableHU30M/HU30MClinical";
+import HU30MMachine from "../Components/DisposableHU30M/HU30MMachine";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
 /* Desktop Floating Feature Card (matching SmartXide & Litho35Watt) */
@@ -222,7 +223,7 @@ const DisposableHU30M63Fr = () => {
               <motion.img
                 src={fullScopeImg}
                 alt="HugeMed HU30M 6.3/6 Fr Single-Use Digital Ureterorenoscope"
-                className="relative z-10 h-[340px] w-auto object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[400px] rounded-2xl"
+                className="relative z-10 h-[340px] w-auto -translate-y-8 object-contain drop-shadow-[0_25px_35px_rgba(25,168,232,0.22)] xl:h-[400px] rounded-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -235,7 +236,7 @@ const DisposableHU30M63Fr = () => {
               <motion.img
                 src={fullScopeImg}
                 alt="HugeMed HU30M 6.3/6 Fr Single-Use Digital Ureterorenoscope"
-                className="relative z-10 h-[220px] w-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)] sm:h-[260px] rounded-2xl"
+                className="relative z-10 h-[220px] w-auto -translate-y-4 object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)] sm:h-[260px] rounded-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -277,7 +278,10 @@ const DisposableHU30M63Fr = () => {
         </div>
       </section>
 
-      {/* SECTION 2: Features & Architecture with Handheld View */}
+      {/* SECTION 2: Machine Explorer (click to show keypoints) */}
+      <HU30MMachine />
+
+      {/* SECTION 3: Features & Architecture with Handheld View */}
       <HU30MFeatures />
 
       {/* SECTION 3: Key Benefits */}

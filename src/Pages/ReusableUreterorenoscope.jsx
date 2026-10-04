@@ -12,6 +12,7 @@ import UreterorenoscopeCapabilities from "../Components/ReusableUreterorenoscope
 import UreterorenoscopeSpecs from "../Components/ReusableUreterorenoscope/UreterorenoscopeSpecs";
 import UreterorenoscopeClinical from "../Components/ReusableUreterorenoscope/UreterorenoscopeClinical";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import UreterorenoscopeMachine from "../Components/ReusableUreterorenoscope/UreterorenoscopeMachine";
 
 /* Desktop Floating Feature Card (matching SmartXide & Litho35Watt) */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -282,6 +283,7 @@ const ReusableUreterorenoscope = () => {
 
       {/* SECTION 3: Key Benefits (Screenshot 1) */}
       <UreterorenoscopeKeyBenefits />
+      <UreterorenoscopeMachine />
 
       {/* SECTION 4: In-Depth Engineering & Durability */}
       <UreterorenoscopeCapabilities />

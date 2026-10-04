@@ -24,6 +24,7 @@ import cartImg from "../assets/images/bladder_scanner.png";
 import softwareImg from "../assets/images/mmt_software_pvr.jpg";
 import holdersImg from "../assets/images/uromic_holders_suite.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import BladderScannerMachine from "../Components/BladderScanner/BladderScannerMachine";
 
 /* Desktop Feature Card */
 const FeatureCard = ({ number, title, description, image, position }) => {
@@ -346,6 +347,8 @@ const BladderScanner = () => {
         </div>
       </section>
 
+
+
       {/* =========================================================================
           GENERAL OVERVIEW & HOW IT WORKS (PDF Page 1 & 2 content)
          ========================================================================= */}
@@ -490,6 +493,8 @@ const BladderScanner = () => {
           </div>
         </div>
       </section>
+
+      <BladderScannerMachine />
 
       {/* =========================================================================
           MMT BLADDER SCANNER SOFTWARE IS EASY TO OPERATE (Page 1)

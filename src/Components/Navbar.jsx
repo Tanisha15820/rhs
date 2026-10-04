@@ -14,6 +14,7 @@ import AirIcon from "@mui/icons-material/Air";
 import SpaIcon from "@mui/icons-material/Spa";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 // Logo image
 import logo from "../assets/images/compressed_rhs_logo.png";
@@ -587,6 +588,16 @@ function Navbar() {
             Blogs
           </Link>
 
+          {/* Newsletter */}
+          <Link
+            to="/newsletter"
+            className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-[15px] font-semibold transition-all duration-200 ${
+              pathname === "/newsletter" ? ACTIVE_LINK : INACTIVE_LINK
+            }`}
+          >
+            Newsletter
+          </Link>
+
           {/* Contact */}
           <Link
             to="/contact"
@@ -918,6 +929,18 @@ function Navbar() {
             >
               <ArticleIcon sx={{ fontSize: 18 }} />
               <span>Blogs</span>
+            </Link>
+
+            {/* Newsletter */}
+            <Link
+              to="/newsletter"
+              onClick={closeMobileMenu}
+              className={`flex items-center gap-2.5 rounded-xl px-4 py-3 ${
+                pathname === "/newsletter" ? ACTIVE_LINK : MOBILE_INACTIVE
+              }`}
+            >
+              <EmailOutlinedIcon sx={{ fontSize: 18 }} />
+              <span>Newsletter</span>
             </Link>
 
             {/* Contact */}

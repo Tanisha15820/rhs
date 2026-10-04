@@ -533,11 +533,7 @@ const MagnetoMachine = () => {
 
             min-h-[560px]
 
-            w-[190px]
-
-            xs:w-[205px]
-            sm:w-[220px]
-            lg:w-[250px]
+            w-[250px]
 
             max-w-full
           "

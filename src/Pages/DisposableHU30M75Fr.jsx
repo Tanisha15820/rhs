@@ -34,6 +34,7 @@ import dualScopesImg from "../assets/images/hu30m_dual_scopes.jpg";
 import processorImg from "../assets/images/huv01_processor.jpg";
 import tipImg from "../assets/images/ureterorenoscope_tip.jpg";
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
+import HU30SMachine from "../Components/DisposableHU30S/HU30SMachine";
 
 /* Desktop Floating Feature Card */
 const FeatureCard = ({ number, type, title, description, image, position }) => {
@@ -297,6 +298,9 @@ const DisposableHU30M75Fr = () => {
           </div>
         </div>
       </section>
+
+      {/* SECTION 1.5: Machine Explorer (click to explode parts & keypoints) */}
+      <HU30SMachine />
 
       {/* SECTION 2: Welcome to the Time of Mini-RIRS (Screenshot 1 Content) */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/60 to-white border-t border-slate-100">

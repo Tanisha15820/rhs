@@ -666,13 +666,7 @@ const DanflowWaveMachine = () => {
 
                         min-h-[620px]
 
-                        w-[200px]
-
-                        xs:w-[215px]
-
-                        sm:w-[235px]
-
-                        lg:w-[270px]
+                        w-[270px]
 
                         max-w-full
                     "

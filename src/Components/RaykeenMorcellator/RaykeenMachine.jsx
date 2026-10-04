@@ -1,127 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
+
 import { AnimatePresence, motion } from "framer-motion";
 
-import raykeen1 from "../../assets/images/raykeen1.png";
-import raykeen2 from "../../assets/images/raykeen2.png";
-import raykeen3 from "../../assets/images/raykeen3.png";
-import raykeen4 from "../../assets/images/raykeen4.png";
+import RaykeenMachineImg from "../../assets/images/raykeen.png";
 
-// ================= MACHINE POINT DATA =================
 
-const machinePoints = [
-  {
-    title: "Main Console",
-    description: "Touch Screen Interface",
-  },
-  {
-    title: "Top Tray",
-    description: "Instrument Placement",
-  },
-  {
-    title: "Morcellator Handpiece",
-    description: "High Speed Rotation",
-  },
-  {
-    title: "Irrigation / Suction Line",
-    description: "Fluid Delivery & Suction",
-  },
-  {
-    title: "Instrument Holder",
-    description: "Secure Storage & Quick Access",
-  },
-  {
-    title: "Irrigation Fiber",
-    description: "Fluid Delivery",
-  },
-  {
-    title: "Irrigation Cartridge",
-    description: "Fluid Control Cartridge",
-  },
-  {
-    title: "Irrigation Canister",
-    description: "Continuous Fluid Supply",
-  },
-  {
-    title: "Mobile Trolley Base",
-    description: "Stable & Smooth Mobility",
-  },
-];
-
-// ================= MOBILE KEY POINT =================
-
-const MobileKeyPoint = ({ title, description, index }) => {
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: 12,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
-      exit={{
-        opacity: 0,
-        y: 8,
-      }}
-      transition={{
-        duration: 0.3,
-        delay: index * 0.04,
-      }}
-      className="
-        flex
-        min-h-[72px]
-        items-start
-        gap-3
-        rounded-xl
-        border
-        border-[#2F80ED]/20
-        bg-white
-        p-3
-        shadow-[0_5px_18px_rgba(15,23,42,0.05)]
-      "
-    >
-      <div
-        className="
-          flex
-          h-8
-          w-8
-          shrink-0
-          items-center
-          justify-center
-          rounded-lg
-          bg-[#1677FF]/10
-        "
-      >
-        <div className="h-[14px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
-      </div>
-
-      <div className="min-w-0">
-        <h4
-          className="
-            text-[12px]
-            font-semibold
-            leading-[1.3]
-            text-slate-900
-          "
-        >
-          {title}
-        </h4>
-
-        <p className="mt-1 text-[10px] leading-[1.4] text-slate-400">
-          {description}
-        </p>
-      </div>
-    </motion.div>
-  );
-};
+/* =========================================================
+   DESKTOP KEY POINT
+   ========================================================= */
 
 const KeyPoint = ({
   title,
   description,
   position,
   side = "left",
-  lineWidth = 50,
+  lineWidth = 55,
 }) => {
   return (
     <motion.div
@@ -141,17 +34,25 @@ const KeyPoint = ({
         duration: 0.25,
       }}
       className={`
-        pointer-events-none
-        absolute
-        z-[100]
-        hidden
-        lg:flex
-        items-center
-        ${position}
-      `}
+                pointer-events-none
+                absolute
+                z-[100]
+                hidden
+                lg:flex
+
+                ${side === "bottom" || side === "top"
+          ? "flex-col items-center"
+          : "items-center"
+        }
+
+                ${position}
+            `}
     >
+
+      {/* RIGHT CONNECTOR */}
       {side === "right" && (
         <div className="flex items-center">
+
           <div
             className="h-[1px] bg-[#1677FF]"
             style={{
@@ -159,54 +60,139 @@ const KeyPoint = ({
             }}
           />
 
-          <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
+          <div
+            className="
+                            h-[8px]
+                            w-[8px]
+                            rounded-full
+                            bg-[#1677FF]
+                        "
+          />
+
         </div>
       )}
 
-      <div
-        className="
-          min-w-[145px]
-          rounded-[9px]
-          border
-          border-[#2F80ED]/60
-          bg-white
-          px-2.5
-          py-2
-          shadow-[0_6px_20px_rgba(15,23,42,0.07)]
-        "
-      >
-        <div className="flex items-start gap-2">
+
+      {/* TOP CONNECTOR */}
+      {side === "top" && (
+        <div className="flex flex-col items-center">
+
           <div
             className="
-              mt-[1px]
-              flex
-              h-[24px]
-              w-[24px]
-              shrink-0
-              items-center
-              justify-center
-              rounded-md
-              bg-[#1677FF]/10
-            "
+                            h-[8px]
+                            w-[8px]
+                            rounded-full
+                            bg-[#1677FF]
+                        "
+          />
+
+          <div
+            className="w-[1px] bg-[#1677FF]"
+            style={{
+              height: `${lineWidth}px`,
+            }}
+          />
+
+        </div>
+      )}
+
+
+      {/* CARD */}
+      <div
+        className="
+                    min-w-[150px]
+
+                    rounded-[10px]
+
+                    border
+                    border-[#2F80ED]/60
+
+                    bg-white
+
+                    px-3
+                    py-2.5
+
+                    shadow-[0_8px_24px_rgba(15,23,42,0.08)]
+                "
+      >
+
+        <div className="flex items-start gap-2">
+
+          {/* ICON */}
+          <div
+            className="
+                            mt-[2px]
+
+                            flex
+                            h-[26px]
+                            w-[26px]
+                            shrink-0
+
+                            items-center
+                            justify-center
+
+                            rounded-md
+
+                            bg-[#1677FF]/10
+                        "
           >
-            <div className="h-[11px] w-[3px] rotate-45 rounded-full bg-[#1677FF]" />
+            <div
+              className="
+                                h-[13px]
+                                w-[3px]
+                                rotate-45
+                                rounded-full
+                                bg-[#1677FF]
+                            "
+            />
           </div>
 
+
+          {/* TEXT */}
           <div>
-            <h4 className="text-[10px] font-semibold leading-tight text-slate-900">
+
+            <h4
+              className="
+                                text-[11px]
+                                font-semibold
+                                leading-tight
+                                text-slate-900
+                            "
+            >
               {title}
             </h4>
 
-            <p className="mt-[2px] whitespace-nowrap text-[7px] leading-[1.4] text-slate-400">
+
+            <p
+              className="
+                                mt-[3px]
+                                text-[8px]
+                                leading-[1.4]
+                                text-slate-400
+                            "
+            >
               {description}
             </p>
+
           </div>
+
         </div>
+
       </div>
 
+
+      {/* LEFT CONNECTOR */}
       {side === "left" && (
         <div className="flex items-center">
-          <div className="h-[7px] w-[7px] rounded-full bg-[#1677FF]" />
+
+          <div
+            className="
+                            h-[8px]
+                            w-[8px]
+                            rounded-full
+                            bg-[#1677FF]
+                        "
+          />
 
           <div
             className="h-[1px] bg-[#1677FF]"
@@ -214,357 +200,733 @@ const KeyPoint = ({
               width: `${lineWidth}px`,
             }}
           />
+
         </div>
       )}
+
+
+      {/* BOTTOM CONNECTOR */}
+      {side === "bottom" && (
+        <div className="flex flex-col items-center">
+
+          <div
+            className="w-[1px] bg-[#1677FF]"
+            style={{
+              height: `${lineWidth}px`,
+            }}
+          />
+
+          <div
+            className="
+                            h-[8px]
+                            w-[8px]
+                            rounded-full
+                            bg-[#1677FF]
+                        "
+          />
+
+        </div>
+      )}
+
     </motion.div>
   );
 };
 
-const RaykeenMachine = () => {
-  const [isExploded, setIsExploded] = useState(false);
 
-  const toggleMachine = () => {
-    setIsExploded((prev) => !prev);
-  };
+/* =========================================================
+   MOBILE KEY POINT
+   ========================================================= */
 
+const MobileKeyPoint = ({
+  title,
+  description,
+  index,
+}) => {
   return (
-    <section className="relative overflow-hidden bg-white py-[20px]">
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 8,
+      }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.04,
+      }}
+      className="
+                flex
+                min-h-[72px]
+                items-start
+                gap-3
+
+                rounded-xl
+
+                border
+                border-[#2F80ED]/20
+
+                bg-white
+
+                p-3
+
+                shadow-[0_5px_18px_rgba(15,23,42,0.05)]
+            "
+    >
+
       <div
-        className={`
-          relative
-          mx-auto
-          flex
-          w-full
-          max-w-[1050px]
-          items-center
-          justify-center
-          px-4
-          transition-all
-          duration-500
-          ease-in-out
+        className="
+                    flex
+                    h-8
+                    w-8
+                    shrink-0
 
-          min-h-[240px]
-          sm:min-h-[330px]
-          md:min-h-[440px]
-          lg:min-h-[680px]
+                    items-center
+                    justify-center
 
-          ${isExploded ? "lg:min-h-[880px]" : ""}
-        `}
+                    rounded-lg
+
+                    bg-[#1677FF]/10
+                "
       >
         <div
           className="
-            pointer-events-none
-            absolute
-            left-1/2
-            top-1/2
-            h-[300px]
-            w-[300px]
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            bg-[#1677FF]/[0.035]
-            blur-[100px]
-          "
+                        h-[14px]
+                        w-[3px]
+                        rotate-45
+                        rounded-full
+                        bg-[#1677FF]
+                    "
         />
+      </div>
+
+
+      <div className="min-w-0">
+
+        <h4
+          className="
+                        text-[12px]
+                        font-semibold
+                        leading-[1.3]
+                        text-slate-900
+                    "
+        >
+          {title}
+        </h4>
+
+
+        <p
+          className="
+                        mt-1
+                        text-[10px]
+                        leading-[1.4]
+                        text-slate-400
+                    "
+        >
+          {description}
+        </p>
+
+      </div>
+
+    </motion.div>
+  );
+};
+
+
+/* =========================================================
+   Raykeen KEYPOINT DATA
+   ========================================================= */
+
+const machinePoints = [
+  {
+    title: "Main Console",
+    description: "Touch Screen Interface",
+  },
+
+  {
+    title: "Morcellator Handpiece",
+    description: "High Speed Rotation",
+  },
+
+  {
+    title: "Irrigation Canisters",
+    description: "Continuous Fluid Supply",
+  },
+
+  {
+    title: "Instrument Holder",
+    description: "Secure Storage & Quick Access",
+  },
+
+  {
+    title: "Irrigation / Suction Line",
+    description: "Fluid Delivery & Suction",
+  },
+
+  {
+    title: "Mobile Trolley Base",
+    description: "Stable & Smooth Mobility",
+  },
+
+  {
+    title: "Foot Switch",
+    description: "Hands-Free Control",
+  },
+];
+
+
+const machineParts = [
+  {
+    id: "top-shell",
+
+    clipPath: "inset(3% 0% 72% 0%)",
+
+    x: -18,
+    y: -26,
+  },
+
+  {
+    id: "control-panel",
+
+    clipPath: "inset(28% 0% 38% 0%)",
+
+    x: 14,
+    y: 0,
+  },
+
+  {
+    id: "tray-base",
+
+    clipPath: "inset(62% 0% 3% 0%)",
+
+    x: 0,
+    y: 28,
+  },
+];
+
+
+/* =========================================================
+   MAIN COMPONENT
+   ========================================================= */
+
+const RaykeenMachine = () => {
+
+  const [
+    isExpanded,
+    setIsExpanded,
+  ] = useState(false);
+
+
+  const toggleMachine = () => {
+
+    setIsExpanded(
+      (prev) => !prev
+    );
+
+  };
+
+
+  return (
+    <section
+      className="
+                relative
+                overflow-hidden
+                bg-white
+
+                py-12
+                sm:py-16
+                lg:py-[70px]
+            "
+    >
+
+      {/* =====================================================
+                MACHINE AREA
+               ===================================================== */}
+
+      <div
+        className="
+                    relative
+
+                    left-1/2
+                    -translate-x-1/2
+
+                    w-screen
+                    max-w-none
+
+                    min-h-[520px]
+                    sm:min-h-[560px]
+                    lg:min-h-[600px]
+                "
+      >
+
+        {/* =================================================
+                    MACHINE WRAPPER
+                   ================================================= */}
 
         <div
-          onClick={toggleMachine}
-          role="button"
-          tabIndex={0}
-          aria-expanded={isExploded}
-          aria-label={
-            isExploded ? "Collapse Raykeen machine" : "Explore Raykeen machine"
-          }
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              toggleMachine();
-            }
-          }}
           className="
-            absolute
-            left-1/2
-            top-1/2
-            z-20
-            h-[690px]
-            w-[720px]
-            cursor-pointer
-            outline-none
-            -translate-x-1/2
-            -translate-y-1/2
-            lg:-translate-y-[calc(-50%-100px)]
-            scale-[0.3]
-            sm:scale-[0.42]
-            md:scale-[0.58]
-            lg:scale-100
-          "
+                        absolute
+
+                        left-1/2
+                        top-1/2
+
+                        -translate-x-1/2
+                        -translate-y-1/2
+
+                        cursor-pointer
+
+                        outline-none
+
+                        min-h-[500px]
+
+                        w-[280px]
+                        xs:w-[320px]
+                        sm:w-[380px]
+                        lg:w-[480px]
+
+                        max-w-full
+                    "
+
+          onClick={toggleMachine}
+
+          role="button"
+
+          tabIndex={0}
+
+          aria-label={
+            isExpanded
+              ? "Collapse Raykeen machine details"
+              : "Expand Raykeen machine details"
+          }
+
+          aria-expanded={isExpanded}
+
+          onKeyDown={(e) => {
+
+            if (
+              e.key === "Enter" ||
+              e.key === " "
+            ) {
+
+              e.preventDefault();
+
+              toggleMachine();
+
+            }
+
+          }}
         >
+
+          {/* =================================================
+                        DESKTOP KEY POINTS
+                       ================================================= */}
+
           <AnimatePresence>
-            {isExploded && (
+
+            {isExpanded && (
+
               <>
+
+                {/* Main Console */}
                 <KeyPoint
                   title="Main Console"
                   description="Touch Screen Interface"
-                  position="left-[60px] top-[189px]"
-                  side="left"
+
+                  position="
+                                        right-[-1px]
+                                        top-[10px]
+                                    "
+
+                  side="right"
+
                   lineWidth={55}
                 />
 
-                <KeyPoint
-                  title="Top Tray"
-                  description="Instrument Placement"
-                  position="right-[70px] top-[400px]"
-                  side="right"
-                  lineWidth={50}
-                />
 
+                {/* Morcellator Handpiece */}
                 <KeyPoint
                   title="Morcellator Handpiece"
                   description="High Speed Rotation"
-                  position="left-[-50px] top-[340px]"
-                  side="left"
-                  lineWidth={60}
-                />
 
-                <KeyPoint
-                  title="Irrigation / Suction Line"
-                  description="Fluid Delivery & Suction"
-                  position="right-[-85px] top-[245px]"
-                  side="right"
+                  position="
+                                        left-[-150px]
+                                        top-[140px]
+                                    "
+
+                  side="left"
+
                   lineWidth={55}
                 />
 
+
+                {/* Instrument Holder */}
                 <KeyPoint
                   title="Instrument Holder"
                   description="Secure Storage & Quick Access"
-                  position="left-[60px] top-[480px]"
-                  side="left"
-                  lineWidth={55}
-                />
 
-                <KeyPoint
-                  title="Irrigation Fiber"
-                  description="Fluid Delivery"
-                  position="left-[30px] top-[585px]"
-                  side="left"
-                  lineWidth={55}
-                />
+                  position="
+                                        right-[-60px]
+                                        top-[180px]
+                                    "
 
-                <KeyPoint
-                  title="Irrigation Catridge"
-                  description="Fluid Control Catridge"
-                  position="left-[25px] bottom-[-25px]"
-                  side="left"
-                  lineWidth={55}
-                />
-
-                <KeyPoint
-                  title="Irrigation Canister"
-                  description="Continuous Fluid Supply"
-                  position="right-[30px] bottom-[-70px]"
                   side="right"
-                  lineWidth={55}
+
+                  lineWidth={60}
                 />
 
+
+                {/* Irrigation / Suction Line */}
+                <KeyPoint
+                  title="Irrigation / Suction Line"
+                  description="Fluid Delivery & Suction"
+
+                  position="
+                                        right-[-110px]
+                                        top-[250px]
+                                    "
+
+                  side="right"
+
+                  lineWidth={65}
+                />
+
+
+                {/* Mobile Trolley Base */}
                 <KeyPoint
                   title="Mobile Trolley Base"
                   description="Stable & Smooth Mobility"
-                  position="right-[90px] bottom-[-135px]"
-                  side="right"
+
+                  position="
+                                        left-[-70px]
+                                        top-[390px]
+                                    "
+
+                  side="left"
+
                   lineWidth={50}
                 />
+
+
               </>
+
             )}
+
           </AnimatePresence>
 
-          <motion.img
-            src={raykeen2}
-            alt="Raykeen Main Console"
-            draggable={false}
-            animate={{
-              y: isExploded ? -120 : -45,
-            }}
-            transition={{
-              duration: 0.6,
-              ease: "easeInOut",
-            }}
-            className="
-              pointer-events-none
-              absolute
-              z-40
-              left-[240px]
-              top-[260px]
-              w-[250px]
-               h-[180px]
-              select-none
-              object-contain
-            "
-          />
 
-          <motion.img
-            src={raykeen1}
-            alt="Raykeen Morcellator Handpiece and Irrigation Line"
-            draggable={false}
-            animate={{
-              x: isExploded ? 45 : 20,
-              y: isExploded ? -45 : -5,
-            }}
-            transition={{
-              duration: 0.6,
-              ease: "easeInOut",
-            }}
-            className="
-              pointer-events-none
-              absolute
-              z-50
-              left-[105px]
-              top-[290px]
-              w-[515px]
-              select-none
-              object-contain
-            "
-          />
+          {/* =================================================
+                        MACHINE IMAGE
+                       ================================================= */}
 
-          <motion.img
-            src={raykeen3}
-            alt="Raykeen Instrument Tray"
-            draggable={false}
-            animate={{
-              y: isExploded ? 110 : 35,
-            }}
-            transition={{
-              duration: 0.6,
-              ease: "easeInOut",
-            }}
+          <div
             className="
-              pointer-events-none
-              absolute
-              z-30
-              left-[205px]
-              top-[285px]
-              w-[315px]
-              select-none
-              object-contain
-            "
-          />
+                            relative
 
-          <motion.img
-            src={raykeen4}
-            alt="Raykeen Mobile Trolley and Canisters"
-            draggable={false}
-            animate={{
-              y: isExploded ? 170 : 70,
-            }}
-            transition={{
-              duration: 0.6,
-              ease: "easeInOut",
-            }}
-            className="
-              pointer-events-none
-              absolute
-              z-20
-              left-[200px]
-              top-[390px]
-              w-[325px]
-              select-none
-              object-contain
-            "
-          />
+                            z-10
+
+                            h-[500px]
+
+                            w-full
+                        "
+          >
+
+            {/* Original faint machine */}
+            <motion.img
+              src={RaykeenMachineImg}
+
+              alt="Raykeen DRI-300 Workstation"
+
+              draggable={false}
+
+              animate={{
+                opacity:
+                  isExpanded ? 0 : 1,
+
+                scale:
+                  isExpanded
+                    ? 0.99
+                    : 1,
+              }}
+
+              transition={{
+                duration: 0.35,
+              }}
+
+              className="
+                                absolute
+                                inset-0
+                                h-full
+                                w-full
+                                object-contain
+                                drop-shadow-[0_22px_28px_rgba(15,23,42,0.16)]
+                            "
+            />
+
+
+            {/* Clipped exploded parts */}
+            {machineParts.map(
+              (part, index) => (
+
+                <motion.div
+                  key={part.id}
+                  initial={false}
+                  animate={{
+                    x:
+                      isExpanded
+                        ? part.x
+                        : 0,
+
+                    y:
+                      isExpanded
+                        ? part.y
+                        : 0,
+
+                    opacity:
+                      isExpanded
+                        ? 1
+                        : 0,
+                  }}
+                  transition={{
+                    duration: 0.5,
+
+                    delay:
+                      isExpanded
+                        ? index * 0.035
+                        : 0,
+
+                    ease: [
+                      0.22,
+                      1,
+                      0.36,
+                      1,
+                    ],
+                  }}
+                  style={{
+                    clipPath:
+                      part.clipPath,
+                  }}
+                  className="
+                                        absolute
+                                        inset-0
+                                        h-full
+                                        w-full
+                                    "
+                >
+
+                  <img
+                    src={RaykeenMachineImg}
+                    alt=""
+                    draggable={false}
+                    className="
+                                            absolute
+                                            inset-0
+                                            h-full
+                                            w-full
+                                            object-contain
+                                        "
+                  />
+
+                </motion.div>
+
+              )
+            )}
+
+          </div>
+
         </div>
+
       </div>
 
-      {/* Mobile Explore Section */}
-      <div className="mx-auto mt-9 w-full max-w-[520px] px-4 lg:hidden">
+
+      {/* =====================================================
+                MOBILE FEATURES
+               ===================================================== */}
+
+      <div
+        className="
+                    mx-auto
+
+                    mt-6
+
+                    w-full
+
+                    max-w-[520px]
+
+                    px-4
+
+                    lg:hidden
+                "
+      >
+
+        {/* TAP BUTTON */}
         <motion.button
+
           type="button"
-          whileTap={{
-            scale: 0.96,
-          }}
+
           onClick={toggleMachine}
+
+          whileTap={{
+            scale: 0.97,
+          }}
+
           className="
-            mx-auto
-            flex
-            items-center
-            gap-2
-            rounded-full
-            border
-            border-[#1677FF]/20
-            bg-[#1677FF]/[0.04]
-            px-4
-            py-2
-            text-[11px]
-            font-medium
-            text-[#1677FF]
-          "
+                        mx-auto
+
+                        flex
+
+                        items-center
+
+                        gap-2
+
+                        rounded-full
+
+                        border
+
+                        border-[#1677FF]/15
+
+                        bg-[#1677FF]/[0.04]
+
+                        px-4
+
+                        py-2
+
+                        text-[11px]
+
+                        font-medium
+
+                        text-[#1677FF]
+                    "
         >
+
           <span
             className={`
-              flex
-              h-5
-              w-5
-              items-center
-              justify-center
-              rounded-full
-              bg-[#1677FF]
-              text-[14px]
-              leading-none
-              text-white
-              transition-transform
-              duration-300
-              ${isExploded ? "rotate-45" : ""}
-            `}
+                            flex
+                            h-5
+                            w-5
+
+                            items-center
+                            justify-center
+
+                            rounded-full
+
+                            bg-[#1677FF]
+
+                            text-[14px]
+
+                            leading-none
+
+                            text-white
+
+                            transition-transform
+
+                            duration-300
+
+                            ${isExpanded
+                ? "rotate-45"
+                : ""
+              }
+                        `}
           >
             +
           </span>
 
-          {isExploded ? "Hide machine details" : "Tap to explore machine"}
+
+          {isExpanded
+            ? "Hide machine details"
+            : "Tap to explore machine"}
+
         </motion.button>
 
+
+        {/* MOBILE DETAIL CARDS */}
         <AnimatePresence>
-          {isExploded && (
+
+          {isExpanded && (
+
             <motion.div
+
               initial={{
                 opacity: 0,
                 height: 0,
               }}
+
               animate={{
                 opacity: 1,
                 height: "auto",
               }}
+
               exit={{
                 opacity: 0,
                 height: 0,
               }}
+
               transition={{
                 duration: 0.4,
                 ease: "easeOut",
               }}
+
               className="overflow-hidden"
             >
+
               <div
                 className="
-                  mt-5
-                  grid
-                  grid-cols-1
-                  gap-2.5
-                  min-[430px]:grid-cols-2
-                "
+                                    mt-5
+
+                                    grid
+
+                                    grid-cols-1
+
+                                    gap-2.5
+
+                                    min-[430px]:grid-cols-2
+                                "
               >
-                {machinePoints.map((point, index) => (
-                  <MobileKeyPoint
-                    key={point.title}
-                    title={point.title}
-                    description={point.description}
-                    index={index}
-                  />
-                ))}
+
+                {machinePoints.map(
+                  (
+                    point,
+                    index
+                  ) => (
+
+                    <MobileKeyPoint
+                      key={
+                        point.title
+                      }
+
+                      title={
+                        point.title
+                      }
+
+                      description={
+                        point.description
+                      }
+
+                      index={
+                        index
+                      }
+                    />
+
+                  )
+                )}
+
               </div>
+
             </motion.div>
+
           )}
+
         </AnimatePresence>
+
       </div>
+
     </section>
   );
 };
+
 
 export default RaykeenMachine;

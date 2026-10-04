@@ -236,7 +236,7 @@ const Vibrolith = () => {
 
       <VibrolithBenefits />
       <VibrolithProcedures />
-      {/* <VibrolithMachine /> */}
+      <VibrolithMachine />
       <VibrolithSystem />
       <VibrolithHandpiece />
       <VibrolithSpecs />

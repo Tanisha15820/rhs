@@ -22,6 +22,7 @@ const quickLinks = [
   { label: "ENT, Head & Neck Oncology", path: "/ent" },
   { label: "Gastro", path: "/gastro" },
   { label: "Blogs", path: "/blogs" },
+  { label: "Newsletter", path: "/newsletter" },
   { label: "Contact Us", path: "/contact" },
 ];
 
