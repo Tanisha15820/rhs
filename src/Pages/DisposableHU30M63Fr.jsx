@@ -278,14 +278,16 @@ const DisposableHU30M63Fr = () => {
         </div>
       </section>
 
-      {/* SECTION 2: Machine Explorer (click to show keypoints) */}
-      <HU30MMachine />
+
 
       {/* SECTION 3: Features & Architecture with Handheld View */}
       <HU30MFeatures />
 
       {/* SECTION 3: Key Benefits */}
       <HU30MKeyBenefits />
+
+      {/* SECTION 2: Machine Explorer (click to show keypoints) */}
+      <HU30MMachine />
 
       {/* SECTION 4: In-Depth Engineering & Clinical Capabilities */}
       <HU30MCapabilities />

@@ -299,8 +299,7 @@ const DisposableHU30M75Fr = () => {
         </div>
       </section>
 
-      {/* SECTION 1.5: Machine Explorer (click to explode parts & keypoints) */}
-      <HU30SMachine />
+
 
       {/* SECTION 2: Welcome to the Time of Mini-RIRS (Screenshot 1 Content) */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/60 to-white border-t border-slate-100">
@@ -540,6 +539,9 @@ const DisposableHU30M75Fr = () => {
           </div>
         </div>
       </section>
+
+      {/* SECTION 1.5: Machine Explorer (click to explode parts & keypoints) */}
+      <HU30SMachine />
 
       {/* SECTION 4: Engineering Advantages (Screenshot 2 Features) */}
       <section className="py-16 sm:py-24 bg-slate-50/60 border-t border-slate-100">

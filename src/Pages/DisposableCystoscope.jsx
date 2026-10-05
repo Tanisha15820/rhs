@@ -276,14 +276,16 @@ const DisposableCystoscope = () => {
         </div>
       </section>
 
-      {/* MACHINE EXPLORER (click to explode parts & view keypoints) */}
-      <CystoscopeMachine />
 
       {/* SECTION 2: Key Benefits (5 Cards from User Prompt) */}
       <CystoscopeKeyBenefits />
 
       {/* SECTION 3: Interactive Hardware Architecture Diagram (Matching Screenshot Callouts) */}
       <CystoscopeFeatures />
+
+
+      {/* MACHINE EXPLORER (click to explode parts & view keypoints) */}
+      <CystoscopeMachine />
 
       {/* SECTION 4: Three Core Capability Pillars */}
       <CystoscopeCapabilities />

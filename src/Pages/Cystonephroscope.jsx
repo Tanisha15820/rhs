@@ -530,8 +530,7 @@ const Cystonephroscope = () => {
       </section>
 
 
-      {/* MACHINE EXPLORER (click to explode parts & view keypoints) */}
-      <CystonephroscopeMachine />
+
 
 
       {/* ===================================================
@@ -628,6 +627,8 @@ const Cystonephroscope = () => {
         </div>
 
       </section>
+      {/* MACHINE EXPLORER (click to explode parts & view keypoints) */}
+      <CystonephroscopeMachine />
 
 
       {/* ===================================================

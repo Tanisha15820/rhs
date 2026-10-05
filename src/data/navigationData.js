@@ -149,9 +149,7 @@ export const URETERORENOSCOPE_PRODUCTS_BY_SUBCATEGORY = {
     { name: "HUV01", path: "/huv01" },
     { name: "HUV02", path: "/huv02" },
   ],
-  "Reusable Ureterorenoscope": [
-    { name: "Reusable Ureterorenoscope", path: "/reusable-ureterorenoscope" },
-  ],
+  "Reusable Ureterorenoscope": [],
   "Disposable Ureterorenoscope": [
     { name: "Disposable HU30M 6.3/6 Fr", path: "/disposable-hu30m-6-3fr" },
     { name: "Disposable HU30M 7.5 Fr", path: "/disposable-hu30m-7-5fr" },

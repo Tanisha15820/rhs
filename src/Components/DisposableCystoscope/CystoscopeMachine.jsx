@@ -1,8 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import scopePart from "../../assets/images/Cystoscope1.png";
 import machinePart from "../../assets/images/Cystoscope2.png";
+
+/* =========================================================
+   MOBILE DETECTION HOOK
+   Returns true when viewport is below lg (1024px)
+   ========================================================= */
+
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 1023px)");
+
+        const handleChange = (e) => {
+            setIsMobile(e.matches);
+        };
+
+        setIsMobile(mediaQuery.matches);
+
+        mediaQuery.addEventListener("change", handleChange);
+
+        return () => {
+            mediaQuery.removeEventListener("change", handleChange);
+        };
+    }, []);
+
+    return isMobile;
+};
+
+/* =========================================================
+   MOBILE MACHINE PART POSITION SETTINGS
+   CHANGE MOBILE POSITION / SIZE FROM HERE ONLY
+   Desktop styles are defined inline in each image below.
+   ========================================================= */
+
+const mobilePartPositions = {
+    /* PART 1 — INSERTION TUBE */
+    part1: {
+        top: "20%",
+        left: "3%",
+        width: "56%",
+    },
+
+    /* PART 2 — HANDLE + CONNECTOR CABLE */
+    part2: {
+        top: "28%",
+        right: "9%",
+        width: "64%",
+    },
+};
 
 /* =========================================================
    DESKTOP KEY POINT
@@ -241,6 +290,8 @@ const machinePoints = [
 
 const CystoscopyMachine = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+
+    const isMobile = useIsMobile();
 
     const toggleMachine = () => {
         setIsExpanded((prev) => !prev);
@@ -481,6 +532,15 @@ const CystoscopyMachine = () => {
                 lg:top-[6%]
                 lg:w-[60%]
               "
+                            style={
+                                isMobile
+                                    ? {
+                                        top: mobilePartPositions.part1.top,
+                                        left: mobilePartPositions.part1.left,
+                                        width: mobilePartPositions.part1.width,
+                                    }
+                                    : undefined
+                            }
                             animate={{
                                 x: isExpanded ? -35 : 0,
                                 y: isExpanded ? -38 : 0,
@@ -521,6 +581,15 @@ const CystoscopyMachine = () => {
                 lg:top-[12%]
                 lg:w-[78%]
               "
+                            style={
+                                isMobile
+                                    ? {
+                                        top: mobilePartPositions.part2.top,
+                                        right: mobilePartPositions.part2.right,
+                                        width: mobilePartPositions.part2.width,
+                                    }
+                                    : undefined
+                            }
                             animate={{
                                 x: isExpanded ? 38 : 0,
                                 y: isExpanded ? 35 : 0,

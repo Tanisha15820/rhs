@@ -41,8 +41,8 @@ const useIsMobile = () => {
 const mobilePartPositions = {
     /* PART 1 — UPPER INSERTION TUBE */
     part1: {
-        top: "0%",
-        left: "32%",
+        top: "2%",
+        left: "30%",
         width: "58%",
         maxWidth: "390px",
     },
@@ -57,8 +57,8 @@ const mobilePartPositions = {
 
     /* PART 3 — LOWER CONNECTOR CABLE */
     part3: {
-        bottom: "-5%",
-        left: "4%",
+        bottom: "14%",
+        left: "2%",
         width: "67%",
         maxWidth: "450px",
     },
@@ -530,6 +530,16 @@ const CystonephroscopeMachine = () => {
                 select-none
                 object-contain
               "
+                            style={
+                                isMobile
+                                    ? {
+                                        top: mobilePartPositions.part1.top,
+                                        left: mobilePartPositions.part1.left,
+                                        width: mobilePartPositions.part1.width,
+                                        maxWidth: mobilePartPositions.part1.maxWidth,
+                                    }
+                                    : undefined
+                            }
                             animate={{
                                 x: isExpanded ? 32 : 0,
                                 y: isExpanded ? -35 : 0,
@@ -560,6 +570,16 @@ const CystonephroscopeMachine = () => {
                 select-none
                 object-contain
               "
+                            style={
+                                isMobile
+                                    ? {
+                                        top: mobilePartPositions.part2.top,
+                                        left: mobilePartPositions.part2.left,
+                                        width: mobilePartPositions.part2.width,
+                                        maxWidth: mobilePartPositions.part2.maxWidth,
+                                    }
+                                    : undefined
+                            }
                             animate={{
                                 x: isExpanded ? -35 : 0,
                                 y: isExpanded ? 5 : 0,
@@ -590,6 +610,17 @@ const CystonephroscopeMachine = () => {
                 select-none
                 object-contain
               "
+                            style={
+                                isMobile
+                                    ? {
+                                        top: mobilePartPositions.part3.top,
+                                        bottom: mobilePartPositions.part3.bottom,
+                                        left: mobilePartPositions.part3.left,
+                                        width: mobilePartPositions.part3.width,
+                                        maxWidth: mobilePartPositions.part3.maxWidth,
+                                    }
+                                    : undefined
+                            }
                             animate={{
                                 x: isExpanded ? 10 : 0,
                                 y: isExpanded ? 50 : 0,

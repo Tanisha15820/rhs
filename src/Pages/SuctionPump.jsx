@@ -547,10 +547,8 @@ const SuctionPump = () => {
       </section>
 
 
-      {/* ===================================================
-          MACHINE EXPLORER (click to explode parts & keypoints)
-         =================================================== */}
-      <SuctionPumpMachine />
+
+
 
 
       {/* ===================================================
@@ -654,6 +652,8 @@ const SuctionPump = () => {
         </div>
 
       </section>
+
+      <SuctionPumpMachine />
 
 
       {/* ===================================================

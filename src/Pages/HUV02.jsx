@@ -278,14 +278,15 @@ const HUV02 = () => {
         </div>
       </section>
 
-      {/* SECTION 2: Machine Interactive View */}
-      <HUV02Machine />
 
       {/* SECTION 3: Features & Architecture with Dimension Lines (Screenshot 2) */}
       <HUV02Features />
 
       {/* SECTION 3: Deep-Dive Core Capabilities (Screenshot 1) */}
       <HUV02Capabilities />
+
+      {/* SECTION 2: Machine Interactive View */}
+      <HUV02Machine />
 
       {/* SECTION 4: Technical Specifications */}
       <HUV02Specs />
