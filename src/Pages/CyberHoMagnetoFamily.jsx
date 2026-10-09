@@ -7,9 +7,10 @@ import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 // Assets
 import magnetoBannerBg from "../assets/images/smartxide_banner.png";
 import magnetoMachineImg from "../assets/images/magneto.png";
-import magnetoAllInOneImg from "../assets/images/magneto_all_in_one.jpg";
-import magnetoLithotripsyImg from "../assets/images/magneto_lithotripsy.jpg";
-import litho35FiberImg from "../assets/images/litho35_fiber.png";
+import magnetoFamily1 from "../assets/images/MagnetoFamily1.png";
+import magnetoFamily2 from "../assets/images/MagnetoFamily2.png";
+import magnetoFamily3 from "../assets/images/MagnetoFamily3.png";
+import magnetoFamily4 from "../assets/images/MagnetoFamily4.png";
 
 // Components
 import MagnetoInnovation from "../Components/Cyber_Ho_Magneto/MagnetoInnovation";
@@ -18,6 +19,37 @@ import MagnetoAllInOne from "../Components/Cyber_Ho_Magneto/MagnetoAllInOne";
 import MagnetoFibers from "../Components/Cyber_Ho_Magneto/MagnetoFibers";
 import MagnetoSpecs from "../Components/Cyber_Ho_Magneto/MagnetoSpecs";
 import MagnetoMachine from "../Components/Magneto/MagnetoMachine";
+
+const keypoints = [
+  {
+    number: "01",
+    title: "Touchscreen Control Panel",
+    description: "Intuitive touchscreen for selecting treatment modes, adjusting laser parameters, and monitoring system status.",
+    image: magnetoFamily1,
+    position: "left-4 top-16",
+  },
+  {
+    number: "02",
+    title: "Control Buttons & Emergency Stop",
+    description: "Front-panel controls include an emergency stop for rapid shutdown and safe system operation.",
+    image: magnetoFamily2,
+    position: "bottom-16 left-4",
+  },
+  {
+    number: "03",
+    title: "Laser Fiber Connector Port",
+    description: "Front connector interface for securely attaching the compatible treatment laser fiber.",
+    image: magnetoFamily3,
+    position: "right-4 top-16",
+  },
+  {
+    number: "04",
+    title: "Caster Wheels",
+    description: "Swiveling caster wheels support smooth movement and stable positioning of the unit.",
+    image: magnetoFamily4,
+    position: "bottom-16 right-4",
+  },
+];
 
 const FeatureCard = ({ number, title, description, image, position }) => {
   return (
@@ -30,21 +62,13 @@ const FeatureCard = ({ number, title, description, image, position }) => {
 
       <div className="absolute left-0 top-[42px] h-[45px] w-[1px] bg-primary"></div>
       <div className="flex h-full items-center gap-3 px-3 py-2 pl-4">
-        <div className="relative ml-8 flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-full border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-sm">
-          <img
-            src={image}
-            alt={title}
-            className="h-full w-full object-contain p-1.5"
-          />
+        <div className="relative ml-8 flex h-[62px] w-[62px] shrink-0 items-center justify-center overflow-hidden rounded-full border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-sm">
+          <img src={image} alt={title} className="h-full w-full rounded-full object-contain" />
         </div>
 
         <div className="min-w-0 flex-1 pr-2">
-          <h4 className="text-[12px] font-bold text-slate-800 leading-tight">
-            {title}
-          </h4>
-          <p className="mt-1 text-[11px] leading-[15px] text-slate-500 line-clamp-2">
-            {description}
-          </p>
+          <h4 className="text-[12px] font-bold text-slate-800 leading-tight">{title}</h4>
+          <p className="mt-1 text-[11px] leading-[15px] text-slate-500 line-clamp-3">{description}</p>
         </div>
       </div>
     </div>
@@ -59,19 +83,13 @@ const MobileFeatureCard = ({ number, title, description, image }) => {
       </div>
 
       <div className="flex items-center gap-3 pt-1 pl-8">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-blue-200 bg-blue-50">
-          <img
-            src={image}
-            alt={title}
-            className="h-full w-full object-contain p-1"
-          />
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-blue-200 bg-blue-50">
+          <img src={image} alt={title} className="h-full w-full rounded-full object-contain" />
         </div>
 
         <div className="min-w-0 flex-1">
           <h4 className="text-xs font-bold text-slate-800">{title}</h4>
-          <p className="mt-0.5 text-[11px] leading-4 text-slate-500 line-clamp-2">
-            {description}
-          </p>
+          <p className="mt-0.5 text-[11px] leading-4 text-slate-500 line-clamp-3">{description}</p>
         </div>
       </div>
     </div>
@@ -90,11 +108,7 @@ const CyberHoMagnetoFamily = () => {
       {/* Product Banner */}
       <section className="relative min-h-[500px] overflow-hidden bg-background sm:min-h-[600px] lg:min-h-[680px]">
         <div className="absolute inset-0 z-0">
-          <img
-            src={magnetoBannerBg}
-            alt="Cyber Ho Magneto Background"
-            className="h-full w-full object-cover"
-          />
+          <img src={magnetoBannerBg} alt="Cyber Ho Magneto Background" className="h-full w-full object-cover" />
         </div>
         <div className="absolute inset-0 z-[1] bg-white/10 backdrop-blur-[0.5px]"></div>
 
@@ -103,17 +117,13 @@ const CyberHoMagnetoFamily = () => {
           <div className="pt-6 text-center sm:pt-8 lg:pt-12">
             <div className="mb-3 flex items-center justify-center gap-4">
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
-              <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary sm:text-sm">
-                Holmium Yag Laser
-              </span>
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary sm:text-sm">Holmium Yag Laser</span>
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight text-[#102A43] sm:text-4xl md:text-5xl">
               Cyber Ho{" "}
-              <span className="bg-gradient-to-r from-[#19A8E8] to-[#2525B8] bg-clip-text text-transparent">
-                Magneto
-              </span>{" "}
+              <span className="bg-gradient-to-r from-[#19A8E8] to-[#2525B8] bg-clip-text text-transparent">Magneto</span>{" "}
               Family
             </h1>
 
@@ -127,34 +137,7 @@ const CyberHoMagnetoFamily = () => {
 
           <div className="relative mx-auto mt-4 max-w-[1040px] sm:mt-6">
             {/* Desktop Feature Cards */}
-            <FeatureCard
-              number="01"
-              title="Magneto Technology"
-              description="Holmium power turned into longer TFL-like pulses for efficient dusting."
-              image={magnetoAllInOneImg}
-              position="left-4 top-16"
-            />
-            <FeatureCard
-              number="02"
-              title="All-in-One System"
-              description="Lithotripsy, BPH management and soft tissue surgery in one device."
-              image={magnetoLithotripsyImg}
-              position="bottom-16 left-4"
-            />
-            <FeatureCard
-              number="03"
-              title="Low Retropulsion"
-              description="Magneto emission significantly reduces stone retropulsion."
-              image={litho35FiberImg}
-              position="right-4 top-16"
-            />
-            <FeatureCard
-              number="04"
-              title="High Versatility"
-              description="Retains Holmium peak power for HoLEP, PCNL and hard stones."
-              image={magnetoMachineImg}
-              position="bottom-16 right-4"
-            />
+            {keypoints.map((point) => <FeatureCard key={point.number} {...point} />)}
 
             {/* Desktop Arrows */}
             <div className="absolute left-[315px] top-[116px] hidden items-center xl:flex">
@@ -162,19 +145,16 @@ const CyberHoMagnetoFamily = () => {
               <div className="h-[1px] w-[44px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
-
             <div className="absolute bottom-[116px] left-[315px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[44px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
-
             <div className="absolute right-[315px] top-[116px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[44px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
-
             <div className="absolute bottom-[116px] right-[315px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[44px] bg-primary"></div>
@@ -209,30 +189,7 @@ const CyberHoMagnetoFamily = () => {
 
             {/* Mobile Cards */}
             <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-2.5 px-2 pb-6 sm:px-4 xl:hidden">
-              <MobileFeatureCard
-                number="01"
-                title="Magneto Technology"
-                description="Holmium power turned into TFL-like dusting pulses."
-                image={magnetoAllInOneImg}
-              />
-              <MobileFeatureCard
-                number="02"
-                title="All-in-One System"
-                description="Lithotripsy, BPH and soft tissue in one device."
-                image={magnetoLithotripsyImg}
-              />
-              <MobileFeatureCard
-                number="03"
-                title="Low Retropulsion"
-                description="Significantly reduces stone retropulsion."
-                image={litho35FiberImg}
-              />
-              <MobileFeatureCard
-                number="04"
-                title="High Versatility"
-                description="Peak power retained for HoLEP & PCNL."
-                image={magnetoMachineImg}
-              />
+              {keypoints.map((point) => <MobileFeatureCard key={point.number} {...point} />)}
             </div>
           </div>
         </div>
@@ -247,10 +204,7 @@ const CyberHoMagnetoFamily = () => {
       <MagnetoSpecs />
 
       {/* Contact CTA */}
-      <ProductInquireCTA
-        productName="Cyber Ho Magneto Family"
-        productImage={magnetoMachineImg}
-      />
+      <ProductInquireCTA productName="Cyber Ho Magneto Family" productImage={magnetoMachineImg} />
     </div>
   );
 };

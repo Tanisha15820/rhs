@@ -149,7 +149,7 @@ const AccessSheath = () => {
           </div>
 
           {/* Product Center Area with Floating Feature Cards & Generous Spacing */}
-          <div className="relative mx-auto mt-6 max-w-[1240px]">
+          <div className="relative mx-auto mt-6 max-w-[1100px]">
             {/* Desktop Feature Card 01 - Top Left */}
             <FeatureCard
               number="01"
