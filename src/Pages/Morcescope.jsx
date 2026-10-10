@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 
 import {
 
+  ArrowLeft,
+
+  ArrowRight,
+
   ShieldCheck,
 
   Sparkles,
@@ -318,7 +322,7 @@ const Morcescope = () => {
 
           {/* Product Showcase Area */}
 
-          <div className="relative mx-auto mt-4 max-w-[1020px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1100px] sm:mt-6">
 
             {/* Desktop Feature Cards */}
 
@@ -369,6 +373,44 @@ const Morcescope = () => {
               position="bottom-32 right-2"
 
             />
+
+
+
+            {/* Desktop Arrows */}
+
+            <div className="absolute left-[300px] top-[105px] hidden items-center xl:flex">
+
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+
+              <div className="h-[1px] w-[40px] bg-primary"></div>
+
+              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+
+            </div>
+
+
+
+            <div className="absolute bottom-[105px] left-[300px] hidden items-center xl:flex">
+
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+
+              <div className="h-[1px] w-[40px] bg-primary"></div>
+
+              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+
+            </div>
+
+
+
+            <div className="absolute bottom-[182px] right-[300px] hidden items-center xl:flex">
+
+              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+
+              <div className="h-[1px] w-[40px] bg-primary"></div>
+
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+
+            </div>
 
 
 

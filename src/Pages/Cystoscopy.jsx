@@ -1,52 +1,27 @@
 import React from "react";
-
 import { motion } from "framer-motion";
-
 import {
-
   ShieldCheck,
-
   Sparkles,
-
   CheckCircle2,
-
   Eye,
-
   Award,
-
   ArrowRight,
   ArrowLeft,
 } from "lucide-react";
-
 import SEO from "../Components/SEO";
-
 import bannerBg from "../assets/images/smartxide_banner.png";
-
 import cystoscopeImg from "../assets/images/cystoscope.png";
 import rzMedi1 from "../assets/images/RZMedi1.png";
 import rzMedi2 from "../assets/images/RZMedi2.png";
 import rzMedi3 from "../assets/images/RZMedi3.png";
 import rzMedi4 from "../assets/images/RZMedi4.png";
-
-
-
-
-
-
-
 import CystoscopyAbout from "../Components/Cystoscopy/CystoscopyAbout";
-
 import CystoscopyTelescopes from "../Components/Cystoscopy/CystoscopyTelescopes";
-
 import CystoscopySheaths from "../Components/Cystoscopy/CystoscopySheaths";
-
 import CystoscopyBridges from "../Components/Cystoscopy/CystoscopyBridges";
-
 import CystoscopySetCatalog from "../Components/Cystoscopy/CystoscopySetCatalog";
-
 import CystoscopyMachine from "../Components/Cystoscopy/CystoscopyMachine";
-
-
 
 /* Desktop Floating Feature Card */
 
@@ -362,76 +337,50 @@ const Cystoscopy = () => {
 
             {/* Desktop Arrows */}
 
-            <div className="absolute left-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[300px] top-[105px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] left-[300px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[300px] top-[105px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[310px] hidden items-center xl:flex">
-              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[40px] bg-primary"></div>
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-            </div>
-
-
-            {/*             <div className="absolute left-[310px] top-[105px] hidden items-center xl:flex">
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[40px] bg-primary"></div>
-              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
-            </div>
-
-            <div className="absolute bottom-[105px] left-[310px] hidden items-center xl:flex">
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-              <div className="h-[1px] w-[40px] bg-primary"></div>
-              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
-            </div>
-
-            <div className="absolute right-[310px] top-[105px] hidden items-center xl:flex">
-              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
-              <div className="h-[1px] w-[40px] bg-primary"></div>
-              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
-            </div>
-
-            <div className="absolute bottom-[105px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] right-[300px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
 
-
-            <div className="absolute left-[310px] top-[105px] hidden items-center xl:flex">
+            {/*             <div className="absolute left-[300px] top-[105px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] left-[300px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[300px] top-[105px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] right-[300px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
@@ -439,25 +388,51 @@ const Cystoscopy = () => {
 
 
 
-            <div className="absolute left-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[300px] top-[105px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] left-[300px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[300px] top-[105px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] right-[300px] hidden items-center xl:flex">
+              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+              <div className="h-[1px] w-[40px] bg-primary"></div>
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+            </div>
+
+
+
+            <div className="absolute left-[300px] top-[105px] hidden items-center xl:flex">
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+              <div className="h-[1px] w-[40px] bg-primary"></div>
+              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+            </div>
+
+            <div className="absolute bottom-[105px] left-[300px] hidden items-center xl:flex">
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+              <div className="h-[1px] w-[40px] bg-primary"></div>
+              <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+            </div>
+
+            <div className="absolute right-[300px] top-[105px] hidden items-center xl:flex">
+              <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+              <div className="h-[1px] w-[40px] bg-primary"></div>
+              <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+            </div>
+
+            <div className="absolute bottom-[105px] right-[300px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
@@ -465,25 +440,25 @@ const Cystoscopy = () => {
 
             {/* Desktop Arrows */}
 
-            <div className="absolute left-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[300px] top-[105px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute bottom-[105px] left-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] left-[300px] hidden items-center xl:flex">
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
             </div>
 
-            <div className="absolute right-[310px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[300px] top-[105px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
             </div>
 
-            <div className="absolute bottom-[105px] right-[310px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] right-[300px] hidden items-center xl:flex">
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
               <div className="h-[1px] w-[40px] bg-primary"></div>
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
@@ -492,25 +467,15 @@ const Cystoscopy = () => {
             {/*Central Endoscope Image - Desktop */}
 
             <div className="relative mx-auto hidden h-[380px] w-full max-w-[550px] items-end justify-center sm:h-[420px] lg:flex lg:h-[480px]">
-
               <div className="absolute bottom-14 left-1/2 h-40 w-72 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"></div>
-
               <motion.img
-
                 src={cystoscopeImg}
-
                 alt="RZ Medizintechnik High Definition Cystoscopy Set"
-
                 className="relative z-10 h-[360px] w-auto object-contain drop-shadow-[0_25px_30px_rgba(39,96,150,0.20)] lg:h-[440px]"
-
                 initial={{ opacity: 0, y: 30 }}
-
                 animate={{ opacity: 1, y: 0 }}
-
                 transition={{ duration: 0.8, ease: "easeOut" }}
-
               />
-
             </div>
 
 
@@ -518,21 +483,13 @@ const Cystoscopy = () => {
             {/* Central Endoscope Image - Mobile */}
 
             <div className="relative mx-auto flex h-auto w-full max-w-[300px] items-end justify-center pb-4 lg:hidden sm:max-w-[350px]">
-
               <div className="absolute bottom-8 left-1/2 h-24 w-40 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"></div>
-
               <motion.img
-
                 src={cystoscopeImg}
-
                 alt="RZ Medizintechnik High Definition Cystoscopy Set"
-
                 className="relative z-10 h-[240px] w-auto object-contain drop-shadow-[0_15px_15px_rgba(39,96,150,0.18)] sm:h-[280px]"
-
                 initial={{ opacity: 0, y: 20 }}
-
                 animate={{ opacity: 1, y: 0 }}
-
                 transition={{ duration: 0.8, ease: "easeOut" }}
 
               />
@@ -576,22 +533,13 @@ const Cystoscopy = () => {
         </div>
       </section>
 
-      {/* Interactive Machine Section */}
-
-
-
       {/* Modular Product Feature Sections */}
 
       <CystoscopyAbout />
-
       <CystoscopyTelescopes />
-
       <CystoscopyMachine />
-
       <CystoscopySheaths />
-
       <CystoscopyBridges />
-
       <CystoscopySetCatalog />
 
     </div>

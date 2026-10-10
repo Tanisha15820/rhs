@@ -404,7 +404,7 @@ const Harmony = () => {
 
 
 
-          <div className="relative mx-auto mt-4 max-w-[1100px] sm:mt-6">
+          <div className="relative mx-auto mt-4 max-w-[1140px] sm:mt-6">
 
             {/* Desktop Feature Cards */}
 

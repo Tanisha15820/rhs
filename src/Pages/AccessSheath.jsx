@@ -1,304 +1,593 @@
 import React from "react";
+
 import { motion } from "framer-motion";
+
 import { ArrowRight, ArrowLeft } from "lucide-react";
+
 import SEO from "../Components/SEO";
+
 import bannerBg from "../assets/images/smartxide_banner.png";
+
 import sheathHeroImg from "../assets/images/access-shealth.png";
-import sheathSizesImg from "../assets/images/access_sheath_sizes.png";
+
+import access1Img from "../assets/images/access1.png";
+import access2Img from "../assets/images/access2.png";
+import access3Img from "../assets/images/access3.png";
+import access4Img from "../assets/images/access4.png";
+
 import AccessSheathFeatures from "../Components/AccessSheath/AccessSheathFeatures";
+
 import AccessSheathSlimCombo from "../Components/AccessSheath/AccessSheathSlimCombo";
+
 import AccessSheathDesign from "../Components/AccessSheath/AccessSheathDesign";
+
 import AccessSheathOrdering from "../Components/AccessSheath/AccessSheathOrdering";
+
 import AccessSheathClinical from "../Components/AccessSheath/AccessSheathClinical";
+
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
 
+
+
 /* Desktop Floating Feature Card (matching SmartXide & Litho35Watt) */
+
 const FeatureCard = ({ number, type, title, description, image, position }) => {
+
   return (
+
     <div
+
       className={`absolute hidden xl:block w-[295px] h-[135px] rounded-[22px] border border-white bg-white/95 shadow-[0_12px_35px_rgba(70,130,190,0.16)] backdrop-blur-md ${position}`}
+
     >
+
       {/* Number Badge */}
+
       <div className="absolute left-0 top-0 z-20 flex h-[42px] w-[56px] items-center justify-center rounded-br-[22px] rounded-tl-[22px] bg-primary">
+
         <span className="text-lg font-bold text-white">{number}</span>
+
       </div>
 
+
+
       {/* Border Accent */}
+
       <div className="absolute left-0 top-[40px] h-[72px] w-[1px] bg-primary"></div>
 
+
+
       <div className="flex h-full items-center gap-3 px-3 py-2 pl-4">
-        {/* Circular Image Container */}
-        <div className="relative ml-6 flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-blue-100 shadow-[0_5px_15px_rgba(40,116,189,0.12)]">
-          <div className="flex h-[56px] w-[56px] items-center justify-center rounded-full border border-blue-100 bg-white/80 overflow-hidden">
-            <img
-              src={image}
-              alt={title}
-              className="h-full w-full object-contain p-1"
-            />
-          </div>
+
+        {/* Pre-bordered circular part image */}
+        <div className="relative ml-6 h-[76px] w-[76px] shrink-0">
+          <img src={image} alt={title} className="h-full w-full rounded-full object-contain" />
         </div>
 
         {/* Content */}
+
         <div className="min-w-0 flex-1 pr-2">
+
           {type && (
+
             <div className="mb-0.5 flex items-center gap-1.5">
+
               <span className="text-[9px] font-bold uppercase tracking-wider text-primary">
+
                 {type}
+
               </span>
+
             </div>
+
           )}
+
           <h4 className="text-[13px] font-bold leading-tight text-slate-900">
+
             {title}
+
           </h4>
+
           <p className="mt-1 text-[11px] leading-[15px] text-slate-500 line-clamp-2">
+
             {description}
+
           </p>
+
         </div>
+
       </div>
+
+
 
       {/* Accent Dots */}
+
       <div className="absolute bottom-2.5 right-4 flex items-center gap-1">
+
         <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+
         <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+
         <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+
       </div>
+
     </div>
+
   );
+
 };
+
+
 
 /* Mobile Feature Card */
+
 const MobileFeatureCard = ({ number, type, title, description, image }) => {
+
   return (
+
     <div className="relative min-h-[95px] overflow-hidden rounded-2xl border border-white bg-white/95 p-3 shadow-[0_10px_30px_rgba(70,130,190,0.12)] backdrop-blur-md">
+
       <div className="absolute left-0 top-0 flex h-8 w-[45px] items-center justify-center rounded-br-2xl rounded-tl-2xl bg-primary">
+
         <span className="text-sm font-bold text-white">{number}</span>
+
       </div>
+
+
 
       <div className="flex items-center gap-3 pt-1 pl-8">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-blue-200 bg-blue-50 overflow-hidden">
+
+        <div className="h-14 w-14 shrink-0">
+
           <img
+
             src={image}
+
             alt={title}
-            className="h-full w-full object-contain p-1"
+
+            className="h-full w-full rounded-full object-contain"
+
           />
+
         </div>
+
+
 
         <div className="min-w-0 flex-1">
+
           {type && (
+
             <span className="text-[9px] font-bold uppercase text-primary">
+
               {type}
+
             </span>
+
           )}
+
           <h4 className="mt-0.5 text-xs font-bold text-slate-900">{title}</h4>
+
           <p className="mt-0.5 text-[11px] leading-4 text-slate-500 line-clamp-2">
+
             {description}
+
           </p>
+
         </div>
+
       </div>
+
     </div>
+
   );
+
 };
+
+
 
 /* HugeMed Single-Use Ureteral Access Sheath Page Component */
+
 const AccessSheath = () => {
+
   return (
+
     <div className="bg-white">
+
       <SEO
+
         title="HugeMed Single-use Ureteral Access Sheath (Suction UAS) | Reinforce Healthcare Services"
+
         description="HugeMed Single-use Ureteral Access Sheath is a single-use device used together with a URS for RIRS. Establishes a flexible, stable pathway, lowers intrarenal pressure, and improves SFR."
+
         keywords="Ureteral Access Sheath, Suction UAS, HugeMed access sheath, single-use access sheath, RIRS ureteral sheath, negative pressure UAS, stone retrieval sheath"
+
         canonical="/ureteral-access-sheath"
+
       />
+
+
 
       {/* SECTION 1: Product Hero Banner (strictly matching SmartXide & Litho35Watt) */}
+
       <section className="relative min-h-[500px] overflow-hidden bg-background sm:min-h-[600px] lg:min-h-[680px]">
+
         {/* Background Image */}
+
         <div className="absolute inset-0 z-0">
+
           <img
+
             src={bannerBg}
+
             alt="HugeMed Ureteral Access Sheath Background"
+
             className="h-full w-full object-cover"
+
           />
+
         </div>
+
+
 
         {/* Soft Overlay */}
+
         <div className="absolute inset-0 z-[1] bg-white/10 backdrop-blur-[0.5px]"></div>
 
+
+
         {/* Main Content */}
+
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 xl:px-16">
+
           {/* Header Texts */}
+
           <div className="pt-6 text-center sm:pt-8 lg:pt-12">
+
             <div className="mb-3 flex items-center justify-center gap-4">
+
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
+
               <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary sm:text-sm">
+
                 SINGLE-USE URETERAL ACCESS SHEATH • SUCTION UAS
+
               </span>
+
               <span className="hidden h-[1px] w-9 bg-primary sm:block"></span>
+
             </div>
+
+
 
             <h1 className="text-3xl font-extrabold tracking-tight text-[#102A43] sm:text-4xl md:text-5xl">
+
               Single-use{" "}
+
               <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+
                 Ureteral Access Sheath
+
               </span>
+
             </h1>
 
+
+
             <p className="mx-auto mt-3 max-w-3xl text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 lg:text-base">
+
               HugeMed Single-use Ureteral Access Sheath is a single-use device used together with a URS for RIRS. It establishes a flexible and stable pathway in the complex urinary anatomy to facilitate multiple instrument entries. Clinically, it broadens indications, improves single-session stone-free rate (SFR), shortens operative time, lowers intrarenal pressure and temperature, and enhances visualization and irrigation efficiency.
+
             </p>
+
           </div>
+
+
 
           {/* Product Center Area with Floating Feature Cards & Generous Spacing */}
+
           <div className="relative mx-auto mt-6 max-w-[1100px]">
+
             {/* Desktop Feature Card 01 - Top Left */}
+
             <FeatureCard
+
               number="01"
-              type="SUCTION CONTROL"
-              title="Pressure Control Slider"
-              description="Oblique side port with slider valve enables fine regulation of suction power and intrarenal pressure."
-              image={sheathHeroImg}
+
+              type="ATRAUMATIC DISTAL TIP"
+
+              title="Smooth Tapered Tip"
+
+              description="Facilitates atraumatic insertion and smooth access to the ureter."
+
+              image={access1Img}
+
               position="left-0 2xl:left-4 top-10"
+
             />
+
+
 
             {/* Desktop Feature Card 02 - Bottom Left */}
+
             <FeatureCard
+
               number="02"
-              type="SLIPPERY ENTRY"
-              title="Hydrophilic Coating"
-              description="External sheath and dilator tip feature hydrophilic coating for smooth and atraumatic insertion."
-              image={sheathHeroImg}
+
+              type="DEPTH MARKINGS"
+
+              title="Marking Scale"
+
+              description="Clear depth markings on the sheath support precise positioning during the procedure."
+
+              image={access2Img}
+
               position="bottom-10 left-0 2xl:left-4"
+
             />
+
+
 
             {/* Desktop Feature Card 03 - Top Right */}
+
             <FeatureCard
+
               number="03"
-              type="SLIM COMBO"
-              title="RESD = 0.741 Safety"
-              description="Combines 6.3Fr URS with 8.5/10.5Fr UAS to reach tortuous calyces and clear challenging calculi."
-              image={sheathSizesImg}
+
+              type="SUCTION / IRRIGATION PORT"
+
+              title="Dual Lumen Control"
+
+              description="Separate irrigation and suction ports enable efficient pressure management and fluid evacuation."
+
+              image={access3Img}
+
               position="top-10 right-0 2xl:right-4"
+
             />
+
+
 
             {/* Desktop Feature Card 04 - Bottom Right */}
+
             <FeatureCard
+
               number="04"
-              type="ONE-HANDED LATCH"
+
+              type="ONE-HANDED OPERATION"
+
               title="Single-Latch Mechanism"
-              description="Enables effortless one-handed latching with zero rotational alignment needed between hub & dilator."
-              image={sheathHeroImg}
+
+              description="Ergonomic single-latch design allows easy and secure operation during use."
+
+              image={access4Img}
+
               position="bottom-10 right-0 2xl:right-4"
+
             />
 
+
+
             {/* Desktop Connecting Arrows with Comfortable Clearance */}
+
             <div className="absolute left-[295px] 2xl:left-[315px] top-[95px] hidden items-center xl:flex">
+
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+
               <div className="h-[1px] w-[35px] bg-primary"></div>
+
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+
             </div>
+
+
 
             <div className="absolute bottom-[95px] left-[295px] 2xl:left-[315px] hidden items-center xl:flex">
+
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+
               <div className="h-[1px] w-[35px] bg-primary"></div>
+
               <ArrowRight className="h-4 w-4 text-primary" strokeWidth={1.5} />
+
             </div>
+
+
 
             <div className="absolute right-[295px] 2xl:right-[315px] top-[95px] hidden items-center xl:flex">
+
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+
               <div className="h-[1px] w-[35px] bg-primary"></div>
+
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+
             </div>
+
+
 
             <div className="absolute bottom-[95px] right-[295px] 2xl:right-[315px] hidden items-center xl:flex">
+
               <ArrowLeft className="h-4 w-4 text-primary" strokeWidth={1.5} />
+
               <div className="h-[1px] w-[35px] bg-primary"></div>
+
               <div className="h-2 w-2 rounded-full border border-primary bg-white"></div>
+
             </div>
+
+
 
             {/* Central Scope - Desktop (Scaled and Centered with Clean Clearance) */}
+
             <div className="relative mx-auto hidden h-[380px] w-full max-w-[420px] items-center justify-center sm:h-[400px] xl:flex xl:h-[440px]">
+
               <div className="absolute left-1/2 top-1/2 h-36 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl"></div>
+
               <motion.img
+
                 src={sheathHeroImg}
+
                 alt="HugeMed Single-use Ureteral Access Sheath"
+
                 className="relative z-10 w-full max-w-[380px] xl:max-w-[400px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(25,168,232,0.22)] rounded-2xl"
+
                 initial={{ opacity: 0, y: 30 }}
+
                 animate={{ opacity: 1, y: 0 }}
+
                 transition={{ duration: 0.8, ease: "easeOut" }}
+
               />
+
             </div>
+
+
 
             {/* Central Scope - Mobile (with generous vertical margin) */}
+
             <div className="relative mx-auto flex h-auto w-full max-w-[280px] sm:max-w-[340px] items-center justify-center my-6 sm:my-8 xl:hidden">
+
               <div className="absolute left-1/2 top-1/2 h-24 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-2xl"></div>
+
               <motion.img
+
                 src={sheathHeroImg}
+
                 alt="HugeMed Single-use Ureteral Access Sheath"
+
                 className="relative z-10 w-full h-auto object-contain drop-shadow-[0_15px_20px_rgba(25,168,232,0.2)] rounded-2xl"
+
                 initial={{ opacity: 0, y: 20 }}
+
                 animate={{ opacity: 1, y: 0 }}
+
                 transition={{ duration: 0.8, ease: "easeOut" }}
+
               />
+
             </div>
+
+
 
             {/* Mobile Feature Cards */}
+
             <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-3.5 px-2 pb-8 sm:px-4 xl:hidden">
+
               <MobileFeatureCard
+
                 number="01"
-                type="SUCTION CONTROL"
-                title="Pressure Control Slider"
-                description="Oblique side port with slider valve enables fine regulation of suction power."
-                image={sheathHeroImg}
+
+                type="ATRAUMATIC DISTAL TIP"
+
+                title="Smooth Tapered Tip"
+
+                description="Facilitates atraumatic insertion and smooth access to the ureter."
+
+                image={access1Img}
+
               />
+
               <MobileFeatureCard
+
                 number="02"
-                type="SLIPPERY ENTRY"
-                title="Hydrophilic Coating"
-                description="Hydrophilic coating on sheath and dilator for smooth, atraumatic insertion."
-                image={sheathHeroImg}
+
+                type="DEPTH MARKINGS"
+
+                title="Marking Scale"
+
+                description="Clear depth markings on the sheath support precise positioning during the procedure."
+
+                image={access2Img}
+
               />
+
               <MobileFeatureCard
+
                 number="03"
-                type="SLIM COMBO"
-                title="RESD = 0.741 Safety"
-                description="Combines 6.3Fr URS with 8.5/10.5Fr UAS for tortuous caliceal navigation."
-                image={sheathSizesImg}
+
+                type="SUCTION / IRRIGATION PORT"
+
+                title="Dual Lumen Control"
+
+                description="Separate irrigation and suction ports enable efficient pressure management and fluid evacuation."
+
+                image={access3Img}
+
               />
+
               <MobileFeatureCard
+
                 number="04"
-                type="ONE-HANDED LATCH"
+
+                type="ONE-HANDED OPERATION"
+
                 title="Single-Latch Mechanism"
-                description="Effortless one-handed latching with zero rotational alignment needed."
-                image={sheathHeroImg}
+
+                description="Ergonomic single-latch design allows easy and secure operation during use."
+
+                image={access4Img}
+
               />
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       {/* SECTION 2: Interactive Hardware Architecture (Matching Screenshot 1) */}
+
       <AccessSheathFeatures />
 
+
+
       {/* SECTION 3: Slim Combo & RESD Science (Prompt Section 1) */}
+
       <AccessSheathSlimCombo />
 
+
+
       {/* SECTION 4: Precision Design Details (Prompt Section 2) */}
+
       <AccessSheathDesign />
 
+
+
       {/* SECTION 5: Ordering Information & Matrix (Matching Screenshot 2) */}
+
       <AccessSheathOrdering />
 
+
+
       {/* SECTION 6: Clinical Value & Evidence */}
+
       <AccessSheathClinical />
 
+
+
       {/* SECTION 7: Call to Action */}
+
       <ProductInquireCTA
+
         title="Inquire About Single-Use Ureteral Access Sheaths"
+
         subtitle="Request clinical samples, sizing charts, or package pricing for HugeMed Suction UAS today."
+
         productName="HugeMed Single-use Ureteral Access Sheath"
+
       />
+
     </div>
+
   );
+
 };
+
+
 
 export default AccessSheath;

@@ -382,7 +382,7 @@ const SuctionPump = () => {
                ================================================ */}
 
             {/* Top Left */}
-            <div className="absolute left-[424px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute left-[409px] top-[105px] hidden items-center xl:flex">
 
               <div className="h-2 w-2 rounded-full border border-primary bg-white" />
 
@@ -397,7 +397,7 @@ const SuctionPump = () => {
 
 
             {/* Bottom Left */}
-            <div className="absolute bottom-[105px] left-[424px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] left-[409px] hidden items-center xl:flex">
 
               <div className="h-2 w-2 rounded-full border border-primary bg-white" />
 
@@ -412,7 +412,7 @@ const SuctionPump = () => {
 
 
             {/* Top Right */}
-            <div className="absolute right-[424px] top-[105px] hidden items-center xl:flex">
+            <div className="absolute right-[409px] top-[105px] hidden items-center xl:flex">
 
               <ArrowLeft
                 className="h-4 w-4 text-primary"
@@ -427,7 +427,7 @@ const SuctionPump = () => {
 
 
             {/* Bottom Right */}
-            <div className="absolute bottom-[105px] right-[424px] hidden items-center xl:flex">
+            <div className="absolute bottom-[105px] right-[409px] hidden items-center xl:flex">
 
               <ArrowLeft
                 className="h-4 w-4 text-primary"
