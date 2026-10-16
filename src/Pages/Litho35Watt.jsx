@@ -726,23 +726,14 @@ const Litho35Watt = () => {
                           overstress
 
                         </div>
-
                       </div>
-
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
 

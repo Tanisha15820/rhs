@@ -1,44 +1,21 @@
-import React from "react";
-
 import { motion } from "framer-motion";
-
 import { ArrowRight, ArrowLeft } from "lucide-react";
-
 import SEO from "../Components/SEO";
-
 import bannerBg from "../assets/images/smartxide_banner.png";
-
 import machineImage from "../assets/images/cyber-ho-150.png";
 import CyberHoTM4 from "../assets/images/CyberHoTM4.png";
-
 import CyberHoTM3 from "../assets/images/CyberHoTM3.png";
-
 import CyberHoTM2 from "../assets/images/CyberHoTM2.png";
-
 import CyberHoTM1 from "../assets/images/CyberHoTM1.png";
-
-
-
-
-
 import CyberHo150BPH from "../Components/Cyber_Ho_150/CyberHo150BPH";
-
 import CyberHo150VaporTunnel from "../Components/Cyber_Ho_150/CyberHo150VaporTunnel";
-
 import CyberHo150Lithotripsy from "../Components/Cyber_Ho_150/CyberHo150Lithotripsy";
-
 import CyberHo150MasterPulse from "../Components/Cyber_Ho_150/CyberHo150MasterPulse";
-
 import CyberHo150Fibers from "../Components/Cyber_Ho_150/CyberHo150Fibers";
-
 import CyberHo150FiberDetails from "../Components/Cyber_Ho_150/CyberHo150FiberDetails";
-
 import CyberHo150Applications from "../Components/Cyber_Ho_150/CyberHo150Applications";
-
 import CyberHo150Specs from "../Components/Cyber_Ho_150/CyberHo150Specs";
-
 import ProductInquireCTA from "../Components/Common/ProductInquireCTA";
-
 import CyberHoMachine from "../Components/Cyber_Ho_150/CyberHoMachine";
 
 
@@ -46,51 +23,31 @@ import CyberHoMachine from "../Components/Cyber_Ho_150/CyberHoMachine";
 /* Feature Card */
 
 const FeatureCard = ({ number, type, title, description, image, position }) => {
-
   return (
-
     <div
-
       className={`absolute hidden xl:block w-[300px] h-[125px] rounded-[22px] border border-white bg-white/90 shadow-[0_12px_35px_rgba(70,130,190,0.16)] backdrop-blur-md ${position}`}
-
     >
-
       {/* Blue Number Tab */}
-
       <div className="absolute left-0 top-0 z-20 flex h-[44px] w-[58px] items-center justify-center rounded-br-[22px] rounded-tl-[22px] bg-primary">
-
         <span className="text-xl font-bold text-white">{number}</span>
-
       </div>
 
 
 
       {/* Blue Border Accent */}
-
       <div className="absolute left-0 top-[42px] h-[76px] w-[1px] bg-primary"></div>
-
-
-
       <div className="flex h-full items-center gap-3 px-3 py-3">
 
         {/* Circular Image */}
-
         <div className="relative ml-2 flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full border border-blue-200 bg-blue-50 shadow-[0_5px_20px_rgba(40,116,189,0.16)]">
-
           <div className="flex h-[62px] w-[62px] items-center justify-center overflow-hidden rounded-full border border-blue-100 bg-white/70">
 
             <img
-
               src={image}
-
               alt={title}
-
               className="h-full w-full rounded-full object-cover"
-
             />
-
           </div>
-
         </div>
 
 

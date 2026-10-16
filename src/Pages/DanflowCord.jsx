@@ -444,7 +444,7 @@ const DanflowCord = () => {
 
           {/* Product Area */}
 
-          <div className="relative mx-auto mt-2 max-w-[1200px] sm:mt-4">
+          <div className="relative mx-auto mt-2 max-w-[1040px] sm:mt-4">
 
             {/* Desktop Feature Cards */}
 
@@ -847,21 +847,15 @@ const DanflowCord = () => {
           <div className="text-center mb-12">
 
             <span className="text-xs font-bold uppercase tracking-wider text-primary">
-
               HOSPITAL ACCESSORIES
-
             </span>
 
             <h2 className="text-3xl font-extrabold text-[#102A43] sm:text-4xl mt-1">
-
               Ergonomic Accessories for Sterile Hospital Environments
-
             </h2>
 
             <p className="mt-3 text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
-
               A wide range of accessories is available to combine with DanFlow 2000 as well as custom test and protocol setups.
-
             </p>
 
           </div>
