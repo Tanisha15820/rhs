@@ -538,11 +538,11 @@ const HU30MMachine = () => {
                                     description="Scope Movement & Direction Control"
 
                                     position="
-                                        left-[-320px]
-                                        top-[160px]
+                                        right-[-20px]
+                                        top-[-10px]
                                     "
 
-                                    side="left"
+                                    side="right"
 
                                     lineWidth={55}
                                 />
@@ -554,11 +554,11 @@ const HU30MMachine = () => {
                                     description="Instrument / Accessory Connection"
 
                                     position="
-                                        left-[30px]
-                                        top-[30px]
+                                        right-[-50px]
+                                        top-[150px]
                                     "
 
-                                    side="bottom"
+                                    side="right"
 
                                     lineWidth={45}
                                 />
@@ -570,8 +570,8 @@ const HU30MMachine = () => {
                                     description="Visualization System Connection"
 
                                     position="
-                                        left-[-370px]
-                                        top-[230px]
+                                        left-[50px]
+                                        top-[370px]
                                     "
 
                                     side="left"
@@ -586,11 +586,11 @@ const HU30MMachine = () => {
                                     description="Main Ergonomic Scope Operation"
 
                                     position="
-                                        left-[-90px]
-                                        top-[350px]
+                                        left-[-50px]
+                                        top-[80px]
                                     "
 
-                                    side="top"
+                                    side="left"
 
                                     lineWidth={45}
                                 />
@@ -602,43 +602,27 @@ const HU30MMachine = () => {
                                     description="Smooth Controlled Navigation"
 
                                     position="
-                                        right-[-300px]
-                                        top-[220px]
+                                        left-[30px]
+                                        top-[450px]
                                     "
 
-                                    side="right"
+                                    side="left"
 
                                     lineWidth={65}
                                 />
 
-
-                                {/* DEPTH MARKERS */}
-                                <KeyPoint
-                                    title="Depth Markers"
-                                    description="Insertion Position Reference"
-
-                                    position="
-                                        right-[-235px]
-                                        top-[350px]
-                                    "
-
-                                    side="right"
-
-                                    lineWidth={60}
-                                />
 
 
                                 {/* DISTAL TIP */}
                                 <KeyPoint
                                     title="Distal Tip"
                                     description="Examination / Treatment End"
-
                                     position="
-                                        right-[-40px]
-                                        top-[430px]
+                                        right-[-10px]
+                                        top-[470px]
                                     "
 
-                                    side="top"
+                                    side="right"
 
                                     lineWidth={50}
                                 />

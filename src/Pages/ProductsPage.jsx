@@ -223,10 +223,9 @@ const ProductsPage = ({
                         block w-full rounded-lg px-3 py-2
                         text-left text-[13px] font-medium leading-snug
                         transition-all duration-200
-                        ${
-                          activeSubCategory === category
-                            ? "bg-primary/10 font-semibold text-primary shadow-sm"
-                            : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
+                        ${activeSubCategory === category
+                          ? "bg-primary/10 font-semibold text-primary shadow-sm"
+                          : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
                         }
                       `;
 
@@ -264,36 +263,35 @@ const ProductsPage = ({
               {products.length > 0 ? (
                 <>
                   <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {products.map((product, index) => (
-                  <motion.div
-                    key={`${product.name}-${index}`}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: index * 0.08 }}
-                    className={`
+                    {products.map((product, index) => (
+                      <motion.div
+                        key={`${product.name}-${index}`}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.5, delay: index * 0.08 }}
+                        className={`
                       group relative min-w-0 overflow-hidden
                       rounded-2xl bg-white p-4
                       shadow-[0_3px_18px_rgba(15,23,42,0.05)]
                       transition-all duration-300
                       hover:-translate-y-2
                       hover:shadow-[0_14px_40px_rgba(25,168,232,0.14)]
-                      ${
-                        activeSubCategory === product.name
-                          ? "border-2 border-primary/40 shadow-[0_14px_40px_rgba(25,168,232,0.14)]"
-                          : "border border-slate-100"
-                      }
+                      ${activeSubCategory === product.name
+                            ? "border-2 border-primary/40 shadow-[0_14px_40px_rgba(25,168,232,0.14)]"
+                            : "border border-slate-100"
+                          }
                     `}
-                  >
-                    <Link to={product.link} className="block">
-                      {/* Hover Accent Line */}
+                      >
+                        <Link to={product.link} className="block">
+                          {/* Hover Accent Line */}
 
-                      <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-primary to-primary-dark opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                          <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-primary to-primary-dark opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                      {/* Product Image */}
+                          {/* Product Image */}
 
-                      <div
-                        className="
+                          <div
+                            className="
                           flex h-44 items-center justify-center
                           overflow-hidden rounded-xl
                           bg-gradient-to-br
@@ -301,28 +299,27 @@ const ProductsPage = ({
                           sm:h-52
                           md:h-64
                         "
-                      >
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className={`
+                          >
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className={`
                             h-full w-full object-contain
                             p-3 sm:p-5
                             transition-transform duration-500
                             group-hover:scale-110
-                            ${
-                              activeSubCategory === product.name
-                                ? "scale-110"
-                                : ""
-                            }
+                            ${activeSubCategory === product.name
+                                  ? "scale-110"
+                                  : ""
+                                }
                           `}
-                        />
-                      </div>
+                            />
+                          </div>
 
-                      {/* Product Name */}
+                          {/* Product Name */}
 
-                      <h3
-                        className="
+                          <h3
+                            className="
                           mt-4 line-clamp-2 text-center
                           text-sm font-semibold leading-5
                           text-slate-800
@@ -331,62 +328,61 @@ const ProductsPage = ({
                           sm:mt-5
                           md:text-base
                         "
-                      >
-                        {product.name}
-                      </h3>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
+                          >
+                            {product.name}
+                          </h3>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
 
-              {/* ================= PAGINATION ================= */}
+                  {/* ================= PAGINATION ================= */}
 
-              <div className="mt-8 flex items-center justify-center gap-2">
-                <button
-                  type="button"
-                  className="
+                  <div className="mt-8 flex items-center justify-center gap-2">
+                    <button
+                      type="button"
+                      className="
                     flex h-9 w-9 items-center justify-center
                     rounded-lg border border-slate-200
                     text-sm text-slate-400
                     transition
                     hover:border-primary hover:bg-primary/5 hover:text-primary
                   "
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </button>
 
-                {[1, 2, 3, 4].map((page) => (
-                  <button
-                    type="button"
-                    key={page}
-                    className={`
+                    {[1, 2, 3, 4].map((page) => (
+                      <button
+                        type="button"
+                        key={page}
+                        className={`
                       flex h-9 w-9 items-center justify-center
                       rounded-lg border text-xs font-medium
                       transition-all duration-200
-                      ${
-                        page === 1
-                          ? "border-primary bg-gradient-to-br from-primary to-primary-dark text-white shadow-sm shadow-primary/25"
-                          : "border-slate-200 text-slate-600 hover:border-primary hover:bg-primary/5 hover:text-primary"
-                      }
+                      ${page === 1
+                            ? "border-primary bg-gradient-to-br from-primary to-primary-dark text-white shadow-sm shadow-primary/25"
+                            : "border-slate-200 text-slate-600 hover:border-primary hover:bg-primary/5 hover:text-primary"
+                          }
                     `}
-                  >
-                    {page}
-                  </button>
-                ))}
+                      >
+                        {page}
+                      </button>
+                    ))}
 
-                <button
-                  type="button"
-                  className="
+                    <button
+                      type="button"
+                      className="
                     flex h-9 w-9 items-center justify-center
                     rounded-lg border border-slate-200
                     text-sm text-slate-500
                     transition
                     hover:border-primary hover:bg-primary/5 hover:text-primary
                   "
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
-              </div>
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </div>
                 </>
               ) : (
                 <motion.div
